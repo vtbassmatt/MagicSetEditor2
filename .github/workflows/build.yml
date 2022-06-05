@@ -1,0 +1,39 @@
+name: windows-build
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >- 
+            git 
+            mingw-w64-x86_64-cc
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-wxWidgets
+            mingw-w64-x86_64-boost
+            mingw-w64-x86_64-hunspell
+          pacboy: >-
+            cmake:p
+            ninja:p
+      - name: CI-Build
+        run: |
+          ls /mingw64/bin/ || true
+          cmake -G "Ninja" -H. -Bbuild -DVCPKG_TARGET_TRIPLET=x64-windows-static
+          cmake --build build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: |
+            ./build/magicseteditor*
+            /mingw64/bin/libhunspell-1.7-0.dll

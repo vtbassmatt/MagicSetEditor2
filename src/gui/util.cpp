@@ -14,17 +14,6 @@
 #include <wx/stdpaths.h>
 #include <gfx/gfx.hpp>
 
-#if wxUSE_UXTHEME && defined(__WXMSW__)
-  #include <wx/msw/uxtheme.h>
-  #if defined(HAVE_VSSYM32)
-    #include <vssym32.h>
-  #else
-    #include <tmschema.h>
-  #endif
-  #include <shlobj.h>
-  #include <wx/mstream.h>
-#endif
-
 // ----------------------------------------------------------------------------- : Window related
 
 // Id of the control that has the focus, or -1 if no control has the focus
@@ -245,13 +234,7 @@ void set_menu_item_image(wxMenuItem* item, const String& resource) {
     if (item->GetKind() == wxITEM_CHECK) return; // check items can't have icons
   #endif
   Image bitmap = load_resource_tool_image(resource);
-  #if defined(__WXMSW__)
-    Image disabled_bitmap = generate_disabled_image(bitmap);
-    item->SetBitmaps(bitmap, bitmap);
-    item->SetDisabledBitmap(disabled_bitmap);
-  #else
-    item->SetBitmap(bitmap);
-  #endif
+  item->SetBitmap(bitmap);
 }
 
 wxMenuItem* make_menu_item(wxMenu* menu, int id, const char* resource, const String& text, const String& help, wxItemKind kind, wxMenu* submenu) {
@@ -380,18 +363,6 @@ wxImage load_resource_tool_image(const String& name) {
 #endif
 #endif
 
-// ----------------------------------------------------------------------------- : Platform look
-
-#if wxUSE_UXTHEME && defined(__WXMSW__)
-RECT msw_rect(wxRect const& rect, int dl = 0, int dt = 0, int dr = 0, int db=0) {
-  RECT r;
-  r.left = rect.x - dl;
-  r.top = rect.y - dt;
-  r.right = rect.x + rect.width + dr;
-  r.bottom = rect.y + rect.height + db;
-  return r;
-}
-#endif
 
 // Draw a basic 3D border
 void draw3DBorder(DC& dc, int x1, int y1, int x2, int y2) {
@@ -410,39 +381,13 @@ void draw3DBorder(DC& dc, int x1, int y1, int x2, int y2) {
 }
 
 void draw_control_box(Window* win, DC& dc, const wxRect& rect, bool focused, bool enabled) {
-  #if wxUSE_UXTHEME && defined(__WXMSW__)
-    RECT r = msw_rect(rect, 1,1,1,1);
-    if (wxUxThemeIsActive()) {
-      HTHEME hTheme = (HTHEME)::OpenThemeData(GetHwndOf(win), VSCLASS_EDIT);
-      if (hTheme) {
-        ::DrawThemeBackground(
-          hTheme,
-          (HDC)dc.GetHDC(),
-          EP_EDITTEXT,
-          !enabled ? ETS_DISABLED : focused ? ETS_NORMAL : ETS_NORMAL,
-          &r,
-          NULL
-        );
-        return;
-      }
-    }
-  #endif
   // otherwise, draw a standard border
   // clear the background
   dc.SetPen(*wxTRANSPARENT_PEN);
   dc.SetBrush(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
   dc.DrawRectangle(rect);
-  // draw the border
-  #if defined(__WXMSW__)
-    r.left   = rect.x - 2;
-    r.top    = rect.y - 2;
-    r.right  = rect.x + rect.width  + 2;
-    r.bottom = rect.y + rect.height + 2;
-    DrawEdge((HDC)dc.GetHDC(), &r, EDGE_SUNKEN, BF_RECT);
-  #else
-    // draw a 3D border
-    draw3DBorder(dc, rect.x - 1, rect.y - 1, rect.x + rect.width, rect.y + rect.height);
-  #endif
+  // draw a 3D border
+  draw3DBorder(dc, rect.x - 1, rect.y - 1, rect.x + rect.width, rect.y + rect.height);
 }
 
 void draw_button(Window* win, DC& dc, const wxRect& rect, bool focused, bool down, bool enabled) {
@@ -486,9 +431,6 @@ void draw_drop_down_arrow(Window* win, DC& dc, const wxRect& rect, bool active) 
 }
 
 void draw_checkbox(const Window* win, DC& dc, const wxRect& rect, bool checked, bool enabled) {
-  #if defined(__WXMSW__)
-    if (win == nullptr) win = dc.GetWindow();
-  #endif
   if (win) {
     wxRendererNative& rn = wxRendererNative::GetDefault();
     rn.DrawCheckBox(const_cast<wxWindow*>(win), dc, rect, (checked ? wxCONTROL_CHECKED : 0) | (enabled ? 0 : wxCONTROL_DISABLED));
@@ -505,9 +447,6 @@ void draw_checkbox(const Window* win, DC& dc, const wxRect& rect, bool checked, 
 }
 
 void draw_radiobox(const Window* win, DC& dc, const wxRect& rect, bool checked, bool enabled) {
-  #if defined(__WXMSW__)
-    if (win == nullptr) win = dc.GetWindow();
-  #endif
   if (win) {
     wxRendererNative& rn = wxRendererNative::GetDefault();
     rn.DrawRadioBitmap(const_cast<wxWindow*>(win), dc, rect, (checked ? wxCONTROL_CHECKED : 0) | (enabled ? 0 : wxCONTROL_DISABLED));
@@ -529,27 +468,9 @@ void draw_radiobox(const Window* win, DC& dc, const wxRect& rect, bool checked, 
 }
 
 void draw_selection_rectangle(Window* win, DC& dc, const wxRect& rect, bool selected, bool focused, bool hot) {
-  #if wxUSE_UXTHEME && defined(__WXMSW__)
-    HTHEME hTheme = (HTHEME)::OpenThemeData(GetHwndOf(win), VSCLASS_LISTVIEW);
-    if (hTheme) {
-      RECT r = msw_rect(rect);
-      ::DrawThemeBackground(
-        hTheme,
-        (HDC)dc.GetHDC(),
-        LVP_LISTITEM,
-        hot&&selected ? LISS_HOTSELECTED : hot ? LISS_HOT :selected&&focused ? LISS_SELECTED : selected ? LISS_SELECTEDNOTFOCUS : LISS_NORMAL,
-        &r,
-        NULL
-      );
-      return;
-    }
-  #endif
+
 }
 
 void enable_themed_selection_rectangle(Window* win) {
-  #if wxUSE_UXTHEME && defined(__WXMSW__)
-    if (wxUxThemeIsActive()) {
-      ::SetWindowTheme((HWND)win->GetHWND(), L"Explorer", NULL);
-    }
-  #endif
+  
 }
