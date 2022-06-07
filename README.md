@@ -19,12 +19,13 @@ On windows, the program can be compiled with Visual Studio (recommended) or with
  * Download and install [vcpkg](https://github.com/microsoft/vcpkg)
  * Use vcpkg to install wxwidgets, boost, hunspell
 ````
-vcpkg install wxwidgets
-vcpkg install boost-smart-ptr
-vcpkg install boost-regex
-vcpkg install boost-logic
-vcpkg install boost-pool
-vcpkg install hunspell
+vcpkg install wxwidgets:x86-windows-static
+vcpkg install boost-smart-ptr:x86-windows-static
+vcpkg install boost-regex:x86-windows-static
+vcpkg install boost-logic:x86-windows-static
+vcpkg install boost-pool:x86-windows-static
+vcpkg install boost-iterator:x86-windows-static
+vcpkg install hunspell:x86-windows-static
 vcpkg integrate install
 ````
  * Then just use "Open Folder" from inside visual studio to open the Magic Set Editor source code root folder.

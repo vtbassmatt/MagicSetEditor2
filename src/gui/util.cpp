@@ -12,6 +12,7 @@
 #include <util/rotation.hpp>
 #include <wx/renderer.h>
 #include <wx/stdpaths.h>
+#include <wx/mstream.h>
 #include <gfx/gfx.hpp>
 
 // ----------------------------------------------------------------------------- : Window related
