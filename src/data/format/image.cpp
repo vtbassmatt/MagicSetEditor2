@@ -32,7 +32,7 @@ public:
   Rotation getRotation() const override;
 private:
   bool use_zoom_settings;
-  double zoom  = 1.0;
+  double zoom  = 4.0;
   double angle = 0.0;
 };
 Rotation UnzoomedDataViewer::getRotation() const {

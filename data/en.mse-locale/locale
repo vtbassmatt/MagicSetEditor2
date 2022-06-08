@@ -230,7 +230,7 @@ help:
 		Note: You must restart MSE for the changes to take effect.
 	zoom export:
 		(When off, the cards are exported
-		 and copied at 100% size and normal rotation)
+		 and copied at 400% size and normal rotation)
 	
 	# apprentice export
 	set code:			A set code is a two character code that is used by Apprentice to refer to a set.
