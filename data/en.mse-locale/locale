@@ -462,16 +462,17 @@ label:
 	game type:			&Game type:
 	style type:			&Card style:
 	
-	stylesheet not found:
+	stylesheet not found :
 		The set you are trying to open uses the stylesheet "%s".
 		This stylesheet is not found on your system, please select an alternative.
-	
+
 	# Preferences
-	language:			Language
-	windows:			Open sets
-	app language:		Language of the user interface:
-	card display:		Card Display
-	zoom:				&Zoom:
+	language : Language
+	windows : Open sets
+	app language : Language of the user interface :
+	card display : Card Display
+	zoom : &Zoom :
+	export : &Export :
 	percent of normal:	% of normal size
 	external programs:	External programs
 	apprentice:			&Apprentice:

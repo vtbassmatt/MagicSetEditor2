@@ -6,14 +6,14 @@
 .vs
 .vscode
 
-/data/*.mse-game
-/data/*.mse-style
-/data/*.mse-include
-/data/*.mse-symbol-font
-/data/*.mse-export-template
-/data/dictionaries
-/data/packages
-/data/old
+/data/**/*
+
+!/data/en.mse-locale/
+!/data/en.mse-locale/**/*
+!/data/magic.mse-game/
+!/data/magic.mse-game/**/*
+!/data/magic-blends.mse-include/
+!/data/magic-blends.mse-include/**/*
 
 /build_*
 /build
