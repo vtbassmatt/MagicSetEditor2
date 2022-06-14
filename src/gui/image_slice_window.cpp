@@ -447,6 +447,7 @@ ImageSliceSelector::ImageSliceSelector(Window* parent, int id, ImageSlice& slice
   , slice(slice)
   , mouse_down(false)
 {
+  SetMinSize(wxSize(400, 300));
   SetBackgroundStyle(wxBG_STYLE_PAINT);
 }
 
