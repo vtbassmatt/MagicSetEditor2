@@ -517,6 +517,7 @@ label:
 	selection top:			&Top
 	selection width:		&Width
 	selection height:		&Height
+	selection center:       Recenter
 	#zoom:				Zoom
 	fix aspect ratio:		Fix aspect ratio (width/height)
 	zoom amount:			Zoom

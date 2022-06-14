@@ -93,6 +93,7 @@ private:
   void onChangeTop          (wxCommandEvent&);
   void onChangeWidth        (wxCommandEvent&);
   void onChangeHeight       (wxCommandEvent&);
+  void onSelectionCenter(wxCommandEvent&);
   void onChangeFixAspect    (wxCommandEvent&);
   void onChangeZoom         (wxSpinEvent&);
   void onChangeZoomX        (wxSpinEvent&);

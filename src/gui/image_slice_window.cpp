@@ -147,7 +147,7 @@ ImageSliceWindow::ImageSliceWindow(Window* parent, const Image& source, const wx
       s5->Add(size, 0, wxEXPAND | wxALL, 4);
       s5->AddStretchSpacer(1);
       wxSizer* s6 = new wxStaticBoxSizer(wxVERTICAL, this, _LABEL_("selection"));
-        wxSizer* s7 = new wxFlexGridSizer(0, 2, 4, 5);
+        wxSizer* s7 = new wxFlexGridSizer(0, 2, 5, 5);
           s7->Add(new wxStaticText(this, wxID_ANY, _LABEL_("selection left")),   0, wxALIGN_CENTER_VERTICAL);
           s7->Add(left,   0, wxEXPAND);
           s7->Add(new wxStaticText(this, wxID_ANY, _LABEL_("selection top")),    0, wxALIGN_CENTER_VERTICAL);
@@ -156,6 +156,7 @@ ImageSliceWindow::ImageSliceWindow(Window* parent, const Image& source, const wx
           s7->Add(width,  0, wxEXPAND);
           s7->Add(new wxStaticText(this, wxID_ANY, _LABEL_("selection height")), 0, wxALIGN_CENTER_VERTICAL);
           s7->Add(height, 0, wxEXPAND);
+          s7->Add(new wxButton(this, ID_SELECTION_CENTER, _LABEL_("selection center")), 0, wxALIGN_CENTER, 2);
         s6->Add(s7, 1, wxEXPAND | wxALL, 4);
       s5->Add(s6, 0, wxEXPAND | wxALL, 4);
       s5->AddStretchSpacer(1);
@@ -297,6 +298,13 @@ void ImageSliceWindow::onUpdateFromControl(PreferedProperty prefer) {
   updateControls();
 }
 
+void ImageSliceWindow::onSelectionCenter(wxCommandEvent&) {
+    slice.centerSelection();
+    preview->update();
+    selector->update();
+    updateControls();
+}
+
 void ImageSliceWindow::updateControls() {
   if (slice.selection.width == slice.target_size.GetWidth() && slice.selection.height == slice.target_size.GetHeight()) {
     size->SetSelection(0); // original size
@@ -347,6 +355,7 @@ BEGIN_EVENT_TABLE(ImageSliceWindow, wxDialog)
   EVT_TEXT      (ID_TOP,      ImageSliceWindow::onChangeTop)
   EVT_TEXT      (ID_WIDTH,      ImageSliceWindow::onChangeWidth)
   EVT_TEXT      (ID_HEIGHT,      ImageSliceWindow::onChangeHeight)
+  EVT_BUTTON (ID_SELECTION_CENTER, ImageSliceWindow::onSelectionCenter)
   EVT_CHECKBOX    (ID_FIX_ASPECT,    ImageSliceWindow::onChangeFixAspect)
   EVT_SPINCTRL    (ID_ZOOM,      ImageSliceWindow::onChangeZoom)
   EVT_SPINCTRL    (ID_ZOOM_X,      ImageSliceWindow::onChangeZoomX)
