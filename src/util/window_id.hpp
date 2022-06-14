@@ -271,6 +271,9 @@ enum ControlID {
   ID_ZOOM,
   ID_ZOOM_X,
   ID_ZOOM_Y,
+  ID_EXPORT_ZOOM,
+  ID_EXPORT_ZOOM_X,
+  ID_EXPORT_ZOOM_Y,
   ID_SHARPEN,
   ID_SHARPEN_AMOUNT,
   // Updates window

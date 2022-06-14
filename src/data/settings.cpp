@@ -122,6 +122,7 @@ IMPLEMENT_REFLECTION_NO_SCRIPT(GameSettings) {
 
 StyleSheetSettings::StyleSheetSettings()
   : card_zoom              (1.0,  true)
+  , export_zoom            (2.0,  true)
   , card_angle             (0,    true)
   , card_anti_alias        (true, true)
   , card_borders           (true, true)
@@ -132,6 +133,7 @@ StyleSheetSettings::StyleSheetSettings()
 
 void StyleSheetSettings::useDefault(const StyleSheetSettings& ss) {
   if (card_zoom              .isDefault()) card_zoom              .assignDefault(ss.card_zoom);
+  if (export_zoom.isDefault()) export_zoom.assignDefault(ss.export_zoom);
   if (card_angle             .isDefault()) card_angle             .assignDefault(ss.card_angle);
   if (card_anti_alias        .isDefault()) card_anti_alias        .assignDefault(ss.card_anti_alias);
   if (card_borders           .isDefault()) card_borders           .assignDefault(ss.card_borders);
@@ -142,6 +144,7 @@ void StyleSheetSettings::useDefault(const StyleSheetSettings& ss) {
 
 IMPLEMENT_REFLECTION_NO_SCRIPT(StyleSheetSettings) {
   REFLECT(card_zoom);
+  REFLECT(export_zoom);
   REFLECT(card_angle);
   REFLECT(card_anti_alias);
   REFLECT(card_borders);

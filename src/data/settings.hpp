@@ -98,6 +98,7 @@ public:
   
   // Rendering/display settings
   Defaultable<double> card_zoom;
+  Defaultable<double> export_zoom;
   Defaultable<Degrees> card_angle;
   Defaultable<bool>   card_anti_alias;
   Defaultable<bool>   card_borders;
