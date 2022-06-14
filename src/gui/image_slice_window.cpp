@@ -51,6 +51,16 @@ void ImageSlice::constrain(PreferedProperty prefer) {
   }
 }
 
+void ImageSlice::centerSelection() {
+    if (selection.GetWidth() < source.GetWidth()) {
+        selection.x = ((source.GetWidth() - selection.GetWidth()) / 2);
+    }
+
+    if (selection.GetHeight() < source.GetHeight()) {
+        selection.y = ((source.GetHeight() - selection.GetHeight()) / 2);
+    }
+}
+
 Image ImageSlice::getSlice() const {
   if (selection.width == target_size.GetWidth() && selection.height == target_size.GetHeight() && selection.x == 0 && selection.y == 0) {
     // exactly the right size
@@ -82,6 +92,8 @@ ImageSliceWindow::ImageSliceWindow(Window* parent, const Image& source, const wx
 {
   // init slice
   slice.constrain();
+  slice.centerSelection();
+
   // init controls
   const wxPoint defPos = wxDefaultPosition;
   const wxSize spinSize(80,-1);

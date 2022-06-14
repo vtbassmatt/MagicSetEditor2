@@ -42,6 +42,8 @@ public:
   
   /// Enforce relations between values
   void constrain(PreferedProperty prefer = PREFER_NONE);
+  /// Attempt to center the current constraints
+  void centerSelection();
   /// Get the sliced image
   Image getSlice() const;
   
