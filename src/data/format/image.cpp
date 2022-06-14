@@ -26,23 +26,13 @@ void export_image(const SetP& set, const CardP& card, const String& filename) {
 
 class UnzoomedDataViewer : public DataViewer {
 public:
-  UnzoomedDataViewer(bool use_zoom_settings)
-    : use_zoom_settings(use_zoom_settings)
-  {}
+  virtual ~UnzoomedDataViewer() {};
   Rotation getRotation() const override;
 private:
-  bool use_zoom_settings;
-  double zoom  = 4.0;
   double angle = 0.0;
 };
-Rotation UnzoomedDataViewer::getRotation() const {
-  /*if (use_zoom_settings) {
-    return DataViewer::getRotation();
-  } else {
-    if (!stylesheet) stylesheet = set->stylesheet;
-    return Rotation(angle, stylesheet->getCardRect(), zoom, 1.0, ROTATION_ATTACH_TOP_LEFT);
-  }*/
 
+Rotation UnzoomedDataViewer::getRotation() const {
   if (!stylesheet) stylesheet = set->stylesheet;
   int export_zoom = settings.stylesheetSettingsFor(set->stylesheetFor(card)).export_zoom();
   return Rotation(angle, stylesheet->getCardRect(), export_zoom, 1.0, ROTATION_ATTACH_TOP_LEFT);
@@ -51,8 +41,7 @@ Rotation UnzoomedDataViewer::getRotation() const {
 Bitmap export_bitmap(const SetP& set, const CardP& card) {
   if (!set) throw Error(_("no set"));
   // create viewer
-  UnzoomedDataViewer viewer(false);
-  //UnzoomedDataViewer viewer(!settings.stylesheetSettingsFor(set->stylesheetFor(card)).card_normal_export());
+  UnzoomedDataViewer viewer = UnzoomedDataViewer();
   viewer.setSet(set);
   viewer.setCard(card);
   // size of cards

@@ -53,24 +53,18 @@ private:
   DECLARE_EVENT_TABLE();
   
   wxCheckBox* high_quality, *borders, *draw_editing, *spellcheck_enabled;
-  #if USE_ZOOM_COMBOBOX
-    wxComboBox* zoom;
-    int zoom_int;
-  #else
-    wxSpinCtrl* zoom;
-  #endif
-  //wxCheckBox* non_normal_export;
+  
+  wxComboBox* zoom;
+  int zoom_int;
+  
   wxComboBox* export_zoom;
   int export_zoom_int;
   
   void onSelectColumns(wxCommandEvent&);
-  #if USE_ZOOM_COMBOBOX
-    void onZoomChange(wxCommandEvent&);
-    void updateZoom();
-  #endif
-
-    void onExportZoomChange(wxCommandEvent&);
-    void updateExportZoom();
+  void onZoomChange(wxCommandEvent&);
+  void updateZoom();
+  void onExportZoomChange(wxCommandEvent&);
+  void updateExportZoom();
 };
 
 // Preferences page for directories of programs
@@ -202,31 +196,20 @@ DisplayPreferencesPage::DisplayPreferencesPage(Window* parent)
   borders            = new wxCheckBox(this, wxID_ANY, _BUTTON_("show lines"));
   draw_editing       = new wxCheckBox(this, wxID_ANY, _BUTTON_("show editing hints"));
   spellcheck_enabled = new wxCheckBox(this, wxID_ANY, _BUTTON_("spellcheck enabled"));
-  #if USE_ZOOM_COMBOBOX
-    zoom              = new wxComboBox(this, ID_ZOOM);
-  #else
-    zoom              = new wxSpinCtrl(this, ID_ZOOM);
-  #endif
-  //non_normal_export = new wxCheckBox(this, wxID_ANY, _BUTTON_("zoom export"));
+  zoom = new wxComboBox(this, ID_ZOOM);
+  export_zoom = new wxComboBox(this, ID_EXPORT_ZOOM);
   //wxButton* columns = new wxButton(this, ID_SELECT_COLUMNS, _BUTTON_("select"));
   // set values
   high_quality->      SetValue( settings.default_stylesheet_settings.card_anti_alias());
   borders->           SetValue( settings.default_stylesheet_settings.card_borders());
   draw_editing->      SetValue( settings.default_stylesheet_settings.card_draw_editing());
   spellcheck_enabled->SetValue( settings.default_stylesheet_settings.card_spellcheck_enabled());
-  //non_normal_export-> SetValue(!settings.default_stylesheet_settings.card_normal_export());
-  export_zoom = new wxComboBox(this, ID_EXPORT_ZOOM);
-  #if USE_ZOOM_COMBOBOX
     zoom_int = static_cast<int>(settings.default_stylesheet_settings.card_zoom() * 100);
     zoom->SetValue(String::Format(_("%d%%"),zoom_int));
     int choices[] = {50,66,75,100,120,150,200};
     for (unsigned int i = 0 ; i < sizeof(choices)/sizeof(choices[0]) ; ++i) {
-      zoom->Append(String::Format(_("%d%%"),choices[i]));
+        zoom->Append(String::Format(_("%d%%"),choices[i]));
     }
-  #else
-    zoom->SetRange(1, 1000);
-    zoom->             SetValue(static_cast<int>(settings.default_stylesheet_settings.card_zoom() * 100));
-  #endif
 
     export_zoom_int = static_cast<int>(settings.default_stylesheet_settings.export_zoom() * 100);
     export_zoom->SetValue(String::Format(_("%d%%"), export_zoom_int));
@@ -267,13 +250,9 @@ void DisplayPreferencesPage::store() {
   settings.default_stylesheet_settings.card_borders            = borders->GetValue();
   settings.default_stylesheet_settings.card_draw_editing       = draw_editing->GetValue();
   settings.default_stylesheet_settings.card_spellcheck_enabled = spellcheck_enabled->GetValue();
-  #if USE_ZOOM_COMBOBOX
-    updateZoom();
-    settings.default_stylesheet_settings.card_zoom          = zoom_int / 100.0;
-  #else
-    settings.default_stylesheet_settings.card_zoom          = zoom->GetValue() / 100.0;
-  #endif
-  //settings.default_stylesheet_settings.card_normal_export = !non_normal_export->GetValue();
+  
+  updateZoom();
+  settings.default_stylesheet_settings.card_zoom          = zoom_int / 100.0;
   settings.default_stylesheet_settings.export_zoom = export_zoom_int / 100.0;
 }
 
@@ -281,41 +260,38 @@ void DisplayPreferencesPage::onSelectColumns(wxCommandEvent&) {
   // Impossible, set specific
 }
 
-#if USE_ZOOM_COMBOBOX
-  void DisplayPreferencesPage::onZoomChange(wxCommandEvent&) {
+void DisplayPreferencesPage::onZoomChange(wxCommandEvent&) {
     updateZoom();
-  }
-  void DisplayPreferencesPage::updateZoom() {
+}
+
+void DisplayPreferencesPage::updateZoom() {
     String s = zoom->GetValue();
     int i = zoom_int;
     if (wxSscanf(s.c_str(),_("%u"),&i)) {
-      zoom_int = min(max(i,1),1000);
+        zoom_int = min(max(i,1),1000);
     }
     zoom->SetValue(String::Format(_("%d%%"),(int)zoom_int));
-  }
-#endif
+}
 
-  void DisplayPreferencesPage::onExportZoomChange(wxCommandEvent&) {
-      updateExportZoom();
-  }
+void DisplayPreferencesPage::onExportZoomChange(wxCommandEvent&) {
+    updateExportZoom();
+}
 
-  void DisplayPreferencesPage::updateExportZoom() {
-      String s = export_zoom->GetValue();
-      int i = export_zoom_int;
-      if (wxSscanf(s.c_str(), _("%u"), &i)) {
-          export_zoom_int = min(max(i, 1), 1000);
-      }
-      export_zoom->SetValue(String::Format(_("%d%%"), (int)export_zoom_int));
-  }
+void DisplayPreferencesPage::updateExportZoom() {
+    String s = export_zoom->GetValue();
+    int i = export_zoom_int;
+    if (wxSscanf(s.c_str(), _("%u"), &i)) {
+        export_zoom_int = min(max(i, 1), 1000);
+    }
+    export_zoom->SetValue(String::Format(_("%d%%"), (int)export_zoom_int));
+}
 
 BEGIN_EVENT_TABLE(DisplayPreferencesPage, wxPanel)
   EVT_BUTTON       (ID_SELECT_COLUMNS, DisplayPreferencesPage::onSelectColumns)
-  #if USE_ZOOM_COMBOBOX
-    EVT_COMBOBOX     (ID_ZOOM, DisplayPreferencesPage::onZoomChange)
-    EVT_TEXT_ENTER   (ID_ZOOM, DisplayPreferencesPage::onZoomChange)
-  #endif
-    EVT_COMBOBOX(ID_EXPORT_ZOOM, DisplayPreferencesPage::onExportZoomChange)
-    EVT_TEXT_ENTER(ID_EXPORT_ZOOM, DisplayPreferencesPage::onExportZoomChange)
+  EVT_COMBOBOX     (ID_ZOOM, DisplayPreferencesPage::onZoomChange)
+  EVT_TEXT_ENTER   (ID_ZOOM, DisplayPreferencesPage::onZoomChange)
+  EVT_COMBOBOX(ID_EXPORT_ZOOM, DisplayPreferencesPage::onExportZoomChange)
+  EVT_TEXT_ENTER(ID_EXPORT_ZOOM, DisplayPreferencesPage::onExportZoomChange)
 END_EVENT_TABLE  ()
 
 
