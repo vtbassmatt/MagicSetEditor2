@@ -1111,3 +1111,37 @@ card field:
 	name: mainframe image 2
 	show statistics: false
 	description: An extra image of the card
+
+
+############################# Exposing Internal Fields?
+	
+card field:
+	type: text
+	name: time created
+	show statistics: false
+	save value: false
+	editable: false
+	card list visible: true
+	card list name: Created At
+	card list column: 100
+	card list width: 150
+card field:
+	type: text
+	name: time modified
+	show statistics: false
+	save value: false
+	editable: false
+	card list visible: true
+	card list name: Last Modified At
+	card list column: 101
+	card list width: 150
+card field:
+	type: text
+	name: has notes
+	show statistics: false
+	save value: false
+	editable: false
+	card list visible: true
+	card list name: Has Notes
+	card list column: 102
+	card list width: 50

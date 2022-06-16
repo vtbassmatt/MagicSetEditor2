@@ -61,6 +61,9 @@ public:
   /// Get the identification of this card, an identification is something like a name, title, etc.
   /** May return "" */
   String identification() const;
+
+  String valueOfDataKey(FieldP fieldP);
+
   /// Does any field contains the given query string?
   bool contains(QuickFilterPart const& query) const;
   
