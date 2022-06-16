@@ -245,13 +245,7 @@ void set_menu_item_image(wxMenuItem* item, const String& resource) {
     if (item->GetKind() == wxITEM_CHECK) return; // check items can't have icons
   #endif
   Image bitmap = load_resource_tool_image(resource);
-  #if defined(__WXMSW__)
-    Image disabled_bitmap = generate_disabled_image(bitmap);
-    item->SetBitmaps(bitmap, bitmap);
-    item->SetDisabledBitmap(disabled_bitmap);
-  #else
-    item->SetBitmap(bitmap);
-  #endif
+  item->SetBitmap(bitmap);
 }
 
 wxMenuItem* make_menu_item(wxMenu* menu, int id, const char* resource, const String& text, const String& help, wxItemKind kind, wxMenu* submenu) {
