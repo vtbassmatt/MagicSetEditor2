@@ -4,13 +4,13 @@
 word list:
 	name: type
 	word:
-		name: Basic 
+		name: Básico 
 		is prefix: true
 	word:
-		name: Legendary 
+		name: Lendário 
 		is prefix: true
 	word:
-		name: Snow 
+		name: da Neve 
 		is prefix: true
 	word:
 		name: Token 
@@ -23,14 +23,14 @@ word list:
 		is prefix: true
 		line below: true
 	word: Conspiracy
-	word: Creature
-	word: Artifact
-	word: Artifact Creature
-	word: Enchantment
-	word: Enchantment Creature
-	word: Instant
-	word: Sorcery
-	word: Land
+	word: Criatura
+	word: Artefato
+	word: Criatura Artefato
+	word: Encantamento
+	word: Criatura Encantamento
+	word: Mágica Instantânea
+	word: Feitiço
+	word: Terreno
 	word: Planeswalker
 	word: Emblem
 	word: Phenomenon

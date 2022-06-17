@@ -76,7 +76,6 @@ word list:
 			word: Bear
 			word: Beast
 			word: Beeble
-			word: Beholder
 			word: Bird
 			word: Blinkmoth
 			word: Boar
@@ -127,7 +126,6 @@ word list:
 			word: Ferret
 			word: Fish
 			word: Fox
-			word: Fractal
 			word: Frog
 			word: Fungus
 		word:
@@ -135,7 +133,6 @@ word list:
 			word: Gargoyle
 			word: Germ
 			word: Giant
-			word: Gnoll
 			word: Gnome
 			word: Goat
 			word: Goblin
@@ -148,8 +145,6 @@ word list:
 		word:
 			name: H
 			word: Hag
-			word: Halfling
-			word: Hamster
 			word: Harpy
 			word: Hellion
 			word: Hippo
@@ -167,7 +162,6 @@ word list:
 			word: Illusion
 			word: Imp
 			word: Incarnation
-			word: Inkling
 			word: Insect
 		word:
 			name: J
@@ -290,7 +284,6 @@ word list:
 			word: Thalakos
 			word: Thopter
 			word: Thrull
-			word: Tiefling
 			word: Treefolk
 			word: Trilobite
 			word: Triskelavite
@@ -352,7 +345,6 @@ word list:
 			word: Artificer
 			word: Assassin
 			word: Barbarian
-			word: Bard
 			word: Beast
 			word: Berserker
 			word: Bringer
@@ -391,7 +383,6 @@ word list:
 			word: Processor
 		word:
 			name: R-S
-			word: Ranger
 			word: Rebel
 			word: Reflection
 			word: Rigger
@@ -467,7 +458,6 @@ word list:
 		script: all_sub_types(match: "Instant") + "," + all_sub_types(match: "Sorcery")
 		line below: true
 	word: Arcane
-	word: Lesson
 	word: Trap
 	word: Adventure
 
@@ -485,19 +475,15 @@ word list:
 	word: Calix
 	word: Chandra
 	word: Dack
-	word: Dakkon
 	word: Daretti
 	word: Davriel
-	word: Dihada
 	word: Domri
 	word: Dovin
-	word: Ellywick
 	word: Elspeth
 	word: Estrid
 	word: Freyalise
 	word: Garruk
 	word: Gideon
-	word: Grist
 	word: Huatli
 	word: Jace
 	word: Jaya
@@ -507,12 +493,9 @@ word list:
 	word: Kiora
 	word: Koth
 	word: Liliana
-	word: Lolth
 	word: Lukka
-	word: Mordenkainen
 	word: Nahiri
 	word: Narset
-	word: Niko
 	word: Nissa
 	word: Nixilis
 	word: Oko
@@ -528,7 +511,6 @@ word list:
 	word: Teyo
 	word: Tezzeret
 	word: Tibalt
-	word: Tyvar
 	word: Ugin
 	word: Venser
 	word: Vivien
@@ -539,35 +521,9 @@ word list:
 	word: Xenagos
 	word: Yanggu
 	word: Yanling
-	word: Zariel
-	word:
-		name: Last Seen on Faerun
-		word: Ellywick
-		word: Lolth
-		word: Mordenkainen
-		word: Zariel
-	word:
-		name: Last Seen on Strixhaven
-		word: Kasmina
-		word: Liliana
-		word: Lukka
-		word: Rowan
-		word: Will
-	word:
-		name: Last Seen on Kaldheim
-		word: Kaya
-		word: Niko
-		word: Tibalt
-		word: Tyvar
-	word:
-		name: Last Seen on Zendikar
-		word: Jace
-		word: Kiora
-		word: Nahiri
-		word: Nissa
-		word: Nixilis
 	word:
 		name: Last Seen on Ikoria
+		word: Lukka
 		word: Narset
 		word: Vivien
 	word:
@@ -580,6 +536,8 @@ word list:
 		name: Last Seen on Eldraine
 		word: Garruk
 		word: Oko
+		word: Rowan
+		word: Will
 	word:
 		name: Last Seen on Ravnica
 		word: Bolas
@@ -587,6 +545,8 @@ word list:
 		word: Davriel
 		word: Domri
 		word: Dovin
+		word: Kasmina
+		word: Kaya
 		word: Ral
 		word: Teyo
 		word: Vraska
@@ -602,9 +562,11 @@ word list:
 		name: Last Seen on Ixalan
 		word: Angrath
 		word: Huatli
+		word: Jace
 	word:
 		name: Last Seen on Amonkhet
 		word: Liliana
+		word: Nissa
 		word: Samut
 	word:
 		name: Last Seen on Kaladesh
@@ -618,8 +580,14 @@ word list:
 	word:
 		name: Last Seen on Innistrad
 		word: Arlinn
+		word: Nahiri
 		word: Sorin
 		word: Tamiyo
+		word: Tibalt
+	word:
+		name: Last Seen on Zendikar
+		word: Kiora
+		word: Nixilis
 	word:
 		name: Last Seen on Tarkir
 		word: Sarkhan

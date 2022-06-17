@@ -14,6 +14,8 @@ card field:
 	choice: flip
 	choice: split
 	choice: fuse split
+	choice: adventure
+	choice: aftermath
 	choice: double faced
 	choice: planeswalker
 	choice: shifted
@@ -26,6 +28,7 @@ card field:
 	choice: masterpiece
 	choice: nightbreak
 	choice: plane card
+	choice: saga
 	script: 
 		stylesheet # updates when the style changes
 		card_shape() # determined by the style
@@ -40,7 +43,7 @@ card field:
 	card list column: 1
 	card list width: 150
 	description: The name of the card
-	script: if contains(card.shape, match:"split") or contains(card.shape, match:"flip") or contains(card.shape, match:"double faced") then card.name + " // " + card.name_2 else card.name
+	script: if has_two_names() then card.name + " // " + card.name_2 else card.name
 ############################# Background stuff
 card field:
 	type: color
@@ -54,7 +57,7 @@ card field:
 		color: rgb(255,255,255)
 	choice:
 		name: silver
-		color: rgb(128,128,128)
+		color: rgb(200,200,200)
 	choice:
 		name: gold
 		color: rgb(200,180,0)
@@ -108,7 +111,14 @@ card field:
 	card list visible: false
 	identifying: true
 	show statistics: false
+	script: name_checker(value)
 	description: The name of the card
+card field:
+	type: text
+	name: alias
+	card list visible: false
+	show statistics: false
+	description: The alias of the card
 card field:
 	type: text
 	name: casting cost
@@ -154,12 +164,6 @@ card field:
 	choice: moon
 	choice: eldrazi
 	description: On transforming cards, is this the day or the night side?
-	show statistics: false
-card field:
-	type: text
-	name: dfc switch
-	default: card_number()
-	description: On transforming cards, is this the front or the back side?
 	show statistics: false
 card field:
 	type: multiple choice
@@ -270,7 +274,7 @@ card field:
 card field:
 	type: text
 	name: rule text
-	script: text_filter(input: value, card_name: card.name)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"text")
 	show statistics: false
 	multi line: true
 	description: The rules text for the card
@@ -287,9 +291,16 @@ card field:
 	multi line: true
 	save value: false
 	show statistics: false
+	position hint: 105
 	script:
-		combined_editor(field1: card.rule_text, separator: "<line>\n</line>", field2: card.flavor_text)
+		if mainframe_walker() then
+			mainframe_walker_text_script()
+		else if alt_text() then
+			alt_text_script()
+		else
+			combined_editor(field1: card.rule_text, separator: "<line>\n</line>", field2: card.flavor_text)
 	description: The rules and flavor text for the card; use up and down arrows to switch
+######################### Watermark
 card field:
 	type: choice
 	name: watermark
@@ -297,13 +308,12 @@ card field:
 	position hint: 200
 	include file: /magic-watermarks.mse-include/watermark-names
 	description: A watermark for below the textbox, this can be a big mana symbol used on basic lands, or a guild symbol
-############################# Loyalty
+###############################Leveler textboxes
 card field:
 	type: text
-	name: loyalty
-	icon: stats/toughness.png
-	position hint: 59
-	description: The initial loyalty of a planeswalker
+	name: level 0
+	description: The zeroth level of a creature
+	show statistics: false
 card field:
 	type: text
 	name: loyalty cost 1
@@ -311,9 +321,37 @@ card field:
 	description: The loyalty cost for the first ability of a planeswalker
 card field:
 	type: text
+	name: level 1
+	description: The first level of a card
+	show statistics: false
+card field:
+	type: text
+	name: level 1 text
+	default: if transfer_levels() then card.rule_text else ""
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"lv1")
+	show statistics: false
+	multi line: true
+	position hint: 110
+	description: The first level text for the card
+card field:
+	type: text
 	name: loyalty cost 2
 	show statistics: false
 	description: The loyalty cost for the second ability of a planeswalker
+card field:
+	type: text
+	name: level 2
+	description: The second level of a card
+	show statistics: false
+card field:
+	type: text
+	name: level 2 text
+	default: if transfer_levels() then card.rule_text_2 else ""
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"lv2")
+	show statistics: false
+	multi line: true
+	position hint: 120
+	description: The second level text for the card
 card field:
 	type: text
 	name: loyalty cost 3
@@ -321,9 +359,59 @@ card field:
 	description: The loyalty cost for the third ability of a planeswalker
 card field:
 	type: text
+	name: level 3
+	description: The third level of a card
+	show statistics: false
+card field:
+	type: text
+	name: level 3 text
+	default: card.rule_text_3
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"lv3")
+	show statistics: false
+	multi line: true
+	position hint: 130
+	description: The third level text for the card
+card field:
+	type: text
 	name: loyalty cost 4
 	show statistics: false
 	description: The loyalty cost for the fourth ability of a planeswalker
+card field:
+	type: text
+	name: level 4
+	description: The fourth level of a card
+	show statistics: false
+card field:
+	type: text
+	name: level 4 text
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"lv4")
+	show statistics: false
+	multi line: true
+	position hint: 4
+	description: The fourth level text for the card
+############################# Notes
+card field:
+	type: text
+	name: sorted notes
+	multi line: true
+	save value: false
+	show statistics: false
+	script: card.notes
+	description: A mirror of card notes to make it sortable.
+card field:
+	type: text
+	name: custom index
+	save value: false
+	show statistics: false
+	position hint: 900
+	script: custom_index()
+############################# Loyalty
+card field:
+	type: text
+	name: loyalty
+	icon: stats/toughness.png
+	position hint: 59
+	description: The initial loyalty of a planeswalker
 card field:
 	type: text
 	name: loyalty cost 5
@@ -344,32 +432,6 @@ card field:
 	name: loyalty cost 8
 	show statistics: false
 	description: The loyalty cost for the eighth ability of a planeswalker
-############################# Levels
-card field:
-	type: text
-	name: level 0
-	description: The zeroth level of a creature
-	show statistics: false
-card field:
-	type: text
-	name: level 1
-	description: The first level of a card
-	show statistics: false
-card field:
-	type: text
-	name: level 2
-	description: The second level of a card
-	show statistics: false
-card field:
-	type: text
-	name: level 3
-	description: The third level of a card
-	show statistics: false
-card field:
-	type: text
-	name: level 4
-	description: The fourth level of a card
-	show statistics: false
 ############################# PT
 card field:
 	type: text
@@ -445,6 +507,13 @@ card field:
 	editable: true
 	save value: true
 	show statistics: false
+card field:
+	type: text
+	name: card code text 2
+	default: card.card_code_text
+	editable: true
+	save value: true
+	show statistics: false
 ############################# Copyright stuff
 card field:
 	type: text
@@ -513,9 +582,9 @@ card field:
 		type: radio
 	choice:
 		name: reversed
-		enabled: { card_color_color_count(card.card_color) >= 2 and not chosen(choice:"overlay",card.card_color_2) }
+		enabled: { card_color_color_count(card.card_color_2) >= 2 and not chosen(choice:"overlay",card.card_color_2) }
 	script: card_color_filter(value)
-	default: card_color(casting_cost: card.casting_cost_2, type: card.super_type_2, rules_text: card.rule_text_2, watermark: card.watermark_2, card_name: card.name_2, default: card.card_color)
+	default: card_color(casting_cost: card.casting_cost_2, type: card.super_type_2, rules_text: card.rule_text_2, watermark: card.watermark_2, card_name: card.name_2, default: "colorless")
 	show statistics: false
 	description: The frame of a card
 card field:
@@ -523,13 +592,24 @@ card field:
 	name: name 2
 	identifying: true
 	show statistics: false
-	description: The name of a card
+	description: The second name of a card
+card field:
+	type: text
+	name: alias 2
+	show statistics: false
+	description: The second alias of a card
 card field:
 	type: text
 	name: name 3
 	identifying: true
 	show statistics: false
-	description: The name of a card
+	description: The third name of a card
+card field:
+	type: text
+	name: alias 3
+	identifying: true
+	show statistics: false
+	description: The third alias of a card
 card field:
 	type: text
 	name: casting cost 2
@@ -679,21 +759,6 @@ card field:
 	editable: false
 	show statistics: false
 card field:
-	type: choice
-	name: rarity 3
-	icon: stats/rarity.png
-	choice: basic land
-	choice: common
-	choice: uncommon
-	choice: rare
-	choice: mythic rare
-	choice: special
-	choice: masterpiece
-	initial: common
-	# Third rarity is not locked
-	editable: true
-	show statistics: false
-card field:
 	type: multiple choice
 	name: indicator 2
 	empty choice: colorless
@@ -737,35 +802,35 @@ card field:
 card field:
 	type: text
 	name: rule text 2
-	script: text_filter(input: value, card_name: card.name_2)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"text2")
 	show statistics: false
 	multi line: true
 	description: The rules text of the card
 card field:
 	type: text
 	name: rule text 3
-	script: text_filter(input: value, card_name: card.name)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"text3")
 	show statistics: false
 	multi line: true
 	description: The rules text of the card
 card field:
 	type: text
 	name: rule text 4
-	script: text_filter(input: value, card_name: card.name_2)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"text4")
 	show statistics: false
 	multi line: true
 	description: The rules text of the card
 card field:
 	type: text
 	name: rule text 5
-	script: text_filter(input: value, card_name: card.name_2)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"text5")
 	show statistics: false
 	multi line: true
 	description: The rules text of the card
 card field:
 	type: text
 	name: rule text 6
-	script: text_filter(input: value, card_name: card.name_2)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"text6")
 	show statistics: false
 	multi line: true
 	description: The rules text of the card
@@ -781,6 +846,7 @@ card field:
 	script: flavor_text_filter(value)
 	multi line: true
 	show statistics: false
+
 card field:
 	type: text
 	name: text 2
@@ -788,7 +854,12 @@ card field:
 	save value: false
 	show statistics: false
 	script:
-		combined_editor(field1: card.rule_text_2, separator: "<line>\n</line>", field2: card.flavor_text_2)
+		if mainframe_walkerb() then
+			mainframe_walker_text_scriptb()
+		else if alt_textb() then
+			alt_text_scriptb()
+		else
+			combined_editor(field1: card.rule_text_2, separator: "<line>\n</line>", field2: card.flavor_text_2)
 	description: The rules and flavor text of the card
 card field:
 	type: text
@@ -937,71 +1008,105 @@ card field:
 	save value: false
 	script: (if is_masterpiece() then set.masterpiece_set_code else set.set_code) + " • " + set.set_language
 	show statistics: false
-#################################Leveler textboxes
-card field:
-	type: text
-	name: level 1 text
-	default: card.rule_text
-	script: text_filter(input: value, card_name: card.name)
-	show statistics: false
-	multi line: true
-	description: The rules text for the card
-card field:
-	type: text
-	name: level 2 text
-	default: card.rule_text_2
-	script: text_filter(input: value, card_name: card.name)
-	show statistics: false
-	multi line: true
-	description: The rules text for the card
-card field:
-	type: text
-	name: level 3 text
-	default: card.rule_text_3
-	script: text_filter(input: value, card_name: card.name)
-	show statistics: false
-	multi line: true
-	description: The rules text for the card
-card field:
-	type: text
-	name: level 4 text
-	default: card.rule_text_3
-	script: text_filter(input: value, card_name: card.name)
-	show statistics: false
-	multi line: true
-	description: The rules text for the card
+########################back Leveler textboxes
 card field:
 	type: text
 	name: level 5 text
-	default: card.rule_text_2
-	script: text_filter(input: value, card_name: card.name_2)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"lv5")
 	show statistics: false
 	multi line: true
-	description: The rules text for the card
+	description: The fifth level text for the card
 card field:
 	type: text
 	name: level 6 text
-	default: card.rule_text_6
-	script: text_filter(input: value, card_name: card.name_2)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"lv6")
 	show statistics: false
 	multi line: true
-	description: The rules text for the card
+	description: The sixth level text for the card
 card field:
 	type: text
 	name: level 7 text
-	default: card.rule_text_6
-	script: text_filter(input: value, card_name: card.name_2)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"lv7")
 	show statistics: false
 	multi line: true
-	description: The rules text for the card
+	description: The seventh level text for the card
 card field:
 	type: text
 	name: level 8 text
-	default: card.rule_text_6
-	script: text_filter(input: value, card_name: card.name_2)
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"lv8")
 	show statistics: false
 	multi line: true
-	description: The rules text for the card
+	description: The eighth level text for the card
+card field:
+	type: text
+	name: level 9 text
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"lv9")
+	show statistics: false
+	multi line: true
+	description: The ninth level text for the card
+card field:
+	type: text
+	name: level 10 text
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"lv10")
+	show statistics: false
+	multi line: true
+	description: The tenth level text for the card
+card field:
+	type: text
+	name: level 11 text
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"lv11")
+	show statistics: false
+	multi line: true
+	description: The eleventh level text for the card
+card field:
+	type: text
+	name: level 12 text
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias != "" then card.alias else card.name, margin_code:"lv12")
+	show statistics: false
+	multi line: true
+	description: The twelvth level text for the card
+card field:
+	type: text
+	name: level 13 text
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"lv13")
+	show statistics: false
+	multi line: true
+	description: The thirteenth level text for the card
+card field:
+	type: text
+	name: level 14 text
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"lv14")
+	show statistics: false
+	multi line: true
+	description: The fourteenth level text for the card
+card field:
+	type: text
+	name: level 15 text
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"lv15")
+	show statistics: false
+	multi line: true
+	description: The fifteenth level text for the card
+card field:
+	type: text
+	name: level 5
+	description: The fifth level of a card
+	show statistics: false
+card field:
+	type: text
+	name: level 6
+	description: The sixth level of a card
+	show statistics: false
+card field:
+	type: text
+	name: level 7
+	description: The seventh level of a card
+	show statistics: false
+card field:
+	type: text
+	name: level 8
+	description: The eighth level of a card
+	show statistics: false
+
 card field:
 	type: text
 	name: power 4
@@ -1091,6 +1196,64 @@ card field:
 	description: Power/Toughness of a creature
 card field:
 	type: text
+	name: power 7
+	icon: stats/power.png
+	show statistics: false
+	script: type_over_pt(value)
+	description: The power of a creature
+card field:
+	type: text
+	name: toughness 7
+	icon: stats/toughness.png
+	show statistics: false
+	description: The toughness of a creature
+card field:
+	type: text
+	name: pt 7
+	save value: false
+	script:
+		combined_editor(
+			field1: card.power_7,
+			separator: language().pt_separator,
+			field2: card.toughness_7,
+			soft_before_empty: true,
+			hide_when_empty:   true
+		)
+	card list width: 50
+	card list name: P/T7
+	show statistics: false
+	description: Power/Toughness of a creature
+card field:
+	type: text
+	name: power 8
+	icon: stats/power.png
+	show statistics: false
+	script: type_over_pt(value)
+	description: The power of a creature
+card field:
+	type: text
+	name: toughness 8
+	icon: stats/toughness.png
+	show statistics: false
+	description: The toughness of a creature
+card field:
+	type: text
+	name: pt 8
+	save value: false
+	script:
+		combined_editor(
+			field1: card.power_8,
+			separator: language().pt_separator,
+			field2: card.toughness_8,
+			soft_before_empty: true,
+			hide_when_empty:   true
+		)
+	card list width: 50
+	card list name: P/T8
+	show statistics: false
+	description: Power/Toughness of a creature
+card field:
+	type: text
 	name: cmc
 	show statistics: false
 	position hint: 2
@@ -1111,7 +1274,48 @@ card field:
 	name: mainframe image 2
 	show statistics: false
 	description: An extra image of the card
-
+card field:
+	type: text
+	name: special text
+	show statistics: false
+	script: special_text()
+	save value: true
+	description: Full text for exporting.
+card field:
+	type: text
+	name: special text 2
+	show statistics: false
+	script: special_text2()
+	save value: true
+	description: Full text for exporting.
+card field:
+	type: text
+	name: time modified
+	show statistics: false
+	save value: false
+	script: card.time_modified
+card field:
+	type: text
+	name: time created
+	show statistics: false
+	save value: false
+	script: card.time_created
+card field:
+	type: text
+	name: chapter text
+	show statistics: false
+	multi line: true
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name, margin_code:"unknown")
+	default: if not a_saga() then "" else if card.rule_text != "" then card.rule_text else "<i-auto>(" + saga_reminder() + ")</i-auto>"
+	description: The saga reminder text
+card field:
+	type: text
+	name: chapter text 2
+	show statistics: false
+	multi line: true
+	script: text_filter(input: value, card_name: if set.alias_as_cardname and card.alias_2 != "" then card.alias_2 else card.name_2, margin_code:"unknown")
+	default: if not b_saga() then "" else "<i-auto>(" + saga_reminderb() + ")</i-auto>"
+	description: The saga reminder text
 
 ############################# Exposing Internal Fields?
 	
