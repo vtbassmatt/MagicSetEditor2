@@ -1,6 +1,17 @@
 Magic Set Editor changelog, for the details see `git log`
 ==============================================================================
 
+FORK: Changes isolated to this fork
+------------------------------------------------------------------------------
+
+Features:
+ * Independently control Export Zoom setting in Preferences Window.
+ * Center the loaded image by default in the Image Slice Window.
+ * Add Button to Center the loaded image in the Image Slice Window.
+ * Add "Created At", "Last Modified At", "Has Notes" columns to card list.
+ * Add filter box to Game and Stylesheet selection.
+
+------------------------------------------------------------------------------
 HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
