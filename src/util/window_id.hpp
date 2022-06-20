@@ -229,6 +229,7 @@ enum ControlID {
 
   // New Set Window
   ID_STYLESHEET_FILTER,
+  ID_GAME_FILTER,
 
   // Controls
   ID_VIEWER = 1001,

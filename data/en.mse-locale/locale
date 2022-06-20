@@ -461,8 +461,10 @@ label:
 	# New set window
 	game type:			&Game type:
 	style type:			&Card style:
+	search game list : Filter Games
+	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	search stylesheet list: Filter Stylesheets
-	search stylesheet list control: Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	
 	stylesheet not found :
 		The set you are trying to open uses the stylesheet "%s".

@@ -68,6 +68,8 @@ struct PackageList::ComparePackagePosHint {
 void PackageList::showData(const String& pattern) {
   // clear
   packages.clear();
+  filtered_packages.clear();
+  filter.reset();
   
   // find matching packages
   vector<PackagedP> matching;

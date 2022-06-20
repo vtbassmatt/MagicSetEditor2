@@ -35,8 +35,12 @@ private:
 
   // gui items
   PackageList*  game_list, *stylesheet_list;
-  FilterCtrl* filter;
-  String filter_value;
+  
+  FilterCtrl* game_filter;
+  String game_filter_value;
+
+  FilterCtrl* stylesheet_filter;
+  String stylesheet_filter_value;
     
   // --------------------------------------------------- : events
   
@@ -44,7 +48,8 @@ private:
   
   void onStyleSheetSelect  (wxCommandEvent&);
   void onStyleSheetActivate(wxCommandEvent&);
-  void onFilterUpdate(wxCommandEvent&);
+  void onStylesheetFilterUpdate(wxCommandEvent&);
+  void onGameFilterUpdate(wxCommandEvent&);
     
   virtual void OnOK(wxCommandEvent&);
   
