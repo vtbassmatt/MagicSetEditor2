@@ -11,8 +11,25 @@
 #include <util/prec.hpp>
 #include <util/error.hpp>
 #include <gui/control/gallery_list.hpp>
+#include <data/filter.hpp>
 
 DECLARE_POINTER_TYPE(Packaged);
+DECLARE_POINTER_TYPE(PackageData);
+
+// Information about a package
+class PackageData : public IntrusivePtrVirtualBase, public IntrusiveFromThis<PackageData> {
+public:
+    PackageData() {};
+    PackageData(const PackagedP& package, const Bitmap& image) : package(package), image(image) {};
+    PackagedP package;
+    Bitmap    image;
+
+    bool contains(QuickFilterPart const& query) const;
+
+    DECLARE_REFLECTION();
+};
+
+typedef intrusive_ptr<Filter<PackageData>> PackageDataFilterP;
 
 // ----------------------------------------------------------------------------- : PackageList
 
@@ -38,7 +55,7 @@ public:
    *  Throws if the selection is not of type T */
   template <typename T>
   intrusive_ptr<T> getSelection(bool load_fully = true) const {
-    intrusive_ptr<T> ret = dynamic_pointer_cast<T>(packages.at(getSelectionId()).package);
+    intrusive_ptr<T> ret = dynamic_pointer_cast<T>(filtered_packages.at(getSelectionId())->package);
     if (!ret) throw InternalError(_("PackageList: Selected package has the wrong type"));
     if (load_fully) ret->loadFully();
     return ret;
@@ -50,6 +67,8 @@ public:
   /// Required width to show all items
   int requiredWidth() const;
   using GalleryList::column_count;
+
+  void setFilter(const PackageDataFilterP& filter);
   
 protected:
   /// Draw an item
@@ -58,18 +77,11 @@ protected:
   size_t itemCount() const override;
   
 private:
-  // The default icon to use
-//  wxIcon default_icon;
-  
-  // Information about a package
-  struct PackageData {
-    PackageData() {}
-    PackageData(const PackagedP& package, const Bitmap& image) : package(package), image(image) {}
-    PackagedP package;
-    Bitmap    image;
-  };
+  void applyFilter();
+
   struct ComparePackagePosHint;
   /// The displayed packages
   vector<PackageData> packages;
+  vector<PackageDataP> filtered_packages;
+  PackageDataFilterP filter;
 };
-

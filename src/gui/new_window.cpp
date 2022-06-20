@@ -26,7 +26,7 @@ SetP new_set_window(Window* parent) {
 }
 
 NewSetWindow::NewSetWindow(Window* parent)
-  : wxDialog(parent, wxID_ANY, _TITLE_("new set"), wxDefaultPosition, wxSize(530,320), wxDEFAULT_DIALOG_STYLE)
+  : wxDialog(parent, wxID_ANY, _TITLE_("new set"), wxDefaultPosition, wxSize(840,360), wxDEFAULT_DIALOG_STYLE)
 {
   wxBusyCursor wait;
   // init controls
@@ -34,11 +34,18 @@ NewSetWindow::NewSetWindow(Window* parent)
   stylesheet_list = new PackageList (this, ID_STYLESHEET_LIST, wxHORIZONTAL, false);
   wxStaticText* game_text       = new wxStaticText(this, ID_GAME_LIST,       _LABEL_("game type"));
   wxStaticText* stylesheet_text = new wxStaticText(this, ID_STYLESHEET_LIST, _LABEL_("style type"));
+  filter = new FilterCtrl(this, ID_STYLESHEET_FILTER, _LABEL_("search stylesheet list"), _HELP_("search stylesheet list control"));
+  filter->setFilter(filter_value);
+
   // init sizer
   wxSizer* s = new wxBoxSizer(wxVERTICAL);
     s->Add(game_text,       0, wxALL,                     4);
     s->Add(game_list,       0, wxEXPAND | (wxALL & ~wxTOP), 4);
-    s->Add(stylesheet_text, 0, wxALL,                     4);
+    wxSizer* s2 = new wxBoxSizer(wxHORIZONTAL);
+        s2->Add(stylesheet_text, 0, wxALL & ~wxLEFT, 4);
+        s2->AddSpacer(2);
+        s2->Add(filter, 0, wxALL & ~wxRIGHT, 4);
+    s->Add(s2);
     s->Add(stylesheet_list, 0, wxEXPAND | (wxALL & ~wxTOP), 4);
     s->Add(CreateButtonSizer(wxOK | wxCANCEL) , 0, wxEXPAND | wxALL, 8);
     s->SetSizeHints(this);
@@ -84,6 +91,10 @@ void NewSetWindow::onStyleSheetActivate(wxCommandEvent&) {
   done();
 }
 
+void NewSetWindow::onFilterUpdate(wxCommandEvent&) {
+    stylesheet_list->setFilter(filter->getFilter<PackageData>());
+}
+
 void NewSetWindow::OnOK(wxCommandEvent&) {
   done();
 }
@@ -117,9 +128,10 @@ void NewSetWindow::onIdle(wxIdleEvent& ev) {
 }
 
 BEGIN_EVENT_TABLE(NewSetWindow, wxDialog)
-  EVT_GALLERY_SELECT  (ID_GAME_LIST,       NewSetWindow::onGameSelect)
-  EVT_GALLERY_SELECT  (ID_STYLESHEET_LIST, NewSetWindow::onStyleSheetSelect)
-  EVT_GALLERY_ACTIVATE(ID_STYLESHEET_LIST, NewSetWindow::onStyleSheetActivate)
+EVT_GALLERY_SELECT(ID_GAME_LIST, NewSetWindow::onGameSelect)
+EVT_GALLERY_SELECT(ID_STYLESHEET_LIST, NewSetWindow::onStyleSheetSelect)
+EVT_GALLERY_ACTIVATE(ID_STYLESHEET_LIST, NewSetWindow::onStyleSheetActivate)
+EVT_COMMAND_RANGE(ID_STYLESHEET_FILTER, ID_STYLESHEET_FILTER, wxEVT_COMMAND_TEXT_UPDATED, NewSetWindow::onFilterUpdate)
   EVT_BUTTON          (wxID_OK,            NewSetWindow::OnOK)
   EVT_UPDATE_UI       (wxID_ANY,           NewSetWindow::onUpdateUI)
   EVT_IDLE            (                    NewSetWindow::onIdle)
