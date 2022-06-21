@@ -186,17 +186,9 @@ bool CardListBase::doDelete() {
 // Comparison object for comparing cards
 bool CardListBase::compareItems(void* a, void* b) const {
   FieldP sort_field = column_fields[sort_by_column];
-
   ValueP va = reinterpret_cast<Card*>(a)->data[sort_field];
   ValueP vb = reinterpret_cast<Card*>(b)->data[sort_field];
   assert(va && vb);
-
-  // Super hack for sorting internal fields. Couldn't figure out how to bind these to ValuePs.
-  if (sort_field->name == "time_created" || sort_field->name == "time_modified" || sort_field->name == "has_notes") {
-      int cmp = smart_compare(reinterpret_cast<Card*>(a)->valueOfDataKey(sort_field), reinterpret_cast<Card*>(b)->valueOfDataKey(sort_field));
-      if (cmp != 0) return cmp < 0;
-  }
-
   // compare sort keys
   int cmp = smart_compare( va->getSortKey(), vb->getSortKey() );
   if (cmp != 0) return cmp < 0;
@@ -317,8 +309,9 @@ String CardListBase::OnGetItemText(long pos, long col) const {
     // wx may give us non existing columns!
     return wxEmptyString;
   }
-
-  return getCard(pos)->valueOfDataKey(column_fields[col]);
+  ValueP val = getCard(pos)->data[column_fields[col]];
+  if (val) return val->toString();
+  else     return wxEmptyString;
 }
 
 int CardListBase::OnGetItemImage(long pos) const {

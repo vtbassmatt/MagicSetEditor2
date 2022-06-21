@@ -52,24 +52,6 @@ String Card::identification() const {
   }
 }
 
-String Card::valueOfDataKey(FieldP fieldP) {
-    String columnName = fieldP.get()->name;
-
-    if (columnName == "time_created") {
-        return time_created.Format("%Y-%m-%d %H:%M:%S").ToStdString();
-    }
-    else if (columnName == "time_modified") {
-        return time_modified.Format("%Y-%m-%d %H:%M:%S").ToStdString();
-    }
-    else if (columnName == "has_notes") {
-        return notes.empty() ? "N" : "Y";
-    }
-
-    ValueP val = data[fieldP];
-    if (val) return val->toString();
-    else     return wxEmptyString;
-}
-
 bool Card::contains(QuickFilterPart const& query) const {
   FOR_EACH_CONST(v, data) {
     if (query.match(v->fieldP->name, v->toString())) return true;

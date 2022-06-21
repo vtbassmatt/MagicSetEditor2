@@ -1325,6 +1325,7 @@ card field:
 	show statistics: false
 	save value: false
 	editable: false
+	script: card.time_created
 	card list visible: true
 	card list name: Created At
 	card list column: 100
@@ -1335,17 +1336,8 @@ card field:
 	show statistics: false
 	save value: false
 	editable: false
+	script: card.time_modified
 	card list visible: true
 	card list name: Last Modified At
 	card list column: 101
 	card list width: 150
-card field:
-	type: text
-	name: has notes
-	show statistics: false
-	save value: false
-	editable: false
-	card list visible: true
-	card list name: Has Notes
-	card list column: 102
-	card list width: 50
