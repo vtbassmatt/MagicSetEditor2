@@ -26,7 +26,7 @@ SetP new_set_window(Window* parent) {
 }
 
 NewSetWindow::NewSetWindow(Window* parent)
-  : wxDialog(parent, wxID_ANY, _TITLE_("new set"), wxDefaultPosition, wxSize(840,360), wxDEFAULT_DIALOG_STYLE)
+  : wxDialog(parent, wxID_ANY, _TITLE_("new set"), wxDefaultPosition, wxSize(830,360), wxDEFAULT_DIALOG_STYLE)
 {
   wxBusyCursor wait;
   // init controls
@@ -175,7 +175,7 @@ StyleSheetP select_stylesheet(const Game& game, const String& failed_name) {
 }
 
 SelectStyleSheetWindow::SelectStyleSheetWindow(Window* parent, const Game& game, const String& failed_name)
-  : wxDialog(parent, wxID_ANY, _TITLE_("select stylesheet"), wxDefaultPosition, wxSize(530,320), wxDEFAULT_DIALOG_STYLE)
+  : wxDialog(parent, wxID_ANY, _TITLE_("select stylesheet"), wxDefaultPosition, wxSize(830,320), wxDEFAULT_DIALOG_STYLE)
   , game(game)
 {
   wxBusyCursor wait;
@@ -183,10 +183,18 @@ SelectStyleSheetWindow::SelectStyleSheetWindow(Window* parent, const Game& game,
   stylesheet_list = new PackageList (this, ID_STYLESHEET_LIST);
   wxStaticText* description     = new wxStaticText(this, ID_GAME_LIST,       _LABEL_1_("stylesheet not found", failed_name));
   wxStaticText* stylesheet_text = new wxStaticText(this, ID_STYLESHEET_LIST, _LABEL_("style type"));
+
+  stylesheet_filter = new FilterCtrl(this, ID_STYLESHEET_FILTER, _LABEL_("search stylesheet list"), _HELP_("search stylesheet list control"));
+  stylesheet_filter->setFilter(stylesheet_filter_value);
+
   // init sizer
   wxSizer* s = new wxBoxSizer(wxVERTICAL);
     s->Add(description,     0, wxALL,                     4);
-    s->Add(stylesheet_text, 0, wxALL,                     4);
+    wxSizer* s2 = new wxBoxSizer(wxHORIZONTAL);
+      s2->Add(stylesheet_text, 0, wxALL & ~wxLEFT, 4);
+      s2->AddStretchSpacer();
+      s2->Add(stylesheet_filter, 1, wxALIGN_RIGHT, 4);
+    s->Add(s2, wxSizerFlags().Expand().Border(wxALL, 6));
     s->Add(stylesheet_list, 0, wxEXPAND | (wxALL & ~wxTOP), 4);
     s->Add(CreateButtonSizer(wxOK | wxCANCEL) , 0, wxEXPAND | wxALL, 8);
     s->SetSizeHints(this);
@@ -197,7 +205,7 @@ SelectStyleSheetWindow::SelectStyleSheetWindow(Window* parent, const Game& game,
   // Resize
   Layout();
   wxSize min_size = GetSizer()->GetMinSize() + GetSize() - GetClientSize();
-  SetSize(630,min_size.y);
+  SetSize(830,min_size.y);
   UpdateWindowUI(wxUPDATE_UI_RECURSE);
 }
 
@@ -207,6 +215,17 @@ void SelectStyleSheetWindow::onStyleSheetSelect(wxCommandEvent&) {
 }
 void SelectStyleSheetWindow::onStyleSheetActivate(wxCommandEvent&) {
   done();
+}
+
+void SelectStyleSheetWindow::onStylesheetFilterUpdate(wxCommandEvent&) {
+  if (stylesheet_list->hasSelection()) {
+    StyleSheetP existingStylesheetSelection = stylesheet_list->getSelection<StyleSheet>(false);
+    stylesheet_list->setFilter(stylesheet_filter->getFilter<PackageData>());
+    stylesheet_list->select(existingStylesheetSelection->name());
+  }
+  else {
+    stylesheet_list->setFilter(stylesheet_filter->getFilter<PackageData>());
+  }
 }
 
 void SelectStyleSheetWindow::OnOK(wxCommandEvent&) {
@@ -239,6 +258,7 @@ void SelectStyleSheetWindow::onIdle(wxIdleEvent& ev) {
 BEGIN_EVENT_TABLE(SelectStyleSheetWindow, wxDialog)
   EVT_GALLERY_SELECT  (ID_STYLESHEET_LIST, SelectStyleSheetWindow::onStyleSheetSelect)
   EVT_GALLERY_ACTIVATE(ID_STYLESHEET_LIST, SelectStyleSheetWindow::onStyleSheetActivate)
+  EVT_COMMAND_RANGE(ID_STYLESHEET_FILTER, ID_STYLESHEET_FILTER, wxEVT_COMMAND_TEXT_UPDATED, SelectStyleSheetWindow::onStylesheetFilterUpdate)
   EVT_BUTTON          (wxID_OK,            SelectStyleSheetWindow::OnOK)
   EVT_UPDATE_UI       (wxID_ANY,           SelectStyleSheetWindow::onUpdateUI)
   EVT_IDLE            (                    SelectStyleSheetWindow::onIdle)

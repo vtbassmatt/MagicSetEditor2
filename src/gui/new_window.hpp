@@ -82,11 +82,15 @@ private:
   
   // gui items
   PackageList*  stylesheet_list;
+
+  FilterCtrl* stylesheet_filter;
+  String stylesheet_filter_value;
     
   // --------------------------------------------------- : events
   
   void onStyleSheetSelect  (wxCommandEvent&);
   void onStyleSheetActivate(wxCommandEvent&);
+  void onStylesheetFilterUpdate(wxCommandEvent&);
     
   virtual void OnOK(wxCommandEvent&);
   
