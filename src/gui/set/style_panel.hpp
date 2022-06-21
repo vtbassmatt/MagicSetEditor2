@@ -10,6 +10,7 @@
 
 #include <util/prec.hpp>
 #include <gui/set/panel.hpp>
+#include <gui/control/filter_ctrl.hpp>
 
 class CardViewer;
 class PackageList;
@@ -50,11 +51,16 @@ private:
   StylingEditor* editor;    ///< Editor for styling information
   wxButton*      use_for_all;
   wxCheckBox*    use_custom_options;
+  FilterCtrl* stylesheet_filter;
+  String stylesheet_filter_value;
   CardP          card;    ///< Card we are working on
+  bool list_size_already_initialized = false;
   
   void onStyleSelect(wxCommandEvent&);
   void onUseForAll(wxCommandEvent&);
   void onUseCustom(wxCommandEvent&);
+
+  void onStylesheetFilterUpdate(wxCommandEvent&);
   
   /// Determine the best size for the list of stylesheets based on available space
   void updateListSize();

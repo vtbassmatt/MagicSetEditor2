@@ -227,6 +227,10 @@ enum ControlID {
   ID_CONTROL_MIN = 1000,
   ID_CONTROL_MAX = 1999,
 
+  // New Set Window
+  ID_STYLESHEET_FILTER,
+  ID_GAME_FILTER,
+
   // Controls
   ID_VIEWER = 1001,
   ID_EDITOR,

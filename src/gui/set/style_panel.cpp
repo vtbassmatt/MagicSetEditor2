@@ -36,16 +36,24 @@ void StylePanel::initControls() {
   use_for_all   = new wxButton     (this, ID_STYLE_USE_FOR_ALL, _BUTTON_("use for all cards"));
   use_custom_options = new wxCheckBox(this, ID_STYLE_USE_CUSTOM, _BUTTON_("use custom styling options"));
   editor        = new StylingEditor(this, ID_EDITOR, wxNO_BORDER);
+
+  stylesheet_filter = new FilterCtrl(this, ID_STYLESHEET_FILTER, _LABEL_("search stylesheet list"), _HELP_("search stylesheet list control"));
+  stylesheet_filter->setFilter(stylesheet_filter_value);
+
   // init sizer
   wxSizer* s = new wxBoxSizer(wxHORIZONTAL);
     s->Add(preview, 0, wxRIGHT,  2);
     wxSizer* s2 = new wxBoxSizer(wxVERTICAL);
       s2->Add(list,        0, wxEXPAND | wxBOTTOM,                4);
-      s2->Add(use_for_all, 0, wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, 4);
-      wxSizer* s3 = new wxStaticBoxSizer(wxVERTICAL, this, _LABEL_("styling options"));
-        s3->Add(use_custom_options, 0, wxEXPAND | wxALL, 4);
-        s3->Add(editor,             2, wxEXPAND, 0);
-      s2->Add(s3, 1, wxEXPAND | wxALL, 2);
+      wxSizer* s3 = new wxBoxSizer(wxHORIZONTAL);
+        s3->Add(stylesheet_filter, 0, wxBOTTOM | wxALIGN_LEFT, 4);
+        s3->AddStretchSpacer();
+        s3->Add(use_for_all, 0, wxBOTTOM | wxALIGN_RIGHT, 4);
+      s2->Add(s3, wxSizerFlags().Expand().Border(wxALL, 6));
+      wxSizer* s4 = new wxStaticBoxSizer(wxVERTICAL, this, _LABEL_("styling options"));
+        s4->Add(use_custom_options, 0, wxEXPAND | wxALL, 4);
+        s4->Add(editor,             2, wxEXPAND, 0);
+      s2->Add(s4, 1, wxEXPAND | wxALL, 2);
     s->Add(s2,      1, wxEXPAND, 8);
   s->SetSizeHints(this);
   SetSizer(s);
@@ -62,7 +70,7 @@ void StylePanel::initUI(wxToolBar* tb, wxMenuBar* mb) {
 }
 
 void StylePanel::updateListSize() {
-  if (!isInitialized()) return;
+  if (!isInitialized() || list_size_already_initialized) return;
   // how many columns fit?
   size_t fit_columns = (size_t)((GetSize().y - 400) / 152);
   // we only need enough columns to show all items
@@ -74,7 +82,10 @@ void StylePanel::updateListSize() {
     list->column_count = column_count;
     static_cast<SetWindow*>(GetParent())->fixMinWindowSize();
   }
+
+  list_size_already_initialized = true;
 }
+
 bool StylePanel::Layout() {
   updateListSize();
   return SetWindowPanel::Layout();
@@ -125,6 +136,17 @@ void StylePanel::onAction(const Action& action, bool undone) {
   use_for_all->Enable(card && card->stylesheet);
   use_custom_options->Enable((bool)card);
   use_custom_options->SetValue(card ? card->has_styling : false);
+}
+
+void StylePanel::onStylesheetFilterUpdate(wxCommandEvent&) {
+  if (list->hasSelection()) {
+    StyleSheetP existingStylesheetSelection = list->getSelection<StyleSheet>(false);
+    list->setFilter(stylesheet_filter->getFilter<PackageData>());
+    list->select(existingStylesheetSelection->name());
+  }
+  else {
+    list->setFilter(stylesheet_filter->getFilter<PackageData>());
+  }
 }
 
 // ----------------------------------------------------------------------------- : Selection
@@ -187,6 +209,7 @@ void StylePanel::onUseCustom(wxCommandEvent&) {
 
 BEGIN_EVENT_TABLE(StylePanel, wxPanel)
   EVT_GALLERY_SELECT(wxID_ANY,             StylePanel::onStyleSelect)
+  EVT_COMMAND_RANGE(ID_STYLESHEET_FILTER, ID_STYLESHEET_FILTER, wxEVT_COMMAND_TEXT_UPDATED, StylePanel::onStylesheetFilterUpdate)
   EVT_BUTTON        (ID_STYLE_USE_FOR_ALL, StylePanel::onUseForAll)
   EVT_CHECKBOX      (ID_STYLE_USE_CUSTOM,  StylePanel::onUseCustom)
 END_EVENT_TABLE()

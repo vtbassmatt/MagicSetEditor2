@@ -9,6 +9,7 @@
 // ----------------------------------------------------------------------------- : Includes
 
 #include <util/prec.hpp>
+#include <gui/control/filter_ctrl.hpp>
 
 class PackageList;
 class Game;
@@ -34,6 +35,12 @@ private:
 
   // gui items
   PackageList*  game_list, *stylesheet_list;
+  
+  FilterCtrl* game_filter;
+  String game_filter_value;
+
+  FilterCtrl* stylesheet_filter;
+  String stylesheet_filter_value;
     
   // --------------------------------------------------- : events
   
@@ -41,6 +48,8 @@ private:
   
   void onStyleSheetSelect  (wxCommandEvent&);
   void onStyleSheetActivate(wxCommandEvent&);
+  void onStylesheetFilterUpdate(wxCommandEvent&);
+  void onGameFilterUpdate(wxCommandEvent&);
     
   virtual void OnOK(wxCommandEvent&);
   
@@ -73,11 +82,15 @@ private:
   
   // gui items
   PackageList*  stylesheet_list;
+
+  FilterCtrl* stylesheet_filter;
+  String stylesheet_filter_value;
     
   // --------------------------------------------------- : events
   
   void onStyleSheetSelect  (wxCommandEvent&);
   void onStyleSheetActivate(wxCommandEvent&);
+  void onStylesheetFilterUpdate(wxCommandEvent&);
     
   virtual void OnOK(wxCommandEvent&);
   
