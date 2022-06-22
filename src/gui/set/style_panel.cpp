@@ -46,9 +46,9 @@ void StylePanel::initControls() {
     wxSizer* s2 = new wxBoxSizer(wxVERTICAL);
       s2->Add(list,        0, wxEXPAND | wxBOTTOM,                4);
       wxSizer* s3 = new wxBoxSizer(wxHORIZONTAL);
-        s3->Add(stylesheet_filter, 0, wxBOTTOM | wxALIGN_LEFT, 4);
+        s3->Add(stylesheet_filter, 0, wxBOTTOM | wxLEFT, 4);
         s3->AddStretchSpacer();
-        s3->Add(use_for_all, 0, wxBOTTOM | wxALIGN_RIGHT, 4);
+        s3->Add(use_for_all, 0, wxBOTTOM | wxRIGHT, 4);
       s2->Add(s3, wxSizerFlags().Expand().Border(wxALL, 6));
       wxSizer* s4 = new wxStaticBoxSizer(wxVERTICAL, this, _LABEL_("styling options"));
         s4->Add(use_custom_options, 0, wxEXPAND | wxALL, 4);
