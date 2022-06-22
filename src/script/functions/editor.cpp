@@ -391,8 +391,12 @@ SCRIPT_FUNCTION(extra_data) {
   SCRIPT_PARAM_C(CardP, card);
   SCRIPT_PARAM_C(StyleSheetP, stylesheet);
 
+  // Transform input to standard field name syntax.
+  // Other functions are doing lookups for ValuePs, which I assume is doing some of this automatically.
+  String canonical_field_name = canonical_name_form(input);
+
   FOR_EACH(valueP, card->extraDataFor(*stylesheet)) {
-    if (valueP->fieldP->name == input) {
+    if (valueP->fieldP->name == canonical_field_name) {
       SCRIPT_RETURN(valueP);
     }
   }
