@@ -476,12 +476,10 @@ ConsolePanel::ConsolePanel(Window* parent, int id)
   entry_panel = new wxPanel(splitter, wxID_ANY);
   entry = new HistoryTextCtrl(entry_panel, wxID_ANY);
   wxButton* evaluate = new wxButton(entry_panel, ID_EVALUATE, _BUTTON_("evaluate"));
-  wxButton* clear = new wxButton(entry_panel, ID_CLEAR_CONSOLE, _BUTTON_("clear"));
   // init sizer for entry_panel
   wxSizer* se = new wxBoxSizer(wxHORIZONTAL);
   se->Add(entry,    1, wxEXPAND, 2);
   se->Add(evaluate, 0, wxEXPAND | wxLEFT, 2);
-  se->Add(clear, 0, wxEXPAND | wxLEFT, 2);
   entry_panel->SetSizer(se);
   // init splitter
   splitter->SetMinimumPaneSize(40);
