@@ -20,6 +20,7 @@ class HistoryTextCtrl;
 class ConsolePanel : public SetWindowPanel {
 public:
   ConsolePanel(Window* parent, int id);
+  ~ConsolePanel();
   
   // --------------------------------------------------- : UI
   
@@ -49,6 +50,8 @@ private:
   MessageCtrl* messages;
   wxPanel* entry_panel;
   HistoryTextCtrl* entry;
+
+  wxMenu* menuConsole;
   
   void get_pending_errors();
   void exec(String const& code);
