@@ -209,6 +209,7 @@ enum ChildMenuID {
   
   // Console panel
   ID_EVALUATE,
+  ID_CLEAR_CONSOLE,
   
   // SymbolFont (Format menu)
   ID_INSERT_SYMBOL_MENU_MIN =  9001,

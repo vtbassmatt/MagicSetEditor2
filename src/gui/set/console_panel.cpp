@@ -80,6 +80,14 @@ public:
   void add_message(MessageType type, String const& text, bool joined_to_previous = false) {
     add_message(make_intrusive<ConsoleMessage>(type,text,joined_to_previous));
   }
+
+  void clear_console() {
+    messages.clear();
+    layout_all();
+    selection = messages.size();
+    update_scrollbar();
+    Refresh(false);
+  }
   
   bool have_selection() const {
     return selection < messages.size();
@@ -455,6 +463,7 @@ END_EVENT_TABLE()
 
 ConsolePanel::ConsolePanel(Window* parent, int id)
   : SetWindowPanel(parent, id)
+  , menuConsole(nullptr)
   , messages(nullptr)
   , entry(nullptr)
   , is_active_window(false)
@@ -481,6 +490,14 @@ ConsolePanel::ConsolePanel(Window* parent, int id)
   s->Add(splitter, 1, wxEXPAND);
   s->SetSizeHints(this);
   SetSizer(s);
+
+  // init menus
+  menuConsole = new wxMenu();
+  add_menu_item_tr(menuConsole, ID_CLEAR_CONSOLE, "clear_console", "clear console");
+}
+
+ConsolePanel::~ConsolePanel() {
+  delete menuConsole;
 }
 
 void ConsolePanel::onChangeSet() {
@@ -501,12 +518,19 @@ void ConsolePanel::initUI(wxToolBar* tb, wxMenuBar* mb) {
   // stop blinker
   is_active_window = true;
   stop_blinker();
+
+  add_tool_tr(tb, ID_CLEAR_CONSOLE, "clear_console", "clear console");
+  tb->Realize();
+
+  mb->Insert(2, menuConsole, _MENU_("console"));
 }
 
 void ConsolePanel::destroyUI(wxToolBar* tb, wxMenuBar* mb) {
   // Toolbar
+  tb->DeleteTool(ID_CLEAR_CONSOLE);
   // Menus
-  
+  mb->Remove(2);
+
   // we are no longer active, allow blinker
   is_active_window = false;
 }
@@ -523,6 +547,9 @@ void ConsolePanel::onEnter(wxCommandEvent& ev) {
 void ConsolePanel::onCommand(int id) {
   if (id == ID_EVALUATE) {
     exec(entry->get_command_and_clear());
+  }
+  else if (id == ID_CLEAR_CONSOLE) {
+    messages->clear_console();
   }
 }
 

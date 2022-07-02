@@ -81,6 +81,9 @@ menu:
 	scatter:			S&catter Plot	4
 	scatter pie:		Sc&atter-Pie	5
 	
+	console:			Console
+	clear console:		&Clear Console	Ctrl+L
+
 	window:			&Window
 	new window:			&New Window
 	cards tab:			&Cards	Alt+1
@@ -197,6 +200,9 @@ help:
 	scatter:			A scatter plot, the size indicates the number of cards
 	scatter pie:		A scatter plot where each item is a small pie graph
 	
+	#console:
+	clear console:		Clear the console
+
 	#window:
 	new window:			Creates another window to edit the same set
 	cards tab:			Edit the cards in the set
@@ -352,6 +358,8 @@ tool:
 	free point:			Free
 	smooth point:		Smooth
 	symmetric point:	Symmetric
+
+	clear console:		Clear Console
 	
 ############################################################## Toolbar help text
 tooltip:
@@ -427,6 +435,8 @@ tooltip:
 	free point:			Unlock point
 	smooth point:		Make point smooth
 	symmetric point:	Make point symmetric
+
+	clear console:		Clear Console
 
 ############################################################## Labels in the GUI
 label:
@@ -583,6 +593,7 @@ button:
 	
 	# Console panel
 	evaluate:			&Evaluate
+	clear:				&Clear
 	
 	# Welcome
 	new set:			New set

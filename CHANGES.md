@@ -11,6 +11,7 @@ Features:
  * Add "Created At", "Last Modified At" columns to card list.
  * Add filter box to Game and Stylesheet selection.
  * Add extra_card("field name") script function for accessing Extra Card Fields.
+ * Add Clear button to console panel.
 
 ------------------------------------------------------------------------------
 HEAD: new items added as changes are made

@@ -61,6 +61,8 @@ tool/graph_stack IMAGE "tool/graph_stack.png"
 tool/graph_scatter IMAGE "tool/graph_scatter.png"
 tool/graph_scatter_pie IMAGE "tool/graph_scatter_pie.png"
 
+tool/clear_console IMAGE "tool/clear_console.png"
+
 tool/window_cards IMAGE "tool/window_cards.png"
 tool/window_set_info IMAGE "tool/window_set_info.png"
 tool/window_style IMAGE "tool/window_style.png"
