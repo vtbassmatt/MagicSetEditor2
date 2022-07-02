@@ -1,0 +1,27 @@
+Function: extra_data
+
+DOC_MSE_VERSION: since 2.2.0
+
+--Usage--
+> extra_data("field_name")
+
+Access the value of extra card fields.
+
+Due to lazy initialization of stylesheet specific Extra Card Fields they are not exposed directly from the card using `card.field_name` syntax.
+As a workaround this function returns the Value of the specified field name for the active card using an access pattern that supports late resolution of the value for the active stylesheet.
+
+--Parameters--
+! Parameter	Type	Description
+| @input@	[[type:string]]	Field name, with or without underscores.
+
+--Examples--
+
+>extra card field:
+>	...
+>	name: my first extra field
+>
+>extra card field:
+>	...
+>	name: my second extra field
+>	script:
+>>		space_to_comma(extra_data("my first extra field")) + "!"
