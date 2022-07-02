@@ -384,6 +384,26 @@ SCRIPT_FUNCTION(count_chosen) {
   }
 }
 
+// ----------------------------------------------------------------------------- : Extra Card Fields
+
+SCRIPT_FUNCTION(extra_data) {
+  SCRIPT_PARAM_C(String, input);
+  SCRIPT_PARAM_C(CardP, card);
+  SCRIPT_PARAM_C(StyleSheetP, stylesheet);
+
+  // Transform input to standard field name syntax.
+  // Other functions are doing lookups for ValuePs, which I assume is doing some of this automatically.
+  String canonical_field_name = canonical_name_form(input);
+
+  FOR_EACH(valueP, card->extraDataFor(*stylesheet)) {
+    if (valueP->fieldP->name == canonical_field_name) {
+      SCRIPT_RETURN(valueP);
+    }
+  }
+
+  return delay_error(ScriptErrorNoMember("extra_data()", input));
+}
+
 // ----------------------------------------------------------------------------- : Init
 
 void init_script_editor_functions(Context& ctx) {
@@ -396,4 +416,5 @@ void init_script_editor_functions(Context& ctx) {
   ctx.setVariable(_("exclusive_choice"),         script_exclusive_choice);
   ctx.setVariable(_("require_exclusive_choice"), script_require_exclusive_choice);
   ctx.setVariable(_("remove_choice"),            script_remove_choice);
+  ctx.setVariable(_("extra_data"),               script_extra_data);
 }

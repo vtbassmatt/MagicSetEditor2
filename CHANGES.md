@@ -10,6 +10,7 @@ Features:
  * Add Button to Center the loaded image in the Image Slice Window.
  * Add "Created At", "Last Modified At" columns to card list.
  * Add filter box to Game and Stylesheet selection.
+ * Add extra_card("field name") script function for accessing Extra Card Fields.
 
 ------------------------------------------------------------------------------
 HEAD: new items added as changes are made
