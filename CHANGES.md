@@ -12,6 +12,7 @@ Features:
  * Add filter box to Game and Stylesheet selection.
  * Add extra_card("field name") script function for accessing Extra Card Fields.
  * Add Clear button to console panel.
+ * Store images internally with PNG extension.
 
 ------------------------------------------------------------------------------
 HEAD: new items added as changes are made
