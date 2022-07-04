@@ -620,6 +620,7 @@ button:
 	always:							Always
 	if internet connection exists:	If internet connection exists
 	never:							Never
+	internal image extension: Store images internally with extension
 	
 	# Column select
 	move up:			Move &Up

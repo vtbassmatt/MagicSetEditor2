@@ -75,6 +75,8 @@ public:
 private:
   DECLARE_EVENT_TABLE();
 
+  wxCheckBox* internal_image_extension;
+
   wxComboBox* internal_scale;
   int internal_scale_int;
 
@@ -313,7 +315,10 @@ END_EVENT_TABLE  ()
 // ----------------------------------------------------------------------------- : Preferences page : internal
 
 InternalPreferencesPage::InternalPreferencesPage(Window* parent) : PreferencesPage(parent) {
+  internal_image_extension = new wxCheckBox(this, wxID_ANY, _BUTTON_("internal image extension"));
   internal_scale = new wxComboBox(this, ID_INTERNAL_SCALE);
+
+  internal_image_extension->SetValue(settings.internal_image_extension);
 
   internal_scale_int = static_cast<int>(settings.internal_scale * 100);
   internal_scale->SetValue(String::Format(_("%d%%"), internal_scale_int));
@@ -325,19 +330,22 @@ InternalPreferencesPage::InternalPreferencesPage(Window* parent) : PreferencesPa
 
   wxSizer* s = new wxBoxSizer(wxVERTICAL);
   wxSizer* s2 = new wxStaticBoxSizer(wxVERTICAL, this, _LABEL_("storage"));
-  wxSizer* s3 = new wxBoxSizer(wxHORIZONTAL);
-  s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_("scale")), 0, wxALL & ~wxLEFT, 4);
-  s3->AddSpacer(2);
-  s3->Add(internal_scale);
-  s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_("percent of normal")), 1, wxALL & ~wxRIGHT, 4);
-  s2->Add(s3);
-  s2->Add(new wxStaticText(this, wxID_ANY, _LABEL_("internal scale desc")), 0, wxALL & ~wxLEFT, 4);
+    wxSizer* s3 = new wxBoxSizer(wxHORIZONTAL);
+      s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_("scale")), 0, wxALL & ~wxLEFT, 4);
+      s3->AddSpacer(2);
+      s3->Add(internal_scale);
+      s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_("percent of normal")), 1, wxALL & ~wxRIGHT, 4);
+    s2->Add(s3);
+    s2->Add(new wxStaticText(this, wxID_ANY, _LABEL_("internal scale desc")), 0, wxALL & ~wxLEFT, 4);
+    s2->Add(internal_image_extension, 0, wxEXPAND | wxALL, 4);
   s->Add(s2, 0, wxEXPAND | wxALL, 8);
   s->SetSizeHints(this);
   SetSizer(s);
 }
 
 void InternalPreferencesPage::store() {
+  settings.internal_image_extension = internal_image_extension->GetValue();
+
   updateInternalScale();
   settings.internal_scale = internal_scale_int / 100.0;
 }
@@ -356,7 +364,7 @@ void InternalPreferencesPage::updateInternalScale() {
 }
 
 BEGIN_EVENT_TABLE(InternalPreferencesPage, wxPanel)
-EVT_COMBOBOX(ID_INTERNAL_SCALE, InternalPreferencesPage::onInternalScaleChange)
+  EVT_COMBOBOX(ID_INTERNAL_SCALE, InternalPreferencesPage::onInternalScaleChange)
 END_EVENT_TABLE()
 
 // ----------------------------------------------------------------------------- : Preferences page : directories

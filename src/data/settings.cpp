@@ -173,6 +173,7 @@ Settings::Settings()
   , symbol_grid_snap     (false)
   , print_layout         (LAYOUT_NO_SPACE)
   , internal_scale       (1.0)
+  , internal_image_extension(true)
   #if USE_OLD_STYLE_UPDATE_CHECKER
   , updates_url          (_("http://magicseteditor.sourceforge.net/updates"))
   #endif
@@ -260,6 +261,7 @@ IMPLEMENT_REFLECTION_NO_SCRIPT(Settings) {
   REFLECT(print_layout);
   REFLECT(apprentice_location);
   REFLECT(internal_scale);
+  REFLECT(internal_image_extension);
   #if USE_OLD_STYLE_UPDATE_CHECKER
     REFLECT(updates_url);
   #else
