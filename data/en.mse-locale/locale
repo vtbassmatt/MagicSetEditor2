@@ -521,8 +521,8 @@ label:
 	html export options:Export options
 	
 	# Image slicer
-	original:			Original:
-	result:				Result:
+	original:			Original (%s x %s):
+	result:				Result (%s x %s):
 	size:				Size
 	original size:			&Original Size
 	size to fit:			Size to &Fit
