@@ -41,8 +41,11 @@ void ImageValueEditor::sliceImage(const Image& image) {
   AlphaMask mask;
   style().mask.getNoCache(options,mask);
   // slice
-  RealSize desiredSliceSize = RealSize(style().getSize().width * settings.internal_scale, style().getSize().height * settings.internal_scale);
-  ImageSliceWindow s(wxGetTopLevelParent(&editor()), image, desiredSliceSize, mask);
+  // Specify a desired size based on the stylesheet and a scale multiplier defined within the user's settings.
+  // Storing at a greater than 100% resolution allows for better exports >100%, but may change how images look when filters (sharpen) are applied.
+  // Additionally, this bloats the set file size as even under-resolution images are upscaled to the new minimum size.
+  RealSize desired_slice_size = RealSize(style().getSize().width * settings.internal_scale, style().getSize().height * settings.internal_scale);
+  ImageSliceWindow s(wxGetTopLevelParent(&editor()), image, desired_slice_size, mask);
   // clicked ok?
   if (s.ShowModal() == wxID_OK) {
     // store the image into the set
