@@ -389,7 +389,10 @@ void ImageSlicePreview::update() {
 wxSize ImageSlicePreview::DoGetBestSize() const {
   // We know the client size we want, calculate the size that goes with that
   wxSize ws = GetSize(), cs = GetClientSize();
-  return slice.target_size + ws - cs;
+
+  // This just gets it back to 100% scale. Doesn't solve the sizing issue of the overall window.
+  // All the above are doing appears to be finding margins/borders and accounting for them on a fixed scale.
+  return slice.target_size / 2 + ws - cs;
 }
 
 void ImageSlicePreview::onPaint(wxPaintEvent&) {
@@ -414,6 +417,10 @@ void ImageSlicePreview::draw(DC& dc) {
     } else {
       bitmap = Bitmap(image);
     }
+
+    // Rescale the bitmap based on the available size.
+    auto available_size = DoGetBestSize();
+    bitmap = wxBitmap(bitmap.ConvertToImage().Scale(available_size.GetWidth(), available_size.GetHeight()));
   }
   if (bitmap.Ok()) {
     dc.DrawBitmap(bitmap, 0, 0);
