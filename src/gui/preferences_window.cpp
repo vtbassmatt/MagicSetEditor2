@@ -213,7 +213,7 @@ DisplayPreferencesPage::DisplayPreferencesPage(Window* parent)
 
     export_zoom_int = static_cast<int>(settings.default_stylesheet_settings.export_zoom() * 100);
     export_zoom->SetValue(String::Format(_("%d%%"), export_zoom_int));
-    int export_choices[] = { 50,66,75,100,120,150,200,300,400,500,600,700,800,900,1000 };
+    int export_choices[] = { 50,66,75,100,120,150,200 };
     for (unsigned int i = 0; i < sizeof(export_choices) / sizeof(export_choices[0]); ++i) {
         export_zoom->Append(String::Format(_("%d%%"), export_choices[i]));
     }
