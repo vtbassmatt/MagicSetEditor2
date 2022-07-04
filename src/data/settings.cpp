@@ -172,6 +172,7 @@ Settings::Settings()
   , symbol_grid          (true)
   , symbol_grid_snap     (false)
   , print_layout         (LAYOUT_NO_SPACE)
+  , internal_scale       (1.0)
   #if USE_OLD_STYLE_UPDATE_CHECKER
   , updates_url          (_("http://magicseteditor.sourceforge.net/updates"))
   #endif
@@ -258,6 +259,7 @@ IMPLEMENT_REFLECTION_NO_SCRIPT(Settings) {
   REFLECT(default_game);
   REFLECT(print_layout);
   REFLECT(apprentice_location);
+  REFLECT(internal_scale);
   #if USE_OLD_STYLE_UPDATE_CHECKER
     REFLECT(updates_url);
   #else

@@ -41,7 +41,7 @@ void ImageValueEditor::sliceImage(const Image& image) {
   AlphaMask mask;
   style().mask.getNoCache(options,mask);
   // slice
-  RealSize desiredSliceSize = RealSize(style().getSize().width * 2, style().getSize().height * 2);
+  RealSize desiredSliceSize = RealSize(style().getSize().width * settings.internal_scale, style().getSize().height * settings.internal_scale);
   ImageSliceWindow s(wxGetTopLevelParent(&editor()), image, desiredSliceSize, mask);
   // clicked ok?
   if (s.ShowModal() == wxID_OK) {

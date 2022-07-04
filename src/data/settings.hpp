@@ -193,6 +193,9 @@ public:
   // --------------------------------------------------- : Special game stuff
   String apprentice_location;
   
+  // --------------------------------------------------- : Internal settings
+  double internal_scale;
+
   // --------------------------------------------------- : Update checking
   #if USE_OLD_STYLE_UPDATE_CHECKER
     String updates_url;

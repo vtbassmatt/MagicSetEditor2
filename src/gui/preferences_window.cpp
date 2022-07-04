@@ -67,6 +67,21 @@ private:
   void updateExportZoom();
 };
 
+class InternalPreferencesPage : public PreferencesPage {
+public:
+  InternalPreferencesPage(Window* parent);
+  void store() override;
+
+private:
+  DECLARE_EVENT_TABLE();
+
+  wxComboBox* internal_scale;
+  int internal_scale_int;
+
+  void onInternalScaleChange(wxCommandEvent&);
+  void updateInternalScale();
+};
+
 // Preferences page for directories of programs
 // i.e. Apprentice, Magic Workstation
 // perhaps in the future also directories for packages?
@@ -108,6 +123,7 @@ PreferencesWindow::PreferencesWindow(Window* parent)
   wxNotebook* nb = new wxNotebook(this, ID_NOTEBOOK);
   nb->AddPage(new GlobalPreferencesPage (nb), _TITLE_("global"));
   nb->AddPage(new DisplayPreferencesPage(nb), _TITLE_("display"));
+  nb->AddPage(new InternalPreferencesPage(nb), _TITLE_("internal"));
   nb->AddPage(new DirsPreferencesPage   (nb), _TITLE_("directories"));
   nb->AddPage(new UpdatePreferencesPage (nb), _TITLE_("updates"));
   
@@ -294,6 +310,54 @@ BEGIN_EVENT_TABLE(DisplayPreferencesPage, wxPanel)
   EVT_TEXT_ENTER(ID_EXPORT_ZOOM, DisplayPreferencesPage::onExportZoomChange)
 END_EVENT_TABLE  ()
 
+// ----------------------------------------------------------------------------- : Preferences page : internal
+
+InternalPreferencesPage::InternalPreferencesPage(Window* parent) : PreferencesPage(parent) {
+  internal_scale = new wxComboBox(this, ID_INTERNAL_SCALE);
+
+  internal_scale_int = static_cast<int>(settings.internal_scale * 100);
+  internal_scale->SetValue(String::Format(_("%d%%"), internal_scale_int));
+
+  int choices[] = { 100,200 };
+  for (unsigned int i = 0; i < sizeof(choices) / sizeof(choices[0]); ++i) {
+    internal_scale->Append(String::Format(_("%d%%"), choices[i]));
+  }
+
+  wxSizer* s = new wxBoxSizer(wxVERTICAL);
+  wxSizer* s2 = new wxStaticBoxSizer(wxVERTICAL, this, _LABEL_("storage"));
+  wxSizer* s3 = new wxBoxSizer(wxHORIZONTAL);
+  s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_("scale")), 0, wxALL & ~wxLEFT, 4);
+  s3->AddSpacer(2);
+  s3->Add(internal_scale);
+  s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_("percent of normal")), 1, wxALL & ~wxRIGHT, 4);
+  s2->Add(s3);
+  s2->Add(new wxStaticText(this, wxID_ANY, _LABEL_("internal scale desc")), 0, wxALL & ~wxLEFT, 4);
+  s->Add(s2, 0, wxEXPAND | wxALL, 8);
+  s->SetSizeHints(this);
+  SetSizer(s);
+}
+
+void InternalPreferencesPage::store() {
+  updateInternalScale();
+  settings.internal_scale = internal_scale_int / 100.0;
+}
+
+void InternalPreferencesPage::onInternalScaleChange(wxCommandEvent&) {
+  updateInternalScale();
+}
+
+void InternalPreferencesPage::updateInternalScale() {
+  String s = internal_scale->GetValue();
+  int i = internal_scale_int;
+  if (wxSscanf(s.c_str(), _("%u"), &i)) {
+    internal_scale_int = min(max(i, 1), 1000);
+  }
+  internal_scale->SetValue(String::Format(_("%d%%"), (int)internal_scale_int));
+}
+
+BEGIN_EVENT_TABLE(InternalPreferencesPage, wxPanel)
+EVT_COMBOBOX(ID_INTERNAL_SCALE, InternalPreferencesPage::onInternalScaleChange)
+END_EVENT_TABLE()
 
 // ----------------------------------------------------------------------------- : Preferences page : directories
 

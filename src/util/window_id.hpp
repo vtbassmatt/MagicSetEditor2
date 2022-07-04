@@ -282,6 +282,8 @@ enum ControlID {
   ID_EXPORT_ZOOM_Y,
   ID_SHARPEN,
   ID_SHARPEN_AMOUNT,
+  // Internal window
+  ID_INTERNAL_SCALE,
   // Updates window
   ID_PACKAGE_LIST,
   ID_KEEP,
