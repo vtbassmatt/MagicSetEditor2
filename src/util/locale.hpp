@@ -87,7 +87,11 @@ String tr(const Package&, const String& subcat, const String& key, DefaultLocale
 #define _TOOLTIP_1_(s,a)  format_string(_TOOLTIP_(s), a)
 
 /// A localized string for tooltip labels, with 1 argument (printf style)
-#define _LABEL_1_(s,a)    format_string(_LABEL_(s),   a)
+#define _LABEL_1_(s,a)     format_string(_LABEL_(s),   a)
+/// A localized string for tooltip labels, with 2 argument (printf style)
+#define _LABEL_2_(s,a,b)   format_string(_LABEL_(s),   a, b)
+/// A localized string for tooltip labels, with 3 argument (printf style)
+#define _LABEL_3_(s,a,b,c) format_string(_LABEL_(s),   a, b, c)
 
 /// A localized string for button text, with 1 argument (printf style)
 #define _BUTTON_1_(s,a)    format_string(_BUTTON_(s), a)

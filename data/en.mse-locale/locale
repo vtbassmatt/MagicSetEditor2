@@ -487,12 +487,18 @@ label:
 	windows : Open sets
 	app language : Language of the user interface :
 	card display : Card Display
-	zoom : &Zoom :
-	export : &Export :
+	storage : Storage
+	zoom : &Zoom:
+	export : &Export:
+	scale : &Internal Scale:
 	percent of normal:	% of normal size
 	external programs:	External programs
 	apprentice:			&Apprentice:
 	apprentice exe:		Apprentice Executable
+	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	Check for new versions at startup
 	checking requires internet:
 		Checking for updates requires an internet connection.
@@ -521,8 +527,8 @@ label:
 	html export options:Export options
 	
 	# Image slicer
-	original:			Original:
-	result:				Result:
+	original:			Original (%s x %s):
+	result:				Result (%s x %s):
 	size:				Size
 	original size:			&Original Size
 	size to fit:			Size to &Fit
@@ -614,6 +620,7 @@ button:
 	always:							Always
 	if internet connection exists:	If internet connection exists
 	never:							Never
+	internal image extension: Store images internally with extension
 	
 	# Column select
 	move up:			Move &Up
@@ -676,6 +683,7 @@ title:
 	global:					Global
 	display:				Display
 	directories:			Directories
+	internal:               Internal
 	updates:				Updates
 	update check:			Update Check
 	locate apprentice:		Locate Apprentice

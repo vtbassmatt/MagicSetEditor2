@@ -133,11 +133,11 @@ ImageSliceWindow::ImageSliceWindow(Window* parent, const Image& source, const wx
     // top row: image editors
     wxSizer* s2 = new wxBoxSizer(wxHORIZONTAL);
       wxSizer* s3 = new wxBoxSizer(wxVERTICAL);
-        s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_("original")));
+        s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_2_("original", to_string(slice.source.GetWidth()), to_string(slice.source.GetHeight()))));
         s3->Add(selector, 1, wxEXPAND | wxTOP, 4);
       s2->Add(s3, 1, wxEXPAND | wxALL, 4);
       wxSizer* s4 = new wxBoxSizer(wxVERTICAL);
-        s4->Add(new wxStaticText(this, wxID_ANY, _LABEL_("result")));
+        s4->Add(new wxStaticText(this, wxID_ANY, _LABEL_2_("result", to_string(slice.target_size.GetWidth()), to_string(slice.target_size.GetHeight()))));
         s4->Add(preview, 0, wxTOP, 4);
       s2->Add(s4, 0, wxALL, 4);
     s->Add(s2, 1, wxEXPAND);
@@ -389,7 +389,13 @@ void ImageSlicePreview::update() {
 wxSize ImageSlicePreview::DoGetBestSize() const {
   // We know the client size we want, calculate the size that goes with that
   wxSize ws = GetSize(), cs = GetClientSize();
-  return slice.target_size + ws - cs;
+
+  float target_ratio = ((float)slice.target_size.GetWidth()) / ((float)slice.target_size.GetHeight());
+  if (target_ratio > 1.0) {
+    return wxSize(500, 500 / target_ratio);
+  } else {
+    return wxSize(500 * target_ratio, 500);
+  }
 }
 
 void ImageSlicePreview::onPaint(wxPaintEvent&) {
@@ -414,6 +420,10 @@ void ImageSlicePreview::draw(DC& dc) {
     } else {
       bitmap = Bitmap(image);
     }
+
+    // Rescale the bitmap based on the available size.
+    auto available_size = DoGetBestSize();
+    bitmap = wxBitmap(bitmap.ConvertToImage().Scale(available_size.GetWidth(), available_size.GetHeight()));
   }
   if (bitmap.Ok()) {
     dc.DrawBitmap(bitmap, 0, 0);
@@ -468,7 +478,13 @@ ImageSliceSelector::ImageSliceSelector(Window* parent, int id, ImageSlice& slice
   , slice(slice)
   , mouse_down(false)
 {
-  SetMinSize(wxSize(400, 300));
+  
+  float target_ratio = ((float) slice.source.GetWidth()) / ((float) slice.source.GetHeight());
+  if (target_ratio > 1.0) {
+    SetMinSize(wxSize(500, 500 / target_ratio));
+  } else {
+    SetMinSize(wxSize(500 * target_ratio, 500));
+  }
   SetBackgroundStyle(wxBG_STYLE_PAINT);
 }
 
