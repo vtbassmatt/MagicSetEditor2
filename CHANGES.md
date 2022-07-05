@@ -8,11 +8,14 @@ Features:
  * Independently control Export Zoom setting in Preferences Window.
  * Center the loaded image by default in the Image Slice Window.
  * Add Button to Center the loaded image in the Image Slice Window.
- * Add "Created At", "Last Modified At" columns to card list.
+ * Add "Created At", "Last Modified At" columns to card list (within magic.mse-game).
  * Add filter box to Game and Stylesheet selection.
  * Add extra_card("field name") script function for accessing Extra Card Fields.
  * Add Clear button to console panel.
- * Store images internally with PNG extension.
+ * Store images internally with PNG extension for ease of manual tinkering.
+ * Add ability to change scale (relative to template) of internally stored images.
+ * Impose some rudimentary constraints on the Image Slice Window's initial size.
+ * Merge String capitilization changes by @SoaringMoon.
 
 ------------------------------------------------------------------------------
 HEAD: new items added as changes are made
