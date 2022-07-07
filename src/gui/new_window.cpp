@@ -46,13 +46,13 @@ NewSetWindow::NewSetWindow(Window* parent)
     wxSizer* s2 = new wxBoxSizer(wxHORIZONTAL);
       s2->Add(game_text, 0, wxALL & ~wxLEFT, 4);
       s2->AddStretchSpacer();
-      s2->Add(game_filter, 1, wxALIGN_RIGHT, 4);
+      s2->Add(game_filter, 1, wxRIGHT, 4);
     s->Add(s2, wxSizerFlags().Expand().Border(wxALL, 6));
     s->Add(game_list,       0, wxEXPAND | (wxALL & ~wxTOP), 4);
     wxSizer* s3 = new wxBoxSizer(wxHORIZONTAL);
       s3->Add(stylesheet_text, 0, wxALL & ~wxLEFT, 4);
       s3->AddStretchSpacer();
-      s3->Add(stylesheet_filter, 1, wxALIGN_RIGHT, 4);
+      s3->Add(stylesheet_filter, 1, wxRIGHT, 4);
     s->Add(s3, wxSizerFlags().Expand().Border(wxALL, 6));
     s->Add(stylesheet_list, 0, wxEXPAND | (wxALL & ~wxTOP), 4);
     s->Add(CreateButtonSizer(wxOK | wxCANCEL) , 0, wxEXPAND | wxALL, 8);
@@ -193,7 +193,7 @@ SelectStyleSheetWindow::SelectStyleSheetWindow(Window* parent, const Game& game,
     wxSizer* s2 = new wxBoxSizer(wxHORIZONTAL);
       s2->Add(stylesheet_text, 0, wxALL & ~wxLEFT, 4);
       s2->AddStretchSpacer();
-      s2->Add(stylesheet_filter, 1, wxALIGN_RIGHT, 4);
+      s2->Add(stylesheet_filter, 1, wxRIGHT, 4);
     s->Add(s2, wxSizerFlags().Expand().Border(wxALL, 6));
     s->Add(stylesheet_list, 0, wxEXPAND | (wxALL & ~wxTOP), 4);
     s->Add(CreateButtonSizer(wxOK | wxCANCEL) , 0, wxEXPAND | wxALL, 8);
