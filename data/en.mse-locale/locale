@@ -239,8 +239,7 @@ help:
 	app language:
 		Note: You must restart MSE for the changes to take effect.
 	zoom export:
-		(When off, the cards are exported
-		 and copied at 400% size and normal rotation)
+		(When off, the cards are exported at normal rotation)
 	
 	# apprentice export
 	set code:			A set code is a two character code that is used by Apprentice to refer to a set.
@@ -614,13 +613,13 @@ button:
 	high quality:		&High quality rendering
 	show lines:			Show &lines around fields
 	show editing hints:	Show boxes and hints for &editing
-	zoom export:		Use zoom and rotation settings when e&xporting
+	zoom export:		Use Viewer rotation settings when e&xporting
 	spellcheck enabled:	Show &spelling errors on cards
 	check now:			Check &Now
 	always:							Always
 	if internet connection exists:	If internet connection exists
 	never:							Never
-	internal image extension: Store images internally with extension
+	internal image extension: Store images internally with file extension
 	
 	# Column select
 	move up:			Move &Up
