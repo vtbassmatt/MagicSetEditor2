@@ -35,7 +35,13 @@ private:
 Rotation UnzoomedDataViewer::getRotation() const {
   if (!stylesheet) stylesheet = set->stylesheet;
   int export_zoom = settings.stylesheetSettingsFor(set->stylesheetFor(card)).export_zoom();
-  return Rotation(angle, stylesheet->getCardRect(), export_zoom, 1.0, ROTATION_ATTACH_TOP_LEFT);
+  bool use_viewer_rotation = !settings.stylesheetSettingsFor(set->stylesheetFor(card)).card_normal_export();
+
+  if (use_viewer_rotation) {
+    return Rotation(DataViewer::getRotation().getAngle(), stylesheet->getCardRect(), export_zoom, 1.0, ROTATION_ATTACH_TOP_LEFT);
+  } else {
+    return Rotation(angle, stylesheet->getCardRect(), export_zoom, 1.0, ROTATION_ATTACH_TOP_LEFT);
+  }
 }
 
 Bitmap export_bitmap(const SetP& set, const CardP& card) {
