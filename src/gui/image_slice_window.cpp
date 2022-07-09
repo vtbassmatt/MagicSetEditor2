@@ -134,11 +134,11 @@ ImageSliceWindow::ImageSliceWindow(Window* parent, const Image& source, const wx
     // top row: image editors
     wxSizer* s2 = new wxBoxSizer(wxHORIZONTAL);
       wxSizer* s3 = new wxBoxSizer(wxVERTICAL);
-        s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_2_("original", to_string(slice.source.GetWidth()), to_string(slice.source.GetHeight()))));
+        s3->Add(new wxStaticText(this, wxID_ANY, _LABEL_2_("original with dimensions", to_string(slice.source.GetWidth()), to_string(slice.source.GetHeight()))));
         s3->Add(selector, 1, wxEXPAND | wxTOP, 4);
       s2->Add(s3, 1, wxEXPAND | wxALL, 4);
       wxSizer* s4 = new wxBoxSizer(wxVERTICAL);
-        s4->Add(new wxStaticText(this, wxID_ANY, _LABEL_2_("result", to_string(slice.target_size.GetWidth()), to_string(slice.target_size.GetHeight()))));
+        s4->Add(new wxStaticText(this, wxID_ANY, _LABEL_2_("result with dimensions", to_string(slice.target_size.GetWidth()), to_string(slice.target_size.GetHeight()))));
         s4->Add(preview, 0, wxTOP, 4);
       s2->Add(s4, 0, wxALL, 4);
     s->Add(s2, 1, wxEXPAND);
