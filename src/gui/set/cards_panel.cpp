@@ -313,7 +313,7 @@ void CardsPanel::onCommand(int id) {
     case ID_CARD_ROTATE_0: case ID_CARD_ROTATE_90: case ID_CARD_ROTATE_180: case ID_CARD_ROTATE_270: {
       StyleSheetSettings& ss = settings.stylesheetSettingsFor(set->stylesheetFor(card_list->getCard()));
       ss.card_angle.assign(
-          id == ID_CARD_ROTATE     ? sane_fmod(ss.card_angle() + 90, 360)
+          id == ID_CARD_ROTATE     ? fmod((360 - 90 + ss.card_angle()), 360)
         : id == ID_CARD_ROTATE_0   ? 0
         : id == ID_CARD_ROTATE_90  ? 90
         : id == ID_CARD_ROTATE_180 ? 180
