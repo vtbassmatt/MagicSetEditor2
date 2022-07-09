@@ -224,7 +224,9 @@ ColumnSettings& Settings::columnSettingsFor(const Game& game, const Field& field
   return cs;
 }
 StyleSheetSettings& Settings::stylesheetSettingsFor(const StyleSheet& stylesheet) {
-  StyleSheetSettingsP& ss = stylesheet_settings[stylesheet.name()];
+  // Use the canonical form here since the stylesheet name will be used as a stored key.
+  // This does introduce the possibility of collision if two stylesheets return the same value canonically, but I think that's just a necessary risk.
+  StyleSheetSettingsP& ss = stylesheet_settings[canonical_name_form(stylesheet.name())];
   if (!ss) ss = make_intrusive<StyleSheetSettings>();
   ss->useDefault(default_stylesheet_settings); // update default settings
   return *ss;

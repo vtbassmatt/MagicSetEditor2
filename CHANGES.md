@@ -18,7 +18,8 @@ Features:
  * Merge String capitilization changes by @SoaringMoon.
 
 Bug fixes:
- * Make viewer image rotate button operate clockwise to match dropdown options.
+ * Make viewer image rotate button operate clockwise to match dropdown options. (#9)
+ * Fix storage/retrieval of Stylesheet Settings when the stylesheet name includes spaces. (#8)
 
 ------------------------------------------------------------------------------
 HEAD: new items added as changes are made
