@@ -34,7 +34,7 @@ private:
 
 Rotation UnzoomedDataViewer::getRotation() const {
   if (!stylesheet) stylesheet = set->stylesheet;
-  int export_zoom = settings.stylesheetSettingsFor(set->stylesheetFor(card)).export_zoom();
+  double export_zoom = settings.stylesheetSettingsFor(set->stylesheetFor(card)).export_zoom();
   bool use_viewer_rotation = !settings.stylesheetSettingsFor(set->stylesheetFor(card)).card_normal_export();
 
   if (use_viewer_rotation) {
