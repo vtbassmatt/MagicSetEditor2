@@ -17,6 +17,9 @@ Features:
  * Impose some rudimentary constraints on the Image Slice Window's initial size.
  * Merge String capitilization changes by @SoaringMoon.
 
+Bug fixes:
+ * Make viewer image rotate button operate clockwise to match dropdown options.
+
 ------------------------------------------------------------------------------
 HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
