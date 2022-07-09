@@ -45,7 +45,7 @@ public:
   /// Attempt to center the current constraints
   void centerSelection();
   /// Get the sliced image
-  Image getSlice() const;
+  Image getSlice(double scale = 1.0) const;
   
   // Zoom factor
   inline double zoomX() const { return target_size.GetWidth()  / (double)selection.width;  }
@@ -63,7 +63,7 @@ public:
   ImageSliceWindow(Window* parent, const Image& source, const wxSize& target_size, const AlphaMask& target_mask);
   
   /// Return the sliced image
-  Image getImage() const;
+  Image getImage(double scale) const;
   
   // --------------------------------------------------- : Data
 private:

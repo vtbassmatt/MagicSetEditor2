@@ -61,12 +61,13 @@ void ImageSlice::centerSelection() {
     }
 }
 
-Image ImageSlice::getSlice() const {
-  if (selection.width == target_size.GetWidth() && selection.height == target_size.GetHeight() && selection.x == 0 && selection.y == 0) {
+Image ImageSlice::getSlice(double scale) const {
+  wxSize scaled_target_size = target_size * scale;
+  if (selection.width == scaled_target_size.GetWidth() && selection.height == scaled_target_size.GetHeight() && selection.x == 0 && selection.y == 0) {
     // exactly the right size
     return source.GetSubImage(selection);
   }
-  Image target(target_size.GetWidth(), target_size.GetHeight(), false);
+  Image target(scaled_target_size.GetWidth(), scaled_target_size.GetHeight(), false);
   if (sharpen && sharpen_amount > 0 && sharpen_amount <= 100) {
     sharp_resample_and_clip(source, target, selection, sharpen_amount);
   } else {
@@ -195,8 +196,8 @@ void ImageSliceWindow::onOk(wxCommandEvent&) {
   EndModal(wxID_OK);
 }
 
-Image ImageSliceWindow::getImage() const {
-  return slice.getSlice();
+Image ImageSliceWindow::getImage(double scale) const {
+  return slice.getSlice(scale);
 }
 
 // ----------------------------------------------------------------------------- : ImageSliceWindow : Controls

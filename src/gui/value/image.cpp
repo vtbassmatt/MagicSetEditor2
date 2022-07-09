@@ -41,16 +41,17 @@ void ImageValueEditor::sliceImage(const Image& image) {
   AlphaMask mask;
   style().mask.getNoCache(options,mask);
   // slice
-  // Specify a desired size based on the stylesheet and a scale multiplier defined within the user's settings.
-  // Storing at a greater than 100% resolution allows for better exports >100%, but may change how images look when filters (sharpen) are applied.
-  // Additionally, this bloats the set file size as even under-resolution images are upscaled to the new minimum size.
-  RealSize desired_slice_size = RealSize(style().getSize().width * settings.internal_scale, style().getSize().height * settings.internal_scale);
-  ImageSliceWindow s(wxGetTopLevelParent(&editor()), image, desired_slice_size, mask);
+  ImageSliceWindow s(wxGetTopLevelParent(&editor()), image, style().getSize(), mask);
   // clicked ok?
   if (s.ShowModal() == wxID_OK) {
     // store the image into the set
     LocalFileName new_image_file = getLocalPackage().newFileName(field().name, settings.internal_image_extension ? _(".png") : _("")); // a new unique name in the package
-    Image img = s.getImage();
+
+    // Specify a desired size based on the stylesheet and a scale multiplier defined within the user's settings.
+    // Storing at a greater than 100% resolution allows for better exports >100%, but may change how images look when filters (sharpen) are applied.
+    // It also disrupts some of the patterns in use for doing popout planeswalkers since you have to do the math at both scales.
+    // Additionally, this bloats the set file size as even under-resolution images are upscaled to the new minimum size.
+    Image img = s.getImage(settings.internal_scale);
     img.SaveFile(getLocalPackage().nameOut(new_image_file), wxBITMAP_TYPE_PNG); // always use PNG images, see #69. Disk space is cheap anyway.
     addAction(value_action(valueP(), new_image_file));
   }
