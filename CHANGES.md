@@ -16,6 +16,7 @@ Features:
  * Add ability to change scale (relative to template) of internally stored images.
  * Impose some rudimentary constraints on the Image Slice Window's initial size.
  * Merge String capitilization changes by @SoaringMoon.
+ * Add timestamps to console messages.
 
 Bug fixes:
  * Make viewer image rotate button operate clockwise to match dropdown options. (#9)
