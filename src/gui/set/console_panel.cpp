@@ -291,8 +291,8 @@ private:
     // draw timestamp
     dc.DrawText(msg.timestamp.FormatISOTime(), left + TIMESTAMP_PADDING, top + TEXT_PADDING_TOP);
 
-    wxSize timestamp_size = dc.GetTextExtent("55:55:55");
-    int timestamp_resolved_width = timestamp_size.GetWidth();
+    int timestamp_resolved_width;
+    dc.GetTextExtent(_("55:55:55"), &timestamp_resolved_width, nullptr);
 
     left += timestamp_resolved_width;
     left += TIMESTAMP_PADDING * 2;
