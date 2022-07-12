@@ -187,6 +187,10 @@ message_information IMAGE "message_information.png"
 message_warning IMAGE "message_warning.png"
 message_error IMAGE "message_error.png"
 
+shape_align_middle IMAGE "shape_align_middle.png"
+shape_align_center IMAGE "shape_align_center.png"
+shape_align_both IMAGE "shape_align_both.png"
+
 // -------------------------------------------------------- : WX
 
 //wxBITMAP_STD_COLOURS BITMAP "wx/msw/colours.bmp"

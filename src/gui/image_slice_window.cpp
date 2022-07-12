@@ -52,13 +52,20 @@ void ImageSlice::constrain(PreferedProperty prefer) {
 }
 
 void ImageSlice::centerSelection() {
-    if (selection.GetWidth() < source.GetWidth()) {
-        selection.x = ((source.GetWidth() - selection.GetWidth()) / 2);
-    }
+  centerSelectionHorizontally();
+  centerSelectionVertically();
+}
 
-    if (selection.GetHeight() < source.GetHeight()) {
-        selection.y = ((source.GetHeight() - selection.GetHeight()) / 2);
-    }
+void ImageSlice::centerSelectionHorizontally() {
+  if (selection.GetWidth() < source.GetWidth()) {
+    selection.x = ((source.GetWidth() - selection.GetWidth()) / 2);
+  }
+}
+
+void ImageSlice::centerSelectionVertically() {
+  if (selection.GetHeight() < source.GetHeight()) {
+    selection.y = ((source.GetHeight() - selection.GetHeight()) / 2);
+  }
 }
 
 Image ImageSlice::getSlice(double scale) const {
@@ -157,7 +164,23 @@ ImageSliceWindow::ImageSliceWindow(Window* parent, const Image& source, const wx
           s7->Add(width,  0, wxEXPAND);
           s7->Add(new wxStaticText(this, wxID_ANY, _LABEL_("selection height")), 0, wxALIGN_CENTER_VERTICAL);
           s7->Add(height, 0, wxEXPAND);
-          s7->Add(new wxButton(this, ID_SELECTION_CENTER, _LABEL_("selection center")), 0, wxALIGN_CENTER, 2);
+
+          s7->Add(new wxStaticText(this, wxID_ANY, _LABEL_("selection center")), 0, wxALIGN_CENTER_VERTICAL);
+          wxBoxSizer* s7A = new wxBoxSizer(wxHORIZONTAL);
+            wxBitmapButton* center_vertically_button = new wxBitmapButton(this, ID_SELECTION_CENTER_VERTICALLY, wxBitmap(load_resource_image(_("shape_align_middle"))));
+            center_vertically_button->SetToolTip(_LABEL_("selection center vertically"));
+            s7A->Add(center_vertically_button);
+            s7A->AddStretchSpacer();
+
+            wxBitmapButton* center_horizontally_button = new wxBitmapButton(this, ID_SELECTION_CENTER_HORIZONTALLY, wxBitmap(load_resource_image(_("shape_align_center"))));
+            center_horizontally_button->SetToolTip(_LABEL_("selection center horizontally"));
+            s7A->Add(center_horizontally_button);
+            s7A->AddStretchSpacer();
+
+            wxBitmapButton* center_button = new wxBitmapButton(this, ID_SELECTION_CENTER, wxBitmap(load_resource_image(_("shape_align_both"))));
+            center_button->SetToolTip(_LABEL_("selection center both"));
+            s7A->Add(center_button);
+          s7->Add(s7A, 1, wxEXPAND, 0);
         s6->Add(s7, 1, wxEXPAND | wxALL, 4);
       s5->Add(s6, 0, wxEXPAND | wxALL, 4);
       s5->AddStretchSpacer(1);
@@ -299,11 +322,22 @@ void ImageSliceWindow::onUpdateFromControl(PreferedProperty prefer) {
   updateControls();
 }
 
-void ImageSliceWindow::onSelectionCenter(wxCommandEvent&) {
-    slice.centerSelection();
-    preview->update();
-    selector->update();
-    updateControls();
+void ImageSliceWindow::onSelectionCenter(wxCommandEvent& ev) {
+  switch (ev.GetId()) {
+    case ID_SELECTION_CENTER:
+      slice.centerSelection();
+      break;
+    case ID_SELECTION_CENTER_HORIZONTALLY:
+      slice.centerSelectionHorizontally();
+      break;
+    case ID_SELECTION_CENTER_VERTICALLY:
+      slice.centerSelectionVertically();
+      break;
+  }
+    
+  preview->update();
+  selector->update();
+  updateControls();
 }
 
 void ImageSliceWindow::updateControls() {
@@ -357,6 +391,8 @@ BEGIN_EVENT_TABLE(ImageSliceWindow, wxDialog)
   EVT_TEXT      (ID_WIDTH,      ImageSliceWindow::onChangeWidth)
   EVT_TEXT      (ID_HEIGHT,      ImageSliceWindow::onChangeHeight)
   EVT_BUTTON (ID_SELECTION_CENTER, ImageSliceWindow::onSelectionCenter)
+  EVT_BUTTON(ID_SELECTION_CENTER_HORIZONTALLY, ImageSliceWindow::onSelectionCenter)
+  EVT_BUTTON(ID_SELECTION_CENTER_VERTICALLY, ImageSliceWindow::onSelectionCenter)
   EVT_CHECKBOX    (ID_FIX_ASPECT,    ImageSliceWindow::onChangeFixAspect)
   EVT_SPINCTRL    (ID_ZOOM,      ImageSliceWindow::onChangeZoom)
   EVT_SPINCTRL    (ID_ZOOM_X,      ImageSliceWindow::onChangeZoomX)
