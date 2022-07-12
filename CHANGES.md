@@ -6,20 +6,20 @@ FORK: Changes isolated to this fork
 
 Features:
  * Independently control Export Zoom setting in Preferences Window.
- * Center the loaded image by default in the Image Slice Window.
- * Add Button to Center the loaded image in the Image Slice Window.
- * Add filter box to Game and Stylesheet selection.
- * Add extra_card("field name") script function for accessing Extra Card Fields.
- * Add Clear button to console panel.
- * Store images internally with PNG extension for ease of manual tinkering.
- * Add ability to change scale (relative to template) of internally stored images.
+ * Center align the loaded image by default in the Image Slice Window.
+ * Add Buttons to Align the loaded image in the Image Slice Window. (haganbmj/#18)
+ * Add filter box to Game and Stylesheet selection. (haganbmj/#1)
+ * Add `extra_card("field name")` script function for accessing Extra Card Fields. (haganbmj/#2)
+ * Add Clear button to console panel. (haganbmj/#4)
+ * Store images internally with PNG extension for ease of manual tinkering. (haganbmj/#5)
+ * Add ability to change scale (relative to template) of internally stored images. (haganbmj/#6, haganbmj/#15)
  * Impose some rudimentary constraints on the Image Slice Window's initial size.
- * Merge String capitilization changes by @SoaringMoon.
- * Add timestamps to console messages.
+ * Merge String capitilization changes by @SoaringMoon. (#144)
+ * Add timestamps to console messages. (haganbmj/#16)
 
 Bug fixes:
- * Make viewer image rotate button operate clockwise to match dropdown options. (#9)
- * Fix storage/retrieval of Stylesheet Settings when the stylesheet name includes spaces. (#8)
+ * Make viewer image rotate button operate clockwise to match dropdown options. (haganbmj/#9)
+ * Fix storage/retrieval of Stylesheet Settings when the stylesheet name includes spaces. (haganbmj/#8)
 
 ------------------------------------------------------------------------------
 HEAD: new items added as changes are made
