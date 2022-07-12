@@ -8,12 +8,9 @@
 
 /data/**/*
 
+# Explicitly include the English locale files as they relate to UI changes.
 !/data/en.mse-locale/
 !/data/en.mse-locale/**/*
-!/data/magic.mse-game/
-!/data/magic.mse-game/**/*
-!/data/magic-blends.mse-include/
-!/data/magic-blends.mse-include/**/*
 
 /build_*
 /build

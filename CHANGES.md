@@ -8,7 +8,6 @@ Features:
  * Independently control Export Zoom setting in Preferences Window.
  * Center the loaded image by default in the Image Slice Window.
  * Add Button to Center the loaded image in the Image Slice Window.
- * Add "Created At", "Last Modified At" columns to card list (within magic.mse-game).
  * Add filter box to Game and Stylesheet selection.
  * Add extra_card("field name") script function for accessing Extra Card Fields.
  * Add Clear button to console panel.
