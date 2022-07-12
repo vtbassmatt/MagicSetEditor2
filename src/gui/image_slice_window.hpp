@@ -44,6 +44,8 @@ public:
   void constrain(PreferedProperty prefer = PREFER_NONE);
   /// Attempt to center the current constraints
   void centerSelection();
+  void centerSelectionHorizontally();
+  void centerSelectionVertically();
   /// Get the sliced image
   Image getSlice(double scale = 1.0) const;
   
