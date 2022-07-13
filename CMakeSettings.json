@@ -20,8 +20,7 @@
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x86" ],
-      "cmakeToolchain": "C:/git/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      "inheritEnvironments": [ "msvc_x86" ]
     },
     {
       "name": "x64-Debug",
@@ -54,8 +53,7 @@
       "cmakeCommandArgs": "-DVCPKG_TARGET_TRIPLET=x86-windows-static",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x86" ],
-      "cmakeToolchain": "C:/git/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      "inheritEnvironments": [ "msvc_x86" ]
     },
     {
       "name": "x64-Release-static",
