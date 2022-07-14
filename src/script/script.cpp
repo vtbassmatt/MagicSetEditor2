@@ -74,6 +74,8 @@ void init_script_variables() {
   Var(card_style);
   Var(card);
   Var(styling);
+  Var(extra_card_style);
+  Var(extra_card);
   Var(value);
   Var(condition);
   Var(language);

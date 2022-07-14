@@ -142,6 +142,8 @@ enum Variable
 ,  SCRIPT_VAR_card_style
 ,  SCRIPT_VAR_card
 ,  SCRIPT_VAR_styling
+,  SCRIPT_VAR_extra_card_style
+,  SCRIPT_VAR_extra_card
 ,  SCRIPT_VAR_value
 ,  SCRIPT_VAR_condition
 ,  SCRIPT_VAR_language
