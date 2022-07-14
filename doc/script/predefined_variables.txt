@@ -10,6 +10,8 @@ Aside from the [[fun:index|built in functions]] the following variables are prov
 | @card@	[[type:card]]	not in @init script@s or when exporting
 		 		 		The current card.
 | @card_style@	[[type:indexmap]] of [[type:style]]s	where @card@ is available	Style properties for the current card, the same as @stylesheet.card_style@.
+| @extra_card@	[[type:indexmap]] of [[type:value]]s		field values for the current card as defined by the stylesheet.
+| @extra_card_style@	[[type:indexmap]] of [[type:style]]	where @card@ is available	Style properties for the current card as added by the stylesheet.
 | @styling@	[[type:indexmap]] of [[type:value]]s	where @card@ is available	Styling options for the stylesheet/card.
 | @value@	[[type:value]]				when evaluating a [[type:field]]'s @script@ or @default@ script		Current value in the field.
 | @options@	[[type:indexmap]] of [[type:value]]s	when exporting			Options of the [[type:export template]].
