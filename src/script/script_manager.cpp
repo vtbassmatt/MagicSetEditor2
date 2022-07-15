@@ -40,8 +40,15 @@ Context& SetScriptContext::getContext(const StyleSheetP& stylesheet) {
     ctx.setVariable(SCRIPT_VAR_game,       to_script(set.game));
     ctx.setVariable(SCRIPT_VAR_stylesheet, to_script(stylesheet));
     ctx.setVariable(SCRIPT_VAR_card_style, to_script(&stylesheet->card_style));
+
+    // I'm not entirely clear on why a "dummy value" is necessary here.
+    // It doesn't appear that these are getting accessed until a card is found anyways, so they don't trip any errors that I could see.
+    // Retaining the format just for consistency in case there's something that I missed.
     ctx.setVariable(SCRIPT_VAR_card, set.cards.empty() ? script_nil : to_script(set.cards.front())); // dummy value
-    ctx.setVariable(SCRIPT_VAR_styling,    to_script(&set.stylingDataFor(*stylesheet)));
+    ctx.setVariable(SCRIPT_VAR_styling, to_script(&set.stylingDataFor(*stylesheet)));
+    ctx.setVariable(SCRIPT_VAR_extra_card_style, to_script(&stylesheet->extra_card_style)); // dummy value
+    ctx.setVariable(SCRIPT_VAR_extra_card, set.cards.empty() ? script_nil : to_script(&set.cards.front()->extraDataFor(*stylesheet))); // dummy value
+    
     try {
       // perform init scripts, don't use a scope, variables stay bound in the context
       try {
@@ -67,9 +74,13 @@ Context& SetScriptContext::getContext(const CardP& card) {
   if (card) {
     ctx.setVariable(SCRIPT_VAR_card,    to_script(card));
     ctx.setVariable(SCRIPT_VAR_styling, to_script(&set.stylingDataFor(card)));
+    ctx.setVariable(SCRIPT_VAR_extra_card_style, to_script(&stylesheet->extra_card_style));
+    ctx.setVariable(SCRIPT_VAR_extra_card, to_script(&card->extraDataFor(*stylesheet)));
   } else {
     ctx.setVariable(SCRIPT_VAR_card,    ScriptValueP());
     ctx.setVariable(SCRIPT_VAR_styling, to_script(&set.stylingDataFor(*stylesheet)));
+    ctx.setVariable(SCRIPT_VAR_extra_card_style, script_nil);
+    ctx.setVariable(SCRIPT_VAR_extra_card, script_nil);
   }
   return ctx;
 }
