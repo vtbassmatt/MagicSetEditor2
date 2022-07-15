@@ -423,16 +423,21 @@ void ImageSlicePreview::update() {
   Refresh(false);
 }
 
-wxSize ImageSlicePreview::DoGetBestSize() const {
-  // We know the client size we want, calculate the size that goes with that
-  wxSize ws = GetSize(), cs = GetClientSize();
-
+wxSize ImageSlicePreview::getBestSliceSize() const {
   float target_ratio = ((float)slice.target_size.GetWidth()) / ((float)slice.target_size.GetHeight());
   if (target_ratio > 1.0) {
     return wxSize(500, 500 / target_ratio);
   } else {
     return wxSize(500 * target_ratio, 500);
   }
+}
+
+wxSize ImageSlicePreview::DoGetBestSize() const {
+  // We know the client size we want, calculate the size that goes with that
+  // This helps with applying margins and other spacing necessities.
+  wxSize ws = GetSize(), cs = GetClientSize();
+
+  return getBestSliceSize() + ws - cs;
 }
 
 void ImageSlicePreview::onPaint(wxPaintEvent&) {
@@ -459,7 +464,7 @@ void ImageSlicePreview::draw(DC& dc) {
     }
 
     // Rescale the bitmap based on the available size.
-    auto available_size = DoGetBestSize();
+    auto available_size = getBestSliceSize();
     bitmap = wxBitmap(bitmap.ConvertToImage().Scale(available_size.GetWidth(), available_size.GetHeight()));
   }
   if (bitmap.Ok()) {

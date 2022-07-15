@@ -138,6 +138,7 @@ private:
   // --------------------------------------------------- : Events
   DECLARE_EVENT_TABLE();
   
+  wxSize getBestSliceSize() const;
   wxSize DoGetBestSize() const override;
   
   void onLeftDown(wxMouseEvent&);
