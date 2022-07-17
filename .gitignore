@@ -19,3 +19,5 @@
 /resource/RC*
 
 /resource/expected_locale_keys
+
+package.ps1
