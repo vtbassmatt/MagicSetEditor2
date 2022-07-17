@@ -154,7 +154,9 @@ void CardsPanel::onChangeSet() {
   ((wxMenu*)menuCard)->Insert(4,insertManyCardsMenu); // HACK: the position is hardcoded
   // also for the toolbar dropdown menu
   if (toolAddCard) {
-    toolAddCard->SetDropdownMenu(makeAddCardsSubmenu(true));
+    // Originally this was using the menu directly, but there are compatibility issues apparently.
+    // At this point it might be possible to just store a reference to the toolbar directly instead.
+    toolAddCard->GetToolBar()->SetDropdownMenu(ID_CARD_ADD, makeAddCardsSubmenu(true));
   }
 }
 
@@ -186,7 +188,7 @@ void CardsPanel::initUI(wxToolBar* tb, wxMenuBar* mb) {
   add_tool_tr(tb, ID_FORMAT_SYMBOL, "symbol", "symbols", false, wxITEM_CHECK);
   add_tool_tr(tb, ID_FORMAT_REMINDER, "reminder", "reminder_text", false, wxITEM_CHECK);
   tb->AddSeparator();
-  add_tool_tr(tb, ID_CARD_ADD, "card_add", "add_card", false, wxITEM_DROPDOWN);
+  toolAddCard = add_tool_tr(tb, ID_CARD_ADD, "card_add", "add_card", false, wxITEM_DROPDOWN);
   tb->SetDropdownMenu(ID_CARD_ADD, makeAddCardsSubmenu(true));
   add_tool_tr(tb, ID_CARD_REMOVE, "card_del", "remove_card");
   tb->AddSeparator();
