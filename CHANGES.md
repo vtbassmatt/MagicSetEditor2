@@ -1,35 +1,36 @@
 Magic Set Editor changelog, for the details see `git log`
 ==============================================================================
 
-FORK: Changes isolated to this fork
-------------------------------------------------------------------------------
-
-Features:
- * Independently control Export Zoom setting in Preferences Window.
- * Center align the loaded image by default in the Image Slice Window.
- * Add Buttons to Align the loaded image in the Image Slice Window. (haganbmj/#18)
- * Add filter box to Game and Stylesheet selection. (haganbmj/#1)
- * Expose `extra_card` and `extra_card_style` script for accessing Extra Card Fields/Styles. (haganbmj/#20)
- * Add Clear button to console panel. (haganbmj/#4)
- * Store images internally with PNG extension for ease of manual tinkering. (haganbmj/#5)
- * Add ability to change scale (relative to template) of internally stored images. (haganbmj/#6, haganbmj/#15)
- * Impose some rudimentary constraints on the Image Slice Window's initial size.
- * Merge String capitilization changes by @SoaringMoon. (#144)
- * Add timestamps to console messages. (haganbmj/#16)
-
-Bug fixes:
- * Make viewer image rotate button operate clockwise to match dropdown options. (haganbmj/#9)
- * Fix storage/retrieval of Stylesheet Settings when the stylesheet name includes spaces. (haganbmj/#8)
-
 ------------------------------------------------------------------------------
 HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
 Features:
- * You can now check/uncheck all selected cards in the export window (#93)
 
-Template features:
- * Localization of game/stylesheet/symbol_font names is now done in those templates, instead of via the program-wide locale file. (#100)
+------------------------------------------------------------------------------
+version 2.2.0 (Unofficial), 2022-07-16
+------------------------------------------------------------------------------
+
+Features:
+ * Independently control Export Zoom setting in Preferences Window.
+ * Center align the loaded image by default in the Image Slice Window.
+ * Add Buttons to Align the loaded image in the Image Slice Window. (haganbmj#18)
+ * Add filter box to Game and Stylesheet selection. (haganbmj#1)
+ * Add Clear button to console panel. (haganbmj#4)
+ * Store images internally with PNG extension for ease of manual tinkering. (haganbmj#5)
+ * Add ability to change scale (relative to template) of internally stored images. (haganbmj#6, haganbmj#15)
+ * Impose some rudimentary constraints on the Image Slice Window's initial size.
+ * Merge String capitilization changes by @SoaringMoon. (twanvl#144)
+ * Add timestamps to console messages. (haganbmj#16)
+ * You can now check/uncheck all selected cards in the export window (twanvl#93)
+
+Template Features
+ * Expose `extra_card` and `extra_card_style` script for accessing Extra Card Fields/Styles. (haganbmj#20)
+ * Localization of game/stylesheet/symbol_font names is now done in those templates, instead of via the program-wide locale file. (twanvl#100)
+
+Bug fixes:
+ * Make viewer image rotate button operate clockwise to match dropdown options. (haganbmj#9)
+ * Fix storage/retrieval of Stylesheet Settings when the stylesheet name includes spaces. (haganbmj#8)
 
 ------------------------------------------------------------------------------
 version 2.1.2, 2020-09-28
