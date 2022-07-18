@@ -7,6 +7,9 @@ HEAD: new items added as changes are made
 
 Features:
 
+Bug fixes:
+ * Fix Add Cards toolbar not showing script multi-add functions on initial load (twanvl#153)
+
 ------------------------------------------------------------------------------
 version 2.2.0 (Unofficial), 2022-07-16
 ------------------------------------------------------------------------------
