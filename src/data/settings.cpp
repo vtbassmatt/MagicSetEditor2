@@ -122,7 +122,7 @@ IMPLEMENT_REFLECTION_NO_SCRIPT(GameSettings) {
 
 StyleSheetSettings::StyleSheetSettings()
   : card_zoom              (1.0,  true)
-  , export_zoom            (2.0,  true)
+  , export_zoom            (1.0,  true)
   , card_angle             (0,    true)
   , card_anti_alias        (true, true)
   , card_borders           (true, true)
