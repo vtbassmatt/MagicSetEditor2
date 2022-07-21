@@ -9,8 +9,8 @@
 /data/**/*
 
 # Explicitly include the English locale files as they relate to UI changes.
-!/data/en.mse-locale/
-!/data/en.mse-locale/**/*
+!/data/*.mse-locale/
+!/data/*.mse-locale/**/*
 
 /build_*
 /build
