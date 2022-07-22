@@ -483,7 +483,14 @@ bool TextValueEditor::onChar(wxKeyEvent& ev) {
       }
       return true;
     default:
-      #ifdef __WXMSW__
+      #if defined UNICODE
+      // I think in theory this works because the UnicodeKey is intended to be only character values.
+      // See the following link for pretty much an exact example of this type of handling.
+      // https://docs.wxwidgets.org/3.0/classwx_key_event.html#a3dccc5a254770931e5d8066ef47e7fb0
+      // Most of the special keys (<32) are handled in the case structure above anyways.
+      // I tried to replicate the Numpad issue mentioned below, but couldn't - so unclear if that's still relevant.
+      if (ev.GetUnicodeKey() >= WXK_SPACE) {
+      #elif defined __WXMSW__
       if (ev.GetKeyCode() >= _(' ') && ev.GetKeyCode() == (int)ev.GetRawKeyCode()) {
         // This check is need, otherwise pressing a key, say "0" on the numpad produces "a0"
         // (don't ask me why)

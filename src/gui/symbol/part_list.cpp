@@ -267,7 +267,9 @@ void SymbolPartList::onChar(wxKeyEvent& ev) {
         break;
       default:
         // See gui/value/text.cpp
-        #ifdef __WXMSW__
+        #if defined UNICODE
+        if (ev.GetUnicodeKey() >= WXK_SPACE) {
+        #elif defined __WXMSW__
         if (ev.GetKeyCode() >= _(' ') && ev.GetKeyCode() == (int)ev.GetRawKeyCode()) {
         #else
         if (ev.GetKeyCode() >= _(' ') /*&& ev.GetKeyCode() == (int)ev.GetRawKeyCode()*/) {
