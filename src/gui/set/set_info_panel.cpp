@@ -36,6 +36,7 @@ void SetInfoPanel::initUI(wxToolBar* tb, wxMenuBar* mb) {
   // Toolbar
   add_tool_tr(tb, ID_FORMAT_BOLD, "bold", "bold", false, wxITEM_CHECK);
   add_tool_tr(tb, ID_FORMAT_ITALIC, "italic", "italic", false, wxITEM_CHECK);
+  add_tool_tr(tb, ID_FORMAT_UNDERLINE, "underline", "underline", false, wxITEM_CHECK);
   add_tool_tr(tb, ID_FORMAT_SYMBOL, "symbol", "symbols", false, wxITEM_CHECK);
   add_tool_tr(tb, ID_FORMAT_REMINDER, "reminder", "reminder_text", false, wxITEM_CHECK);
   tb->Realize();
@@ -43,6 +44,7 @@ void SetInfoPanel::initUI(wxToolBar* tb, wxMenuBar* mb) {
   auto menuFormat = new wxMenu();
     add_menu_item_tr(menuFormat, ID_FORMAT_BOLD, "bold", "bold", wxITEM_CHECK);
     add_menu_item_tr(menuFormat, ID_FORMAT_ITALIC, "italic", "italic", wxITEM_CHECK);
+    add_menu_item_tr(menuFormat, ID_FORMAT_UNDERLINE, "underline", "underline", wxITEM_CHECK);
     add_menu_item_tr(menuFormat, ID_FORMAT_SYMBOL, "symbol", "symbols", wxITEM_CHECK);
     add_menu_item_tr(menuFormat, ID_FORMAT_REMINDER, "reminder", "reminder_text", wxITEM_CHECK);
   mb->Insert(2, menuFormat, _MENU_("format"));
@@ -54,6 +56,7 @@ void SetInfoPanel::destroyUI(wxToolBar* tb, wxMenuBar* mb) {
   // Toolbar
   tb->DeleteTool(ID_FORMAT_BOLD);
   tb->DeleteTool(ID_FORMAT_ITALIC);
+  tb->DeleteTool(ID_FORMAT_UNDERLINE);
   tb->DeleteTool(ID_FORMAT_SYMBOL);
   tb->DeleteTool(ID_FORMAT_REMINDER);
   // Menus
@@ -62,7 +65,7 @@ void SetInfoPanel::destroyUI(wxToolBar* tb, wxMenuBar* mb) {
 
 void SetInfoPanel::onUpdateUI(wxUpdateUIEvent& ev) {
   switch (ev.GetId()) {
-    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_SYMBOL: case ID_FORMAT_REMINDER: {
+    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_UNDERLINE: case ID_FORMAT_SYMBOL: case ID_FORMAT_REMINDER: {
       ev.Enable(editor->canFormat(ev.GetId()));
       ev.Check (editor->hasFormat(ev.GetId()));
       break;
@@ -72,7 +75,7 @@ void SetInfoPanel::onUpdateUI(wxUpdateUIEvent& ev) {
 
 void SetInfoPanel::onCommand(int id) {
   switch (id) {
-    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_SYMBOL: case ID_FORMAT_REMINDER: {
+    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_UNDERLINE: case ID_FORMAT_SYMBOL: case ID_FORMAT_REMINDER: {
       editor->doFormat(id);
       break;
     }

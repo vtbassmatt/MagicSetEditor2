@@ -68,6 +68,7 @@ menu:
 	format:			F&ormat
 	bold:				&Bold	Ctrl+B
 	italic:				&Italic	Ctrl+I
+	underline:          &Underline	Ctrl+U
 	symbols:			&Symbols	Ctrl+M
 	reminder text:		&Reminder Text	Ctrl+R
 	insert symbol:		I&nsert Symbol
@@ -188,6 +189,7 @@ help:
 	#format:
 	bold:				Makes the selected text bold
 	italic:				Makes the selected text italic
+	underline:          Makes the selected text underlined
 	symbols:			Draws the selected text with symbols
 	reminder text:		Show reminder text for the selected keyword
 	# spelling
@@ -390,6 +392,7 @@ tooltip:
 	
 	bold:				Bold
 	italic:				Italic
+	underline:          Underline
 	symbols:			Symbols
 	reminder text:		Reminder Text
 	

@@ -805,7 +805,7 @@ bool TextValueEditor::doDelete() {
 
 bool TextValueEditor::canFormat(int type) const {
   switch (type) {
-    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC:
+    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_UNDERLINE:
       return !style().always_symbol && style().allow_formating;
     case ID_FORMAT_SYMBOL:
       return !style().always_symbol && style().allow_formating && style().symbol_font.valid();
@@ -823,6 +823,8 @@ bool TextValueEditor::hasFormat(int type) const {
       return is_in_tag(value().value(), _("<b"),   selection_start_i, selection_end_i);
     case ID_FORMAT_ITALIC:
       return is_in_tag(value().value(), _("<i"),   selection_start_i, selection_end_i);
+    case ID_FORMAT_UNDERLINE:
+      return is_in_tag(value().value(), _("<u"), selection_start_i, selection_end_i);
     case ID_FORMAT_SYMBOL:
       return is_in_tag(value().value(), _("<sym"), selection_start_i, selection_end_i);
     case ID_FORMAT_REMINDER: {
@@ -847,6 +849,10 @@ void TextValueEditor::doFormat(int type) {
     }
     case ID_FORMAT_ITALIC: {
       addAction(toggle_format_action(valueP(), _("i"),   selection_start_i, selection_end_i, selection_start, selection_end, _("Italic")));
+      break;
+    }
+    case ID_FORMAT_UNDERLINE: {
+      addAction(toggle_format_action(valueP(), _("u"), selection_start_i, selection_end_i, selection_start, selection_end, _("Underline")));
       break;
     }
     case ID_FORMAT_SYMBOL: {
