@@ -645,7 +645,7 @@ String simplify_tagged(const String& str) {
 // (where </tag> is the negation of tag)
 bool add_or_cancel_tag(const String& tag, String& stack, bool all = false) {
   if (all || starts_with(tag, _("/")) ||
-      starts_with(tag, _("b")) || starts_with(tag, _("i")) || starts_with(tag, _("sym"))) {
+      starts_with(tag, _("b")) || starts_with(tag, _("i")) || starts_with(tag, _("sym")) || starts_with(tag, _("u"))) {
     // cancel out all close tags, but not all open tags,
     // so <xx></xx> is always removed
     // but </xx><xx> is not
@@ -692,8 +692,8 @@ String simplify_tagged_overlap(const String& str) {
     Char c = str.GetChar(i);
     if (c == _('<')) {
       String tag = tag_at(str, i);
-      if (starts_with(tag,  _("b")) || starts_with(tag,  _("i")) || starts_with(tag,  _("sym")) ||
-          starts_with(tag, _("/b")) || starts_with(tag, _("/i")) || starts_with(tag, _("/sym"))) {
+      if (starts_with(tag,  _("b")) || starts_with(tag,  _("i")) || starts_with(tag,  _("sym")) || starts_with(tag, _("u")) ||
+          starts_with(tag, _("/b")) || starts_with(tag, _("/i")) || starts_with(tag, _("/sym")) || starts_with(tag, _("/u"))) {
         // optimize this tag
         if (open_tags.find(_("<") + tag + _(">")) == String::npos) {
           // we are not already inside this tag

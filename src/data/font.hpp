@@ -60,7 +60,7 @@ public:
   }
   
   /// Add style to a font, and optionally change the font family, color and size
-  FontP make(int add_flags, String const* other_family, Color const* other_color, double const* other_size) const;
+  FontP make(int add_flags, bool add_underline, String const* other_family, Color const* other_color, double const* other_size) const;
   
   /// Convert this font to a wxFont
   wxFont toWxFont(double scale) const;
