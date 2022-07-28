@@ -37,6 +37,18 @@ SCRIPT_FUNCTION(to_card_image) {
 
 // ----------------------------------------------------------------------------- : Image functions
 
+SCRIPT_FUNCTION(width_of) {
+  SCRIPT_PARAM(GeneratedImageP, input);
+  Image image = input->generate(GeneratedImage::Options());
+  SCRIPT_RETURN(image.GetWidth());
+}
+
+SCRIPT_FUNCTION(height_of) {
+  SCRIPT_PARAM(GeneratedImageP, input);
+  Image image = input->generate(GeneratedImage::Options());
+  SCRIPT_RETURN(image.GetHeight());
+}
+
 SCRIPT_FUNCTION(linear_blend) {
   SCRIPT_PARAM(GeneratedImageP, image1);
   SCRIPT_PARAM(GeneratedImageP, image2);
@@ -218,6 +230,8 @@ SCRIPT_FUNCTION(built_in_image) {
 void init_script_image_functions(Context& ctx) {
   ctx.setVariable(_("to_image"),         script_to_image);
   ctx.setVariable(_("to_card_image"),    script_to_card_image);
+  ctx.setVariable(_("width_of"),         script_width_of);
+  ctx.setVariable(_("height_of"),        script_height_of);
   ctx.setVariable(_("linear_blend"),     script_linear_blend);
   ctx.setVariable(_("masked_blend"),     script_masked_blend);
   ctx.setVariable(_("combine_blend"),    script_combine_blend);
