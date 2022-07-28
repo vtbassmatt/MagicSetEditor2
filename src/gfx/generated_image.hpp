@@ -348,6 +348,19 @@ private:
   String name;
 };
 
+// ----------------------------------------------------------------------------- : Arbitrary
+
+class ArbitraryImage : public GeneratedImage {
+public:
+    inline ArbitraryImage(const Image image)
+        : image(image)
+    {}
+    Image generate(const Options& opt) const override;
+    bool operator == (const GeneratedImage& that) const override;
+private:
+    Image image;
+};
+
 // ----------------------------------------------------------------------------- : SymbolToImage
 
 /// Use a symbol as an image

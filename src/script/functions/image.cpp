@@ -16,6 +16,7 @@
 #include <data/stylesheet.hpp>
 #include <data/symbol.hpp>
 #include <data/field/symbol.hpp>
+#include <data/format/formats.hpp>
 #include <gfx/generated_image.hpp>
 #include <render/symbol/filter.hpp>
 
@@ -26,6 +27,12 @@ void parse_enum(const String&, ImageCombine& out);
 SCRIPT_FUNCTION(to_image) {
   SCRIPT_PARAM_C(GeneratedImageP, input);
   return input;
+}
+
+SCRIPT_FUNCTION(to_card_image) {
+  SCRIPT_PARAM(Set*, set);
+  SCRIPT_PARAM(CardP, input);
+  return make_intrusive<ArbitraryImage>(export_bitmap(set, input).ConvertToImage());
 }
 
 // ----------------------------------------------------------------------------- : Image functions
@@ -210,6 +217,7 @@ SCRIPT_FUNCTION(built_in_image) {
 
 void init_script_image_functions(Context& ctx) {
   ctx.setVariable(_("to_image"),         script_to_image);
+  ctx.setVariable(_("to_card_image"),    script_to_card_image);
   ctx.setVariable(_("linear_blend"),     script_linear_blend);
   ctx.setVariable(_("masked_blend"),     script_masked_blend);
   ctx.setVariable(_("combine_blend"),    script_combine_blend);
