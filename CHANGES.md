@@ -6,6 +6,7 @@ HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
 Features:
+ * Add ability to underline text using `<u>` tags or panel buttons/hotkeys. (haganbmj#30)
 
 Bug fixes:
 
