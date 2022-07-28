@@ -39,6 +39,7 @@ tool/find IMAGE "tool/find.png"
 
 tool/bold IMAGE "tool/bold.png"
 tool/italic IMAGE "tool/italic.png"
+tool/underline IMAGE "tool/underline.png"
 tool/symbol IMAGE "tool/symbol.png"
 tool/reminder IMAGE "tool/reminder.png"
 tool/no_auto IMAGE "tool/no_auto.png"
