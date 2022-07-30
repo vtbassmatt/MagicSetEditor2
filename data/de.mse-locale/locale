@@ -1,4 +1,5 @@
-﻿mse version: 2.0.0
+﻿#_DEL #_DEL mse version: 2.0.0
+#_ADD mse version: 2.0.2
 installer group: translations/deutsch
 full name: Deutsch
 version: 2013-08-13
@@ -11,6 +12,7 @@ menu:
 	open set:			&Öffnen...	Ctrl+O
 	save set:			&Speichern	Ctrl+S
 	save set as:		Speichern unter...	F12
+#_ADD	save set as directory:		Save As Directory...
 	export:				&Exportieren
 	export html:			&HTML exportieren...
 	export image:			Bild exportieren...
@@ -28,8 +30,15 @@ menu:
 	undo:				Rückgängig:%s	Ctrl+Z
 	redo:				Wiederholen:%s	Ctrl+Y
 	cut:				Ausschneiden	Ctrl+X
+#_ADD	cut card:		Cu&t	Ctrl+X
+#_ADD	cut keyword:	Cu&t	Ctrl+X
 	copy:				Kopieren	Ctrl+C
+#_ADD	copy card:			&Copy	Ctrl+C
+#_ADD	copy keyword:		&Copy	Ctrl+C
 	paste:				Einfügen	Ctrl+V
+#_ADD	paste card:		&Paste	Ctrl+V
+#_ADD	paste keyword:	&Paste	Ctrl+V
+#_ADD	select all:				Select &All	Ctrl+A
 	find:				Suchen	Ctrl+F
 	find next:			Nächstes Ergebnis	F3
 	replace:			Ersetzen	Ctrl+H
@@ -39,6 +48,7 @@ menu:
 	cards:			&Karten
 	previous card:		Vorherige Karte	PgUp
 	next card:		Nächste Karte	PgDn
+#_ADD	search cards:			&Search Cards	Ctrl+K
 	add card:		Karte Hinzufügen	Ctrl+Enter
 	add cards:			Mehrere hinzufügen...
 	remove card:		Markierte Entfernen 	Del
@@ -52,6 +62,7 @@ menu:
 	keywords:		&Fähigkeiten
 	previous keyword:	Vorherige	PgUp
 	next keyword:		Nächste	PgDn
+#_ADD	search keywords:			&Search Keywords	Ctrl+K
 	add keyword:		Hinzufügen	Ctrl+Enter
 	remove keyword:		Markierte Enfernen	Del
 	
@@ -71,15 +82,19 @@ menu:
 	scatter:			&Blase	4
 	scatter pie:		G&estreute Kreise	5
 	
+#_ADD	console:			Console
+#_ADD	clear console:		&Clear Console	Ctrl+L
+#_ADD 
 	window:			&Ansicht
 	new window:			&Neues Fenster
 	cards tab:			&Karten	F5
-	set info tab:		&Editionsinformationen	F6
+#_DEL	set info tab:		&Editionsinformationen	F6
 	style tab:			Aussehen	F7
+#_ADD	set info tab:		&Set Information	Alt+3
 	keywords tab:		Fähigkeiten	F8
 	stats tab:			S&tatistik	F9
 	random pack tab:		&Zufällige Packs
-#_ADD	console tab:		&Console	Ctrl+F9
+#_ADD	console tab:		&Console	Alt+7
 	
 	help:			&Hilfe
 	index:				&Index...	F1
@@ -111,12 +126,14 @@ menu:
 help:
 	welcome:			Willkommen im Magic Set Editor
 	
-	file:
+#_DEL	file:
+#_ADD	#file:
 	new set:			Neue Edition erstellen
 	open set:			Bestehende Edition öffnen
 	last opened set:		Zuletzt geöffnetes '%s'
 	save set:			Edition speichern
 	save set as:		Edition speichern als...
+#_ADD	save set as directory:		Save the set as a directory with separate files for each card
 	export:				Edition exporieren...
 	export html:			Exportieren der Edition in html
 	export image:			Exportieren des gewählten Bildes
@@ -130,7 +147,8 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:				Beendet Magic Set Editor
 	
-	edit:
+#_DEL	edit:
+#_ADD	#edit:
 	undo:				Macht die letzte Aktion rückgängig
 	redo:				Wiederholt die letzte Aktion
 	cut:				Verschiebt die Daten in die Zwischenablage
@@ -142,15 +160,18 @@ help:
 	paste:				Fügt den Text der Zwischenablage ein
 	paste card:			Fügt den Karte der Zwischenablage ein
 	paste keyword:		Fügt die Fähigkeit der Zwischenablage ein
+#_ADD	select all:				Select all text
 	find:				Sucht den Text in einer Karte
 	find next:			Zeigt das nächste Ergebnis an
 	replace:			Ersetzt den karten Text
 	auto replace:		Ersetzt den text ohne Bestätigung
 	preferences:		Ändert die Einstellungen
 	
-	cards:
+#_DEL	cards:
+#_ADD	#cards:
 	previous card:		Wählt die vorherige Karte der Liste
 	next card:			Wählt die nächste Karte der Liste
+#_ADD	search cards:		Filter the card list using search terms
 	add card:			Fügt eine neue Karte zur Edition hinzu
 	add cards:			Fügt mehrere Karten zur Edition hinzu
 	remove card:		Entfernt die gewählte Karte aus der Edition
@@ -162,13 +183,16 @@ help:
 	rotate 180:				Dreht die Karte um 180°
 	card list columns:	Wähle die Spalten, die angezeigt werden sollen.
 	
-	keywords:
+#_DEL	keywords:
+#_ADD	#keywords:
 	previous keyword:	Wählt die vorherige Fähigkeit
 	next keyword:		Wählt die nächste Fähigkeit
+#_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		Fügt eine neue Fähigkeit hinzu
 	remove keyword:		Löscht die markierte Fähigkeit
 	
-	format:
+#_DEL	format:
+#_ADD	#format:
 	bold:				Formatiert den Text Fett
 	italic:				Formatiert den Text Kursiv
 	symbols:			Formatiert den Text als Symbol
@@ -176,14 +200,19 @@ help:
 #_ADD	# spelling
 #_ADD	no spelling suggestions:	There are no suggestions for correcting this error
 	
-	graph:
+#_DEL	graph:
+#_ADD	#graph:
 	pie:				Ein Kreisdiagramm, die Größe der Kreise zeigt die Anzahl der Karten an
 	bar:				Ein Balkendiagramm, die Größe der Balken zeigt die Anzahl der Karten an
 	stack:				Ein Balkendiagramm mit gestapelten Säulen
 	scatter:			Ein Blasendiagramm, die Größe der Blase zeigt die Anzahl der Karten an
 	scatter pie:		Gestreute Kreise, wobei jeder Kreis ein Kreisdiagramm ist
 	
-	window:
+#_DEL	window:
+#_ADD	#console:
+#_ADD	clear console:		Clear the console
+#_ADD 
+#_ADD	#window:
 	new window:			Erstellt ein neues Fenster mit der gleichen Edition
 	cards tab:			Bearbeite die Karten der Edition
 	set info tab:		Bearbeite die Informationen der Edition
@@ -193,14 +222,22 @@ help:
 	random pack tab:	Testet wie das Set funktionieren würde, indem es ufällige Booster Packs erstellt.
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-	help:
+#_DEL	help:
+#_ADD	#help:
 	index:				
 	website:			
 	about:				
 	
+#_ADD	# New Set Window
+#_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD 
 	# Cards panel
 	collapse notes:		Versteckt die Karten-Notiz-Box
 	expand notes:		Teigt die Karten-Notiz-Box
+#_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	# Keywords panel
+#_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 	random seed:		Erstellt jedes mal andere Packs.
 	fixed seed:			Indem man dieselbe Nummer verwendet, bekommt man dieselben "zufälligen" Packs.
@@ -233,7 +270,8 @@ help:
 	grid:				Gitternetz anzeigen
 	snap:				Punkte und Objekte am Gitternetz ausrichten
 	
-	tool:
+#_DEL	tool:
+#_ADD	#tool:
 	select:				Wählt Objekte aus und bewegt es
 	rotate:				Dreht Objekte
 	points:				Bearbeitet die Punkte des Objektes
@@ -241,7 +279,8 @@ help:
 	symmetry:			Symmetrisches Symbol hinzufügen
 	paint:				Zeichnet ein Objekt mit dem Pinsel
 	
-	select editor:
+#_DEL	select editor:
+#_ADD	#select editor:
 	merge:				Vermischt das Objekt mit den Darunterliegenden
 	subtract:			Entfernt gemeinsame Flächen
 	intersect:			Zeigt nur die gemeinsame Fläche an
@@ -332,6 +371,8 @@ tool:
 	smooth point:		Glätten
 	symmetric point:	Symmetrisch
 	
+#_ADD	clear console:		Clear Console
+#_ADD	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:		Karten	
@@ -371,12 +412,12 @@ tooltip:
 	scatter:			Blasendiagramm
 	scatter pie:		Gestreute Kreise
 	
-	cards tab:			Karten
-	set info tab:		Editionsinformationen
-	style tab:			Kartenstyle
-	keywords tab:		Fähigkeiten
-	stats tab:		Statistiken		
-	
+#_DEL	cards tab:			Karten
+#_DEL	set info tab:		Editionsinformationen
+#_DEL	style tab:			Kartenstyle
+#_DEL	keywords tab:		Fähigkeiten
+#_DEL	stats tab:		Statistiken		
+#_DEL	
 	# symbol editor
 	store symbol:		Symbol für diese Edition übernehmen
 	
@@ -413,14 +454,16 @@ tooltip:
 	smooth point:		Punkt glätten
 	symmetric point:	Punkt symmetrisch ausrichten
 
+#_ADD	clear console:		Clear Console
+#_ADD 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
 	card notes:			Kartenanmerkung:
-#_ADD	search cards:		Search for cards...
+#_ADD	search cards:		Search cards (Ctrl+K)
 	
 	# Keywords tab
-#_ADD	search keywords:	Search for keywords...
+#_ADD	search keywords:	Search keywords (Ctrl+K)
 	keyword:			Schlagwort
 	match:				Fähigkeit
 	mode:				Modus
@@ -441,9 +484,9 @@ label:
 	seed:				Nummer
 	total cards:		Gesamtkarten
 	
-	# Open dialogs
-	all files			Alle Dateien
-	
+#_DEL	# Open dialogs
+#_DEL	all files			Alle Dateien
+#_DEL	
 	# Other set window dialogs
 	save changes:
 		Die Edition '%s' wurde geändert.
@@ -453,6 +496,8 @@ label:
 	# New set window
 	game type:			&Spieltyp:
 	style type:			&Style:
+#_ADD	search game list:   Filter Games
+#_ADD	search stylesheet list: Filter Stylesheets
 	
 	stylesheet not found:
 		Die ausgewählte Edition benutzt das Stylesheet "%s" .
@@ -463,11 +508,21 @@ label:
 #_ADD	windows:			Open sets
 	app language:		Sprache der Benutzeroberfläche:
 	card display:		Kartenaussehen
+#_ADD	storage: 			Storage
 	zoom:				&Zoom:
+#_ADD	export: 			&Export:
+#_ADD	scale: 				&Internal Scale:
 	percent of normal:	% der Normalgröße
 	external programs:	Externe Programme
 	apprentice:			&Rohling:
 	apprentice exe:		Rohling-Exe
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
+#_ADD	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	Beim Start auf neue Version überprüfen
 	checking requires internet:
 		Das Überprüfen benötigt eine offene Internetverbindung.
@@ -482,7 +537,7 @@ label:
 	# Card select / images export
 	select cards:			Wähle Karten zum exportieren
 	selected card count:	%s Karten werden exportiert.
-	select cards print:	Wähle die zu druckenden Karten aus
+#_DEL	select cards print:	Wähle die zu druckenden Karten aus
 	filename format:	&Format: 
 	filename conflicts:	&Doppelte Dateinamen:
 	export filenames:	Dateinamen exportieren
@@ -499,6 +554,8 @@ label:
 	# Image slicer
 	original:			Original:
 	result:				Ergebnis:
+#_ADD	original with dimensions: Original (%s x %s):
+#_ADD	result with dimensions:	Result (%s x %s):
 	size:				Größe
 	original size:			&Originalgröße
 	size to fit:			Markierung anpassen
@@ -509,7 +566,12 @@ label:
 	selection top:			&Oben
 	selection width:		&Breite
 	selection height:		&Höhe
-	zoom:				Zoom
+#_DEL	zoom:				Zoom
+#_ADD	selection center:				Center
+#_ADD	selection center vertically:	Center Vertically
+#_ADD	selection center horizontally:	Center Horizontally
+#_ADD	selection center both:			Center Both
+#_ADD	#zoom:				Zoom
 	fix aspect ratio:		Fix aspect ratio (width/height)
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X
@@ -568,6 +630,7 @@ button:
 	
 	# Console panel
 #_ADD	evaluate:			&Evaluate
+#_ADD	clear:				&Clear
 	
 	# Welcome
 	new set:			Neue Edition
@@ -588,6 +651,7 @@ button:
 	always:							Immer (empfohlen)
 	if internet connection exists:	Wenn Internetverbindung besteht
 	never:							Niemals
+#_ADD	internal image extension: Store images internally with file extension
 	
 	# Column select
 	move up:			A&ufwärts
@@ -640,6 +704,7 @@ title:
 	new set:			Neue Edition
 	open set:			Edition öffnen
 	save set:			Edition speichern als
+#_ADD	save set as directory:	Save Set As Directory
 	save image:			Bild speichern
 	updates available:	Updates verfügbar
 	save changes:		Änderungen speichern?
@@ -649,6 +714,7 @@ title:
 	global:					Global
 	display:				Aussehen
 	directories:			Verzeichnisse
+#_ADD	internal:               Internal
 	updates:				Updates
 	update check:			Auf Updates überprüfen
 	locate apprentice:		Apprentice lokalisieren
@@ -656,6 +722,7 @@ title:
 	select columns:		Wähle Spalten
 	select cards:		Wähle Karten
 	select cards export:Wählen die Export-Karten
+#_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		Bildeinstellungen
 #_ADD	# pack
@@ -791,6 +858,10 @@ error:
 	# Stats panel
 	dimension not found:				Keine Statistikdimension '%s'
 	
+		There is already a pack type named '%s'.
+		Please choose a different name.
+		There is already a pack type named '%s'.
+		Please choose a different name.
 #_ADD	# Random packs
 #_ADD	pack type duplicate name:
 		There is already a pack type named '%s'.

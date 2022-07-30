@@ -1,4 +1,5 @@
-﻿mse version: 2.0.0
+﻿#_DEL #_DEL mse version: 2.0.0
+#_ADD mse version: 2.0.2
 installer group: translations/japanese
 full name: 日本語 (Japanese)
 version: 2013-08-13
@@ -11,6 +12,7 @@ menu:
 	open set:			&開く...	Ctrl+O
 	save set:			&上書き保存	Ctrl+S
 	save set as:		名前をつけて保存...	F12
+#_ADD	save set as directory:		Save As Directory...
 	export:				&輸出
 	export html:			&HTML...
 	export image:			カード&イメージ...
@@ -28,8 +30,15 @@ menu:
 	undo:				&元に戻す%s	Ctrl+Z
 	redo:				&やり直し%s	Ctrl+Y
 	cut:				切り取り	Ctrl+X
+#_ADD	cut card:		Cu&t	Ctrl+X
+#_ADD	cut keyword:	Cu&t	Ctrl+X
 	copy:				&コピー	Ctrl+C
+#_ADD	copy card:			&Copy	Ctrl+C
+#_ADD	copy keyword:		&Copy	Ctrl+C
 	paste:				&貼り付け	Ctrl+V
+#_ADD	paste card:		&Paste	Ctrl+V
+#_ADD	paste keyword:	&Paste	Ctrl+V
+#_ADD	select all:				Select &All	Ctrl+A
 	find:				&検索	Ctrl+F
 	find next:			次を検索	F3
 	replace:			置換	Ctrl+H
@@ -39,6 +48,7 @@ menu:
 	cards:			&カード
 	previous card:		前のカードを選択	PgUp
 	next card:			次のカードを選択	PgDn
+#_ADD	search cards:			&Search Cards	Ctrl+K
 	add card:			&カードを追加	Ctrl+Enter
 	add cards:			&複数のカードを追加...
 	remove card:		&選択したカードを削除
@@ -52,6 +62,7 @@ menu:
 	keywords:		&キーワード
 	previous keyword:	前のキーワードを選択	PgUp
 	next keyword:		次のキーワードを選択	PgDn
+#_ADD	search keywords:			&Search Keywords	Ctrl+K
 	add keyword:		&キーワードを追加		Ctrl+Enter
 	remove keyword:		&キーワードを削除	Del
 	
@@ -71,15 +82,19 @@ menu:
 	scatter:			&散布図	4
 	scatter pie:		&散乱-パイ		5
 	
+#_ADD	console:			Console
+#_ADD	clear console:		&Clear Console	Ctrl+L
+#_ADD 
 	window:			&ウィンドウ
 	new window:			&新しいウィンドウ
 	cards tab:			&カード	F5
-	set info tab:		&セットの情報	F6
+#_DEL	set info tab:		&セットの情報	F6
 	style tab:			スタイル	F7
+#_ADD	set info tab:		&Set Information	Alt+3
 	keywords tab:		&キーワード		F8
 	stats tab:			統計	F9
-#_ADD	random pack tab:	&Random Packs
-#_ADD	console tab:		&Console	Ctrl+F9
+#_ADD	random pack tab:	&Random Packs	Alt+6
+#_ADD	console tab:		&Console	Alt+7
 	
 	help:			&ヘルプ
 	index:				&索引...	F1
@@ -111,12 +126,14 @@ menu:
 help:
 	welcome:			Magic Set Editor 2 へようこそ
 	
-	file:
+#_DEL	file:
+#_ADD	#file:
 	new set:			新しいセットを作成します。
 	open set:			既存のセットを開きます。
 	last opened set:	直前に '%s' を開く。 
 	save set:			現在のセットを保存します。
 	save set as:		現在のセットを新しい名前で保存します。
+#_ADD	save set as directory:		Save the set as a directory with separate files for each card
 	export:				エクスポート...
 	export html:			現在のセットをHTML形式で出力します。
 	export image:			選択したカードの画像を出力します。
@@ -130,7 +147,8 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:				Magic Set Editorを終了します。
 	
-	edit:
+#_DEL	edit:
+#_ADD	#edit:
 	undo:				直前に行った操作を元に戻します。
 	redo:				直前に行った操作をやり直します。
 	cut:				選択したテキストをクリップボードに移動します。
@@ -142,15 +160,18 @@ help:
 	paste:				クリップボードのテキストを挿入します。
 	paste card:			クリップボードのカードを挿入します。
 	paste keyword:		クリップボードのキーワード能力を挿入します。
+#_ADD	select all:				Select all text
 	find:				カードテキストから指定したテキストを検索します。
 	find next:			次に適合するテキストを検索します。
 	replace:			カードテキストから指定したテキストを置換します。
 	auto replace:		どのテキストが自動的に置き換えられるべきですか？
 	preferences:		Magic Set Editorの設定を変更します。
 	
-	cards:
+#_DEL	cards:
+#_ADD	#cards:
 	previous card:		リストの前のカードを選択します。
 	next card:			リストの次のカードを選択します。
+#_ADD	search cards:		Filter the card list using search terms
 	add card:			新しいカードを現在のセットに加えます。
 	add cards:			複数のカードを現在のセットに加えます。
 	remove card:		現在のセットから選ばれたカードを削除します。
@@ -162,13 +183,16 @@ help:
 	rotate 180:				カードを180°回転させて表示します。
 	card list columns:	表示させる列の設定を行います。
 	
-	keywords:
+#_DEL	keywords:
+#_ADD	#keywords:
 	previous keyword:	リストの前のキーワード能力を選択します。
 	next keyword:		リストの次のキーワード能力を選択します。
+#_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		新しいキーワード能力を現在のセットに加えます。
 	remove keyword:		現在のセットから選ばれたキーワード能力を削除します。
 	
-	format:
+#_DEL	format:
+#_ADD	#format:
 	bold:				選択したテキストを太字(ボールド体)にします。
 	italic:				選択したテキストを斜体(イタリック体)にします。
 	symbols:			選択したテキストをマナ・シンボルなどのシンボルにします。
@@ -176,14 +200,19 @@ help:
 #_ADD	# spelling
 #_ADD	no spelling suggestions:	There are no suggestions for correcting this error
 
-	graph:
+#_DEL	graph:
+#_ADD	#graph:
 	pie:				を円グラフ、スライスのサイズのカードの数を示します
 	bar:				バーグラフは、バーの高さをカードの数を示します
 	stack:					バーグラフを積み重ねバー
 	scatter:			散布図は、カードの大きさの数を示します
 	scatter pie:		各アイテムを散布図では、小さなパイグラフ
 	
-	window:
+#_DEL	window:
+#_ADD	#console:
+#_ADD	clear console:		Clear the console
+#_ADD 
+#_ADD	#window:
 	new window:			同じセットを編集するために、もう一つのウィンドウを表示します。
 	cards tab:			現在のセットのカードを編集します。
 	set info tab:		現在のセットについての情報を表示します。
@@ -193,14 +222,22 @@ help:
 #_ADD	random pack tab:	Try how the set works out in practice by generating random booster packs.
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-	help:
+#_DEL	help:
+#_ADD	#help:
 	index:				
 	website:			
 	about:				
 	
+#_ADD	# New Set Window
+#_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD 
 	# Cards panel
 #_ADD	collapse notes:		Hide the card notes box
 #_ADD	expand notes:		Show the card notes box
+#_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	# Keywords panel
+#_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 #_ADD	random seed:		Different packs will be generated each time.
 #_ADD	fixed seed:			Using the same seed number gives the same 'random' packs.
@@ -233,7 +270,8 @@ help:
 	grid:				グリッドの表示/非表示を変更します。
 	snap:				図形とポイントをグリッドに合わせるかどうか選択します。
 	
-	tool:
+#_DEL	tool:
+#_ADD	#tool:
 	select:				図形を選択します。
 	rotate:				図形を回転させます。
 	points:				図形を編集するためのポイントを設置します。
@@ -241,7 +279,8 @@ help:
 	symmetry:			対象線を加えます。
 	paint:				ペイントブラシツールを使って図形をペイントします。
 	
-	select editor:
+#_DEL	select editor:
+#_ADD	#select editor:
 	merge:				それの下でこの形をそれらと合併させます
 	subtract:			それの下の形からこの形を引いて、すなわちこの形でエリアだけをその形に残します
 	intersect:			それ、両方のエリアだけが形成する葉の下の形でのこの形を横切ります
@@ -332,6 +371,8 @@ tool:
 	smooth point:		滑らかにします
 	symmetric point:	対称的です
 	
+#_ADD	clear console:		Clear Console
+#_ADD	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:			
@@ -371,12 +412,12 @@ tooltip:
 	scatter:			散布図
 	scatter pie:		散乱-パイプロット
 	
-	cards tab:			
-	set info tab:		セットの情報
-	style tab:			スタイル
-	keywords tab:		
-	stats tab:			
-	
+#_DEL	cards tab:			
+#_DEL	set info tab:		セットの情報
+#_DEL	style tab:			スタイル
+#_DEL	keywords tab:		
+#_DEL	stats tab:			
+#_DEL	
 	# symbol editor
 	store symbol:		使用セットの記号
 	
@@ -413,14 +454,16 @@ tooltip:
 	smooth point:		ポイントを滑らかにしてください
 	symmetric point:	ポイントを対称的にしてください
 
+#_ADD	clear console:		Clear Console
+#_ADD 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
 	card notes:			カードメモ：
-#_ADD	search cards:		Search for cards...
+#_ADD	search cards:		Search cards (Ctrl+K)
 	
 	# Keywords tab
-#_ADD	search keywords:	Search for keywords...
+#_ADD	search keywords:	Search keywords (Ctrl+K)
 	keyword:			キーワード
 	match:				適合
 	mode:				モード
@@ -435,14 +478,14 @@ label:
 	styling options:	スタイル・オプション
 	
 	# Random pack panel
+#_DEL	
+#_DEL	# Open dialogs
+#_DEL	all files			全てのファイル
 #_ADD	pack selection:		Pack selection
 #_ADD	pack totals:		Totals
 #_ADD	pack name:			Pack name
 #_ADD	seed:				Seed
 #_ADD	total cards:		Total
-	
-	# Open dialogs
-	all files			全てのファイル
 	
 	# Other set window dialogs
 	save changes:
@@ -453,6 +496,8 @@ label:
 	# New set window
 	game type:			&ゲームタイプ：
 	style type:			&カードスタイル：
+#_ADD	search game list:   Filter Games
+#_ADD	search stylesheet list: Filter Stylesheets
 	
 	stylesheet not found:
 		あなたが始めようとしているセットがスタイルシートを使う　"%s"。
@@ -463,11 +508,21 @@ label:
 #_ADD	windows:			Open sets
 	app language:		ユーザー・インタフェースの言語：
 	card display:		カード表示
+#_ADD	storage: 			Storage
 	zoom:				&ズーム：
+#_ADD	export: 			&Export:
+#_ADD	scale: 				&Internal Scale:
 	percent of normal:	正常なサイズのパーセント値
 	external programs:	外部のプログラム
 	apprentice:			&Apprentice：
 	apprentice exe:		Apprenticeを起動できます
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
+#_ADD	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	起動ごとのバージョン・チェック
 	checking requires internet:
 		アップデートを調べることはインターネット接続を必要とします。
@@ -480,9 +535,9 @@ label:
 	columns:			列：
 	
 	# Card select / images export
+#_DEL	select cards print:	あなたが印刷したいカードを選んでください
 #_ADD	select cards:			Cards to export
 #_ADD	selected card count:	%s cards will be exported.
-	select cards print:	あなたが印刷したいカードを選んでください
 	filename format:	&フォーマット： 
 	filename conflicts:	&取っ手を複写することのファイル名：
 	export filenames:	ファイル名
@@ -499,17 +554,24 @@ label:
 	# Image slicer
 	original:			オリジナル：
 	result:				結果：
+#_ADD	original with dimensions: Original (%s x %s):
+#_ADD	result with dimensions:	Result (%s x %s):
 	size:				サイズ
 #_ADD	original size:			&Original Size
 #_ADD	size to fit:			Size to &Fit
 #_ADD	force to fit:			F&orce to Fit
 #_ADD	custom size:			&Custom Size
 	selection:			選択
+#_DEL	zoom:				ズーム
 #_ADD	selection left:			&Left
 #_ADD	selection top:			&Top
 #_ADD	selection width:		&Width
 #_ADD	selection height:		&Height
-	zoom:				ズーム
+#_ADD	selection center:				Center
+#_ADD	selection center vertically:	Center Vertically
+#_ADD	selection center horizontally:	Center Horizontally
+#_ADD	selection center both:			Center Both
+#_ADD	#zoom:				Zoom
 #_ADD	fix aspect ratio:		Fix aspect ratio (width/height)
 #_ADD	zoom amount:			Zoom
 #_ADD	zoom amount x:			Zoom &X
@@ -568,6 +630,7 @@ button:
 	
 	# Console panel
 #_ADD	evaluate:			&Evaluate
+#_ADD	clear:				&Clear
 	
 	# Welcome
 	new set:			新規作成
@@ -588,6 +651,7 @@ button:
 	always:							常に行う
 	if internet connection exists:	インターネットに接続していれば
 	never:							行わない
+#_ADD	internal image extension: Store images internally with file extension
 	
 	# Column select
 	move up:			上へ移動
@@ -640,6 +704,7 @@ title:
 	new set:			新規作成
 	open set:			開く
 	save set:			上書き保存
+#_ADD	save set as directory:	Save Set As Directory
 	save image:			画像の保存
 	updates available:	アップデートが利用可能です。
 	save changes:		変更を保存しますか？
@@ -649,6 +714,7 @@ title:
 	global:					地域設定
 	display:				表示設定
 	directories:			ディレクトリ設定
+#_ADD	internal:               Internal
 	updates:				アップデート
 	update check:			アップデート・チェック
 	locate apprentice:		Apprentice捜し
@@ -656,6 +722,7 @@ title:
 	select columns:		列の選択
 	select cards:		カードの選択
 	select cards export:選択したカードのエクスポート
+#_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		画像編集
 #_ADD	# pack
@@ -790,6 +857,10 @@ error:
 	# Stats panel
 	dimension not found:				ディメンションはありません '%s'
 
+		There is already a pack type named '%s'.
+		Please choose a different name.
+		There is already a pack type named '%s'.
+		Please choose a different name.
 #_ADD	# Random packs
 #_ADD	pack type duplicate name:
 		There is already a pack type named '%s'.

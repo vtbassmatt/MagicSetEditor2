@@ -1,10 +1,11 @@
-﻿mse version: 2.0.0
+﻿#_DEL #_DEL mse version: 2.0.0
+#_ADD mse version: 2.0.2
 installer group: translations/dansk
 full name: Dansk
 version: 2013-08-13
 icon: dk.png
 
-######## by lord_joakim #########
+#_DEL ######## by lord_joakim #########
 ############################################################## Menu items
 menu:
 	file:			&Fil
@@ -12,6 +13,7 @@ menu:
 	open set:			&Åben...	Ctrl+O
 	save set:			&Gem	Ctrl+S
 	save set as:		Gem &Som...	F12
+#_ADD	save set as directory:		Save As Directory...
 	export:				&Eksporter
 	export html:			&HTML...
 	export image:			Enkelt &Billede...
@@ -29,8 +31,15 @@ menu:
 	undo:				&Fortryd%s	Ctrl+Z
 	redo:				&Gendan%s	Ctrl+Y
 	cut:				Kli&p	Ctrl+X
+#_ADD	cut card:		Cu&t	Ctrl+X
+#_ADD	cut keyword:	Cu&t	Ctrl+X
 	copy:				&Kopiér	Ctrl+C
+#_ADD	copy card:			&Copy	Ctrl+C
+#_ADD	copy keyword:		&Copy	Ctrl+C
 	paste:				&Sæt ind	Ctrl+V
+#_ADD	paste card:		&Paste	Ctrl+V
+#_ADD	paste keyword:	&Paste	Ctrl+V
+#_ADD	select all:				Select &All	Ctrl+A
 	find:				&Find	Ctrl+F
 	find next:			Find &Næste	F3
 	replace:			E&rstat	Ctrl+H
@@ -40,6 +49,7 @@ menu:
 	cards:			&Kort
 	previous card:		Vælg &Forhenværende Kort	PgUp
 	next card:			Vælg &Næste Kort	PgDn
+#_ADD	search cards:			&Search Cards	Ctrl+K
 	add card:			&Tilføj Kort	Ctrl+Enter
 	add cards:			Tilføj &Flere Kort...
 	remove card:		&Slet Valgte Kort
@@ -53,6 +63,7 @@ menu:
 	keywords:		&Nøgleord
 	previous keyword:	Vælg &Forhenværende Nøgleord	PgUp
 	next keyword:		Vælg &Næste Nøgleord	PgDn
+#_ADD	search keywords:			&Search Keywords	Ctrl+K
 	add keyword:		&Tilføj Nøgleord	Ctrl+Enter
 	remove keyword:		&Fjern Valgte Nøgleord	Del
 	
@@ -72,15 +83,19 @@ menu:
 	scatter:			K&oordinatvisning	4
 	scatter pie:		La&gkage-Koordinater	5
 	
+#_ADD	console:			Console
+#_ADD	clear console:		&Clear Console	Ctrl+L
+#_ADD 
 	window:			&Vindue
 	new window:			&Nyt Vindue
 	cards tab:			&Kort	F5
-	set info tab:		&Sæt Information	F6
+#_DEL	set info tab:		&Sæt Information	F6
 	style tab:			St&il	F7
+#_ADD	set info tab:		&Set Information	Alt+3
 	keywords tab:		&Nøgleord	F8
 	stats tab:			S&tatistik	F9
 	random pack tab:	&Tilfældige Pakker
-#_ADD	console tab:		&Console	Ctrl+F9
+#_ADD	console tab:		&Console	Alt+7
 	
 	help:			&Hjælp
 	index:				&Indeks...	F1
@@ -112,12 +127,14 @@ menu:
 help:
 	welcome:			Velkommen til Magic Set Editor
 	
-	file:
+#_DEL	file:
+#_ADD	#file:
 	new set:			Lav et nyt sæt
 	open set:			Åben et sæt
 	last opened set:	Åben '%s'
 	save set:			Gem sættet
 	save set as:		Gem sættet med et nyt navn
+#_ADD	save set as directory:		Save the set as a directory with separate files for each card
 	export:				Eksportér sættet...
 	export html:			Eksportér sættet til en hjemmeside
 	export image:			Eksportér det valgte kort til en billedfil
@@ -131,7 +148,8 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:				Lukker Magic Set Editor; påminder om sættet skal gemmes før lukning
 	
-	edit:
+#_DEL	edit:
+#_ADD	#edit:
 	undo:				Fortryder den sidste handling
 	redo:				Gendanner den sidste handling
 	cut:				Flytter den valgte tekst til udklipsholderen
@@ -143,15 +161,18 @@ help:
 	paste:				Indsætter teksten fra udklipsholderen
 	paste card:			Indsætter kortet fra udklipsholderen
 	paste keyword:		Indsætter nøgleordet fra udklipsholderen
+#_ADD	select all:				Select all text
 	find:				Søger kortenes tekster
 	find next:			Finder det næste tilsvarende ord
 	replace:			Erstatter kortenes tekster
 	auto replace:		Hvilken tekst skal automatisk erstattes?
 	preferences:		Ændr Magic Set Editor's konfiguration
 	
-	cards:
+#_DEL	cards:
+#_ADD	#cards:
 	previous card:		Vælg det forhenværende kort i listen
 	next card:			Vælger det næste kort i listen
+#_ADD	search cards:		Filter the card list using search terms
 	add card:			Tilføler et nyt, tomt kort til listen
 	add cards:			Tilføjer flere kort til listen
 	remove card:		Sletter det valgte kort fra sættet!
@@ -163,13 +184,16 @@ help:
 	rotate 180:				Viser kortet på hovedet
 	card list columns:	Vælg hvilke kolonner der er vist og i hvilken rækkefølge.
 	
-	keywords:
+#_DEL	keywords:
+#_ADD	#keywords:
 	previous keyword:	Vælger det forhenværende nøgleord i listen
 	next keyword:		Vælger det næste nøgleord i listen
+#_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		Tilføjer et nyt nøgleord til sættet
 	remove keyword:		Sletter det valgte nøgleord til sættet
 	
-	format:
+#_DEL	format:
+#_ADD	#format:
 	bold:				Gør den valgte tekst fed
 	italic:				Gør den valgte tekst kursiv
 	symbols:			Teksten er som Magic-symboler
@@ -177,33 +201,46 @@ help:
 	# spelling
 	no spelling suggestions:	Der er ingen forslag til at rette denne fejl.
 	
-	graph:
+#_DEL	graph:
+#_ADD	#graph:
 	pie:				En lagkagegraf, hvert stykke viser antallet af kort
 	bar:				En stolpegraf, hver stolpe viser antallet af kort
 	stack:				En stolpegraf med stolperne lagt i bunker
 	scatter:			Et koordinatdiagram, hvor størrelsen af hver koordinat viser størrelsen
 	scatter pie:		Et koordinatdiagram hvor hver koordinat har sin egen lagkagegraf
 	
-	window:
-	new window:			Åbner et nyt vindue for at arbejde med det samme sæt
+#_DEL	window:
+#_DEL	new window:			Åbner et nyt vindue for at arbejde med det samme sæt
+#_ADD	#console:
+#_ADD	clear console:		Clear the console
 
+#_ADD	#window:
+#_ADD	new window:			Creates another window to edit the same set
 	cards tab:			Redigerer kortene i sættet
 	set info tab:		Ændrer information om saettet, dets skaber etc.
-
+#_DEL 
 	style tab:			Ændrer kortenes stil
 	keywords tab:		Definerer ekstra nøgleord for dette sæt
 	stats tab:			Viser statistikker om dette sæt
 	random pack tab:	Prøv at se hvordan sættet fungerer ved at lave boosters!
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-	help:
+#_DEL	help:
+#_ADD	#help:
 	index:				
 	website:			
 	about:				
 	
+#_ADD	# New Set Window
+#_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD 
 	# Cards panel
 	collapse notes:		Viser noteboksen
 	expand notes:		Vis noteboksen
+#_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	# Keywords panel
+#_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 	random seed:		Hver kortgeneration laver en ny pakke
 	fixed seed:			Hvis du bruger samme variabel vil den samme 'tilfældige' booster dukke op
@@ -223,7 +260,7 @@ help:
 	
 	# Symbol editor
 	new symbol:			Lav et nyt symbol
-
+#_DEL 
 	open symbol:		Åben et symbol
 	save symbol:		Gem symbolet
 	save symbol as:		Gem symbol under et andet filnavn
@@ -237,7 +274,8 @@ help:
 	grid:				Viser gitter
 	snap:				Låser former og kanter fast til gitteret
 	
-	tool:
+#_DEL	tool:
+#_ADD	#tool:
 	select:				Vælg og flyt former
 	rotate:				Rotér og fordrej former
 	points:				Ændrer formpunkter i formen
@@ -245,7 +283,8 @@ help:
 	symmetry:			Tilføj symmetri til symbolet
 	paint:				Tegn på formen med en pensel
 	
-	select editor:
+#_DEL	select editor:
+#_ADD	#select editor:
 	merge:				Smelter formen sammen med former under den
 	subtract:			Fjerner denne forms areal fra former under den
 	intersect:			Finder de ramte områder med former under denne og viser kun arealet af denne figur hvor den rammer andre former
@@ -336,6 +375,8 @@ tool:
 	smooth point:		Glat
 	symmetric point:	Symmetrisk
 	
+#_ADD	clear console:		Clear Console
+#_ADD	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:			
@@ -375,12 +416,12 @@ tooltip:
 	scatter:			Koordinatdiagram
 	scatter pie:		Lagkagekoordinatdiagram
 	
-	cards tab:			
-	set info tab:		Sætinformation
-	style tab:			Kortstil
-	keywords tab:		
-	stats tab:			
-	
+#_DEL	cards tab:			
+#_DEL	set info tab:		Sætinformation
+#_DEL	style tab:			Kortstil
+#_DEL	keywords tab:		
+#_DEL	stats tab:			
+#_DEL	
 	# symbol editor
 	store symbol:		Brug symbol i sæt
 	
@@ -417,14 +458,16 @@ tooltip:
 	smooth point:		Gør punkt glat
 	symmetric point:	Gør punkt symmetrisk
 
+#_ADD	clear console:		Clear Console
+#_ADD 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
 	card notes:			Kortets noter:
-#_ADD	search cards:		Search for cards...
+#_ADD	search cards:		Search cards (Ctrl+K)
 	
 	# Keywords tab
-#_ADD	search keywords:	Search for keywords...
+#_ADD	search keywords:	Search keywords (Ctrl+K)
 	keyword:			Nøgleord
 	match:				Svarer til
 	mode:				Mode
@@ -445,9 +488,9 @@ label:
 	seed:				Variabel
 	total cards:		Total
 	
-	# Open dialogs
-	all files			Alle filer
-	
+#_DEL	# Open dialogs
+#_DEL	all files			Alle filer
+#_DEL	
 	# Other set window dialogs
 	save changes:
 		Sættet '%s' er ændret.
@@ -457,6 +500,8 @@ label:
 	# New set window
 	game type:			&Spiltype:
 	style type:			&Kortstil:
+#_ADD	search game list:   Filter Games
+#_ADD	search stylesheet list: Filter Stylesheets
 	
 	stylesheet not found:
 		Sættet du har åbner bruger stilen "%s".
@@ -467,13 +512,23 @@ label:
 	windows:			Åbne sæt
 	app language:		Sprog:
 	card display:		Kortdisplay
+#_ADD	storage: 			Storage
 	zoom:				&Zoom:
+#_ADD	export: 			&Export:
+#_ADD	scale: 				&Internal Scale:
 	percent of normal:	% af normal størrelse
 	external programs:	Eksterne programmer
 	apprentice:			&Apprentice:
 	apprentice exe:		Apprentice Executable
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
+#_ADD	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	Tjek efter nye versioner ved startup
-
+#_DEL 
 	checking requires internet:
 		Dette kræver netforbindelse.
 		Når der ikke er forbindelse, bliver der ikke ledt efter opdateringer.
@@ -487,7 +542,7 @@ label:
 	# Card select / images export
 	select cards:			Kort til at eksportere
 	selected card count:	%s kort vil blive eksporteret.
-	select cards print:	Vælg de kort, du vil udskrive
+#_DEL	select cards print:	Vælg de kort, du vil udskrive
 	filename format:	&Format: 
 	filename conflicts:	&Arbejdsmetode med dobbelte filnavne:
 	export filenames:	Filnavne
@@ -504,6 +559,8 @@ label:
 	# Image slicer
 	original:			Original:
 	result:				Resultat:
+#_ADD	original with dimensions: Original (%s x %s):
+#_ADD	result with dimensions:	Result (%s x %s):
 	size:				Størrelse
 	original size:			&Original Størrelse
 	size to fit:			Billedstørrelse er &rammestørrelse
@@ -514,9 +571,14 @@ label:
 	selection top:			&Øverst
 	selection width:		&Bredde
 	selection height:		&Højde
-	zoom:				Zoom
+#_DEL	zoom:				Zoom
+#_ADD	selection center:				Center
+#_ADD	selection center vertically:	Center Vertically
+#_ADD	selection center horizontally:	Center Horizontally
+#_ADD	selection center both:			Center Both
+#_ADD	#zoom:				Zoom
 	fix aspect ratio:		Fiksér højde/breddeforhold
-
+#_DEL 
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X
 	zoom amount y:			Zoom &Y
@@ -574,6 +636,7 @@ button:
 	
 	# Console panel
 #_ADD	evaluate:			&Evaluate
+#_ADD	clear:				&Clear
 	
 	# Welcome
 	new set:			Nyt sæt
@@ -594,6 +657,7 @@ button:
 	always:							Altid
 	if internet connection exists:	Hvis internetforbindelse findes
 	never:							Aldrig
+#_ADD	internal image extension: Store images internally with file extension
 	
 	# Column select
 	move up:			Flyt &Op
@@ -624,7 +688,7 @@ button:
 	# Old style update checker  (NOTE: this will be removed in a feature version)
 	close:				&Luk
 
-	
+#_DEL	
 	# Packages window
 	keep package:			&Ændr ikke
 	don't install package:	&Installér ikke
@@ -647,6 +711,7 @@ title:
 	new set:			Nyt Sæt
 	open set:			Åben Sæt
 	save set:			Gem Sæt Som
+#_ADD	save set as directory:	Save Set As Directory
 	save image:			Gem Billede
 	updates available:	Opdateringer Ikke Tilgængelige
 	save changes:		Gem Ændringer?
@@ -656,6 +721,7 @@ title:
 	global:					Globalt
 	display:				Display
 	directories:			Mapper
+#_ADD	internal:               Internal
 	updates:				Opdateringer
 	update check:			Opdateringstjek
 	locate apprentice:		Find Apprentice
@@ -663,6 +729,7 @@ title:
 	select columns:		Vælg Kolonner
 	select cards:		Vælg Kort
 	select cards export:Vælg Kort Til Eksport
+#_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		Billededitor
 	# pack

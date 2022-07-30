@@ -1,4 +1,5 @@
-﻿mse version: 2.0.0
+﻿#_DEL #_DEL mse version: 2.0.0
+#_ADD mse version: 2.0.2
 installer group: translations/français
 full name: Français
 version: 2013-08-13
@@ -11,6 +12,7 @@ menu:
 	open set:			&Ouvrir...	Ctrl+O
 	save set:			&Sauver	Ctrl+S
 	save set as:		Sauver So&us...	F12
+#_ADD	save set as directory:		Save As Directory...
 	export:				&Exporter
 	export html:			&HTML...
 	export image:			Une &Image de carte...
@@ -28,8 +30,15 @@ menu:
 	undo:				&Defaire%s	Ctrl+Z
 	redo:				&Refaire%s	Ctrl+Y
 	cut:				Cou&per	Ctrl+X
+#_ADD	cut card:		Cu&t	Ctrl+X
+#_ADD	cut keyword:	Cu&t	Ctrl+X
 	copy:				&Copier	Ctrl+C
+#_ADD	copy card:			&Copy	Ctrl+C
+#_ADD	copy keyword:		&Copy	Ctrl+C
 	paste:				Co&ller	Ctrl+V
+#_ADD	paste card:		&Paste	Ctrl+V
+#_ADD	paste keyword:	&Paste	Ctrl+V
+#_ADD	select all:				Select &All	Ctrl+A
 	find:				&Rechercher	Ctrl+F
 	find next:			Rechercher &Suivant	F3
 	replace:			R&emplacer	Ctrl+H
@@ -39,6 +48,7 @@ menu:
 	cards:			&Cartes
 	previous card:		Carte &Precedente	PgUp
 	next card:			Carte &Suivante	PgDn
+#_ADD	search cards:			&Search Cards	Ctrl+K
 	add card:			&Ajouter carte	Ctrl+Enter
 	add cards:			Ajouter &Plusieurs Cartes...
 	remove card:		&Effacer la carte selectionnée
@@ -52,6 +62,7 @@ menu:
 	keywords:		&Mot-clefs
 	previous keyword:	Mot-clef &Precedent	PgUp
 	next keyword:		Mot-clef &Suivant	PgDn
+#_ADD	search keywords:			&Search Keywords	Ctrl+K
 	add keyword:		&Ajouter mot-clef	Ctrl+Enter
 	remove keyword:		&Efface mot-clef	Del
 	
@@ -71,15 +82,19 @@ menu:
 	scatter:			N&uage de Points	4
 	scatter pie:		Nu&age de Cercles	5
 	
+#_ADD	console:			Console
+#_ADD	clear console:		&Clear Console	Ctrl+L
+#_ADD 
 	window:			&Fenetre
 	new window:			&Nouvelle fenetre
 	cards tab:			&Cartes	F5
-	set info tab:		Information du &Set 	F6
+#_DEL	set info tab:		Information du &Set 	F6
 	style tab:			St&yle	F7
+#_ADD	set info tab:		&Set Information	Alt+3
 	keywords tab:		&Mot-clef	F8
 	stats tab:			S&tatistiques	F9
 	random pack tab:	&Paquet aléatoire
-#_ADD	console tab:		&Console	Ctrl+F9
+#_ADD	console tab:		&Console	Alt+7
 	
 	help:			&Aide
 	index:				&Index...	F1
@@ -111,12 +126,14 @@ menu:
 help:
 	welcome:			Bienvenue à Magic Set Editor
 	
-	file:
+#_DEL	file:
+#_ADD	#file:
 	new set:			Créer un nouveau set
 	open set:			Ouvrir un set
 	last opened set:	Ouvrir '%s'
 	save set:			Sauver le set
 	save set as:		Sauver le set sous un nouveau nom
+#_ADD	save set as directory:		Save the set as a directory with separate files for each card
 	export:				Exporter le set...
 	export html:			Exporter le set dans une page web
 	export image:			Exporter la carte selectionnée dans un fichier image
@@ -130,7 +147,8 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:				Quitter Magic Set Editor; Vous demandera de sauvegarder le set
 	
-	edit:
+#_DEL	edit:
+#_ADD	#edit:
 	undo:				Annuler la derniere action
 	redo:				Refaire la derniere action
 	cut:				Couper le texte selectionné dans le presse-papier
@@ -142,15 +160,18 @@ help:
 	paste:				Insere le texte depuis le presse-papier
 	paste card:			Insere la carte depuis le presse-papier
 	paste keyword:		Insere le mot_clef depuis le presse-papier
+#_ADD	select all:				Select all text
 	find:				Chercher le texte de la carte
 	find next:			Rechercher suivant
 	replace:			Remplacer dans le texte de la carte
 	auto replace:		Quel texte devra etre automatiquement remplacé?
 	preferences:		Changer la configuration de Magic Set Editor
 	
-	cards:
+#_DEL	cards:
+#_ADD	#cards:
 	previous card:		Choisir la carte précédente dans la liste
 	next card:			Choisir la carte suivante dans la liste
+#_ADD	search cards:		Filter the card list using search terms
 	add card:			Ajouter une nouvelle carte vierge au set
 	add cards:			Ajouter plusieurs cartes au set
 	remove card:		Effacer du set la carte sélectionnée 
@@ -162,13 +183,16 @@ help:
 	rotate 180:				Afficher la carte à l'envers
 	card list columns:	Choisir quelles colonnes doivent être montrées et dans quel ordre.
 	
-	keywords:
+#_DEL	keywords:
+#_ADD	#keywords:
 	previous keyword:	Choisir le Mot-clé précédent dans la liste
 	next keyword:		Choisir le Mot-clé suivant dans la liste
+#_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		Ajouter un nouveau Mot-clé au set
 	remove keyword:		Effacer du set le Mot-clé sélectionné
 	
-	format:
+#_DEL	format:
+#_ADD	#format:
 	bold:				Mettre le texte sélectionné en gras
 	italic:				Mettre le texte sélectionné en italique
 	symbols:			Mettre le texte selectionné en symboles
@@ -176,14 +200,19 @@ help:
 	# spelling
 #_ADD	no spelling suggestions:	There are no suggestions for correcting this error
 	
-	graph:
+#_DEL	graph:
+#_ADD	#graph:
 	pie:				Un graphique en secteurs, le rayon de la tranche indique le nombre de cartes
 	bar:				Un graphique à barres, la hauteur de la barre indique le nombre de cartes
 	stack:				Un graphique à barres empilées avec des barres
 	scatter:			Un nuage de points, la taille indique le nombre de cartes
 	scatter pie:		Un nuage de points où chaque point est un petit graphique en secteurs
 	
-	window:
+#_DEL	window:
+#_ADD	#console:
+#_ADD	clear console:		Clear the console
+#_ADD 
+#_ADD	#window:
 	new window:			Ouvrir une nouvelle fenêtre pour éditer le même set
 	cards tab:			Editer les cartes du set
 	set info tab:		Editer les informations du set, son créateur, etc...
@@ -193,14 +222,22 @@ help:
 	random pack tab:	Voir comment le set se comporte en pratique en générant un booster au hasard.
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-	help:
+#_DEL	help:
+#_ADD	#help:
 	index:				
 	website:			
 	about:				
 	
+#_ADD	# New Set Window
+#_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD 
 	# Cards panel
 	collapse notes:		Cacher les notes des cartes
 	expand notes:		Montrer les notes des cartes
+#_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	# Keywords panel
+#_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 	random seed:		Un paquet différent à chaque fois sera généré.
 	fixed seed:			Utiliser le même nombre donne le même paquet 'aléatoire'.
@@ -233,7 +270,8 @@ help:
 	grid:				Montrer la grille
 	snap:				Coller les formes et les points à la grille
 	
-	tool:
+#_DEL	tool:
+#_ADD	#tool:
 	select:				Choisir et bouger les formes
 	rotate:				Tourner et modifier les formes
 	points:				Editer les points de contrôle pour une forme du symbole
@@ -241,7 +279,8 @@ help:
 	symmetry:			Ajouter une symétrie au symbole
 	paint:				Peindre sur la forme en utilisant un pinceau
 	
-	select editor:
+#_DEL	select editor:
+#_ADD	#select editor:
 	merge:				Fusionner cette formes à celles en dessous
 	subtract:			Enlever cette forme à celles en dessous, en laissant apparaitre que ce qui n'est pas dans cette forme
 	intersect:			Intersection de cette forme avec celles en dessous, ne laissant apparaitre que ce qui est dans les deux formes
@@ -332,6 +371,8 @@ tool:
 	smooth point:		Lisse
 	symmetric point:	Symétrique
 	
+#_ADD	clear console:		Clear Console
+#_ADD	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:			Cartes
@@ -371,12 +412,12 @@ tooltip:
 	scatter:			Nuage de points
 	scatter pie:		Nuage de cercles
 	
-	cards tab:			Cartes
-	set info tab:		Information du set
-	style tab:			Style de la carte
-	keywords tab:		Mots-clés
-	stats tab:			Statistiques
-	
+#_DEL	cards tab:			Cartes
+#_DEL	set info tab:		Information du set
+#_DEL	style tab:			Style de la carte
+#_DEL	keywords tab:		Mots-clés
+#_DEL	stats tab:			Statistiques
+#_DEL	
 	# symbol editor
 	store symbol:		Stocker le symbole dans le set
 	
@@ -413,14 +454,16 @@ tooltip:
 	smooth point:		Rend le point lisse
 	symmetric point:	Rend le point symetrique
 
+#_ADD	clear console:		Clear Console
+#_ADD 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
 	card notes:			Notes de carte:
-#_ADD	search cards:		Search for cards...
+#_ADD	search cards:		Search cards (Ctrl+K)
 	
 	# Keywords tab
-#_ADD	search keywords:	Search for keywords...
+#_ADD	search keywords:	Search keywords (Ctrl+K)
 	keyword:			Mot-clé
 	match:				Correspondance
 	mode:				Mode
@@ -441,9 +484,9 @@ label:
 	seed:				Source
 	total cards:		Total
 	
-	# Open dialogs
-	all files			Tous les fichier
-	
+#_DEL	# Open dialogs
+#_DEL	all files			Tous les fichier
+#_DEL	
 	# Other set window dialogs
 	save changes:
 		Le set '%s' a changé.
@@ -453,6 +496,8 @@ label:
 	# New set window
 	game type:			&type de jeu:
 	style type:			&style de carte:
+#_ADD	search game list:   Filter Games
+#_ADD	search stylesheet list: Filter Stylesheets
 	
 	stylesheet not found:
 		Le set que vous essayez d'ouvrir utilise  le stylesheet "%s".
@@ -463,11 +508,21 @@ label:
 #_ADD	windows:			Open sets
 	app language:		Langue de l'interface utilisateur:
 	card display:		Affichage de carte
+#_ADD	storage: 			Storage
 	zoom:				&Zoom:
+#_ADD	export: 			&Export:
+#_ADD	scale: 				&Internal Scale:
 	percent of normal:	% De la taille normale
 	external programs:	Programmes externes
 	apprentice:			&Apprentice:
 	apprentice exe:		Executable Apprentice
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
+#_ADD	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	Vérifier les mise à jour au démarrage
 	checking requires internet:
 		Vous avez besoin d'une connexion internet pour vérifier les mise à jour.
@@ -482,7 +537,7 @@ label:
 	# Card select / images export
 	select cards:			Cartes à exporter
 	selected card count:	%s cartes seront exportées.
-	select cards print:	Selectionnez les cartes à imprimmer
+#_DEL	select cards print:	Selectionnez les cartes à imprimmer
 	filename format:	&Format: 
 	filename conflicts:	&Gestion des doublons de fichiers:
 	export filenames:	Nom de fichier
@@ -499,6 +554,8 @@ label:
 	# Image slicer
 	original:			Original:
 	result:				Resultat:
+#_ADD	original with dimensions: Original (%s x %s):
+#_ADD	result with dimensions:	Result (%s x %s):
 	size:				Taille
 	original size:			Taille &originale
 	size to fit:			&Couper à la taille
@@ -509,7 +566,12 @@ label:
 	selection top:			&Haut
 	selection width:		&Largeur
 	selection height:		Lo&ngueur
-	zoom:				Zoom
+#_DEL	zoom:				Zoom
+#_ADD	selection center:				Center
+#_ADD	selection center vertically:	Center Vertically
+#_ADD	selection center horizontally:	Center Horizontally
+#_ADD	selection center both:			Center Both
+#_ADD	#zoom:				Zoom
 	fix aspect ratio:		Fixer le rapport (largeur/longueur)
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X
@@ -568,6 +630,7 @@ button:
 	
 	# Console panel
 #_ADD	evaluate:			&Evaluate
+#_ADD	clear:				&Clear
 	
 	# Welcome
 	new set:			Nouveau set
@@ -588,6 +651,7 @@ button:
 	always:							Toujours
 	if internet connection exists:	Si il y a une connexion internet
 	never:							Jamais
+#_ADD	internal image extension: Store images internally with file extension
 	
 	# Column select
 	move up:			M&onter
@@ -640,6 +704,7 @@ title:
 	new set:			Nouveau set
 	open set:			Ouvrir un set
 	save set:			Sauver le set sous
+#_ADD	save set as directory:	Save Set As Directory
 	save image:			Sauver image
 	updates available:	Mise à jour disponible
 	save changes:		Sauver les changements?
@@ -649,6 +714,7 @@ title:
 	global:					Globales
 	display:				Affichage
 	directories:			Répertoires
+#_ADD	internal:               Internal
 	updates:				Mises à jour
 	update check:			Mise à jour vérifié
 	locate apprentice:		Chemin pour Apprentice
@@ -656,6 +722,7 @@ title:
 	select columns:		Selectionner Colonnes
 	select cards:		Selectionner Cartes
 	select cards export:Selectionner Cartes à exporter
+#_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		Découper l'image
 	# pack
@@ -728,6 +795,7 @@ action:
 
 ############################################################## Error messages
 error:
+#_ADD	# File related
 	file not found:					Fichier non trouvé: '%s' dans le package '%s'
 	file not found package like:
 		Fichier non trouvé: '%s' dans le package '%s'
@@ -791,17 +859,21 @@ error:
 	dimension not found:				Il n'y a pas de statistique de type '%s'
 	
 	# Random packs
+		There is already a pack type named '%s'.
+		Please choose a different name.
+#_DEL	
+#_DEL	# Package update window
+		There is already a pack type named '%s'.
+		Please choose a different name.
 #_ADD	pack type duplicate name:
 		There is already a pack type named '%s'.
 		Please choose a different name.
-	
-	# Package update window
 #	checking updates:					Recherche de mise à jour.
 	can't download installer:
 		Impossible de télécharger l'installateur pour le package %s de %s.
 		Rien n'a été installé.
-	
-	downloading updates:				Téléchargement de mise à jour(%d de %d)
+#_DEL	
+#_DEL	downloading updates:				Téléchargement de mise à jour(%d de %d)
 	installing updates:					Mise à jour packages (%d de %d)
 	
 	remove packages:
@@ -829,11 +901,11 @@ type:
 	boolean:		boléen
 	color:			couleur
 	image:			image
-#_ADD	date:			date
 	nil:			rien
 	
 	# Object types
 	package:		package
+#_ADD	date:			date
 	locale:			traduction
 	game:			jeu
 	set:			set
@@ -847,11 +919,11 @@ type:
 	value:			valeur
 	keyword:		mot-clé
 	keywords:		mots-clés
-#_ADD	pack:			pack type
 	
 	# Symbol editor shapes
 	shape:			forme
 	shapes:			formes
+#_ADD	pack:			pack type
 	circle:			cercle
 	ellipse:		ellipse
 	square:			carré

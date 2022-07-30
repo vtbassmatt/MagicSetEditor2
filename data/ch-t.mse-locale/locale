@@ -1,4 +1,5 @@
-﻿mse version: 2.0.0
+﻿#_DEL mse version: 2.0.0
+#_ADD mse version: 2.0.2
 installer group: translations/chinese/traditional
 full name: 繁體中文 (Traditional Chinese)
 version: 2013-08-13
@@ -11,6 +12,7 @@ menu:
 	open set:		打開套牌...	Ctrl+O
 	save set:		保存套牌	Ctrl+S
 	save set as:		套牌另存為...	F12
+#_ADD	save set as directory:		Save As Directory...
 	export:			導出
 	export html:		HTML文件...
 	export image:		卡牌圖像...
@@ -28,8 +30,15 @@ menu:
 	undo:			撤銷%s	Ctrl+Z
 	redo:			重做%s	Ctrl+Y
 	cut:			剪切	Ctrl+X
+#_ADD	cut card:		Cu&t	Ctrl+X
+#_ADD	cut keyword:	Cu&t	Ctrl+X
 	copy:			復制	Ctrl+C
+#_ADD	copy card:			&Copy	Ctrl+C
+#_ADD	copy keyword:		&Copy	Ctrl+C
 	paste:			貼上	Ctrl+V
+#_ADD	paste card:		&Paste	Ctrl+V
+#_ADD	paste keyword:	&Paste	Ctrl+V
+#_ADD	select all:				Select &All	Ctrl+A
 	find:			搜尋	Ctrl+F
 	find next:		搜尋下一個	F3
 	replace:		替換	Ctrl+H
@@ -39,6 +48,7 @@ menu:
 	cards:			卡牌
 	previous card:		選擇上一張卡牌	PgUp
 	next card:		選擇下一張卡牌	PgDn
+#_ADD	search cards:			&Search Cards	Ctrl+K
 	add card:		添加卡牌	Ctrl+Enter
 	add cards:		批量添加卡牌...
 	remove card:		刪除所選卡牌
@@ -52,6 +62,7 @@ menu:
 	keywords:		關鍵詞
 	previous keyword:	選擇上一個關鍵詞	PgUp
 	next keyword:		選擇下一個關鍵詞	PgDn
+#_ADD	search keywords:			&Search Keywords	Ctrl+K
 	add keyword:		添加關鍵詞	Ctrl+Enter
 	remove keyword:		刪除所選關鍵詞	Del
 	
@@ -71,15 +82,19 @@ menu:
 	scatter:		散點圖	4
 	scatter pie:		散餅圖	5
 	
+#_ADD	console:			Console
+#_ADD	clear console:		&Clear Console	Ctrl+L
+#_ADD 
 	window:			視窗
 	new window:		新建視窗
 	cards tab:		卡牌編輯	F5
-	set info tab:		套牌資訊	F6
+#_DEL	set info tab:		套牌資訊	F6
 	style tab:		風格選擇	F7
+#_ADD	set info tab:		&Set Information	Alt+3
 	keywords tab:		關鍵詞	F8
 	stats tab:		統計結果	F9
-#_ADD	random pack tab:	&Random Packs
-#_ADD	console tab:		&Console	Ctrl+F9
+#_ADD	random pack tab:	&Random Packs	Alt+6
+#_ADD	console tab:		&Console	Alt+7
 	
 	help:			幫助
 	index:			索引...	F1
@@ -111,12 +126,14 @@ menu:
 help:
 	welcome:		歡迎使用 Magic Set Editor
 	
-	file:
+#_DEL	file:
+#_ADD	#file:
 	new set:		創建新套牌
 	open set:		打開已有套牌
 	last opened set:	打開 '%s'
 	save set:		保存現有套牌
 	save set as:		使用新文件名保存套牌
+#_ADD	save set as directory:		Save the set as a directory with separate files for each card
 	export:			導出套牌...
 	export html:		將套牌導出成網頁格式
 	export image:		將所選卡牌導出成為一張圖片
@@ -130,7 +147,8 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:			退出Magic Set Editor程序，請迅速保存你的套牌
 	
-	edit:
+#_DEL	edit:
+#_ADD	#edit:
 	undo:			撤銷上一個動作
 	redo:			重做上一個動作
 	cut:			將選中的文字剪切至剪切板
@@ -142,15 +160,18 @@ help:
 	paste:			從剪切板插入文字
 	paste card:		從剪切板插入卡牌
 	paste keyword:		從剪切板插入關鍵詞
+#_ADD	select all:				Select all text
 	find:			搜索卡牌文字
 	find next:		搜尋下一個
 	replace:		替換卡牌文字
 	auto replace:		自動替換什麼文字？
 	preferences:		修改Magic Set Editor的設置
 	
-	cards:
+#_DEL	cards:
+#_ADD	#cards:
 	previous card:		選擇列表中的上一張卡牌
 	next card:		選擇列表中的下一張卡牌
+#_ADD	search cards:		Filter the card list using search terms
 	add card:		添加一個新的空白卡牌到本套牌
 	add cards:		添加多張卡牌到本套牌
 	remove card:		從本套牌中刪除所選卡牌
@@ -162,13 +183,16 @@ help:
 	rotate 180:		將所顯示卡牌上下翻轉
 	card list columns:	調整卡牌列表欄顯示項目和顯示順序
 	
-	keywords:
+#_DEL	keywords:
+#_ADD	#keywords:
 	previous keyword:	從列表中選擇上一個關鍵詞
 	next keyword:		從列表中選擇下一個關鍵詞
+#_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		添加一個新關鍵詞到本套牌中
 	remove keyword:		從本套牌中刪除選中的關鍵詞
 	
-	format:
+#_DEL	format:
+#_ADD	#format:
 	bold:			將所選文字設為粗體
 	italic:			將所選文字設為斜體
 	symbols:		將所選文字改成符號
@@ -176,14 +200,19 @@ help:
 #_ADD	# spelling
 #_ADD	no spelling suggestions:	There are no suggestions for correcting this error
 	
-	graph:
+#_DEL	graph:
+#_ADD	#graph:
 	pie:			餅狀圖，每一份的大小取決與卡牌數量
 	bar:			條形圖，條形高度取決於卡牌數量
 	stack:			條形圖，堆疊條形圖
 	scatter:		散點圖，每一個散點的大小取決與卡牌數量
 	scatter pie:		散餅圖，每一個三點都是一個小型餅狀圖
 	
-	window:
+#_DEL	window:
+#_ADD	#console:
+#_ADD	clear console:		Clear the console
+#_ADD 
+#_ADD	#window:
 	new window:		創建一個額外視窗用來編輯同一套牌
 	cards tab:		編輯套牌中的卡牌
 	set info tab:		編輯套牌資訊，例如創建者，其他
@@ -193,14 +222,22 @@ help:
 #_ADD	random pack tab:	Try how the set works out in practice by generating random booster packs.
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-	help:		
+#_DEL	help:		
+#_ADD	#help:
 	index:			
 	website:			
 	about:				
 	
+#_ADD	# New Set Window
+#_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD 
 	# Cards panel
 #_ADD	collapse notes:		Hide the card notes box
 #_ADD	expand notes:		Show the card notes box
+#_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	# Keywords panel
+#_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 #_ADD	random seed:		Different packs will be generated each time.
 #_ADD	fixed seed:			Using the same seed number gives the same 'random' packs.
@@ -233,7 +270,8 @@ help:
 	grid:			顯示網格線
 	snap:			吸附形狀和控制點到網格線
 	
-	tool:
+#_DEL	tool:
+#_ADD	#tool:
 	select:			選擇並移動形狀
 	rotate:			旋轉並修剪形狀
 	points:			編輯形狀控制點
@@ -241,7 +279,8 @@ help:
 	symmetry:		給系列符號添加對稱效果
 	paint:			用筆刷在圖形上繪制
 	
-	select editor:
+#_DEL	select editor:
+#_ADD	#select editor:
 	merge:			把這個圖形融合到下面
 	subtract:		把這個圖形從下面剪掉，僅保留不在這個圖形，但是在下面圖形的區域
 	intersect:		把這個圖形和下面相交，僅保留圖像共有區域
@@ -332,6 +371,8 @@ tool:
 	smooth point:		平滑
 	symmetric point:	對稱
 	
+#_ADD	clear console:		Clear Console
+#_ADD	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:		卡牌編輯	
@@ -371,12 +412,12 @@ tooltip:
 	scatter:		散點圖
 	scatter pie:		散餅圖
 	
-	cards tab:		卡牌	
-	set info tab:		套牌資訊
-	style tab:		樣式
-	keywords tab:		關鍵詞
-	stats tab:		統計	
-	
+#_DEL	cards tab:		卡牌	
+#_DEL	set info tab:		套牌資訊
+#_DEL	style tab:		樣式
+#_DEL	keywords tab:		關鍵詞
+#_DEL	stats tab:		統計	
+#_DEL	
 	# symbol editor
 	store symbol:		將系列符號保存到套牌
 	
@@ -413,14 +454,16 @@ tooltip:
 	smooth point:		點平滑效果
 	symmetric point:	點對稱效果
 
+#_ADD	clear console:		Clear Console
+#_ADD 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
 	card notes:		卡牌資訊:
-#_ADD	search cards:		Search for cards...
+#_ADD	search cards:		Search cards (Ctrl+K)
 	
 	# Keywords tab
-#_ADD	search keywords:	Search for keywords...
+#_ADD	search keywords:	Search keywords (Ctrl+K)
 	keyword:		關鍵詞
 	match:			匹配
 	mode:			類型
@@ -435,14 +478,14 @@ label:
 	styling options:	樣式選項
 	
 	# Random pack panel
+#_DEL	
+#_DEL	# Open dialogs
+#_DEL	all files		全部文件
 #_ADD	pack selection:		Pack selection
 #_ADD	pack totals:		Totals
 #_ADD	pack name:			Pack name
 #_ADD	seed:				Seed
 #_ADD	total cards:		Total
-	
-	# Open dialogs
-	all files		全部文件
 	
 	# Other set window dialogs
 	save changes:
@@ -453,6 +496,8 @@ label:
 	# New set window
 	game type:		游戲類型:
 	style type:		風格樣式:
+#_ADD	search game list:   Filter Games
+#_ADD	search stylesheet list: Filter Stylesheets
 	
 	stylesheet not found:
 		你要打開的套牌使用的是 "%s" 樣式表
@@ -463,11 +508,18 @@ label:
 #_ADD	windows:			Open sets
 	app language:		程序界面語言:
 	card display:		卡牌顯示
+#_ADD	storage: 			Storage
 	zoom:			縮放:
+#_ADD	export: 			&Export:
+#_ADD	scale: 				&Internal Scale:
 	percent of normal:	 % 之后導出
 	external programs:	外部程序
 	apprentice:		Apprentice:
 	apprentice exe:		可執行Apprentice
+#_ADD	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	程序運行時檢查新版本
 	checking requires internet:
 		檢查新版本需要接入互聯網。
@@ -481,8 +533,8 @@ label:
 	
 	# Card select / images export
 	select cards:		導出卡牌
+#_DEL	select cards print:	選擇需要打印的卡牌
 #_ADD	selected card count:	%s cards will be exported.
-	select cards print:	選擇需要打印的卡牌
 	filename format:	格式: 
 	filename conflicts:	處理重復文件名:
 	export filenames:	文件名
@@ -499,17 +551,24 @@ label:
 	# Image slicer
 	original:		原始:
 	result:			結果:
+#_ADD	original with dimensions: Original (%s x %s):
+#_ADD	result with dimensions:	Result (%s x %s):
 	size:			大小
 #_ADD	original size:			&Original Size
 #_ADD	size to fit:			Size to &Fit
 #_ADD	force to fit:			F&orce to Fit
 #_ADD	custom size:			&Custom Size
 	selection:		選取
+#_DEL	zoom:			縮放
 #_ADD	selection left:			&Left
 #_ADD	selection top:			&Top
 #_ADD	selection width:		&Width
 #_ADD	selection height:		&Height
-	zoom:			縮放
+#_ADD	selection center:				Center
+#_ADD	selection center vertically:	Center Vertically
+#_ADD	selection center horizontally:	Center Horizontally
+#_ADD	selection center both:			Center Both
+#_ADD	#zoom:				Zoom
 #_ADD	fix aspect ratio:		Fix aspect ratio (width/height)
 #_ADD	zoom amount:			Zoom
 #_ADD	zoom amount x:			Zoom &X
@@ -567,8 +626,10 @@ button:
 #_ADD	add custom pack:	Add &Custom Pack...
 	
 	# Console panel
-#_ADD	evaluate:			&Evaluate
 		
+#_ADD	evaluate:			&Evaluate
+#_ADD	clear:				&Clear
+#_ADD	
 	# Welcome
 	new set:		新建套牌
 	open set:		打開套牌
@@ -588,6 +649,7 @@ button:
 	always:			總是
 	if internet connection exists:	如果接入互聯網
 	never:			從不
+#_ADD	internal image extension: Store images internally with file extension
 	
 	# Column select
 	move up:		向上移動
@@ -640,6 +702,7 @@ title:
 	new set:		新建套牌
 	open set:		打開套牌
 	save set:		套牌另存為
+#_ADD	save set as directory:	Save Set As Directory
 	save image:		保存圖片
 	updates available:	可用更新
 	save changes:		保存修改？
@@ -649,6 +712,7 @@ title:
 	global:			全局
 	display:		顯示
 	directories:		目錄
+#_ADD	internal:               Internal
 	updates:		昇級更新
 	update check:		檢查更新
 	locate apprentice:	定位 Apprentice
@@ -656,6 +720,7 @@ title:
 	select columns:		選擇欄目
 	select cards:		選擇卡牌
 	select cards export:    導出選中的卡牌
+#_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		圖片切片
 #_ADD	# pack
@@ -791,6 +856,8 @@ error:
 	# Stats panel
 	dimension not found:		沒有統計資料 '%s'
 	
+		There is already a pack type named '%s'.
+		Please choose a different name.
 #_ADD	# Random packs
 #_ADD	pack type duplicate name:
 		There is already a pack type named '%s'.

@@ -1,10 +1,11 @@
-﻿mse version: 2.0.0
+﻿#_DEL #_DEL mse version: 2.0.0
+#_ADD mse version: 2.0.2
 installer group: translations/polski
 full name: Polski
 version: 2013-08-13
 icon: pl.png
 
-# Base translation: Liosan, 03.2009; Licenced under GFDL where applicable
+#_DEL # Base translation: Liosan, 03.2009; Licenced under GFDL where applicable
 ############################################################## Menu items
 menu:
 	file:			&Plik
@@ -12,6 +13,7 @@ menu:
 	open set:			&Otwórz...	Ctrl+O
 	save set:			&Zapisz	Ctrl+S
 	save set as:		Zapisz &Jako...	F12
+#_ADD	save set as directory:		Save As Directory...
 	export:				&Eksportuj
 	export html:			&HTML...
 	export image:			&Obraz Karty...
@@ -29,8 +31,15 @@ menu:
 	undo:				&Cofnij%s	Ctrl+Z
 	redo:				&Powtórz%s	Ctrl+Y
 	cut:				Wy&tnij	Ctrl+X
+#_ADD	cut card:		Cu&t	Ctrl+X
+#_ADD	cut keyword:	Cu&t	Ctrl+X
 	copy:				&Kopiuj	Ctrl+C
+#_ADD	copy card:			&Copy	Ctrl+C
+#_ADD	copy keyword:		&Copy	Ctrl+C
 	paste:				&Wklej	Ctrl+V
+#_ADD	paste card:		&Paste	Ctrl+V
+#_ADD	paste keyword:	&Paste	Ctrl+V
+#_ADD	select all:				Select &All	Ctrl+A
 	find:				&Szukaj	Ctrl+F
 	find next:			Znajdź &Następny	F3
 	replace:			&Zamień	Ctrl+H
@@ -40,6 +49,7 @@ menu:
 	cards:			&Karty
 	previous card:		Wybierz &Poprzednią Kartę	PgUp
 	next card:			Wybierz &Następną Kartę	PgDn
+#_ADD	search cards:			&Search Cards	Ctrl+K
 	add card:			&Dodaj Kartę	Ctrl+Enter
 	add cards:			Dodaj &Wiele Kart...
 	remove card:		&Usuń Wybraną Kartę
@@ -53,6 +63,7 @@ menu:
 	keywords:		&Słowa Kluczowe
 	previous keyword:	Wybierz &Poprzednie Słowo Kluczowe	PgUp
 	next keyword:		Wybierz &Następne Słowo Kluczowe	PgDn
+#_ADD	search keywords:			&Search Keywords	Ctrl+K
 	add keyword:		&Dodaj Słowo Kluczowe	Ctrl+Enter
 	remove keyword:		&Usuń Słowo Kluczowe	Del
 	
@@ -72,15 +83,19 @@ menu:
 	scatter:			&Rozproszony	4
 	scatter pie:		Ro&zproszony Kołowy	5
 	
+#_ADD	console:			Console
+#_ADD	clear console:		&Clear Console	Ctrl+L
+#_ADD 
 	window:			&Okno
 	new window:			&Nowe okno
 	cards tab:			&Karty	F5
-	set info tab:		&Informacje o Zestawie	F6
+#_DEL	set info tab:		&Informacje o Zestawie	F6
 	style tab:			St&yl	F7
+#_ADD	set info tab:		&Set Information	Alt+3
 	keywords tab:		&Słowa Kluczowe	F8
 	stats tab:			S&tatystyki	F9
 	random pack tab:	&Losowe paczki
-#_ADD	console tab:		&Console	Ctrl+F9
+#_ADD	console tab:		&Console	Alt+7
 	
 	help:			&Pomoc
 	index:				Spis &treści...	F1
@@ -112,12 +127,14 @@ menu:
 help:
 	welcome:			Witaj w programie Magic Set Editor
 	
-	file:
+#_DEL	file:
+#_ADD	#file:
 	new set:			Utwórz nowy zestaw
 	open set:			Otwórz istniejący zestaw
 	last opened set:	Otwórz '%s'
 	save set:			Zapisz zestaw
 	save set as:		Zapisz zestaw pod nową nazwą
+#_ADD	save set as directory:		Save the set as a directory with separate files for each card
 	export:				Eksportuj zestaw...
 	export html:			Eksportuj zestaw jako stronę internetową
 	export image:			Eksportuj wybraną kartę jako obraz
@@ -131,7 +148,8 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:				Opuść program MSE; pojawi się prośba o zapisanie zmian
 	
-	edit:
+#_DEL	edit:
+#_ADD	#edit:
 	undo:				Cofnij poprzednią czynność
 	redo:				Powtórz poprzednią czynność
 	cut:				Wytnij zaznaczony tekst do schowka
@@ -143,15 +161,18 @@ help:
 	paste:				Wklej tekst ze schowka
 	paste card:			Wklej kartę ze schowka
 	paste keyword:		Wklej słowo kluczowe ze schowka
+#_ADD	select all:				Select all text
 	find:				Przeszukaj teksty kart
 	find next:			Znajdź następne wystąpienie
 	replace:			Zastąp w tekstach kart
 	auto replace:		Co powinno być automatycznie zastąpione?
 	preferences:		Zmień ustawienia programu Magic Set Editor
 	
-	cards:
+#_DEL	cards:
+#_ADD	#cards:
 	previous card:		Wybierz poprzednią kartę z listy
 	next card:			Wybierz następną kartę z listy
+#_ADD	search cards:		Filter the card list using search terms
 	add card:			Dodaj nową, pustą kartę do zestawu
 	add cards:			Dodaj wiele kart do zestawu
 	remove card:		Usuń wybraną kartę z zestawu
@@ -163,27 +184,36 @@ help:
 	rotate 180:				Obróc kartę "do góry nogami"
 	card list columns:	Wybierz kolumny listy kart i ich kolejność.
 	
-	keywords:
+#_DEL	keywords:
+#_ADD	#keywords:
 	previous keyword:	Wybiera poprzednie słowo kluczowe z listy
 	next keyword:		Zaznacza poprzednie słowo kluczowe na liście
+#_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		Dodaje nowe słowo kluczowe do zestawu
 	remove keyword:		Usuwa wybrane słowo kluczowe do zestawu
 	
-	format:
+#_DEL	format:
+#_ADD	#format:
 	bold:				Pogrubia zaznaczony tekst
 	italic:				Pochyla zaznaczony tekst
 	symbols:			Rysuje zaznaczony tekst z symbolami
 	reminder text:		Pokazuj tekst przypomnienia dla wybranego słowa kluczowego
+#_ADD	# spelling
 	no spelling suggestions:	 Nie ma sugestii co do sposobu korekty tego słowa.
 	
-	graph:
+#_DEL	graph:
+#_ADD	#graph:
 	pie:				Wykres kołowy, wielkość wycinka jest proporcjonalna do ilości kart
 	bar:				Wykres słupkowy, wysokość słupka jest proporcjonalna do ilości kart
 	stack:				Wykres słupkowy z podziałką
 	scatter:			Wykres rozproszony, wielkość kółka jest proporcjonalna do ilości kart
 	scatter pie:		Wykres rozproszony kołowy - wykres rozproszony, gdzie każde kółko jest małym wykresem kołowym
 	
-	window:
+#_DEL	window:
+#_ADD	#console:
+#_ADD	clear console:		Clear the console
+#_ADD 
+#_ADD	#window:
 	new window:			Otwiera ten sam zestaw w nowym oknie
 	cards tab:			Edytuj karty w tym zestawie
 	set info tab:		Edytuj informacje o zestawie, jego twórcy itp.
@@ -193,14 +223,22 @@ help:
 	random pack tab:	Wypróbuj zestaw przez generowanie losowych paczek kart
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-	help:
+#_DEL	help:
+#_ADD	#help:
 	index:				
 	website:			
 	about:				
 	
+#_ADD	# New Set Window
+#_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD 
 	# Cards panel
 	collapse notes:		Schowaj panel z notatkami
 	expand notes:		Pokaż panel z notatkami
+#_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	# Keywords panel
+#_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 	random seed:		Za każdym razem zostanie wygenerowana inna paczka.
 	fixed seed:			Używanie tego samego ziarna daje te same 'losowe' paczki.
@@ -233,7 +271,8 @@ help:
 	grid:				Pokaż siatkę
 	snap:				Wyrównaj punkty i kształty do siatki
 	
-	tool:
+#_DEL	tool:
+#_ADD	#tool:
 	select:				Zaznacz i przesuwaj kształty
 	rotate:				Obracaj i tnij kształty
 	points:				Edytuj punkty kontrolne kształtu
@@ -241,7 +280,8 @@ help:
 	symmetry:			Dodaj symetrie do kształtu
 	paint:				Rysuj po kształcie pędzlem
 	
-	select editor:
+#_DEL	select editor:
+#_ADD	#select editor:
 	merge:				Scala zaznaczony kształt z kształtami pod nim
 	subtract:			Odejmuje zaznaczony kształt od kształtów pod nim, zostawia jedynie obszar nie będący częścią zaznaczonego kształtu
 	intersect:			Przecina zaznaczony kształt z kształtami pod nim, zostawia jedynie obszar będący częścią wspólną
@@ -332,6 +372,8 @@ tool:
 	smooth point:		Gładki
 	symmetric point:	Symetryczny
 	
+#_ADD	clear console:		Clear Console
+#_ADD	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:			
@@ -371,12 +413,12 @@ tooltip:
 	scatter:			Rozproszony
 	scatter pie:		Rozproszony kołowy
 	
-	cards tab:			
-	set info tab:		Informacje o zestawie
-	style tab:			Styl karty
-	keywords tab:		
-	stats tab:			
-	
+#_DEL	cards tab:			
+#_DEL	set info tab:		Informacje o zestawie
+#_DEL	style tab:			Styl karty
+#_DEL	keywords tab:		
+#_DEL	stats tab:			
+#_DEL	
 	# symbol editor
 	store symbol:		Zapisz symbol w zestawie
 	
@@ -413,14 +455,16 @@ tooltip:
 	smooth point:		Wygładź punkt
 	symmetric point:	Usymetrycznij punkt
 
+#_ADD	clear console:		Clear Console
+#_ADD 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
 	card notes:			Notatki do karty:
-#_ADD	search cards:		Search for cards...
+#_ADD	search cards:		Search cards (Ctrl+K)
 	
 	# Keywords tab
-#_ADD	search keywords:	Search for keywords...
+#_ADD	search keywords:	Search keywords (Ctrl+K)
 	keyword:			Słowo kluczowe
 	match:				Matches
 	mode:				Tryb
@@ -441,9 +485,9 @@ label:
 	seed:				Ziarno
 	total cards:		Ilość kart
 	
-	# Open dialogs
-	all files			Wszystkie pliki
-	
+#_DEL	# Open dialogs
+#_DEL	all files			Wszystkie pliki
+#_DEL	
 	# Other set window dialogs
 	save changes:
 		Zestaw '%s' został zmieniony.
@@ -453,6 +497,8 @@ label:
 	# New set window
 	game type:			Rodzaj &gry:
 	style type:			&Styl kart:
+#_ADD	search game list:   Filter Games
+#_ADD	search stylesheet list: Filter Stylesheets
 	
 	stylesheet not found:
 		Zestaw który próbujesz otworzyć używa stylu z arkusz "%s".
@@ -463,11 +509,21 @@ label:
 	windows:			Otwarte zestawy
 	app language:		Język interfejsu użytkownika:
 	card display:		Wyświetlanie kart
+#_ADD	storage: 			Storage
 	zoom:				&Przybliżenie:
+#_ADD	export: 			&Export:
+#_ADD	scale: 				&Internal Scale:
 	percent of normal:	% normalnego rozmiaru
 	external programs:	Zewnętrzne programy
 	apprentice:			&Apprentice:
 	apprentice exe:		plik .exe Apprentice
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
+#_ADD	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	Sprawdzaj uaktualnienia przy uruchomieniu
 	checking requires internet:
 		Szukanie nowszych wersji wymaga podłączenia do Internetu.
@@ -482,7 +538,7 @@ label:
 	# Card select / images export
 	select cards:			Karty do eksportowania
 	selected card count:	%s kart zostanie wyeksportowanych.
-	select cards print:	Wybierz karty, które chcesz wydrukować
+#_DEL	select cards print:	Wybierz karty, które chcesz wydrukować
 	filename format:	&Format: 
 	filename conflicts:	Sposób rozwiązywania &konfliktów przy identycznych nazwach plików:
 	export filenames:	Nazwy plików
@@ -499,6 +555,8 @@ label:
 	# Image slicer
 	original:			Oryginał:
 	result:				Wynik:
+#_ADD	original with dimensions: Original (%s x %s):
+#_ADD	result with dimensions:	Result (%s x %s):
 	size:				Rozmiar
 	original size:			&Oryginalny rozmiar
 	size to fit:			&Dopasuj rozmiar
@@ -509,7 +567,12 @@ label:
 	selection top:			&Góra
 	selection width:		&Szerokość
 	selection height:		&Wysokość
-	zoom:				Zbliżenie
+#_DEL	zoom:				Zbliżenie
+#_ADD	selection center:				Center
+#_ADD	selection center vertically:	Center Vertically
+#_ADD	selection center horizontally:	Center Horizontally
+#_ADD	selection center both:			Center Both
+#_ADD	#zoom:				Zoom
 	fix aspect ratio:		Zablokuj proporcje (szerokość/wysokość)
 	zoom amount:			Zbliżenie
 	zoom amount x:			Zbliżenie &X
@@ -568,6 +631,7 @@ button:
 	
 	# Console panel
 #_ADD	evaluate:			&Evaluate
+#_ADD	clear:				&Clear
 	
 	# Welcome
 	new set:			Nowy zestaw
@@ -588,6 +652,7 @@ button:
 	always:							Zawsze
 	if internet connection exists:	Jeśli jest połączenie
 	never:							Nigdy
+#_ADD	internal image extension: Store images internally with file extension
 	
 	# Column select
 	move up:			Przesuń w &górę
@@ -640,6 +705,7 @@ title:
 	new set:			Nowy zestaw
 	open set:			Otwórz zestaw
 	save set:			Zapisz zestaw jako
+#_ADD	save set as directory:	Save Set As Directory
 	save image:			Zapisz obrazek
 	updates available:	Aktualizacje są dostępne
 	save changes:		Zapisać zmiany?
@@ -649,6 +715,7 @@ title:
 	global:					Ogólne
 	display:				Wyświetlanie
 	directories:			Katalogi
+#_ADD	internal:               Internal
 	updates:				Uaktualnienia
 	update check:			Wyszukiwanie nowszych wersji
 	locate apprentice:		Znajdź Apprentice
@@ -656,6 +723,7 @@ title:
 	select columns:		Wybierz kolumny
 	select cards:		Wybierz karty
 	select cards export:Wybierz karty do wyeksportowania
+#_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		Tnij obrazek
 	# pack
@@ -796,6 +864,7 @@ error:
 		Już istnieje paczka o nazwie '%s'.
 		Wybierz inną nazwę.
 		
+#_ADD	
 	# Package update window
 #	checking updates:					Sprawdzanie uaktualnień
 	can't download installer:

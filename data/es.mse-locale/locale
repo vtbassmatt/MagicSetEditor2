@@ -1,4 +1,5 @@
-﻿mse version: 2.0.0
+﻿#_DEL #_DEL mse version: 2.0.0
+#_ADD mse version: 2.0.2
 installer group: translations/español
 full name: Español
 version: 2013-08-13
@@ -11,6 +12,7 @@ menu:
 	open set:			&Abrir...	Ctrl+O
 	save set:			&Guardar	Ctrl+S
 	save set as:		Guardar &como...	F12
+#_ADD	save set as directory:		Save As Directory...
 	export:				&Exportar
 	export html:			&HTML...
 	export image:			&Imagen de carta...
@@ -28,8 +30,15 @@ menu:
 	undo:				&Deshacer%s	Ctrl+Z
 	redo:				&Rehacer%s	Ctrl+Y
 	cut:				Corta&r	Ctrl+X
+#_ADD	cut card:		Cu&t	Ctrl+X
+#_ADD	cut keyword:	Cu&t	Ctrl+X
 	copy:				&Copiar	Ctrl+C
+#_ADD	copy card:			&Copy	Ctrl+C
+#_ADD	copy keyword:		&Copy	Ctrl+C
 	paste:				&Pegar	Ctrl+V
+#_ADD	paste card:		&Paste	Ctrl+V
+#_ADD	paste keyword:	&Paste	Ctrl+V
+#_ADD	select all:				Select &All	Ctrl+A
 	find:				&Buscar	Ctrl+F
 	find next:			Buscar &siguiente	F3
 	replace:			R&eemplazar	Ctrl+H
@@ -39,6 +48,7 @@ menu:
 	cards:			&Cartas
 	previous card:		&Seleccionar carta anterior	PgUp
 	next card:			Seleccionar &siguiente carta	PgDn
+#_ADD	search cards:			&Search Cards	Ctrl+K
 	add card:			&Añadir carta	Ctrl+Enter
 	add cards:			Añadir &múltiples cartas...
 	remove card:		&Borrar carta seleccionada
@@ -52,6 +62,7 @@ menu:
 	keywords:		&Palabras clave
 	previous keyword:	&Seleccionar palabra clave anterior	PgUp
 	next keyword:		S&eleccionar siguiente palabra clave	PgDn
+#_ADD	search keywords:			&Search Keywords	Ctrl+K
 	add keyword:		&Añadir palabra clave	Ctrl+Enter
 	remove keyword:		&Borrar palabra clave seleccionada	Del
 	
@@ -71,15 +82,19 @@ menu:
 	scatter:			&Diagrama de dispersión	4
 	scatter pie:		D&iagrama de dispersión circular	5
 	
+#_ADD	console:			Console
+#_ADD	clear console:		&Clear Console	Ctrl+L
+#_ADD 
 	window:			&Ventana
 	new window:			&Nueva ventana
 	cards tab:			&Cartas	F5
-	set info tab:		&Información del set	F6
+#_DEL	set info tab:		&Información del set	F6
 	style tab:			&Estilo	F7
+#_ADD	set info tab:		&Set Information	Alt+3
 	keywords tab:		&Palabras clave	F8
 	stats tab:			E&stadísticas	F9
 	random pack tab:	&Mazos aleatorios
-#_ADD	console tab:		&Console	Ctrl+F9
+#_ADD	console tab:		&Console	Alt+7
 	
 	help:			&Ayuda
 	index:				&Índice...	F1
@@ -111,12 +126,14 @@ menu:
 help:
 	welcome:			Bienvenido a Magic Set Editor
 	
-	file:
+#_DEL	file:
+#_ADD	#file:
 	new set:			Crear un nuevo set
 	open set:			Abrir un set existente
 	last opened set:	Abrir '%s'
 	save set:			Guardar el set
 	save set as:		Guardar el set con un nombre nuevo
+#_ADD	save set as directory:		Save the set as a directory with separate files for each card
 	export:				Exportar el set...
 	export html:			Exportar el set a una página web
 	export image:			Exportar la carta seleccionada a un archivo de imagen
@@ -130,7 +147,8 @@ help:
 	show profiler:		Muestra la ventana del analizador, con los tiempos de las funciones de script. Utilizado para la optimización
 	exit:				Salir de Magic Set Editor; pregunta si debe guardarse el set
 	
-	edit:
+#_DEL	edit:
+#_ADD	#edit:
 	undo:				Deshace la última acción
 	redo:				Rehace la última acción
 	cut:				Mueve el texto seleccionado al portapapeles
@@ -142,15 +160,18 @@ help:
 	paste:				Inserta el texto del portapapeles
 	paste card:			Inserta la carta del portapapeles
 	paste keyword:		Inserta la palabra clave del portapapeles
+#_ADD	select all:				Select all text
 	find:				Busca en los textos de la carta
 	find next:			Busca la siguiente palabra
 	replace:			Reemplaza en los textos de las cartas
 	auto replace:		¿Qué texto debería ser reemplazado automáticamente?
 	preferences:		Cambia la configuración de Magic Set Editor
 	
-	cards:
+#_DEL	cards:
+#_ADD	#cards:
 	previous card:		Selecciona la carta anterior en la lista
 	next card:			Selecciona la siguiente carta en la lista
+#_ADD	search cards:		Filter the card list using search terms
 	add card:			Añade una carta nueva, vacía, a este set
 	add cards:			Añade múltiples cartas al set
 	remove card:		Borra la carta seleccionada de este set
@@ -162,13 +183,16 @@ help:
 	rotate 180:				Muestra la carta dada la vuelta
 	card list columns:	Selecciona qué columnas deberían mostrarse y en qué orden
 	
-	keywords:
+#_DEL	keywords:
+#_ADD	#keywords:
 	previous keyword:	Selecciona la anterior palabra clave en la lista
 	next keyword:		Selecciona la siguiente palabra clave en la lista
+#_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		Añade una nueva palabra clave a este set
 	remove keyword:		Borra la palabra clave seleccionada de este set
 	
-	format:
+#_DEL	format:
+#_ADD	#format:
 	bold:				Pone el texto seleccionado en negrita
 	italic:				Pone el texto seleccionado en cursiva
 	symbols:			Dibuja el texto seleccionado con símbolos
@@ -176,14 +200,19 @@ help:
 	# spelling
 	no spelling suggestions:	No hay sugerencias para corregir este error
 	
-	graph:
+#_DEL	graph:
+#_ADD	#graph:
 	pie:				Un gráfico circular, el radio de la poción indica el número de cartas
 	bar:				Un gráfico de barras, la altura de la barra indica el número de cartas
 	stack:				Un gráfico de barras con las barras apiladas
 	scatter:			Un diagrama de dispersión, el tamaño indica el número de cartas
 	scatter pie:		Un diagrama de dispersión donde cada elemento es un pequeño gráfico circular
 	
-	window:
+#_DEL	window:
+#_ADD	#console:
+#_ADD	clear console:		Clear the console
+#_ADD 
+#_ADD	#window:
 	new window:			Crea otra ventana para editar el mismo set
 	cards tab:			Edita las cartas del set
 	set info tab:		Edita la información del set, su creador, etc.
@@ -193,14 +222,22 @@ help:
 	random pack tab:	Prueba como funciona el set en la práctica generando mazos sellados aleatorios
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-	help:
+#_DEL	help:
+#_ADD	#help:
 	index:				
 	website:			
 	about:				
 	
+#_ADD	# New Set Window
+#_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD 
 	# Cards panel
 	collapse notes:		Ocultar las notas de la carta
 	expand notes:		Mostrar las notas de la carta
+#_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+#_ADD	# Keywords panel
+#_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 	random seed:		Cada vez se generarán mazos diferentes.
 	fixed seed:			Utilizando la misma semilla se obtienen los mismos mazos 'aleatorios'.
@@ -233,7 +270,8 @@ help:
 	grid:				Muestra las rejillas
 	snap:				Ajusta las formas y los puntos a las rejillas
 	
-	tool:
+#_DEL	tool:
+#_ADD	#tool:
 	select:				Selecciona y mueve las formas
 	rotate:				Gira e inclina las formas
 	points:				Edita los puntos de control de una forma en el símbolo
@@ -241,7 +279,8 @@ help:
 	symmetry:			Añade simetría al símbolo
 	paint:				Pinta en la forma usando un pincel
 	
-	select editor:
+#_DEL	select editor:
+#_ADD	#select editor:
 	merge:				Fusiona esta forma con las que tiene debajo
 	subtract:			Resta esta forma con las que tiene debajo, deja sólo el área en la otra forma que no está en este forma
 	intersect:			Cruza esta forma con las que tiene debajo, deja sólo el área en ambas formas
@@ -332,6 +371,8 @@ tool:
 	smooth point:		Suavizar
 	symmetric point:	Símetrico
 	
+#_ADD	clear console:		Clear Console
+#_ADD	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:			
@@ -371,12 +412,12 @@ tooltip:
 	scatter:			Diagrama de dispersión
 	scatter pie:		Diagrama de dispersión circular
 	
-	cards tab:			
-	set info tab:		Información del set
-	style tab:			Estilo de carta
-	keywords tab:		
-	stats tab:			
-	
+#_DEL	cards tab:			
+#_DEL	set info tab:		Información del set
+#_DEL	style tab:			Estilo de carta
+#_DEL	keywords tab:		
+#_DEL	stats tab:			
+#_DEL	
 	# symbol editor
 	store symbol:		Almacenar símbolo en el set
 	
@@ -413,6 +454,8 @@ tooltip:
 	smooth point:		Hacer punto suave
 	symmetric point:	Hacer punto simétrico
 
+#_ADD	clear console:		Clear Console
+#_ADD 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
@@ -420,7 +463,7 @@ label:
 	search cards:		Buscar cartas...
 	
 	# Keywords tab
-#_ADD	search keywords:	Search for keywords...
+#_ADD	search keywords:	Search keywords (Ctrl+K)
 	keyword:			Palabra clave
 	match:				Coincidencia
 	mode:				Modo
@@ -441,9 +484,9 @@ label:
 	seed:				Semilla
 	total cards:		Total
 	
-	# Open dialogs
-	all files			Todos los archivos
-	
+#_DEL	# Open dialogs
+#_DEL	all files			Todos los archivos
+#_DEL	
 	# Other set window dialogs
 	save changes:
 		El set '%s' ha cambiado.
@@ -453,6 +496,8 @@ label:
 	# New set window
 	game type:			&Juego:
 	style type:			&Estilo de carta:
+#_ADD	search game list:   Filter Games
+#_ADD	search stylesheet list: Filter Stylesheets
 	
 	stylesheet not found:
 		El set que estás intentando abrir usa el estilo "%s".
@@ -463,11 +508,21 @@ label:
 	windows:			Abrir sets
 	app language:		Idioma para la interfaz del usuario:
 	card display:		Visualización de carta
+#_ADD	storage: 			Storage
 	zoom:				&Zoom:
+#_ADD	export: 			&Export:
+#_ADD	scale: 				&Internal Scale:
 	percent of normal:	% del tamaño normal
 	external programs:	Programas externos
 	apprentice:			&Apprentice:
 	apprentice exe:		Ejecutable de Apprentice
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
+#_ADD	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	Buscar nuevas versiones al inicio
 	checking requires internet:
 		La búsqueda de actualizaciones requiere una conexión a internet.
@@ -482,7 +537,7 @@ label:
 	# Card select / images export
 	select cards:			Cartas a exportar
 	selected card count:	%s cartas serán exportadas.
-	select cards print:	Selecciona las cartas que quieres imprimir
+#_DEL	select cards print:	Selecciona las cartas que quieres imprimir
 	filename format:	&Formato: 
 	filename conflicts:	&Soportar duplicado de nombres de archivos:
 	export filenames:	Nombres de archivo
@@ -499,6 +554,8 @@ label:
 	# Image slicer
 	original:			Original:
 	result:				Resultado:
+#_ADD	original with dimensions: Original (%s x %s):
+#_ADD	result with dimensions:	Result (%s x %s):
 	size:				Tamaño
 	original size:			&Tamaño original
 	size to fit:			&Ajustar a tamaño
@@ -509,7 +566,12 @@ label:
 	selection top:			A&rriba
 	selection width:		A&nchura
 	selection height:		A&ltura
-	zoom:				Zoom
+#_DEL	zoom:				Zoom
+#_ADD	selection center:				Center
+#_ADD	selection center vertically:	Center Vertically
+#_ADD	selection center horizontally:	Center Horizontally
+#_ADD	selection center both:			Center Both
+#_ADD	#zoom:				Zoom
 	fix aspect ratio:		Bloquear relación de aspecto (anchura/altura)
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X
@@ -568,6 +630,7 @@ button:
 	
 	# Console panel
 #_ADD	evaluate:			&Evaluate
+#_ADD	clear:				&Clear
 	
 	# Welcome
 	new set:			Nuevo set
@@ -588,6 +651,7 @@ button:
 	always:							Siempre
 	if internet connection exists:	Si hay conexión de internet
 	never:							Nunca
+#_ADD	internal image extension: Store images internally with file extension
 	
 	# Column select
 	move up:			Mover &hacia arriba
@@ -640,6 +704,7 @@ title:
 	new set:			Nuevo Set
 	open set:			Abrir Set
 	save set:			Guardar set como
+#_ADD	save set as directory:	Save Set As Directory
 	save image:			Guardar imagen
 	updates available:	Actualizaciones disponibles
 	save changes:		¿Guardar los cambios?
@@ -649,6 +714,7 @@ title:
 	global:					Global
 	display:				Pantalla
 	directories:			Directorios
+#_ADD	internal:               Internal
 	updates:				Actualizaciones
 	update check:			Búsqueda de actualizaciones
 	locate apprentice:		Localizar Apprentice
@@ -656,6 +722,7 @@ title:
 	select columns:		Seleccionar columnas
 	select cards:		Seleccionar cartas
 	select cards export:Seleccionar cartas a exportar
+#_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		Cortar imagen
 	# pack
