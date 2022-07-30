@@ -52,7 +52,10 @@ template <> void GetDefaultMember::handle(const Version& v) {
 
 // NOTE: Don't use leading zeroes, they mean octal
 const Version app_version  = 10000 * MSE_VERSION_MAJOR + 100 * MSE_VERSION_MINOR + MSE_VERSION_PATCH;
-#ifdef UNICODE
+
+#if defined UNOFFICIAL_BUILD
+const Char* version_suffix = _(" (Unofficial)");
+#elif defined UNICODE
 const Char* version_suffix = _("");
 #else
 const Char* version_suffix = _(" (ascii build)");
