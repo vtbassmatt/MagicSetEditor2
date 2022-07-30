@@ -1,5 +1,4 @@
-﻿#_DEL #_DEL #_DEL mse version: 2.0.0
-#_ADD mse version: 2.0.2
+﻿mse version: 2.0.2
 installer group: translations/deutsch
 full name: Deutsch
 version: 2013-08-13
@@ -30,14 +29,14 @@ menu:
 	undo:				Rückgängig:%s	Ctrl+Z
 	redo:				Wiederholen:%s	Ctrl+Y
 	cut:				Ausschneiden	Ctrl+X
-#_ADD	cut card:		Cu&t	Ctrl+X
-#_ADD	cut keyword:	Cu&t	Ctrl+X
+	cut card:		Ausschneiden	Ctrl+X
+	cut keyword:	Ausschneiden	Ctrl+X
 	copy:				Kopieren	Ctrl+C
-#_ADD	copy card:			&Copy	Ctrl+C
-#_ADD	copy keyword:		&Copy	Ctrl+C
+	copy card:			Kopieren	Ctrl+C
+	copy keyword:		Kopieren	Ctrl+C
 	paste:				Einfügen	Ctrl+V
-#_ADD	paste card:		&Paste	Ctrl+V
-#_ADD	paste keyword:	&Paste	Ctrl+V
+	paste card:		Einfügen	Ctrl+V
+	paste keyword:	Einfügen	Ctrl+V
 #_ADD	select all:				Select &All	Ctrl+A
 	find:				Suchen	Ctrl+F
 	find next:			Nächstes Ergebnis	F3
@@ -73,7 +72,7 @@ menu:
 	symbols:			&Symbole	Ctrl+M
 	reminder text:		&Reminder Text	Ctrl+R
 	insert symbol:		Sy&mbol einfügen
-#_ADD	# spelling
+	# spelling
 #_ADD	no spelling suggestions:	(no suggestions)
 	
 	graph:			&Diagramm
@@ -85,16 +84,15 @@ menu:
 	
 #_ADD	console:			Console
 #_ADD	clear console:		&Clear Console	Ctrl+L
-#_ADD 
+ 
 	window:			&Ansicht
 	new window:			&Neues Fenster
-	cards tab:			&Karten	F5
-#_DEL	set info tab:		&Editionsinformationen	F6
-	style tab:			Aussehen	F7
-#_ADD	set info tab:		&Set Information	Alt+3
-	keywords tab:		Fähigkeiten	F8
-	stats tab:			S&tatistik	F9
-	random pack tab:		&Zufällige Packs
+	cards tab:			&Karten	Alt+1
+	style tab:			Aussehen	Alt+2
+	set info tab:		&Editionsinformationen	Alt+3
+	keywords tab:		Fähigkeiten	Alt+4
+	stats tab:			S&tatistik	Alt+5
+	random pack tab:		&Zufällige Packs	Alt+6
 #_ADD	console tab:		&Console	Alt+7
 	
 	help:			&Hilfe
@@ -127,8 +125,7 @@ menu:
 help:
 	welcome:			Willkommen im Magic Set Editor
 	
-#_DEL	file:
-#_ADD	#file:
+	#file:
 	new set:			Neue Edition erstellen
 	open set:			Bestehende Edition öffnen
 	last opened set:		Zuletzt geöffnetes '%s'
@@ -148,8 +145,7 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:				Beendet Magic Set Editor
 	
-#_DEL	edit:
-#_ADD	#edit:
+	#edit:
 	undo:				Macht die letzte Aktion rückgängig
 	redo:				Wiederholt die letzte Aktion
 	cut:				Verschiebt die Daten in die Zwischenablage
@@ -168,8 +164,7 @@ help:
 	auto replace:		Ersetzt den text ohne Bestätigung
 	preferences:		Ändert die Einstellungen
 	
-#_DEL	cards:
-#_ADD	#cards:
+	#cards:
 	previous card:		Wählt die vorherige Karte der Liste
 	next card:			Wählt die nächste Karte der Liste
 #_ADD	search cards:		Filter the card list using search terms
@@ -184,37 +179,33 @@ help:
 	rotate 180:				Dreht die Karte um 180°
 	card list columns:	Wähle die Spalten, die angezeigt werden sollen.
 	
-#_DEL	keywords:
-#_ADD	#keywords:
+	#keywords:
 	previous keyword:	Wählt die vorherige Fähigkeit
 	next keyword:		Wählt die nächste Fähigkeit
 #_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		Fügt eine neue Fähigkeit hinzu
 	remove keyword:		Löscht die markierte Fähigkeit
 	
-#_DEL	format:
-#_ADD	#format:
+	#format:
 	bold:				Formatiert den Text Fett
 	italic:				Formatiert den Text Kursiv
 #_ADD	underline:          Makes the selected text underlined
 	symbols:			Formatiert den Text als Symbol
 	reminder text:		Zeige den Reminder-Text für die gewählte Fähigkeit an
-#_ADD	# spelling
+	# spelling
 #_ADD	no spelling suggestions:	There are no suggestions for correcting this error
 	
-#_DEL	graph:
-#_ADD	#graph:
+	#graph:
 	pie:				Ein Kreisdiagramm, die Größe der Kreise zeigt die Anzahl der Karten an
 	bar:				Ein Balkendiagramm, die Größe der Balken zeigt die Anzahl der Karten an
 	stack:				Ein Balkendiagramm mit gestapelten Säulen
 	scatter:			Ein Blasendiagramm, die Größe der Blase zeigt die Anzahl der Karten an
 	scatter pie:		Gestreute Kreise, wobei jeder Kreis ein Kreisdiagramm ist
 	
-#_DEL	window:
-#_ADD	#console:
+	#console:
 #_ADD	clear console:		Clear the console
-#_ADD 
-#_ADD	#window:
+ 
+	#window:
 	new window:			Erstellt ein neues Fenster mit der gleichen Edition
 	cards tab:			Bearbeite die Karten der Edition
 	set info tab:		Bearbeite die Informationen der Edition
@@ -224,21 +215,20 @@ help:
 	random pack tab:	Testet wie das Set funktionieren würde, indem es ufällige Booster Packs erstellt.
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-#_DEL	help:
-#_ADD	#help:
+	#help:
 	index:				
 	website:			
 	about:				
 	
-#_ADD	# New Set Window
+	# New Set Window
 #_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 #_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD 
+ 
 	# Cards panel
 	collapse notes:		Versteckt die Karten-Notiz-Box
 	expand notes:		Teigt die Karten-Notiz-Box
 #_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD	# Keywords panel
+	# Keywords panel
 #_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 	random seed:		Erstellt jedes mal andere Packs.
@@ -251,8 +241,7 @@ help:
 	app language:
 		Bitte starten Sie MSE neu, damit die Änderungen wirksam werden.
 	zoom export:
-		(Wenn ausgeschaltet, werden die
-		 Karten normal exportiert)
+		(Wenn ausgeschaltet, werden die Karten normal exportiert)
 	
 	# apprentice export
 	set code:			Der zweiteilige Code wird vom Rohling genutzt, um auf eine Edition zu verweisen.
@@ -272,8 +261,7 @@ help:
 	grid:				Gitternetz anzeigen
 	snap:				Punkte und Objekte am Gitternetz ausrichten
 	
-#_DEL	tool:
-#_ADD	#tool:
+	#tool:
 	select:				Wählt Objekte aus und bewegt es
 	rotate:				Dreht Objekte
 	points:				Bearbeitet die Punkte des Objektes
@@ -281,8 +269,7 @@ help:
 	symmetry:			Symmetrisches Symbol hinzufügen
 	paint:				Zeichnet ein Objekt mit dem Pinsel
 	
-#_DEL	select editor:
-#_ADD	#select editor:
+	#select editor:
 	merge:				Vermischt das Objekt mit den Darunterliegenden
 	subtract:			Entfernt gemeinsame Flächen
 	intersect:			Zeigt nur die gemeinsame Fläche an
@@ -374,7 +361,7 @@ tool:
 	symmetric point:	Symmetrisch
 	
 #_ADD	clear console:		Clear Console
-#_ADD	
+	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:		Karten	
@@ -415,12 +402,6 @@ tooltip:
 	scatter:			Blasendiagramm
 	scatter pie:		Gestreute Kreise
 	
-#_DEL	cards tab:			Karten
-#_DEL	set info tab:		Editionsinformationen
-#_DEL	style tab:			Kartenstyle
-#_DEL	keywords tab:		Fähigkeiten
-#_DEL	stats tab:		Statistiken		
-#_DEL	
 	# symbol editor
 	store symbol:		Symbol für diese Edition übernehmen
 	
@@ -458,7 +439,7 @@ tooltip:
 	symmetric point:	Punkt symmetrisch ausrichten
 
 #_ADD	clear console:		Clear Console
-#_ADD 
+
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
@@ -486,10 +467,7 @@ label:
 #_ADD	pack name:			Pack name
 	seed:				Nummer
 	total cards:		Gesamtkarten
-	
-#_DEL	# Open dialogs
-#_DEL	all files			Alle Dateien
-#_DEL	
+		
 	# Other set window dialogs
 	save changes:
 		Die Edition '%s' wurde geändert.
@@ -519,13 +497,7 @@ label:
 	external programs:	Externe Programme
 	apprentice:			&Rohling:
 	apprentice exe:		Rohling-Exe
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
-#_ADD	internal scale desc:
+	internal scale desc:
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
 		Does not retroactively apply to existing images.
@@ -543,7 +515,6 @@ label:
 	# Card select / images export
 	select cards:			Wähle Karten zum exportieren
 	selected card count:	%s Karten werden exportiert.
-#_DEL	select cards print:	Wähle die zu druckenden Karten aus
 	filename format:	&Format: 
 	filename conflicts:	&Doppelte Dateinamen:
 	export filenames:	Dateinamen exportieren
@@ -560,8 +531,8 @@ label:
 	# Image slicer
 	original:			Original:
 	result:				Ergebnis:
-#_ADD	original with dimensions: Original (%s x %s):
-#_ADD	result with dimensions:	Result (%s x %s):
+	original with dimensions: Original (%s x %s):
+	result with dimensions:	Ergebnis (%s x %s):
 	size:				Größe
 	original size:			&Originalgröße
 	size to fit:			Markierung anpassen
@@ -572,12 +543,10 @@ label:
 	selection top:			&Oben
 	selection width:		&Breite
 	selection height:		&Höhe
-#_DEL	zoom:				Zoom
 #_ADD	selection center:				Center
 #_ADD	selection center vertically:	Center Vertically
 #_ADD	selection center horizontally:	Center Horizontally
 #_ADD	selection center both:			Center Both
-#_ADD	#zoom:				Zoom
 	fix aspect ratio:		Fix aspect ratio (width/height)
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X
@@ -612,8 +581,8 @@ label:
 #_ADD	installable version:	Latest version:
 #_ADD	installer size:			Size:
 #_ADD	installer status:		Status:
-#_ADD	no version:				-
-#_ADD 
+	no version:				-
+ 
 ############################################################## Buttons/checkboxes/choices in the GUI
 button:
 	# Editor
@@ -731,7 +700,7 @@ title:
 #_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		Bildeinstellungen
-#_ADD	# pack
+	# pack
 #_ADD	custom pack:		Custom Pack Type
 	# print
 	print preview:		Druckvorschau
@@ -864,17 +833,11 @@ error:
 	# Stats panel
 	dimension not found:				Keine Statistikdimension '%s'
 	
+	# Random packs
+	pack type duplicate name:
 		There is already a pack type named '%s'.
 		Please choose a different name.
-		There is already a pack type named '%s'.
-		Please choose a different name.
-		There is already a pack type named '%s'.
-		Please choose a different name.
-#_ADD	# Random packs
-#_ADD	pack type duplicate name:
-		There is already a pack type named '%s'.
-		Please choose a different name.
-#_ADD	
+	
 	# Package update window
 #	checking updates:					Suche nach Updates.
 	can't download installer:
@@ -909,7 +872,7 @@ type:
 	boolean:		boolean
 	color:			color
 	image:			image
-#_ADD	date:			date
+	date:			date
 	nil:			nothing
 	
 	# Object types
@@ -927,7 +890,7 @@ type:
 	value:			value
 	keyword:		keyword
 	keywords:		keywords
-#_ADD	pack:			pack type
+	pack:			pack type
 	
 	# Symbol editor shapes
 	shape:			shape

@@ -1,5 +1,4 @@
-﻿#_DEL #_DEL #_DEL mse version: 2.0.0
-#_ADD mse version: 2.0.2
+﻿mse version: 2.0.2
 installer group: translations/español
 full name: Español
 version: 2013-08-13
@@ -30,14 +29,14 @@ menu:
 	undo:				&Deshacer%s	Ctrl+Z
 	redo:				&Rehacer%s	Ctrl+Y
 	cut:				Corta&r	Ctrl+X
-#_ADD	cut card:		Cu&t	Ctrl+X
-#_ADD	cut keyword:	Cu&t	Ctrl+X
+	cut card:			Corta&r	Ctrl+X
+	cut keyword:		Corta&r	Ctrl+X
 	copy:				&Copiar	Ctrl+C
-#_ADD	copy card:			&Copy	Ctrl+C
-#_ADD	copy keyword:		&Copy	Ctrl+C
+	copy card:			&Copiar	Ctrl+C
+	copy keyword:		&Copiar	Ctrl+C
 	paste:				&Pegar	Ctrl+V
-#_ADD	paste card:		&Paste	Ctrl+V
-#_ADD	paste keyword:	&Paste	Ctrl+V
+	paste card:			&Pegar	Ctrl+V
+	paste keyword:		&Pegar	Ctrl+V
 #_ADD	select all:				Select &All	Ctrl+A
 	find:				&Buscar	Ctrl+F
 	find next:			Buscar &siguiente	F3
@@ -85,16 +84,15 @@ menu:
 	
 #_ADD	console:			Console
 #_ADD	clear console:		&Clear Console	Ctrl+L
-#_ADD 
+ 
 	window:			&Ventana
 	new window:			&Nueva ventana
-	cards tab:			&Cartas	F5
-#_DEL	set info tab:		&Información del set	F6
-	style tab:			&Estilo	F7
-#_ADD	set info tab:		&Set Information	Alt+3
-	keywords tab:		&Palabras clave	F8
-	stats tab:			E&stadísticas	F9
-	random pack tab:	&Mazos aleatorios
+	cards tab:			&Cartas	Alt+1
+	style tab:			&Estilo	Alt+2
+	set info tab:		&Información del set	Alt+3
+	keywords tab:		&Palabras clave	Alt+4
+	stats tab:			E&stadísticas	Alt+5
+	random pack tab:	&Mazos aleatorios	Alt+6
 #_ADD	console tab:		&Console	Alt+7
 	
 	help:			&Ayuda
@@ -127,8 +125,7 @@ menu:
 help:
 	welcome:			Bienvenido a Magic Set Editor
 	
-#_DEL	file:
-#_ADD	#file:
+	#file:
 	new set:			Crear un nuevo set
 	open set:			Abrir un set existente
 	last opened set:	Abrir '%s'
@@ -148,8 +145,7 @@ help:
 	show profiler:		Muestra la ventana del analizador, con los tiempos de las funciones de script. Utilizado para la optimización
 	exit:				Salir de Magic Set Editor; pregunta si debe guardarse el set
 	
-#_DEL	edit:
-#_ADD	#edit:
+	#edit:
 	undo:				Deshace la última acción
 	redo:				Rehace la última acción
 	cut:				Mueve el texto seleccionado al portapapeles
@@ -168,8 +164,7 @@ help:
 	auto replace:		¿Qué texto debería ser reemplazado automáticamente?
 	preferences:		Cambia la configuración de Magic Set Editor
 	
-#_DEL	cards:
-#_ADD	#cards:
+	#cards:
 	previous card:		Selecciona la carta anterior en la lista
 	next card:			Selecciona la siguiente carta en la lista
 #_ADD	search cards:		Filter the card list using search terms
@@ -184,16 +179,14 @@ help:
 	rotate 180:				Muestra la carta dada la vuelta
 	card list columns:	Selecciona qué columnas deberían mostrarse y en qué orden
 	
-#_DEL	keywords:
-#_ADD	#keywords:
+	#keywords:
 	previous keyword:	Selecciona la anterior palabra clave en la lista
 	next keyword:		Selecciona la siguiente palabra clave en la lista
 #_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		Añade una nueva palabra clave a este set
 	remove keyword:		Borra la palabra clave seleccionada de este set
 	
-#_DEL	format:
-#_ADD	#format:
+	#format:
 	bold:				Pone el texto seleccionado en negrita
 	italic:				Pone el texto seleccionado en cursiva
 #_ADD	underline:          Makes the selected text underlined
@@ -202,19 +195,17 @@ help:
 	# spelling
 	no spelling suggestions:	No hay sugerencias para corregir este error
 	
-#_DEL	graph:
-#_ADD	#graph:
+	#graph:
 	pie:				Un gráfico circular, el radio de la poción indica el número de cartas
 	bar:				Un gráfico de barras, la altura de la barra indica el número de cartas
 	stack:				Un gráfico de barras con las barras apiladas
 	scatter:			Un diagrama de dispersión, el tamaño indica el número de cartas
 	scatter pie:		Un diagrama de dispersión donde cada elemento es un pequeño gráfico circular
 	
-#_DEL	window:
-#_ADD	#console:
+	#console:
 #_ADD	clear console:		Clear the console
-#_ADD 
-#_ADD	#window:
+
+	#window:
 	new window:			Crea otra ventana para editar el mismo set
 	cards tab:			Edita las cartas del set
 	set info tab:		Edita la información del set, su creador, etc.
@@ -224,21 +215,20 @@ help:
 	random pack tab:	Prueba como funciona el set en la práctica generando mazos sellados aleatorios
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-#_DEL	help:
-#_ADD	#help:
+	#help:
 	index:				
 	website:			
 	about:				
 	
-#_ADD	# New Set Window
+	# New Set Window
 #_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 #_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD 
+ 
 	# Cards panel
 	collapse notes:		Ocultar las notas de la carta
 	expand notes:		Mostrar las notas de la carta
 #_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD	# Keywords panel
+	# Keywords panel
 #_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 	random seed:		Cada vez se generarán mazos diferentes.
@@ -251,8 +241,7 @@ help:
 	app language:
 		Note: Debes reiniciar MSE para que los cambios hagan efecto.
 	zoom export:
-		(Cuando está desactivado, las cartas se exportan
-		 y copian al 100% de su tamaño y en una orientación normal)
+		(Cuando está desactivado, las cartas se exportan en una orientación normal)
 	
 	# apprentice export
 	set code:			Un código de set es un código de dos caracteres que usa el Apprentice para referirse a un set.
@@ -272,8 +261,7 @@ help:
 	grid:				Muestra las rejillas
 	snap:				Ajusta las formas y los puntos a las rejillas
 	
-#_DEL	tool:
-#_ADD	#tool:
+	#tool:
 	select:				Selecciona y mueve las formas
 	rotate:				Gira e inclina las formas
 	points:				Edita los puntos de control de una forma en el símbolo
@@ -281,8 +269,7 @@ help:
 	symmetry:			Añade simetría al símbolo
 	paint:				Pinta en la forma usando un pincel
 	
-#_DEL	select editor:
-#_ADD	#select editor:
+	#select editor:
 	merge:				Fusiona esta forma con las que tiene debajo
 	subtract:			Resta esta forma con las que tiene debajo, deja sólo el área en la otra forma que no está en este forma
 	intersect:			Cruza esta forma con las que tiene debajo, deja sólo el área en ambas formas
@@ -374,7 +361,7 @@ tool:
 	symmetric point:	Símetrico
 	
 #_ADD	clear console:		Clear Console
-#_ADD	
+	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:			
@@ -383,7 +370,7 @@ tooltip:
 	keywords tab:		
 	stats tab:			
 	random pack tab:	Mazos aleatorios
-#_ADD	console tab:		
+	console tab:		
 	
 	new set:			Nuevo set
 	open set:			Abrir set
@@ -414,13 +401,7 @@ tooltip:
 	stack:				Gráfico de barras apiladas
 	scatter:			Diagrama de dispersión
 	scatter pie:		Diagrama de dispersión circular
-	
-#_DEL	cards tab:			
-#_DEL	set info tab:		Información del set
-#_DEL	style tab:			Estilo de carta
-#_DEL	keywords tab:		
-#_DEL	stats tab:			
-#_DEL	
+		
 	# symbol editor
 	store symbol:		Almacenar símbolo en el set
 	
@@ -458,7 +439,7 @@ tooltip:
 	symmetric point:	Hacer punto simétrico
 
 #_ADD	clear console:		Clear Console
-#_ADD 
+ 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
@@ -486,10 +467,7 @@ label:
 	pack name:			Nombre del mazo
 	seed:				Semilla
 	total cards:		Total
-	
-#_DEL	# Open dialogs
-#_DEL	all files			Todos los archivos
-#_DEL	
+		
 	# Other set window dialogs
 	save changes:
 		El set '%s' ha cambiado.
@@ -519,13 +497,7 @@ label:
 	external programs:	Programas externos
 	apprentice:			&Apprentice:
 	apprentice exe:		Ejecutable de Apprentice
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
-#_ADD	internal scale desc:
+	internal scale desc:
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
 		Does not retroactively apply to existing images.
@@ -543,7 +515,6 @@ label:
 	# Card select / images export
 	select cards:			Cartas a exportar
 	selected card count:	%s cartas serán exportadas.
-#_DEL	select cards print:	Selecciona las cartas que quieres imprimir
 	filename format:	&Formato: 
 	filename conflicts:	&Soportar duplicado de nombres de archivos:
 	export filenames:	Nombres de archivo
@@ -560,8 +531,8 @@ label:
 	# Image slicer
 	original:			Original:
 	result:				Resultado:
-#_ADD	original with dimensions: Original (%s x %s):
-#_ADD	result with dimensions:	Result (%s x %s):
+	original with dimensions: Original (%s x %s):
+	result with dimensions:	Resultado (%s x %s):
 	size:				Tamaño
 	original size:			&Tamaño original
 	size to fit:			&Ajustar a tamaño
@@ -572,12 +543,10 @@ label:
 	selection top:			A&rriba
 	selection width:		A&nchura
 	selection height:		A&ltura
-#_DEL	zoom:				Zoom
 #_ADD	selection center:				Center
 #_ADD	selection center vertically:	Center Vertically
 #_ADD	selection center horizontally:	Center Horizontally
 #_ADD	selection center both:			Center Both
-#_ADD	#zoom:				Zoom
 	fix aspect ratio:		Bloquear relación de aspecto (anchura/altura)
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X

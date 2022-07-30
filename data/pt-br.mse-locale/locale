@@ -1,11 +1,9 @@
-﻿#_DEL #_DEL mse version: 2.0.0
-#_ADD mse version: 2.0.2
+﻿mse version: 2.0.2
 installer group: translations/portuguese/brazilian
 full name: Português do Brasil (Brazilian Portuguese)
 version: 2014-05-04
 icon: br.png
 
-#_DEL #By Luciano da Silva
 ############################################################## Menu items
 menu:
 	file:			&Arquivo
@@ -31,14 +29,14 @@ menu:
 	undo:				&Desfazer%s	Ctrl+Z
 	redo:				&Refazer%s	Ctrl+Y
 	cut:				Cor&tar	Ctrl+X
-#_ADD	cut card:		Cu&t	Ctrl+X
-#_ADD	cut keyword:	Cu&t	Ctrl+X
+	cut card:			Cor&tar	Ctrl+X
+	cut keyword:		Cor&tar	Ctrl+X
 	copy:				&Copiar	Ctrl+C
-#_ADD	copy card:			&Copy	Ctrl+C
-#_ADD	copy keyword:		&Copy	Ctrl+C
+	copy card:			&Copiar	Ctrl+C
+	copy keyword:		&Copiar	Ctrl+C
 	paste:				&Colar	Ctrl+V
-#_ADD	paste card:		&Paste	Ctrl+V
-#_ADD	paste keyword:	&Paste	Ctrl+V
+	paste card:			&Colar	Ctrl+V
+	paste keyword:		&Colar	Ctrl+V
 #_ADD	select all:				Select &All	Ctrl+A
 	find:				&Encontrar	Ctrl+F
 	find next:			Encontrar &Próximo	F3
@@ -86,27 +84,25 @@ menu:
 	
 #_ADD	console:			Console
 #_ADD	clear console:		&Clear Console	Ctrl+L
-#_ADD 
+
 	window:			&Janela
 	new window:			&Nova Janela
-	cards tab:			C&ards	F5
-#_DEL	set info tab:			I&nformação da Edição	F6
-	style tab:			Est&ilo	F7
-#_ADD	set info tab:		&Set Information	Alt+3
-	keywords tab:			&Palavras Chaves	F8
-	stats tab:			Es&tatísticas	F9
-	random pack tab:		Pa&cks Aleatório
-	console tab:		&Terminal	Ctrl+F9
+	cards tab:			C&ards	Alt+1
+	style tab:			Est&ilo	Alt+2
+	set info tab:			I&nformação da Edição	Alt+3
+	keywords tab:			&Palavras Chaves	Alt+4
+	stats tab:			Es&tatísticas	Alt+5
+	random pack tab:		Pa&cks Aleatório	Alt+6
+	console tab:		&Terminal	Alt+7
 	
 	help:			&Ajuda
 	index:				&Indíce...	F1
 	website:			&Site...
-	about:s	&About Magic Set Editor...
+	about:				&About Magic Set Editor...
 	
 	# symbol editor
-				&Arquivo	
-#_DEL	new symbol:			&Novo...	Ctrl+N
-#_ADD	
+
+	new symbol:			&Novo...	Ctrl+N
 	open symbol:			&Abrir...	Ctrl+O
 	save symbol:			&Salvar	Ctrl+S
 	save symbol as:			Salvar &Como...	F12
@@ -121,23 +117,22 @@ menu:
 	select:				&Selecionar	F5
 	rotate:				&Girar		F6
 	points:				&Pontos		F7
-	basic shapes:				&Formas Básicas		F8
-	symmetry:					S&imétrico	F9
-	paint:						P&intar		F10
+	basic shapes:		&Formas Básicas		F8
+	symmetry:			S&imétrico	F9
+	paint:				P&intar		F10
 
 ############################################################## Menu help texts
 help:
 	welcome:			Bem-Vindo ao Magic Set Editor
 	
-	file:
-#_DEL	new set:			Cria uma nova Edição.
-#_ADD	#file:
+	#file:
+	new set:			Cria uma nova Edição.
 	open set:			Abre uma Edição existente.
 	last opened set:	Abrir '%s'
 	save set:			Salva a Edição.
 	save set as:			Salva a Edição com um nome diferente.
-	export:				Exportar a Edição...
 #_ADD	save set as directory:		Save the set as a directory with separate files for each card
+	export:				Exportar a Edição...
 	export html:			Exporta a Edição como uma página da Internet.
 	export image:			Exporta o card selecionado como um arquivo de imagem.
 	export images:			Exporta todos os cards como um arquivo de imagem.
@@ -150,9 +145,8 @@ help:
 	show profiler:		Mostra a janela do perfil com horários de funções (script). Use apenas para otimização.
 	exit:				Fecha o Magic Set Editor; e pergunta se você gostaria de salvar a suas alterações.
 	
-	edit:
-#_DEL	undo:				Desfaz a última ação.
-#_ADD	#edit:
+	#edit:
+	undo:				Desfaz a última ação.
 	redo:				Resfaz a última ação.
 	cut:				Move o texto selecionado para à Área de Transferência.
 	cut card:			Move o card selecionado para à Área de Transferência.
@@ -163,19 +157,18 @@ help:
 	paste:				Introduz o texto que está na Área de Transferência.
 	paste card:			Introduz o Card que está na Área de Transferência.
 	paste keyword:			Introduz a Palavra Chave que está na Área de Transferência.
-	find:				Busca pelo texto do card.
 #_ADD	select all:				Select all text
+	find:				Busca pelo texto do card.
 	find next:			Busca pelo próximo texto do card.
 	replace:			Substitui o texto dos cards.
 	auto replace:			O texto deve ser substituido automaticamente?
 	preferences:			configurações do Magic Set Editor.
 	
-	cards:
-#_DEL	previous card:			Seleciona o card anterior da lista.
-#_ADD	#cards:
+	#cards:
+	previous card:			Seleciona o card anterior da lista.
 	next card:			Seleciona o próximo card da lista.
-	add card:			Adicione um novo, em branco, card para esta Edição.
 #_ADD	search cards:		Filter the card list using search terms
+	add card:			Adicione um novo, em branco, card para esta Edição.
 	add cards:			Adicione multiplos cards à esta Edição.
 	remove card:			Apaga o card selecionado desta Edição.
 	orientation:			Orientação do card exibido.
@@ -186,38 +179,34 @@ help:
 	rotate 180:				Mostra o card selecionado de cabeça para baixo.
 	card list columns:		Seleciona qual coluna deve ser mostradra em uma determinada ordem.
 	
-	keywords:
-#_DEL	previous keyword:		Seleciona uma Palavra-Chave anterior da lista.
-#_ADD	#keywords:
+	#keywords:
+	previous keyword:		Seleciona uma Palavra-Chave anterior da lista.
 	next keyword:			Seleciona uma próxima Palavra-Chave da lista.
-	add keyword:			Adiciona uma nova palavra chave na lista.
 #_ADD	search keywords:		Filter the keyword list using search terms
+	add keyword:			Adiciona uma nova palavra chave na lista.
 	remove keyword:			Deleta a Palavra-Chave selecionada da lista.
 	
-	format:
-#_DEL	bold:				Faça o texto selecionado transformar-se em Negrito.
-#_ADD	#format:
+	#format:
+	bold:				Faça o texto selecionado transformar-se em Negrito.
 	italic:				Faça o texto selecionado transformar-se em Itálico.
-	symbols:			Transforma uma parte do texto selecionada em simbolos.
 #_ADD	underline:          Makes the selected text underlined
+	symbols:			Transforma uma parte do texto selecionada em simbolos.
 	reminder text:			Mostra ou oculta o Texto Explicativo de uma Palavra-Chave selecionado.
 	# spelling
 	no spelling suggestions:	Não há sugestões para poder corrigir este erro.
 	
-	graph:
-#_DEL	pie:				Um gráfico no formato de Pizza, o tamanho de suas fatias indicam o número de cards.
-#_ADD	#graph:
+	#graph:
+	pie:				Um gráfico no formato de Pizza, o tamanho de suas fatias indicam o número de cards.
 	bar:				Um gráfico no formato de Barras, a altura das barras indica o número de card.
 	stack:				Um gráfico de Barra com Barras em pilhadas.
 	scatter:			Um gráfico de dispersão, o tamanho indica o número de cards.
 	scatter pie:			A dispersão parcela em que cada item é um gráfico de um pequena torta.
 	
-	window:
-#_DEL	new window:			&Cria uma outra janela para editar a mesma Edição.
-#_ADD	#console:
+	#console:
 #_ADD	clear console:		Clear the console
-#_ADD 
-#_ADD	#window:
+
+	#window:
+	new window:			&Cria uma outra janela para editar a mesma Edição.
 	cards tab:			&Edita o card da Edição.
 	set info tab:			&Edita informações sobre a Edição, seu criador, etc.
 	style tab:			&Escolhe o estilo dos cards.
@@ -226,23 +215,22 @@ help:
 	random pack tab:		&Teste você mesmo, veja o que você ganharia se abrisse packs aleatórios agora.
 	console tab:		Mostra mensagens de erro e permite a execução de comandos de scripts.
 
-	help:
-#_DEL	index:				
-#_ADD	#help:
+	#help:
+	index:				
 	website:			
 	about:				
 	
-	# Cards panel
-#_ADD	# New Set Window
+	# New Set Window
 #_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 #_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD 
+
+	# Cards panel
 	collapse notes:			Oculta a caixa de anotações do card.
 	expand notes:			Mostra a caixa de anotações do card.
-	# Random pack panel
 #_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD	# Keywords panel
+	# Keywords panel
 #_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
+	# Random pack panel
 	random seed:			Packs diferentes se for de sua vontade podem ser gerados em tempos diferentes.
 	fixed seed:			Usando a mesma maneira, você poderá gerar packs 'aleatórios' só que por números.
 	seed:				Veja o número gerado pelo o Aleatório. Usando o mesmo número você poderá escolher aquele mesmo pack gerado 'aleatóriamente'.
@@ -253,8 +241,7 @@ help:
 	app language:
 		Nota: Você precisa reiniciar o MSE para que suas alterações tenhão efeito.
 	zoom export:
-		(Se desmarcado, os cards são exportados
-		 e copiados 100% no tamanho e rotação normal)
+		(Se desmarcado, os cards são exportados e copiados rotação normal)
 	
 	# apprentice export
 	set code:			Um conjunto de códigos de dois caracteres, que é utilizado pelo Apprendice para se referir a uma Edição.
@@ -274,18 +261,16 @@ help:
 	grid:				Mostra as linhas guias.
 	snap:				Com a ferramenta Ímã, centralize os objetos selecionados.
 	
-	tool:
-#_DEL	select:				Seleciona e move a Forma.
-#_ADD	#tool:
+	#tool:
+	select:				Seleciona e move a Forma.
 	rotate:				Seleciona e gira a Forma.
 	points:				Edita os pontos de um simbolo.
 	basic shapes:			Adiciona Formas de Simbolos como retângulos ou círculos.
 	symmetry:			Adiciona simetrias ao simbolo.
 	paint:				Pinta a forma usando um paintbrush.
 	
-	select editor:
-#_DEL	merge:				Junta esta forma com outra.
-#_ADD	#select editor:
+	#select editor:
+	merge:				Junta esta forma com outra.
 	subtract:			Subtrai esta forma com outra.
 	intersect:			Intersecione esta forma com outra, somente a área que são as formas.
 	difference:			Diferencia esta forma com outra, a área criada não será uma forma.
@@ -316,8 +301,8 @@ help:
 	drag to move curve:		Arraste para mover as curvas.
 	drag to move line:		Alt + arraste para mover a curva; um clique duplo serve para adicionar um ponto sobre esta linha.
 	drag to move point:		Clique e arraste para mover o controle de ponto; dee um clique duplo para remover o ponto.
+	
 	rotation:			Simetria rotacional (rodar).
-#_ADD	
 	reflection:			Simetria Reflexional (espelho).
 	add symmetry:			Adiciona simbolos simétricos.
 	remove symmetry:		Remove esta simetria.
@@ -366,18 +351,18 @@ tool:
 	
 	rotation:			Rotação
 	reflection:			Reflexão
-	add symmetry:			Adicionar
-	remove symmetry:		Remover
+	add symmetry:		Adicionar
+	remove symmetry:	Remover
 	
-	line segment:			Linha
-	curve segment:			Curva
+	line segment:		Linha
+	curve segment:		Curva
 	free point:			Livre
-	smooth point:			Fumaça
-	symmetric point:		Simétrico
-	
-############################################################## Toolbar help text
+	smooth point:		Fumaça
+	symmetric point:	Simétrico
+
 #_ADD	clear console:		Clear Console
-#_ADD	
+
+############################################################## Toolbar help text
 tooltip:
 	cards tab:			
 	set info tab:			Informação da Edição
@@ -417,13 +402,7 @@ tooltip:
 	scatter:			Espalhados
 	scatter pie:			Espalhar Pizzas
 	
-	cards tab:			
-#_DEL	set info tab:			Informação da Edição
-#_DEL	style tab:			Estilo do Card
-#_DEL	keywords tab:		
-#_DEL	stats tab:			
-#_DEL	
-#_DEL	# symbol editor
+	# symbol editor
 	store symbol:			Usar simbolo na Edição corrente
 	
 	grid:				Mostrar linhas
@@ -459,9 +438,9 @@ tooltip:
 	smooth point:			Suavilização dos pontos
 	symmetric point:		Faça os pontos torna-sem simétricos
 
-############################################################## Labels in the GUI
 #_ADD	clear console:		Clear Console
-#_ADD 
+
+############################################################## Labels in the GUI
 label:
 	# Cards tab
 	card notes:			Informações Específica deste card
@@ -489,10 +468,7 @@ label:
 	seed:				Seed
 	total cards:			Total
 	
-	# Open dialogs
-#_DEL	all files			Todos os arquivos
-#_DEL	
-#_DEL	# Other set window dialogs
+	# Other set window dialogs
 	save changes:
 		A Edição está '%s' sendo modificada.
 		
@@ -501,9 +477,9 @@ label:
 	# New set window
 	game type:			&Tipo do Jogo de cards:
 	style type:			&Estilo do projeto:
-	
 #_ADD	search game list:   Filter Games
 #_ADD	search stylesheet list: Filter Stylesheets
+
 	stylesheet not found:
 			A Edição está tentando abrir a folha de estilo "%s".
 		Esta folha de estilo não é compatível com o sistema padrão. Por favor escolha uma folha de estilo alternativa.
@@ -513,22 +489,19 @@ label:
 	windows:			Abrir Edição
 	app language:		Linguagem da sua interface:
 	card display:		Visualização do card
-	zoom:				&Zoom:
 #_ADD	storage: 			Storage
+	zoom:				&Zoom:
 	percent of normal:	% de tamanho normal
 #_ADD	export: 			&Export:
 #_ADD	scale: 				&Internal Scale:
 	external programs:	Programas externos
 	apprentice:			&Apprentice:
 	apprentice exe:		Executável do Apprentice
+	internal scale desc:
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 	check at startup:	Proucurar por novo gatilho de inicialização
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
-#_ADD	internal scale desc:
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
 	checking requires internet:
 		Proucura por atualizações que requeira uma conexão com a internet.
 		Quando não houver uma conexão com a internet, as atualizações não será proucurada.
@@ -542,8 +515,7 @@ label:
 	# Card select / images export
 	select cards:				Cards para exportar
 	selected card count:		%s Cards que você deseja exportar
-	select cards print:		Selecione os cards para imprimir
-#_DEL	filename format:		&Formato: 
+	filename format:		&Formato: 
 	filename conflicts:		&Manejar duplicatas dos Nome_dos_Arquivos:
 	export filenames:		Nome_dos_Arquivos
 	filename is ignored: 		(O Nome_dos_Arquivos serão ignorados)
@@ -559,9 +531,9 @@ label:
 	# Image slicer
 	original:			Original:
 	result:				Resultado:
+	original with dimensions: Original (%s x %s):
+	result with dimensions:	Resultado (%s x %s):
 	size:				Dimenção
-#_ADD	original with dimensions: Original (%s x %s):
-#_ADD	result with dimensions:	Result (%s x %s):
 	original size:			&Tamanho Original
 	size to fit:			Tamanho para &ajuste
 	force to fit:			F&orçar o ajuste
@@ -571,13 +543,11 @@ label:
 	selection top:			&Topo
 	selection width:		&Largura
 	selection height:		&Altura
-	zoom:				Zoom
-#_DEL	fix aspect ratio:		Corrigir os aspéctos de proporção (altura/largura)
 #_ADD	selection center:				Center
 #_ADD	selection center vertically:	Center Vertically
 #_ADD	selection center horizontally:	Center Horizontally
 #_ADD	selection center both:			Center Both
-#_ADD	#zoom:				Zoom
+	fix aspect ratio:		Corrigir os aspéctos de proporção (altura/largura)
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X
 	zoom amount y:			Zoom &Y
@@ -635,8 +605,8 @@ button:
 	
 	# Console panel
 	evaluate:			Avali&e
-	
 #_ADD	clear:				&Clear
+
 	# Welcome
 	new set:			Nova Edição
 	open set:			Abrir Edição
@@ -656,8 +626,8 @@ button:
 	always:							Futuramente
 	if internet connection exists:	Se a conexão da internet existir
 	never:						Nunca
-	
 #_ADD	internal image extension: Store images internally with file extension
+
 	# Column select
 	move up:			Mover para &Cima
 	move down:			Mover para &Baixo
@@ -684,9 +654,8 @@ button:
 	enabled:			Apto
 	whole word:			Combinar todas as palavras somente
 	
-	# Old style update checker  (NOTA: se for de sua vontade remover os aspéctos da versão)
-#_DEL	close:				&Fechar
-#_ADD	# Old style update checker  (NOTE: this will be removed in a feature version)
+	# Old style update checker  (NOTE: this will be removed in a feature version)
+	close:				&Fechar
 	
 	# Packages window
 	keep package:			Não& alterar
@@ -710,8 +679,8 @@ title:
 	new set:			Nova Edição
 	open set:			Abrir Edição
 	save set:			Salvar a Edição Como
-	save image:			Savar Imagem
 #_ADD	save set as directory:	Save Set As Directory
+	save image:			Savar Imagem
 	updates available:	Atualizações Disponíveis
 	save changes:		Deseja savar as Alterações?
 	select stylesheet:	Selecionar o Estilo Moderno
@@ -720,16 +689,16 @@ title:
 	global:					Global
 	display:				Tela
 	directories:			Diretórios
-	updates:				Atualizações
 #_ADD	internal:               Internal
+	updates:				Atualizações
 	update check:			Proucurar por Atualizações
 	locate apprentice:		Local do Apprentice
 	# select
 	select columns:		Selecionar Colunas
 	select cards:		Selecionar Cards
 	select cards export:Selecionar Cards para Exportar
-	# slice
 #_ADD	select cards print:	Select the cards you want to print
+	# slice
 	slice image:		Imagem posta
 	# pack
 	custom pack:		Pack do Tipo Customizado
@@ -745,9 +714,9 @@ title:
 	
 	# Package Update Window
 	packages window:	Gerenciar pacotes
-	installing updates:	Instalando Atualizações	
+	installing updates:	Instalando Atualizações
+
 	cannot create file:	Não pode criar arquivos
-#_ADD	
 
 ############################################################## Action (undo/redo) names
 action:
@@ -758,13 +727,13 @@ action:
 	# Text editor
 	typing:				Tipo
 	enter:				Inserir
-	soft line break:		Soft linha
-	insert symbol:			Inserir Simbolo
+	soft line break:	Soft linha
+	insert symbol:		Inserir Simbolo
 	backspace:			Apagar
 	delete:				Deletar
 	cut:				Recortar
 	paste:				Colar
-	auto replace:			Auto Substituição
+	auto replace:		Auto Substituição
 	correct:			Correção mágica
 	# Choice/color editors
 	change:				Alterar %s
@@ -799,8 +768,7 @@ action:
 	change symmetry type:		Troca o tipo da simetria
 	change symmetry copies:		Número de reflexos
 
-
-#_DEL ############################################################## Error messages
+############################################################## Error messages
 error:
 	# File related
 	file not found:					O arquivo não foi encontrado: '%s' em pacotes '%s'
@@ -855,9 +823,8 @@ error:
 		Quando abri-lo, alguns aspéctos do arquivo podem ser perdidos.
 		É recomendado que você atualize para a versão mais recente.
 		Visite http://magicseteditor.sourceforge.net/
-	word list type not found:			A palavra lista tipo "%s" não foi encontrado (a partir de um <word-list> tag)
-	pack type not found:					
-		A embalagem do tipo "%s" não foi encontrado (a partir de um tipo de embalagem)
+	word list type not found:	A palavra lista tipo "%s" não foi encontrado (a partir de um <word-list> tag)
+	pack type not found:		A embalagem do tipo "%s" não foi encontrado (a partir de um tipo de embalagem)
 	
 	# Update checking
 	checking updates failed:			A checagem das atualizações falhou.

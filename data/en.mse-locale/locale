@@ -93,7 +93,7 @@ menu:
 	keywords tab:		&Keywords	Alt+4
 	stats tab:			S&tatistics	Alt+5
 	random pack tab:	&Random Packs	Alt+6
-	console tab:		&Console	Alt+7
+	console tab:		C&onsole	Alt+7
 	
 	help:			&Help
 	index:				&Index...	F1

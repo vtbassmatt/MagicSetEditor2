@@ -1,11 +1,9 @@
-﻿#_DEL #_DEL #_DEL mse version: 2.0.0
-#_ADD mse version: 2.0.2
+﻿mse version: 2.0.2
 installer group: translations/dansk
 full name: Dansk
 version: 2013-08-13
 icon: dk.png
 
-#_DEL ######## by lord_joakim #########
 ############################################################## Menu items
 menu:
 	file:			&Fil
@@ -31,14 +29,14 @@ menu:
 	undo:				&Fortryd%s	Ctrl+Z
 	redo:				&Gendan%s	Ctrl+Y
 	cut:				Kli&p	Ctrl+X
-#_ADD	cut card:		Cu&t	Ctrl+X
-#_ADD	cut keyword:	Cu&t	Ctrl+X
+	cut card:			Kli&p	Ctrl+X
+	cut keyword:		Kli&p	Ctrl+X
 	copy:				&Kopiér	Ctrl+C
-#_ADD	copy card:			&Copy	Ctrl+C
-#_ADD	copy keyword:		&Copy	Ctrl+C
+	copy card:			&Kopiér	Ctrl+C
+	copy keyword:		&Kopiér	Ctrl+C
 	paste:				&Sæt ind	Ctrl+V
-#_ADD	paste card:		&Paste	Ctrl+V
-#_ADD	paste keyword:	&Paste	Ctrl+V
+	paste card:			&Sæt ind	Ctrl+V
+	paste keyword:		&Sæt ind	Ctrl+V
 #_ADD	select all:				Select &All	Ctrl+A
 	find:				&Find	Ctrl+F
 	find next:			Find &Næste	F3
@@ -86,16 +84,15 @@ menu:
 	
 #_ADD	console:			Console
 #_ADD	clear console:		&Clear Console	Ctrl+L
-#_ADD 
+
 	window:			&Vindue
 	new window:			&Nyt Vindue
-	cards tab:			&Kort	F5
-#_DEL	set info tab:		&Sæt Information	F6
-	style tab:			St&il	F7
-#_ADD	set info tab:		&Set Information	Alt+3
-	keywords tab:		&Nøgleord	F8
-	stats tab:			S&tatistik	F9
-	random pack tab:	&Tilfældige Pakker
+	cards tab:			&Kort	Alt+1
+	style tab:			St&il	Alt+2
+	set info tab:		&Sæt Information	Alt+3
+	keywords tab:		&Nøgleord	Alt+3
+	stats tab:			S&tatistik	Alt+4
+	random pack tab:	&Tilfældige Pakker	Alt+6
 #_ADD	console tab:		&Console	Alt+7
 	
 	help:			&Hjælp
@@ -128,8 +125,7 @@ menu:
 help:
 	welcome:			Velkommen til Magic Set Editor
 	
-#_DEL	file:
-#_ADD	#file:
+	#file:
 	new set:			Lav et nyt sæt
 	open set:			Åben et sæt
 	last opened set:	Åben '%s'
@@ -149,8 +145,7 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:				Lukker Magic Set Editor; påminder om sættet skal gemmes før lukning
 	
-#_DEL	edit:
-#_ADD	#edit:
+	#edit:
 	undo:				Fortryder den sidste handling
 	redo:				Gendanner den sidste handling
 	cut:				Flytter den valgte tekst til udklipsholderen
@@ -169,8 +164,7 @@ help:
 	auto replace:		Hvilken tekst skal automatisk erstattes?
 	preferences:		Ændr Magic Set Editor's konfiguration
 	
-#_DEL	cards:
-#_ADD	#cards:
+	#cards:
 	previous card:		Vælg det forhenværende kort i listen
 	next card:			Vælger det næste kort i listen
 #_ADD	search cards:		Filter the card list using search terms
@@ -185,16 +179,14 @@ help:
 	rotate 180:				Viser kortet på hovedet
 	card list columns:	Vælg hvilke kolonner der er vist og i hvilken rækkefølge.
 	
-#_DEL	keywords:
-#_ADD	#keywords:
+	#keywords:
 	previous keyword:	Vælger det forhenværende nøgleord i listen
 	next keyword:		Vælger det næste nøgleord i listen
 #_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		Tilføjer et nyt nøgleord til sættet
 	remove keyword:		Sletter det valgte nøgleord til sættet
 	
-#_DEL	format:
-#_ADD	#format:
+	#format:
 	bold:				Gør den valgte tekst fed
 	italic:				Gør den valgte tekst kursiv
 #_ADD	underline:          Makes the selected text underlined
@@ -203,45 +195,40 @@ help:
 	# spelling
 	no spelling suggestions:	Der er ingen forslag til at rette denne fejl.
 	
-#_DEL	graph:
-#_ADD	#graph:
+	#graph:
 	pie:				En lagkagegraf, hvert stykke viser antallet af kort
 	bar:				En stolpegraf, hver stolpe viser antallet af kort
 	stack:				En stolpegraf med stolperne lagt i bunker
 	scatter:			Et koordinatdiagram, hvor størrelsen af hver koordinat viser størrelsen
 	scatter pie:		Et koordinatdiagram hvor hver koordinat har sin egen lagkagegraf
 	
-#_DEL	window:
-#_DEL	new window:			Åbner et nyt vindue for at arbejde med det samme sæt
-#_ADD	#console:
+	#console:
 #_ADD	clear console:		Clear the console
 
-#_ADD	#window:
-#_ADD	new window:			Creates another window to edit the same set
+	#window:
+	new window:			Åbner et nyt vindue for at arbejde med det samme sæt
 	cards tab:			Redigerer kortene i sættet
 	set info tab:		Ændrer information om saettet, dets skaber etc.
-#_DEL 
 	style tab:			Ændrer kortenes stil
 	keywords tab:		Definerer ekstra nøgleord for dette sæt
 	stats tab:			Viser statistikker om dette sæt
 	random pack tab:	Prøv at se hvordan sættet fungerer ved at lave boosters!
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-#_DEL	help:
-#_ADD	#help:
+	#help:
 	index:				
 	website:			
 	about:				
 	
-#_ADD	# New Set Window
+	# New Set Window
 #_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 #_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD 
+
 	# Cards panel
 	collapse notes:		Viser noteboksen
 	expand notes:		Vis noteboksen
 #_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD	# Keywords panel
+	# Keywords panel
 #_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 	random seed:		Hver kortgeneration laver en ny pakke
@@ -254,15 +241,13 @@ help:
 	app language:
 		Note: Du skal genstarte MSE for at ændringerne skal træde i kraft
 	zoom export:
-		(Når slukket er kortene eksporteret
-		 og kopieret i 100% størrelse og uden rotation)
+		(Når slukket er kortene eksporteret og kopieret i uden rotation)
 	
 	# apprentice export
 	set code:			En sætkode er to bogstaver, som Apprentice bruger til at skelne imellem sættene
 	
 	# Symbol editor
 	new symbol:			Lav et nyt symbol
-#_DEL 
 	open symbol:		Åben et symbol
 	save symbol:		Gem symbolet
 	save symbol as:		Gem symbol under et andet filnavn
@@ -276,8 +261,7 @@ help:
 	grid:				Viser gitter
 	snap:				Låser former og kanter fast til gitteret
 	
-#_DEL	tool:
-#_ADD	#tool:
+	#tool:
 	select:				Vælg og flyt former
 	rotate:				Rotér og fordrej former
 	points:				Ændrer formpunkter i formen
@@ -285,8 +269,7 @@ help:
 	symmetry:			Tilføj symmetri til symbolet
 	paint:				Tegn på formen med en pensel
 	
-#_DEL	select editor:
-#_ADD	#select editor:
+	#select editor:
 	merge:				Smelter formen sammen med former under den
 	subtract:			Fjerner denne forms areal fra former under den
 	intersect:			Finder de ramte områder med former under denne og viser kun arealet af denne figur hvor den rammer andre former
@@ -378,7 +361,7 @@ tool:
 	symmetric point:	Symmetrisk
 	
 #_ADD	clear console:		Clear Console
-#_ADD	
+
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:			
@@ -387,7 +370,7 @@ tooltip:
 	keywords tab:		
 	stats tab:			
 	random pack tab:	Tilfældige pakker
-#_ADD	console tab:		
+	console tab:		
 	
 	new set:			Nyt sæt
 	open set:			Åben sæt
@@ -419,12 +402,6 @@ tooltip:
 	scatter:			Koordinatdiagram
 	scatter pie:		Lagkagekoordinatdiagram
 	
-#_DEL	cards tab:			
-#_DEL	set info tab:		Sætinformation
-#_DEL	style tab:			Kortstil
-#_DEL	keywords tab:		
-#_DEL	stats tab:			
-#_DEL	
 	# symbol editor
 	store symbol:		Brug symbol i sæt
 	
@@ -462,7 +439,7 @@ tooltip:
 	symmetric point:	Gør punkt symmetrisk
 
 #_ADD	clear console:		Clear Console
-#_ADD 
+
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
@@ -491,9 +468,6 @@ label:
 	seed:				Variabel
 	total cards:		Total
 	
-#_DEL	# Open dialogs
-#_DEL	all files			Alle filer
-#_DEL	
 	# Other set window dialogs
 	save changes:
 		Sættet '%s' er ændret.
@@ -523,18 +497,11 @@ label:
 	external programs:	Eksterne programmer
 	apprentice:			&Apprentice:
 	apprentice exe:		Apprentice Executable
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
-#_ADD	internal scale desc:
+	internal scale desc:
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
 		Does not retroactively apply to existing images.
 	check at startup:	Tjek efter nye versioner ved startup
-#_DEL 
 	checking requires internet:
 		Dette kræver netforbindelse.
 		Når der ikke er forbindelse, bliver der ikke ledt efter opdateringer.
@@ -548,7 +515,6 @@ label:
 	# Card select / images export
 	select cards:			Kort til at eksportere
 	selected card count:	%s kort vil blive eksporteret.
-#_DEL	select cards print:	Vælg de kort, du vil udskrive
 	filename format:	&Format: 
 	filename conflicts:	&Arbejdsmetode med dobbelte filnavne:
 	export filenames:	Filnavne
@@ -565,8 +531,8 @@ label:
 	# Image slicer
 	original:			Original:
 	result:				Resultat:
-#_ADD	original with dimensions: Original (%s x %s):
-#_ADD	result with dimensions:	Result (%s x %s):
+	original with dimensions: Original (%s x %s):
+	result with dimensions:	Resultat (%s x %s):
 	size:				Størrelse
 	original size:			&Original Størrelse
 	size to fit:			Billedstørrelse er &rammestørrelse
@@ -577,14 +543,11 @@ label:
 	selection top:			&Øverst
 	selection width:		&Bredde
 	selection height:		&Højde
-#_DEL	zoom:				Zoom
 #_ADD	selection center:				Center
 #_ADD	selection center vertically:	Center Vertically
 #_ADD	selection center horizontally:	Center Horizontally
 #_ADD	selection center both:			Center Both
-#_ADD	#zoom:				Zoom
 	fix aspect ratio:		Fiksér højde/breddeforhold
-#_DEL 
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X
 	zoom amount y:			Zoom &Y
@@ -694,7 +657,6 @@ button:
 	# Old style update checker  (NOTE: this will be removed in a feature version)
 	close:				&Luk
 
-#_DEL	
 	# Packages window
 	keep package:			&Ændr ikke
 	don't install package:	&Installér ikke
