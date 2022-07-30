@@ -1,4 +1,4 @@
-﻿#_DEL #_DEL mse version: 2.0.0
+﻿#_DEL #_DEL #_DEL mse version: 2.0.0
 #_ADD mse version: 2.0.2
 installer group: translations/français
 full name: Français
@@ -69,6 +69,7 @@ menu:
 	format:			F&ormat
 	bold:				&Gras	Ctrl+B
 	italic:				&Italique	Ctrl+I
+#_ADD	underline:          &Underline	Ctrl+U
 	symbols:			&Symboles	Ctrl+M
 	reminder text:		&Texte de rappel	Ctrl+R
 	insert symbol:		I&nserer Symbole
@@ -195,6 +196,7 @@ help:
 #_ADD	#format:
 	bold:				Mettre le texte sélectionné en gras
 	italic:				Mettre le texte sélectionné en italique
+#_ADD	underline:          Makes the selected text underlined
 	symbols:			Mettre le texte selectionné en symboles
 	reminder text:		Afficher le texte de rappel pour le Mot-clé sélectionné
 	# spelling
@@ -403,6 +405,7 @@ tooltip:
 	
 	bold:				Gras
 	italic:				Italique
+#_ADD	underline:          Underline
 	symbols:			Symboles
 	reminder text:		Texte de rappel
 	
@@ -516,6 +519,9 @@ label:
 	external programs:	Programmes externes
 	apprentice:			&Apprentice:
 	apprentice exe:		Executable Apprentice
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
 		Does not retroactively apply to existing images.
@@ -865,6 +871,8 @@ error:
 #_DEL	# Package update window
 		There is already a pack type named '%s'.
 		Please choose a different name.
+		There is already a pack type named '%s'.
+		Please choose a different name.
 #_ADD	pack type duplicate name:
 		There is already a pack type named '%s'.
 		Please choose a different name.
@@ -874,8 +882,8 @@ error:
 		Rien n'a été installé.
 #_DEL	
 #_DEL	downloading updates:				Téléchargement de mise à jour(%d de %d)
-	installing updates:					Mise à jour packages (%d de %d)
-	
+#_DEL	installing updates:					Mise à jour packages (%d de %d)
+#_DEL	
 	remove packages:
 		Cela va supprimer %s packages, voulez-vous continuer?
 	remove packages modified:
@@ -905,9 +913,9 @@ type:
 	
 	# Object types
 	package:		package
-#_ADD	date:			date
 	locale:			traduction
 	game:			jeu
+#_ADD	date:			date
 	set:			set
 	stylesheet:		stylesheet
 	export template:exporte modèle
@@ -923,9 +931,9 @@ type:
 	# Symbol editor shapes
 	shape:			forme
 	shapes:			formes
-#_ADD	pack:			pack type
 	circle:			cercle
 	ellipse:		ellipse
+#_ADD	pack:			pack type
 	square:			carré
 	rectangle:		rectangle
 	triangle:		triangle

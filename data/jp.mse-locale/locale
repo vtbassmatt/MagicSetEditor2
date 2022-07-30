@@ -1,5 +1,4 @@
-﻿#_DEL #_DEL mse version: 2.0.0
-#_ADD mse version: 2.0.2
+﻿mse version: 2.0.2
 installer group: translations/japanese
 full name: 日本語 (Japanese)
 version: 2013-08-13
@@ -30,14 +29,14 @@ menu:
 	undo:				&元に戻す%s	Ctrl+Z
 	redo:				&やり直し%s	Ctrl+Y
 	cut:				切り取り	Ctrl+X
-#_ADD	cut card:		Cu&t	Ctrl+X
-#_ADD	cut keyword:	Cu&t	Ctrl+X
+	cut card:			切り取り	Ctrl+X
+	cut keyword:		切り取り	Ctrl+X
 	copy:				&コピー	Ctrl+C
-#_ADD	copy card:			&Copy	Ctrl+C
-#_ADD	copy keyword:		&Copy	Ctrl+C
+	copy card:			&コピー	Ctrl+C
+	copy keyword:		&コピー	Ctrl+C
 	paste:				&貼り付け	Ctrl+V
-#_ADD	paste card:		&Paste	Ctrl+V
-#_ADD	paste keyword:	&Paste	Ctrl+V
+	paste card:			&貼り付け	Ctrl+V
+	paste keyword:		&貼り付け	Ctrl+V
 #_ADD	select all:				Select &All	Ctrl+A
 	find:				&検索	Ctrl+F
 	find next:			次を検索	F3
@@ -69,10 +68,11 @@ menu:
 	format:			&書式
 	bold:				&太字	Ctrl+B
 	italic:				&斜体	Ctrl+I
+#_ADD	underline:          &Underline	Ctrl+U
 	symbols:			&記号	Ctrl+M
 	reminder text:		&注釈文	Ctrl+R
 	insert symbol:		記号の挿入
-#_ADD	# spelling
+	# spelling
 #_ADD	no spelling suggestions:	(no suggestions)
 
 	graph:			&グラフ
@@ -84,15 +84,14 @@ menu:
 	
 #_ADD	console:			Console
 #_ADD	clear console:		&Clear Console	Ctrl+L
-#_ADD 
+ 
 	window:			&ウィンドウ
 	new window:			&新しいウィンドウ
-	cards tab:			&カード	F5
-#_DEL	set info tab:		&セットの情報	F6
-	style tab:			スタイル	F7
-#_ADD	set info tab:		&Set Information	Alt+3
-	keywords tab:		&キーワード		F8
-	stats tab:			統計	F9
+	cards tab:			&カード	Alt+1
+	style tab:			スタイル	Alt+2
+	set info tab:		&セットの情報	Alt+3
+	keywords tab:		&キーワード		Alt+4
+	stats tab:			統計	Alt+5
 #_ADD	random pack tab:	&Random Packs	Alt+6
 #_ADD	console tab:		&Console	Alt+7
 	
@@ -126,8 +125,7 @@ menu:
 help:
 	welcome:			Magic Set Editor 2 へようこそ
 	
-#_DEL	file:
-#_ADD	#file:
+	#file:
 	new set:			新しいセットを作成します。
 	open set:			既存のセットを開きます。
 	last opened set:	直前に '%s' を開く。 
@@ -147,8 +145,7 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:				Magic Set Editorを終了します。
 	
-#_DEL	edit:
-#_ADD	#edit:
+	#edit:
 	undo:				直前に行った操作を元に戻します。
 	redo:				直前に行った操作をやり直します。
 	cut:				選択したテキストをクリップボードに移動します。
@@ -167,8 +164,7 @@ help:
 	auto replace:		どのテキストが自動的に置き換えられるべきですか？
 	preferences:		Magic Set Editorの設定を変更します。
 	
-#_DEL	cards:
-#_ADD	#cards:
+	#cards:
 	previous card:		リストの前のカードを選択します。
 	next card:			リストの次のカードを選択します。
 #_ADD	search cards:		Filter the card list using search terms
@@ -183,36 +179,33 @@ help:
 	rotate 180:				カードを180°回転させて表示します。
 	card list columns:	表示させる列の設定を行います。
 	
-#_DEL	keywords:
-#_ADD	#keywords:
+	#keywords:
 	previous keyword:	リストの前のキーワード能力を選択します。
 	next keyword:		リストの次のキーワード能力を選択します。
 #_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		新しいキーワード能力を現在のセットに加えます。
 	remove keyword:		現在のセットから選ばれたキーワード能力を削除します。
 	
-#_DEL	format:
-#_ADD	#format:
+	#format:
 	bold:				選択したテキストを太字(ボールド体)にします。
 	italic:				選択したテキストを斜体(イタリック体)にします。
+#_ADD	underline:          Makes the selected text underlined
 	symbols:			選択したテキストをマナ・シンボルなどのシンボルにします。
 	reminder text:		選ばれたキーワード能力のための注釈文を表示させます。
-#_ADD	# spelling
+	# spelling
 #_ADD	no spelling suggestions:	There are no suggestions for correcting this error
 
-#_DEL	graph:
-#_ADD	#graph:
+	#graph:
 	pie:				を円グラフ、スライスのサイズのカードの数を示します
 	bar:				バーグラフは、バーの高さをカードの数を示します
 	stack:					バーグラフを積み重ねバー
 	scatter:			散布図は、カードの大きさの数を示します
 	scatter pie:		各アイテムを散布図では、小さなパイグラフ
 	
-#_DEL	window:
-#_ADD	#console:
+	#console:
 #_ADD	clear console:		Clear the console
-#_ADD 
-#_ADD	#window:
+ 
+	#window:
 	new window:			同じセットを編集するために、もう一つのウィンドウを表示します。
 	cards tab:			現在のセットのカードを編集します。
 	set info tab:		現在のセットについての情報を表示します。
@@ -222,21 +215,20 @@ help:
 #_ADD	random pack tab:	Try how the set works out in practice by generating random booster packs.
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-#_DEL	help:
-#_ADD	#help:
+	#help:
 	index:				
 	website:			
 	about:				
 	
-#_ADD	# New Set Window
+	# New Set Window
 #_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 #_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD 
+ 
 	# Cards panel
 #_ADD	collapse notes:		Hide the card notes box
 #_ADD	expand notes:		Show the card notes box
 #_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD	# Keywords panel
+	# Keywords panel
 #_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 #_ADD	random seed:		Different packs will be generated each time.
@@ -249,8 +241,7 @@ help:
 	app language:
 		注： 変更を適用するためにはMagic Set Editorを再起動する必要があります。
 	zoom export:
-		(このチェック・ボックスがオフの場合、
-		エクスポートされる画像に回転やズームは適用されません)
+		(このチェック・ボックスがオフの場合、エクスポートされる画像に回転ームは適用されません)
 	
 	# apprentice export
 	set code:			セットされたコードは、Apprenticeによってセットを参照することに使われる2キャラクターのコードです。
@@ -270,8 +261,7 @@ help:
 	grid:				グリッドの表示/非表示を変更します。
 	snap:				図形とポイントをグリッドに合わせるかどうか選択します。
 	
-#_DEL	tool:
-#_ADD	#tool:
+	#tool:
 	select:				図形を選択します。
 	rotate:				図形を回転させます。
 	points:				図形を編集するためのポイントを設置します。
@@ -279,8 +269,7 @@ help:
 	symmetry:			対象線を加えます。
 	paint:				ペイントブラシツールを使って図形をペイントします。
 	
-#_DEL	select editor:
-#_ADD	#select editor:
+	#select editor:
 	merge:				それの下でこの形をそれらと合併させます
 	subtract:			それの下の形からこの形を引いて、すなわちこの形でエリアだけをその形に残します
 	intersect:			それ、両方のエリアだけが形成する葉の下の形でのこの形を横切ります
@@ -372,7 +361,7 @@ tool:
 	symmetric point:	対称的です
 	
 #_ADD	clear console:		Clear Console
-#_ADD	
+	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:			
@@ -381,7 +370,7 @@ tooltip:
 	keywords tab:		
 	stats tab:			
 #_ADD	random pack tab:	Random packs
-#_ADD	console tab:		
+	console tab:		
 	
 	new set:			新規作成
 	open set:			開く
@@ -403,6 +392,7 @@ tooltip:
 	
 	bold:				太字
 	italic:				斜体
+#_ADD	underline:          Underline
 	symbols:			シンボル
 	reminder text:		注釈文
 
@@ -411,13 +401,7 @@ tooltip:
 	stack:				積み重ね棒グラフ
 	scatter:			散布図
 	scatter pie:		散乱-パイプロット
-	
-#_DEL	cards tab:			
-#_DEL	set info tab:		セットの情報
-#_DEL	style tab:			スタイル
-#_DEL	keywords tab:		
-#_DEL	stats tab:			
-#_DEL	
+
 	# symbol editor
 	store symbol:		使用セットの記号
 	
@@ -455,7 +439,7 @@ tooltip:
 	symmetric point:	ポイントを対称的にしてください
 
 #_ADD	clear console:		Clear Console
-#_ADD 
+ 
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
@@ -478,9 +462,6 @@ label:
 	styling options:	スタイル・オプション
 	
 	# Random pack panel
-#_DEL	
-#_DEL	# Open dialogs
-#_DEL	all files			全てのファイル
 #_ADD	pack selection:		Pack selection
 #_ADD	pack totals:		Totals
 #_ADD	pack name:			Pack name
@@ -516,10 +497,7 @@ label:
 	external programs:	外部のプログラム
 	apprentice:			&Apprentice：
 	apprentice exe:		Apprenticeを起動できます
-		Scale to internally store card images at.
-		Changing this may impact how Sharpening looks.
-		Does not retroactively apply to existing images.
-#_ADD	internal scale desc:
+	internal scale desc:
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
 		Does not retroactively apply to existing images.
@@ -535,7 +513,6 @@ label:
 	columns:			列：
 	
 	# Card select / images export
-#_DEL	select cards print:	あなたが印刷したいカードを選んでください
 #_ADD	select cards:			Cards to export
 #_ADD	selected card count:	%s cards will be exported.
 	filename format:	&フォーマット： 
@@ -554,15 +531,14 @@ label:
 	# Image slicer
 	original:			オリジナル：
 	result:				結果：
-#_ADD	original with dimensions: Original (%s x %s):
-#_ADD	result with dimensions:	Result (%s x %s):
+	original with dimensions: オリジナル (%s x %s)：
+	result with dimensions:	結果 (%s x %s)：
 	size:				サイズ
 #_ADD	original size:			&Original Size
 #_ADD	size to fit:			Size to &Fit
 #_ADD	force to fit:			F&orce to Fit
 #_ADD	custom size:			&Custom Size
 	selection:			選択
-#_DEL	zoom:				ズーム
 #_ADD	selection left:			&Left
 #_ADD	selection top:			&Top
 #_ADD	selection width:		&Width
@@ -571,12 +547,11 @@ label:
 #_ADD	selection center vertically:	Center Vertically
 #_ADD	selection center horizontally:	Center Horizontally
 #_ADD	selection center both:			Center Both
-#_ADD	#zoom:				Zoom
 #_ADD	fix aspect ratio:		Fix aspect ratio (width/height)
-#_ADD	zoom amount:			Zoom
-#_ADD	zoom amount x:			Zoom &X
-#_ADD	zoom amount y:			Zoom &Y
-#_ADD	zoom %:					%
+	zoom amount:			ズーム
+	zoom amount x:			ズーム &X
+	zoom amount y:			ズーム &Y
+	zoom %:					%
 	filter:				フィルター
 #_ADD	sharpen filter:			&Sharpen filter
 	
@@ -606,8 +581,8 @@ label:
 #_ADD	installable version:	Latest version:
 #_ADD	installer size:			Size:
 #_ADD	installer status:		Status:
-#_ADD	no version:				-
-#_ADD 
+	no version:				-
+
 ############################################################## Buttons/checkboxes/choices in the GUI
 button:
 	# Editor
@@ -725,7 +700,7 @@ title:
 #_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		画像編集
-#_ADD	# pack
+	# pack
 #_ADD	custom pack:		Custom Pack Type
 	# print
 	print preview:		印刷プレビュー
@@ -847,9 +822,10 @@ error:
 		このファイルがMagic Set Editorのより新しいバージョンで作られる　(%s)　あなたがそれを開けて、ファイルのいくつかの局面が紛失しているかもしれない時
 		あなたは最新のバージョンにアップグレードするように勧められます。
 		http::を訪問してください　/　magicseteditor.sourceforge.net　/
+
 	word list type not found:			リストタイプという語　%s　(<word-list>タグから)見つからなかった
 #_ADD	pack type not found:				The pack type "%s" was not found (from a pack type)
-	
+
 	# Update checking
 	checking updates failed:			アップデートが失敗したか調べます。
 	no updates:							利用可能なアップデートはありません。
@@ -857,19 +833,15 @@ error:
 	# Stats panel
 	dimension not found:				ディメンションはありません '%s'
 
+	# Random packs
+	pack type duplicate name:
 		There is already a pack type named '%s'.
 		Please choose a different name.
-		There is already a pack type named '%s'.
-		Please choose a different name.
-#_ADD	# Random packs
-#_ADD	pack type duplicate name:
-		There is already a pack type named '%s'.
-		Please choose a different name.
-#_ADD	
+	
 	# Package update window
 #	checking updates:					アップデートを調べます。
 	can't download installer:
-			インストーラのパッケージをダウンロードできませんでした。 %s 〜から %s.
+		インストーラのパッケージをダウンロードできませんでした。 %s 〜から %s.
 		何もがインストールされています。
 
 	downloading updates:				更新プログラムのダウンロード (%d of %d)

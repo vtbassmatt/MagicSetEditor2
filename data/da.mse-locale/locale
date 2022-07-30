@@ -1,4 +1,4 @@
-﻿#_DEL #_DEL mse version: 2.0.0
+﻿#_DEL #_DEL #_DEL mse version: 2.0.0
 #_ADD mse version: 2.0.2
 installer group: translations/dansk
 full name: Dansk
@@ -70,6 +70,7 @@ menu:
 	format:			F&ormater
 	bold:				&Fed	Ctrl+B
 	italic:				&Kursiv	Ctrl+I
+#_ADD	underline:          &Underline	Ctrl+U
 	symbols:			&Symboler	Ctrl+M
 	reminder text:		&Nøgleordspåmindelser	Ctrl+R
 	insert symbol:		I&ndsæt Symbol
@@ -196,6 +197,7 @@ help:
 #_ADD	#format:
 	bold:				Gør den valgte tekst fed
 	italic:				Gør den valgte tekst kursiv
+#_ADD	underline:          Makes the selected text underlined
 	symbols:			Teksten er som Magic-symboler
 	reminder text:		Viser huskeregler i teksten
 	# spelling
@@ -407,6 +409,7 @@ tooltip:
 	
 	bold:				Fed
 	italic:				Kursiv
+#_ADD	underline:          Underline
 	symbols:			Symboler
 	reminder text:		Huskeregler
 	
@@ -520,6 +523,9 @@ label:
 	external programs:	Eksterne programmer
 	apprentice:			&Apprentice:
 	apprentice exe:		Apprentice Executable
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
 		Does not retroactively apply to existing images.

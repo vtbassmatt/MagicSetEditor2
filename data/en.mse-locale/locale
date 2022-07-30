@@ -547,7 +547,6 @@ label:
 	selection center vertically:	Center Vertically
 	selection center horizontally:	Center Horizontally
 	selection center both:			Center Both
-	#zoom:				Zoom
 	fix aspect ratio:		Fix aspect ratio (width/height)
 	zoom amount:			Zoom
 	zoom amount x:			Zoom &X

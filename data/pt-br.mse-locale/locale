@@ -1,4 +1,4 @@
-﻿#_DEL mse version: 2.0.0
+﻿#_DEL #_DEL mse version: 2.0.0
 #_ADD mse version: 2.0.2
 installer group: translations/portuguese/brazilian
 full name: Português do Brasil (Brazilian Portuguese)
@@ -70,6 +70,7 @@ menu:
 	format:			F&ormatar
 	bold:				&Negrito	Ctrl+B
 	italic:				&Italico	Ctrl+I
+#_ADD	underline:          &Underline	Ctrl+U
 	symbols:			&Simbolos	Ctrl+M
 	reminder text:			&Texto Explicativo	Ctrl+R
 	insert symbol:			I&nserir Símbolo
@@ -198,6 +199,7 @@ help:
 #_ADD	#format:
 	italic:				Faça o texto selecionado transformar-se em Itálico.
 	symbols:			Transforma uma parte do texto selecionada em simbolos.
+#_ADD	underline:          Makes the selected text underlined
 	reminder text:			Mostra ou oculta o Texto Explicativo de uma Palavra-Chave selecionado.
 	# spelling
 	no spelling suggestions:	Não há sugestões para poder corrigir este erro.
@@ -406,6 +408,7 @@ tooltip:
 	bold:				Negrito
 	italic:				Itálico
 	symbols:			Simbolo
+#_ADD	underline:          Underline
 	reminder text:			Texto Explicativo
 	
 	pie:				Gráfico em Pizza
@@ -519,6 +522,9 @@ label:
 	apprentice:			&Apprentice:
 	apprentice exe:		Executável do Apprentice
 	check at startup:	Proucurar por novo gatilho de inicialização
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 #_ADD	internal scale desc:
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.

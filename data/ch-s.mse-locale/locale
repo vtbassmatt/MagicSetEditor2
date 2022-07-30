@@ -1,8 +1,7 @@
-﻿#_DEL mse version: 2.0.0
-#_ADD mse version: 2.0.2
+﻿mse version: 2.0.2
 installer group: translations/chinese/simplified
 full name: 简体中文 (Simplified Chinese)
-version: 2013-08-13
+version: 2022-07-29
 icon: cn.png
 
 ############################################################## Menu items
@@ -30,14 +29,14 @@ menu:
 	undo:			撤销%s	Ctrl+Z
 	redo:			重做%s	Ctrl+Y
 	cut:			剪切	Ctrl+X
-#_ADD	cut card:		Cu&t	Ctrl+X
-#_ADD	cut keyword:	Cu&t	Ctrl+X
+	cut card:		剪切	Ctrl+X
+	cut keyword:	剪切	Ctrl+X
 	copy:			复制	Ctrl+C
-#_ADD	copy card:			&Copy	Ctrl+C
-#_ADD	copy keyword:		&Copy	Ctrl+C
+	copy card:			复制	Ctrl+C
+	copy keyword:		复制	Ctrl+C
 	paste:			粘贴	Ctrl+V
-#_ADD	paste card:		&Paste	Ctrl+V
-#_ADD	paste keyword:	&Paste	Ctrl+V
+	paste card:		粘贴	Ctrl+V
+	paste keyword:	粘贴	Ctrl+V
 #_ADD	select all:				Select &All	Ctrl+A
 	find:			查找	Ctrl+F
 	find next:		查找下一个	F3
@@ -69,10 +68,11 @@ menu:
 	format:			字体格式
 	bold:			粗体	Ctrl+B
 	italic:			斜体	Ctrl+I
+#_ADD	underline:          &Underline	Ctrl+U
 	symbols:		符号	Ctrl+M
 	reminder text:		提示文本	Ctrl+R
 	insert symbol:		插入符号
-#_ADD	# spelling
+# spelling
 #_ADD	no spelling suggestions:	(no suggestions)
 	
 	graph:			图像
@@ -84,15 +84,14 @@ menu:
 	
 #_ADD	console:			Console
 #_ADD	clear console:		&Clear Console	Ctrl+L
-#_ADD 
+
 	window:			窗口
 	new window:		新建窗口
-	cards tab:		卡牌编辑	F5
-#_DEL	set info tab:		套牌信息	F6
-	style tab:		风格选择	F7
-#_ADD	set info tab:		&Set Information	Alt+3
-	keywords tab:		关键词	F8
-	stats tab:		统计结果	F9
+	cards tab:		卡牌编辑	Alt+1
+	style tab:		风格选择	Alt+2
+	set info tab:		套牌信息	Alt+3
+	keywords tab:		关键词	Alt+4
+	stats tab:		统计结果	Alt+5
 #_ADD	random pack tab:	&Random Packs	Alt+6
 #_ADD	console tab:		&Console	Alt+7
 	
@@ -125,9 +124,8 @@ menu:
 ############################################################## Menu help texts
 help:
 	welcome:		欢迎使用 Magic Set Editor
-	
-#_DEL	file:
-#_ADD	#file:
+
+	#file:
 	new set:		创建新套牌
 	open set:		打开已有套牌
 	last opened set:	打开 '%s'
@@ -147,8 +145,7 @@ help:
 #_ADD	show profiler:		Show the profiler window, with timings of (script) functions. Used for optimization.
 	exit:			退出Magic Set Editor程序，请迅速保存你的套牌
 	
-#_DEL	edit:
-#_ADD	#edit:
+	#edit:
 	undo:			撤销上一个动作
 	redo:			重做上一个动作
 	cut:			将选中的文字剪切至剪切板
@@ -166,9 +163,8 @@ help:
 	replace:		替换卡牌文字
 	auto replace:		自动替换什么文字？
 	preferences:		修改Magic Set Editor的设置
-	
-#_DEL	cards:
-#_ADD	#cards:
+
+	#cards:
 	previous card:		选择列表中的上一张卡牌
 	next card:		选择列表中的下一张卡牌
 #_ADD	search cards:		Filter the card list using search terms
@@ -183,36 +179,33 @@ help:
 	rotate 180:		将所显示卡牌上下翻转
 	card list columns:	调整卡牌列表栏显示项目和显示顺序
 	
-#_DEL	keywords:
-#_ADD	#keywords:
+	#keywords:
 	previous keyword:	从列表中选择上一个关键词
 	next keyword:		从列表中选择下一个关键词
 #_ADD	search keywords:		Filter the keyword list using search terms
 	add keyword:		添加一个新关键词到本套牌中
 	remove keyword:		从本套牌中删除选中的关键词
 	
-#_DEL	format:
-#_ADD	#format:
+	#format:
 	bold:			将所选文字设为粗体
 	italic:			将所选文字设为斜体
+#_ADD	underline:          Makes the selected text underlined
 	symbols:		将所选文字改成符号
 	reminder text:		对选择的关键词显示提示文本
 #_ADD	# spelling
 #_ADD	no spelling suggestions:	There are no suggestions for correcting this error
 	
-#_DEL	graph:
-#_ADD	#graph:
+	#graph:
 	pie:			饼状图，每一份的大小取决与卡牌数量
 	bar:			条形图，条形高度取决于卡牌数量
 	stack:			条形图，堆叠条形图
 	scatter:		散点图，每一个散点的大小取决与卡牌数量
 	scatter pie:		散饼图，每一个三点都是一个小型饼状图
 	
-#_DEL	window:
-#_ADD	#console:
+	#console:
 #_ADD	clear console:		Clear the console
-#_ADD 
-#_ADD	#window:
+
+	#window:
 	new window:		创建一个额外窗口用来编辑同一套牌
 	cards tab:		编辑套牌中的卡牌
 	set info tab:		编辑套牌信息，例如创建者，其他
@@ -222,13 +215,12 @@ help:
 #_ADD	random pack tab:	Try how the set works out in practice by generating random booster packs.
 #_ADD	console tab:		Shows error messages and allows executing script commands.
 	
-#_DEL	help:		
-#_ADD	#help:
+	#help:
 	index:			
 	website:			
 	about:				
 	
-#_ADD	# New Set Window
+	# New Set Window
 #_ADD	search game list control: Filter the game list. Use - to exclude games. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 #_ADD	search stylesheet list control: Filter the stylesheet list. Use - to exclude styles. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 #_ADD 
@@ -236,7 +228,7 @@ help:
 #_ADD	collapse notes:		Hide the card notes box
 #_ADD	expand notes:		Show the card notes box
 #_ADD	search cards control:	Filter the card list. Use - to exclude cards. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
-#_ADD	# Keywords panel
+	# Keywords panel
 #_ADD	search keywords control: Filter the keyword list. Use - to exclude keywords. Use field: to search in a specific field. Use quotes for literal search. Separate multiple queries with a space.
 	# Random pack panel
 #_ADD	random seed:		Different packs will be generated each time.
@@ -249,8 +241,7 @@ help:
 	app language:
 		注意: 你必须重新启动MSE才能使语言修改生效
 	zoom export:
-		（当关闭该项的时候，卡牌会按照以下规则导出：
-		 100%大小，不旋转）
+		（当关闭该项的时候，卡牌会按照以下规则导出： 不旋转）
 	
 	# apprentice export
 	set code:		套牌代码是一个双字节代码，它能被Apprentice识别成一幅套牌
@@ -270,8 +261,7 @@ help:
 	grid:			显示网格线
 	snap:			吸附形状和控制点到网格线
 	
-#_DEL	tool:
-#_ADD	#tool:
+	#tool:
 	select:			选择并移动形状
 	rotate:			旋转并修剪形状
 	points:			编辑形状控制点
@@ -279,8 +269,7 @@ help:
 	symmetry:		给系列符号添加对称效果
 	paint:			用笔刷在图形上绘制
 	
-#_DEL	select editor:
-#_ADD	#select editor:
+	#select editor:
 	merge:			把这个图形融合到下面
 	subtract:		把这个图形从下面剪掉，仅保留不在这个图形，但是在下面图形的区域
 	intersect:		把这个图形和下面相交，仅保留图像共有区域
@@ -367,12 +356,12 @@ tool:
 	
 	line segment:		直线
 	curve segment:		曲线
-	free point:		自由
+	free point:			自由
 	smooth point:		平滑
 	symmetric point:	对称
 	
 #_ADD	clear console:		Clear Console
-#_ADD	
+	
 ############################################################## Toolbar help text
 tooltip:
 	cards tab:		卡牌编辑	
@@ -381,7 +370,7 @@ tooltip:
 	keywords tab:		关键词
 	stats tab:		统计结果
 #_ADD	random pack tab:	Random packs
-#_ADD	console tab:		
+	console tab:		
 	
 	new set:		新建套牌
 	open set:		打开套牌
@@ -403,6 +392,7 @@ tooltip:
 	
 	bold:			粗体
 	italic:			斜体
+#_ADD	underline:          Underline
 	symbols:		系列符号
 	reminder text:		提示文本
 	
@@ -412,12 +402,6 @@ tooltip:
 	scatter:		散点图
 	scatter pie:		散饼图
 	
-#_DEL	cards tab:		卡牌	
-#_DEL	set info tab:		套牌信息
-#_DEL	style tab:		样式
-#_DEL	keywords tab:		关键词
-#_DEL	stats tab:		统计	
-#_DEL	
 	# symbol editor
 	store symbol:		将系列符号保存到套牌
 	
@@ -455,7 +439,7 @@ tooltip:
 	symmetric point:	点对称效果
 
 #_ADD	clear console:		Clear Console
-#_ADD 
+
 ############################################################## Labels in the GUI
 label:
 	# Cards tab
@@ -478,9 +462,6 @@ label:
 	styling options:	样式选项
 	
 	# Random pack panel
-#_DEL	
-#_DEL	# Open dialogs
-#_DEL	all files		全部文件
 #_ADD	pack selection:		Pack selection
 #_ADD	pack totals:		Totals
 #_ADD	pack name:			Pack name
@@ -516,7 +497,7 @@ label:
 	external programs:	外部程序
 	apprentice:		Apprentice:
 	apprentice exe:		可执行Apprentice
-#_ADD	internal scale desc:
+	internal scale desc:
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
 		Does not retroactively apply to existing images.
@@ -532,13 +513,11 @@ label:
 	columns:		栏目：
 	
 	# Card select / images export
-#_DEL	select cards print:	选择需要打印的卡牌
-#_ADD	select cards:			Cards to export
+	select cards:			导出卡牌
 #_ADD	selected card count:	%s cards will be exported.
 	filename format:	格式: 
 	filename conflicts:	处理重复文件名:
 	export filenames:	文件名
-#_DEL	cards to export:	导出卡牌
 	filename is ignored: 	（忽略文件名）
 	
 	# apprentice export
@@ -552,15 +531,14 @@ label:
 	# Image slicer
 	original:		原始:
 	result:			结果:
-#_ADD	original with dimensions: Original (%s x %s):
-#_ADD	result with dimensions:	Result (%s x %s):
+	original with dimensions: 原始 (%s x %s):
+	result with dimensions:	结果 (%s x %s):
 	size:			大小
 #_ADD	original size:			&Original Size
 #_ADD	size to fit:			Size to &Fit
 #_ADD	force to fit:			F&orce to Fit
 #_ADD	custom size:			&Custom Size
 	selection:		选取
-#_DEL	zoom:			缩放
 #_ADD	selection left:			&Left
 #_ADD	selection top:			&Top
 #_ADD	selection width:		&Width
@@ -569,12 +547,11 @@ label:
 #_ADD	selection center vertically:	Center Vertically
 #_ADD	selection center horizontally:	Center Horizontally
 #_ADD	selection center both:			Center Both
-#_ADD	#zoom:				Zoom
 #_ADD	fix aspect ratio:		Fix aspect ratio (width/height)
-#_ADD	zoom amount:			Zoom
-#_ADD	zoom amount x:			Zoom &X
-#_ADD	zoom amount y:			Zoom &Y
-#_ADD	zoom %:					%
+	zoom amount:			缩放
+	zoom amount x:			缩放 &X
+	zoom amount y:			缩放 &Y
+	zoom %:					%
 	filter:			过滤
 #_ADD	sharpen filter:			&Sharpen filter
 	
@@ -589,7 +566,7 @@ label:
 	package name:		文件包
 	package status:		状态
 	package action:		动作
-	
+
 	package conflicts:	矛盾修改
 	package modified:	本地修改
 	package updates:	可用升级
@@ -604,8 +581,8 @@ label:
 #_ADD	installable version:	Latest version:
 #_ADD	installer size:			Size:
 #_ADD	installer status:		Status:
-#_ADD	no version:				-
-#_ADD 
+	no version:				-
+
 ############################################################## Buttons/checkboxes/choices in the GUI
 button:
 	# Editor
@@ -627,10 +604,9 @@ button:
 #_ADD	add custom pack:	Add &Custom Pack...
 	
 	# Console panel
-		
 #_ADD	evaluate:			&Evaluate
 #_ADD	clear:				&Clear
-#_ADD	
+
 	# Welcome
 	new set:		新建套牌
 	open set:		打开套牌
@@ -694,11 +670,11 @@ button:
 	
 ############################################################## Titles in the GUI
 title:
-	magic set editor:	Magic Set Editor 由 slimeking 漢化制作
-	%s - magic set editor:	%s - Magic Set Editor 由 slimeking 漢化制作
+	magic set editor:	Magic Set Editor
+	%s - magic set editor:	%s - Magic Set Editor
 	untitled:		无标题
-	about:			关于 Magic Set Editor 由slimeking漢化制作
-	symbol editor:		系列符号编辑器 由slimeking漢化制作
+	about:			关于 Magic Set Editor
+	symbol editor:		系列符号编辑器
 	# dialogs
 	new set:		新建套牌
 	open set:		打开套牌
@@ -724,7 +700,7 @@ title:
 #_ADD	select cards print:	Select the cards you want to print
 	# slice
 	slice image:		图片切片
-#_ADD	# pack
+	# pack
 #_ADD	custom pack:		Custom Pack Type
 	# print
 	print preview:		打印预览
@@ -732,7 +708,7 @@ title:
 	export images:		导出为图像
 	export cancelled:	导出取消
 	export html:		导出为HTML
-	save html:		保存为HTML
+	save html:			保存为HTML
 	# auto replace
 	auto replaces:		自动替换
 	
@@ -857,13 +833,11 @@ error:
 	# Stats panel
 	dimension not found:		没有统计数据 '%s'
 	
+	# Random packs
+	pack type duplicate name:
 		There is already a pack type named '%s'.
 		Please choose a different name.
-#_ADD	# Random packs
-#_ADD	pack type duplicate name:
-		There is already a pack type named '%s'.
-		Please choose a different name.
-#_ADD	
+	
 	# Package update window
 #	checking updates:		检查更新
 	can't download installer:

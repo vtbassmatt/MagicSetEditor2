@@ -1,4 +1,4 @@
-﻿#_DEL mse version: 2.0.0
+﻿#_DEL #_DEL mse version: 2.0.0
 #_ADD mse version: 2.0.2
 installer group: translations/chinese/traditional
 full name: 繁體中文 (Traditional Chinese)
@@ -69,6 +69,7 @@ menu:
 	format:			字體格式
 	bold:			粗體	Ctrl+B
 	italic:			斜體	Ctrl+I
+#_ADD	underline:          &Underline	Ctrl+U
 	symbols:		符號	Ctrl+M
 	reminder text:		提示文本	Ctrl+R
 	insert symbol:		插入符號
@@ -195,6 +196,7 @@ help:
 #_ADD	#format:
 	bold:			將所選文字設為粗體
 	italic:			將所選文字設為斜體
+#_ADD	underline:          Makes the selected text underlined
 	symbols:		將所選文字改成符號
 	reminder text:		對選擇的關鍵詞顯示提示文本
 #_ADD	# spelling
@@ -403,6 +405,7 @@ tooltip:
 	
 	bold:			粗體
 	italic:			斜體
+#_ADD	underline:          Underline
 	symbols:		系列符號
 	reminder text:		提示文本
 	
@@ -516,6 +519,9 @@ label:
 	external programs:	外部程序
 	apprentice:		Apprentice:
 	apprentice exe:		可執行Apprentice
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 #_ADD	internal scale desc:
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
@@ -856,6 +862,8 @@ error:
 	# Stats panel
 	dimension not found:		沒有統計資料 '%s'
 	
+		There is already a pack type named '%s'.
+		Please choose a different name.
 		There is already a pack type named '%s'.
 		Please choose a different name.
 #_ADD	# Random packs

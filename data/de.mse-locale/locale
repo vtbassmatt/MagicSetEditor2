@@ -1,4 +1,4 @@
-﻿#_DEL #_DEL mse version: 2.0.0
+﻿#_DEL #_DEL #_DEL mse version: 2.0.0
 #_ADD mse version: 2.0.2
 installer group: translations/deutsch
 full name: Deutsch
@@ -69,6 +69,7 @@ menu:
 	format:			F&ormat
 	bold:				&Fett	Ctrl+B
 	italic:				&Kursiv	Ctrl+I
+#_ADD	underline:          &Underline	Ctrl+U
 	symbols:			&Symbole	Ctrl+M
 	reminder text:		&Reminder Text	Ctrl+R
 	insert symbol:		Sy&mbol einfügen
@@ -195,6 +196,7 @@ help:
 #_ADD	#format:
 	bold:				Formatiert den Text Fett
 	italic:				Formatiert den Text Kursiv
+#_ADD	underline:          Makes the selected text underlined
 	symbols:			Formatiert den Text als Symbol
 	reminder text:		Zeige den Reminder-Text für die gewählte Fähigkeit an
 #_ADD	# spelling
@@ -403,6 +405,7 @@ tooltip:
 	
 	bold:				Fett
 	italic:				Krusiv
+#_ADD	underline:          Underline
 	symbols:			Symbole
 	reminder text:		Text merken
 	
@@ -516,6 +519,9 @@ label:
 	external programs:	Externe Programme
 	apprentice:			&Rohling:
 	apprentice exe:		Rohling-Exe
+		Scale to internally store card images at.
+		Changing this may impact how Sharpening looks.
+		Does not retroactively apply to existing images.
 		Scale to internally store card images at.
 		Changing this may impact how Sharpening looks.
 		Does not retroactively apply to existing images.
@@ -858,6 +864,8 @@ error:
 	# Stats panel
 	dimension not found:				Keine Statistikdimension '%s'
 	
+		There is already a pack type named '%s'.
+		Please choose a different name.
 		There is already a pack type named '%s'.
 		Please choose a different name.
 		There is already a pack type named '%s'.
