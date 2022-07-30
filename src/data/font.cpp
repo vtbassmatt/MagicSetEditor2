@@ -50,7 +50,7 @@ void Font::initDependencies(Context& ctx, const Dependency& dep) const {
   shadow_color.initDependencies(ctx, dep);
 }
 
-FontP Font::make(int add_flags, String const* other_family, Color const* other_color, double const* other_size) const {
+FontP Font::make(int add_flags, bool add_underline, String const* other_family, Color const* other_color, double const* other_size) const {
   FontP f(new Font(*this));
   f->flags |= add_flags;
   if (add_flags & FONT_CODE_STRING) {
@@ -66,6 +66,9 @@ FontP Font::make(int add_flags, String const* other_family, Color const* other_c
   if (add_flags & FONT_SOFT) {
     f->color = f->separator_color;
     f->shadow_displacement = RealSize(0,0); // no shadow
+  }
+  if (add_underline) {
+    f->underline = true;
   }
   if (other_color) {
     f->color = *other_color;

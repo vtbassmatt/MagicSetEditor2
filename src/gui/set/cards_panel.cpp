@@ -89,6 +89,7 @@ CardsPanel::CardsPanel(Window* parent, int id)
   menuFormat = new wxMenu();
     add_menu_item_tr(menuFormat, ID_FORMAT_BOLD, "bold", "bold", wxITEM_CHECK);
     add_menu_item_tr(menuFormat, ID_FORMAT_ITALIC, "italic", "italic", wxITEM_CHECK);
+    add_menu_item_tr(menuFormat, ID_FORMAT_UNDERLINE, "underline", "underline", wxITEM_CHECK);
     add_menu_item_tr(menuFormat, ID_FORMAT_SYMBOL, "symbol", "symbols", wxITEM_CHECK);
     add_menu_item_tr(menuFormat, ID_FORMAT_REMINDER, "reminder", "reminder_text", wxITEM_CHECK);
     menuFormat->AppendSeparator();
@@ -185,6 +186,7 @@ void CardsPanel::initUI(wxToolBar* tb, wxMenuBar* mb) {
   // Toolbar
   add_tool_tr(tb, ID_FORMAT_BOLD, "bold", "bold", false, wxITEM_CHECK);
   add_tool_tr(tb, ID_FORMAT_ITALIC, "italic", "italic", false, wxITEM_CHECK);
+  add_tool_tr(tb, ID_FORMAT_UNDERLINE, "underline", "underline", false, wxITEM_CHECK);
   add_tool_tr(tb, ID_FORMAT_SYMBOL, "symbol", "symbols", false, wxITEM_CHECK);
   add_tool_tr(tb, ID_FORMAT_REMINDER, "reminder", "reminder_text", false, wxITEM_CHECK);
   tb->AddSeparator();
@@ -215,6 +217,7 @@ void CardsPanel::destroyUI(wxToolBar* tb, wxMenuBar* mb) {
   // Toolbar
   tb->DeleteTool(ID_FORMAT_BOLD);
   tb->DeleteTool(ID_FORMAT_ITALIC);
+  tb->DeleteTool(ID_FORMAT_UNDERLINE);
   tb->DeleteTool(ID_FORMAT_SYMBOL);
   tb->DeleteTool(ID_FORMAT_REMINDER);
   tb->DeleteTool(ID_CARD_ADD);
@@ -253,7 +256,7 @@ void CardsPanel::onUpdateUI(wxUpdateUIEvent& ev) {
       break;
     }
     case ID_CARD_REMOVE:     ev.Enable(card_list->canDelete());      break;
-    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_SYMBOL: case ID_FORMAT_REMINDER: {
+    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_UNDERLINE: case ID_FORMAT_SYMBOL: case ID_FORMAT_REMINDER: {
       if (focused_control(this) == ID_EDITOR) {
         ev.Enable(editor->canFormat(ev.GetId()));
         ev.Check (editor->hasFormat(ev.GetId()));
@@ -327,7 +330,7 @@ void CardsPanel::onCommand(int id) {
     case ID_SELECT_COLUMNS: {
       card_list->selectColumns();
     }
-    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_SYMBOL: case ID_FORMAT_REMINDER: {
+    case ID_FORMAT_BOLD: case ID_FORMAT_ITALIC: case ID_FORMAT_UNDERLINE: case ID_FORMAT_SYMBOL: case ID_FORMAT_REMINDER: {
       if (focused_control(this) == ID_EDITOR) {
         editor->doFormat(id);
       }

@@ -34,7 +34,7 @@ struct Margins {
 // Helper class for TextElements::fromString, to allow persistent formating state accross recusive calls
 struct TextElementsFromString {
   // What formatting is enabled?
-  int bold = 0, italic = 0, symbol = 0;
+  int bold = 0, italic = 0, underline = 0, symbol = 0;
   int soft = 0, kwpph = 0, param = 0, line = 0, soft_line = 0;
   int code = 0, code_kw = 0, code_string = 0, param_ref = 0;
   int param_id = 0, li = 0;
@@ -79,6 +79,8 @@ private:
         else if (is_tag(text, tag_start, _("</b")))          bold        -= 1;
         else if (is_tag(text, tag_start, _( "<i")))          italic      += 1;
         else if (is_tag(text, tag_start, _("</i")))          italic      -= 1;
+        else if (is_tag(text, tag_start, _("<u")))           underline   += 1;
+        else if (is_tag(text, tag_start, _("</u")))          underline   -= 1;
         else if (is_tag(text, tag_start, _( "<sym")))        symbol      += 1;
         else if (is_tag(text, tag_start, _("</sym")))        symbol      -= 1;
         else if (is_tag(text, tag_start, _( "<line")))       line        += 1;
@@ -300,6 +302,7 @@ private:
       (code        > 0 ? FONT_CODE        : FONT_NORMAL) |
       (code_kw     > 0 ? FONT_CODE_KW     : FONT_NORMAL) |
       (code_string > 0 ? FONT_CODE_STRING : FONT_NORMAL),
+      underline > 0,
       fonts.empty() ? nullptr : &fonts.back(),
       param > 0 || param_ref > 0
         ? &param_colors[(param_id++) % param_colors_count]
