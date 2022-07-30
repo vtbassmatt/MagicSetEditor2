@@ -6,12 +6,18 @@ HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
 Features:
- * Add ability to underline text using `<u>` tags or panel buttons/hotkeys. (haganbmj#30)
 
 Bug fixes:
 
 ------------------------------------------------------------------------------
-version 2.2.2 (Unofficial), 2022-07-19
+version 2.3.0 (Unofficial), 2022-07-29
+------------------------------------------------------------------------------
+
+Features:
+ * Add ability to underline text using `<u>` tags or panel buttons/hotkeys. (haganbmj#30)
+
+------------------------------------------------------------------------------
+version 2.2.2 (Unofficial), 2022-07-22
 ------------------------------------------------------------------------------
 
 Bug fixes:
