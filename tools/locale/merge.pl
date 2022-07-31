@@ -143,8 +143,8 @@ my $lang1 = $ARGV[0];
 my $lang2 = $ARGV[1];
 
 if ($lang2 eq 'ALL') {
-	while (<$dir/*.mse-locale/.svn>) {
-		if (m|$dir/([a-z]+)|) {
+	while (<$dir/*.mse-locale/>) {
+		if (m|$dir/([a-z-]+)|) {
 			my $lang2 = $1;
 			next if $lang1 eq $lang2;
 			print "Converting: $lang2\n";
