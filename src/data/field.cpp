@@ -48,7 +48,7 @@ IMPLEMENT_REFLECTION(Field) {
   }
   REFLECT(name);
   REFLECT_LOCALIZED(caption);
-  REFLECT_LOCALIZED(description);
+  REFLECT_LOCALIZED(description); // FIXME: This field is both unused and uninitialized.
   REFLECT_N("icon", icon_filename);
   REFLECT(editable);
   REFLECT(save_value);
@@ -66,24 +66,25 @@ IMPLEMENT_REFLECTION(Field) {
 
 void Field::after_reading(Version ver) {
   name = canonical_name_form(name);
-  if(caption.default_.empty()) caption.default_ = name_to_caption(name);
-  if(card_list_name.default_.empty()) card_list_name.default_ = capitalize(caption.default_);
+  if(caption.default_.empty()) caption.default_ = tr(package_relative_filename, name, name_to_caption);
+  if(card_list_name.default_.empty()) card_list_name.default_ = tr(package_relative_filename, caption.default_, capitalize);
 }
 
 template <>
 intrusive_ptr<Field> read_new<Field>(Reader& reader) {
+  intrusive_ptr<Field> field;
   // there must be a type specified
   String type;
   reader.handle(_("type"), type);
-  if      (type == _("text"))        return make_intrusive<TextField>();
-  else if (type == _("choice"))      return make_intrusive<ChoiceField>();
-  else if (type == _("multiple choice"))  return make_intrusive<MultipleChoiceField>();
-  else if (type == _("boolean"))      return make_intrusive<BooleanField>();
-  else if (type == _("image"))      return make_intrusive<ImageField>();
-  else if (type == _("symbol"))      return make_intrusive<SymbolField>();
-  else if (type == _("color"))      return make_intrusive<ColorField>();
-  else if (type == _("info"))        return make_intrusive<InfoField>();
-  else if (type == _("package choice"))  return make_intrusive<PackageChoiceField>();
+  if (type == _("text"))        field = make_intrusive<TextField>();
+  else if (type == _("choice"))      field = make_intrusive<ChoiceField>();
+  else if (type == _("multiple choice"))  field = make_intrusive<MultipleChoiceField>();
+  else if (type == _("boolean"))      field = make_intrusive<BooleanField>();
+  else if (type == _("image"))      field = make_intrusive<ImageField>();
+  else if (type == _("symbol"))      field = make_intrusive<SymbolField>();
+  else if (type == _("color"))      field = make_intrusive<ColorField>();
+  else if (type == _("info"))        field = make_intrusive<InfoField>();
+  else if (type == _("package choice"))  field = make_intrusive<PackageChoiceField>();
   else if (type.empty()) {
     reader.warning(_ERROR_1_("expected key", _("type")));
     throw ParseError(_ERROR_("aborting parsing"));
@@ -91,6 +92,8 @@ intrusive_ptr<Field> read_new<Field>(Reader& reader) {
     reader.warning(_ERROR_1_("unsupported field type", type));
     throw ParseError(_ERROR_("aborting parsing"));
   }
+  field->package_relative_filename = reader.getPackage()->relativeFilename().Clone();
+  return field;
 }
 
 // ----------------------------------------------------------------------------- : Style
