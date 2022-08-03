@@ -6,10 +6,17 @@ HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
 Features:
- * Restore reading of package translations from top level locale file. (haganbmj#43)
- * Bundle other locale files, provide English translations as fallback rather than just using the key name.
 
 Bug fixes:
+
+------------------------------------------------------------------------------
+version 2.3.1 (Unofficial), 2022-08-02
+------------------------------------------------------------------------------
+
+Features:
+ * Add missing French locale translations. (haganbmj#40)
+ * Restore reading of package translations from top level locale file. (haganbmj#43)
+ * Bundle other locale files, provide English translations as fallback rather than just using the key name.
 
 ------------------------------------------------------------------------------
 version 2.3.0 (Unofficial), 2022-07-29
