@@ -120,6 +120,24 @@ String tr(const Package& pkg, const String& subcat, const String& key, DefaultLo
   return loc->tr(subcat, key, def);
 }
 
+String tr(const String& pkg_relative_filename, const String& key, DefaultLocaleFun def) {
+  if (!the_locale) return def(key);
+  SubLocaleP loc = the_locale->package_translations[pkg_relative_filename];
+  if (!loc) {
+    loc = find_wildcard_and_set(the_locale->package_translations, pkg_relative_filename);
+  }
+  return loc->tr(key, def);
+}
+
+String tr(const String& pkg_relative_filename, const String& subcat, const String& key, DefaultLocaleFun def) {
+  if (!the_locale) return def(key);
+  SubLocaleP loc = the_locale->package_translations[pkg_relative_filename];
+  if (!loc) {
+    loc = find_wildcard_and_set(the_locale->package_translations, pkg_relative_filename);
+  }
+  return loc->tr(subcat, key, def);
+}
+
 // ----------------------------------------------------------------------------- : LocalizedString
 
 String const& LocalizedString::get(String const& locale) const {

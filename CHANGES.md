@@ -6,6 +6,8 @@ HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
 Features:
+ * Restore reading of package translations from top level locale file. (haganbmj#43)
+ * Bundle other locale files, provide English translations as fallback rather than just using the key name.
 
 Bug fixes:
 

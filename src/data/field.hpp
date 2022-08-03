@@ -60,6 +60,7 @@ public:
   Alignment card_list_align;  ///< Alignment of the card list colummn.
   OptionalScript sort_script; ///< The script to use when sorting this, if not the value.
   Dependencies dependent_scripts; ///< Scripts that depend on values of this field
+  String package_relative_filename;
   
   /// Creates a new Value corresponding to this Field
   virtual ValueP newValue() = 0;

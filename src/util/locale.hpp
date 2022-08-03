@@ -51,10 +51,14 @@ String tr(LocaleCategory cat, const String& key, DefaultLocaleFun def = warn_and
 /// Translate 'key' in the for a Package using the current locale
 [[deprecated]]
 String tr(const Package&, const String& key, DefaultLocaleFun def);
+[[deprecated]]
+String tr(const String&, const String& key, DefaultLocaleFun def);
 
 /// Translate 'key' in the for a Package using the current locale
 [[deprecated]]
 String tr(const Package&, const String& subcat, const String& key, DefaultLocaleFun def);
+[[deprecated]]
+String tr(const String&, const String& subcat, const String& key, DefaultLocaleFun def);
 
 /// A localized string for menus
 #define _MENU_(s)    tr(LOCALE_CAT_MENU,      _(s))
