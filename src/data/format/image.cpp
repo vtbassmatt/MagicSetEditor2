@@ -26,14 +26,34 @@ void export_image(const SetP& set, const CardP& card, const String& filename) {
 
 class UnzoomedDataViewer : public DataViewer {
 public:
+  UnzoomedDataViewer();
+  UnzoomedDataViewer(double zoom, double angle);
   virtual ~UnzoomedDataViewer() {};
   Rotation getRotation() const override;
 private:
-  double angle = 0.0;
+  double zoom;
+  double angle;
+  bool declared_values;
 };
+
+UnzoomedDataViewer::UnzoomedDataViewer()
+  : zoom(1.0)
+  , angle(0.0)
+  , declared_values(false)
+{}
+
+UnzoomedDataViewer::UnzoomedDataViewer(const double zoom, const Radians angle = 0.0)
+  : zoom(zoom)
+  , angle(angle)
+  , declared_values(true)
+{}
 
 Rotation UnzoomedDataViewer::getRotation() const {
   if (!stylesheet) stylesheet = set->stylesheet;
+  if (declared_values) {
+    return Rotation(angle, stylesheet->getCardRect(), zoom, 1.0, ROTATION_ATTACH_TOP_LEFT);
+  }
+
   double export_zoom = settings.stylesheetSettingsFor(set->stylesheetFor(card)).export_zoom();
   bool use_viewer_rotation = !settings.stylesheetSettingsFor(set->stylesheetFor(card)).card_normal_export();
 
@@ -46,14 +66,31 @@ Rotation UnzoomedDataViewer::getRotation() const {
 
 Bitmap export_bitmap(const SetP& set, const CardP& card) {
   if (!set) throw Error(_("no set"));
-  // create viewer
   UnzoomedDataViewer viewer = UnzoomedDataViewer();
   viewer.setSet(set);
   viewer.setCard(card);
   // size of cards
   RealSize size = viewer.getRotation().getExternalSize();
   // create bitmap & dc
-  Bitmap bitmap((int) size.width, (int) size.height);
+  Bitmap bitmap((int)size.width, (int)size.height);
+  if (!bitmap.Ok()) throw InternalError(_("Unable to create bitmap"));
+  wxMemoryDC dc;
+  dc.SelectObject(bitmap);
+  // draw
+  viewer.draw(dc);
+  dc.SelectObject(wxNullBitmap);
+  return bitmap;
+}
+
+Bitmap export_bitmap(const SetP& set, const CardP& card, const double zoom, const Radians angle = 0.0) {
+  if (!set) throw Error(_("no set"));
+  UnzoomedDataViewer viewer = UnzoomedDataViewer(zoom, angle);
+  viewer.setSet(set);
+  viewer.setCard(card);
+  // size of cards
+  RealSize size = viewer.getRotation().getExternalSize();
+  // create bitmap & dc
+  Bitmap bitmap((int)size.width, (int)size.height);
   if (!bitmap.Ok()) throw InternalError(_("Unable to create bitmap"));
   wxMemoryDC dc;
   dc.SelectObject(bitmap);

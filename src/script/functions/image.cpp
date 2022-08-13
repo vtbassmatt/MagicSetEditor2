@@ -32,7 +32,16 @@ SCRIPT_FUNCTION(to_image) {
 SCRIPT_FUNCTION(to_card_image) {
   SCRIPT_PARAM(Set*, set);
   SCRIPT_PARAM(CardP, input);
-  return make_intrusive<ArbitraryImage>(export_bitmap(set, input).ConvertToImage());
+  SCRIPT_PARAM_DEFAULT(double, zoom, 100);
+  SCRIPT_PARAM_DEFAULT(Degrees, angle, 0);
+  SCRIPT_PARAM_DEFAULT(bool, use_user_settings, false);
+  if (use_user_settings) {
+    // Use the User's Preferences for Export Zoom and Angle settings.
+    return make_intrusive<ArbitraryImage>(export_bitmap(set, input).ConvertToImage());
+  } else {
+    // Use the provided (or defaulted) Zoom and Angle.
+    return make_intrusive<ArbitraryImage>(export_bitmap(set, input, (zoom / 100), deg_to_rad(angle)).ConvertToImage());
+  }
 }
 
 // ----------------------------------------------------------------------------- : Image functions
