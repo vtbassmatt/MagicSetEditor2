@@ -284,7 +284,7 @@ int MSE::OnRun() {
 }
 
 int MSE::runGUI() {
-  check_updates();
+  //check_updates(); // FIXME: Disable update checking on startup. Likely want to either replace the Update Checker or remove it entirely.
   return wxApp::OnRun();
 }
 
