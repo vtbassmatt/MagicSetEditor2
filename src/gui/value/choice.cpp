@@ -134,7 +134,7 @@ void DropDownChoiceListBase::drawIcon(DC& dc, int x, int y, size_t item, bool se
     image_id = getChoice(item)->first_id;
   }
   // draw image
-  if ((unsigned int) image_id < style().thumbnails.size()) {
+  if ((unsigned) image_id < style().thumbnails.size()) {
     auto const& thumbnail = style().thumbnails[image_id];
     if (thumbnail.status == THUMB_OK)
     dc.DrawBitmap(thumbnail.bitmap, x, y);
