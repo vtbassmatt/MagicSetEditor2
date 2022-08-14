@@ -98,6 +98,7 @@ IMPLEMENT_REFLECTION(StyleSheet) {
   REFLECT(card_height);
   REFLECT(card_dpi);
   REFLECT(card_background);
+  REFLECT(card_regions);
   REFLECT(init_script);
   // styling
   REFLECT(styling_fields);

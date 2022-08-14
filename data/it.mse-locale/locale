@@ -891,6 +891,8 @@ type:
 	keyword:		parola-chiave
 	keywords:		parole chiave
 	pack:			tipo busta
+#_ADD	card region:	card region
+#_ADD	card regions:	card regions
 
 	# Symbol editor shapes
 	shape:			forma
