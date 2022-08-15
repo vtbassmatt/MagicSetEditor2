@@ -889,6 +889,8 @@ type:
 	keyword:		キーワード
 	keywords:		キーワード
 #_ADD	pack:			pack type
+#_ADD	card region:	card region
+#_ADD	card regions:	card regions
 	
 	# Symbol editor shapes
 	shape:			形

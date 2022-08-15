@@ -12,11 +12,16 @@
 #include <util/io/package.hpp>
 #include <util/real_point.hpp>
 #include <script/scriptable.hpp>
+// This isn't strictly needed for this file, 
+// but CardRegion needs to be referenced from _somewhere_ in the codebase for compilation reasons.
+// Eventually if somewhere else is using the type then this can be removed.
+#include <data/card_region.hpp>
 
 DECLARE_POINTER_TYPE(Game);
 DECLARE_POINTER_TYPE(StyleSheet);
 DECLARE_POINTER_TYPE(Field);
 DECLARE_POINTER_TYPE(Style);
+DECLARE_POINTER_TYPE(CardRegion);
 
 // ----------------------------------------------------------------------------- : StyleSheet
 
@@ -34,6 +39,7 @@ public:
   double card_height;        ///< The height of a card in pixels
   double card_dpi;        ///< The resolution of a card in dots per inch
   Color  card_background;      ///< The background color of cards
+  vector<CardRegionP> card_regions;
   /// The styling for card fields
   /** The indices should correspond to the card_fields in the Game */
   IndexMap<FieldP, StyleP> card_style;

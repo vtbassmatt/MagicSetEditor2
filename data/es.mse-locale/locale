@@ -891,6 +891,8 @@ type:
 	keyword:		palabra clave
 	keywords:		palabras clave
 	pack:			mazo
+#_ADD	card region:	card region
+#_ADD	card regions:	card regions
 	
 	# Symbol editor shapes
 	shape:			forma

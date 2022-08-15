@@ -891,6 +891,8 @@ type:
 	keyword:		keyword
 	keywords:		keywords
 	pack:			pack type
+	card region:	card region
+	card regions:	card regions
 	
 	# Symbol editor shapes
 	shape:			shape

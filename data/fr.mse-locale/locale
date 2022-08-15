@@ -898,6 +898,8 @@ type:
 	circle:			cercle
 	ellipse:		ellipse
 	pack:			type de pack
+#_ADD	card region:	card region
+#_ADD	card regions:	card regions
 	square:			carré
 	rectangle:		rectangle
 	triangle:		triangle

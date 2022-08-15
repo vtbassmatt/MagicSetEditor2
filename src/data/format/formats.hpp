@@ -100,10 +100,10 @@ void export_image(const SetP& set, const CardP& card, const String& filename);
 
 /// Generate a bitmap image of a card
 Bitmap export_bitmap(const SetP& set, const CardP& card);
+Bitmap export_bitmap(const SetP& set, const CardP& card, const double zoom, const Radians angle_radians);
 
 /// Export a set to Magic Workstation format
 void export_mws(Window* parent, const SetP& set);
 
 /// Export a set to Apprentice
 void export_apprentice(Window* parent, const SetP& set);
-

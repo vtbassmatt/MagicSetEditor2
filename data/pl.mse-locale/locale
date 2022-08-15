@@ -924,6 +924,8 @@ type:
 	keyword:		słowo kluczowe (keyword)
 	keywords:		słowa kluczowe (keywords)
 	pack:			rodzaj paczki (pack type)
+#_ADD	card region:	card region
+#_ADD	card regions:	card regions
 	
 	# Symbol editor shapes
 	shape:			kształt

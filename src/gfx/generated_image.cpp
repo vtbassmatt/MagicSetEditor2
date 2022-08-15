@@ -443,6 +443,17 @@ bool BuiltInImage::operator == (const GeneratedImage& that) const {
   return that2 && name == that2->name;
 }
 
+// ----------------------------------------------------------------------------- : ArbitraryImage
+
+Image ArbitraryImage::generate(const Options& opt) const {
+  return image;
+}
+bool ArbitraryImage::operator == (const GeneratedImage& that) const {
+  const ArbitraryImage* that2 = dynamic_cast<const ArbitraryImage*>(&that);
+  return that2 && image.IsSameAs(that2->image);
+}
+
+
 // ----------------------------------------------------------------------------- : SymbolToImage
 
 SymbolToImage::SymbolToImage(bool is_local, const LocalFileName& filename, Age age, const SymbolVariationP& variation)

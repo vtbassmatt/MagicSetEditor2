@@ -891,6 +891,8 @@ type:
 	keyword:		palavra-chave
 	keywords:		palavras-chaves
 	pack:			tipo de pacote
+#_ADD	card region:	card region
+#_ADD	card regions:	card regions
 	
 	# Symbol editor shapes
 	shape:			forma
