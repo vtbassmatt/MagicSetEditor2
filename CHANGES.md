@@ -10,6 +10,16 @@ Features:
 Bug fixes:
 
 ------------------------------------------------------------------------------
+version 2.3.2 (Unofficial), 2022-09-14
+------------------------------------------------------------------------------
+
+Features:
+ * Script functions for generating and manipulating card images. (haganbmj#34)
+ * Stylesheet properties for defining card regions. (haganbmj#34)
+ * Updated Spanish locale translations. (haganbmj$49)
+ * Disable update checking on startup.
+
+------------------------------------------------------------------------------
 version 2.3.1 (Unofficial), 2022-08-02
 ------------------------------------------------------------------------------
 
