@@ -65,25 +65,22 @@ WelcomeWindow::WelcomeWindow()
     s2->AddStretchSpacer();
 
     //
-    language = new wxComboBox(this, ID_APPLY_LANGUAGE, _(""), wxDefaultPosition, wxDefaultSize, 0, nullptr, wxCB_READONLY);
+    select_language = new wxComboBox(this, ID_SELECT_LANGUAGE, _(""), wxDefaultPosition, wxDefaultSize, 0, nullptr, wxCB_READONLY);
     // set values
     vector<PackagedP> locales;
     package_manager.findMatching(_("*.mse-locale"), locales);
     sort(locales.begin(), locales.end(), __compare_package_name);
     int n = 0;
     FOR_EACH(package, locales) {
-        language->Append(package->full_name, package.get());
+      select_language->Append(package->full_name, package.get());
         if (settings.locale == package->name()) {
-            language->SetSelection(n);
+          select_language->SetSelection(n);
         }
         n++;
     }
-    //auto apply_language = new wxButton(this, ID_APPLY_LANGUAGE, _BUTTON_("apply language"));
     wxSizer* s3 = new wxBoxSizer(wxHORIZONTAL);
     s3->AddSpacer(280);
-   // s3->Add(apply_language, 0, wxALL, 1);
-   // s3->AddSpacer(5);
-    s3->Add(language, 0, wxALL, 1);
+    s3->Add(select_language, 0, wxALL, 1);
     s2->AddSpacer(30);
     s2->Add(s3);
   s1->Add(s2);
@@ -115,11 +112,11 @@ void WelcomeWindow::draw(DC& dc) {
   dc.DrawText(version_string, 4, ws.GetHeight()-th-4);
 }
 
-void WelcomeWindow::onApplyLanguage(wxCommandEvent&) {
+void WelcomeWindow::onSelectLanguage(wxCommandEvent&) {
     // locale
-    int n = language->GetSelection();
+    int n = select_language->GetSelection();
     if (n == wxNOT_FOUND) return;
-    Packaged* p = (Packaged*)language->GetClientData(n);
+    Packaged* p = (Packaged*)select_language->GetClientData(n);
     settings.locale = p->name();
     the_locale = Locale::byName(settings.locale);
 
@@ -174,7 +171,7 @@ BEGIN_EVENT_TABLE(WelcomeWindow, wxFrame)
   EVT_BUTTON         (ID_FILE_NEW,           WelcomeWindow::onNewSet)
   EVT_BUTTON         (ID_FILE_OPEN,          WelcomeWindow::onOpenSet)
   EVT_BUTTON         (ID_FILE_RECENT,        WelcomeWindow::onOpenLast)
-  EVT_COMBOBOX       (ID_APPLY_LANGUAGE,     WelcomeWindow::onApplyLanguage)
+  EVT_COMBOBOX       (ID_SELECT_LANGUAGE,     WelcomeWindow::onSelectLanguage)
   EVT_BUTTON         (ID_FILE_CHECK_UPDATES, WelcomeWindow::onCheckUpdates)
   EVT_PAINT          (                       WelcomeWindow::onPaint)
 //  EVT_IDLE           (                     WelcomeWindow::onIdle)
