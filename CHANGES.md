@@ -6,8 +6,10 @@ HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
 Features:
+ * Add Language selector to Welcome Window. (haganbmj#51)
 
 Bug fixes:
+ * Fix build errors with Mac OS X+ (haganbmj#50)
 
 ------------------------------------------------------------------------------
 version 2.3.2 (Unofficial), 2022-09-14
