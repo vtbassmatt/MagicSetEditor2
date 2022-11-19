@@ -35,6 +35,7 @@ private:
   #if USE_BETA_LOGO
   Bitmap logo2;
   #endif
+  wxComboBox* select_language;
     
   void onPaint(wxPaintEvent&);
   void draw(DC& dc);
@@ -43,6 +44,7 @@ private:
   void onNewSet      (wxCommandEvent&);
   void onOpenLast    (wxCommandEvent&);
   void onCheckUpdates(wxCommandEvent&);
+  void onSelectLanguage(wxCommandEvent&);
 //  void onIdle    (wxIdleEvent& ev);
   
   /// Close the welcome window, and show the given set

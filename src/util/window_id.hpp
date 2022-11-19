@@ -81,6 +81,9 @@ enum MenuID {
   ID_MODE_SYMMETRY,
   ID_MODE_PAINT,
   ID_MODE_MAX,
+
+  // Welcome Window
+  ID_SELECT_LANGUAGE,
 };
 
 
