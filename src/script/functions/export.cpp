@@ -55,9 +55,10 @@ String get_export_full_path(String& rel_name) {
 }
 
 void ensure_dir_valid(String& path) {
-  wxFileName filename = path;
-  if (!filename.DirExists())
-    filename.Mkdir();
+  if (!wxDirExists(path)) {
+    wxFileName filename = path;
+    filename.Mkdir(wxS_DIR_DEFAULT, wxPATH_MKDIR_FULL);
+  }
 }
 
 // ----------------------------------------------------------------------------- : HTML
