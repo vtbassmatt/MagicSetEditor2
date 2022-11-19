@@ -7,6 +7,8 @@ HEAD: new items added as changes are made
 
 Features:
  * Add Language selector to Welcome Window. (haganbmj#51)
+ * Allow script to_date() function to accept "now". (haganbmj#52)
+ * Allow export scripts to write to subdirectories. (haganbmj#53)
 
 Bug fixes:
  * Fix build errors with Mac OS X+ (haganbmj#50)
