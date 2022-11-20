@@ -6,6 +6,14 @@ HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
 Features:
+
+Bug fixes:
+
+------------------------------------------------------------------------------
+version 2.4.0 (Unofficial), 2022-11-19
+------------------------------------------------------------------------------
+
+Features:
  * Add Language selector to Welcome Window. (haganbmj#51)
  * Allow script to_date() function to accept "now". (haganbmj#52)
  * Allow export scripts to write to subdirectories. (haganbmj#53)
