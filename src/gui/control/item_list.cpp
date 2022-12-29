@@ -180,15 +180,16 @@ void ItemList::refreshList(bool refresh_current_only) {
   // refresh
   // Note: Freeze/Thaw makes flicker worse
   long item_count = (long)sorted_list.size();
+  if (item_count == 0) {
+    Refresh();
+  } else {
   SetItemCount(item_count);
   // (re)select current item
   findSelectedItemPos();
   focusNone();
   focusSelectedItem(true);
   // refresh items
-  if (item_count == 0) {
-    Refresh();
-  } else {
+  
     RefreshItems(0, item_count - 1);
   }
 }
