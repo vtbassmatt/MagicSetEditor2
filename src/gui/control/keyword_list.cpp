@@ -54,6 +54,7 @@ void KeywordList::onChangeSet() {
 }
 
 void KeywordList::setFilter(const KeywordListFilterP& filter) {
+
   this->filter = filter;
   refreshList();
 }
@@ -191,6 +192,8 @@ int KeywordList::usage(const Keyword& kw) const {
 // ----------------------------------------------------------------------------- : KeywordList : Item text
 
 String KeywordList::OnGetItemText (long pos, long col) const {
+  if (sorted_list.size() == 0) return wxEmptyString;
+  
   const Keyword& kw = *getKeyword(pos);
   switch(col) {
     case 0:    return kw.keyword;
@@ -223,6 +226,7 @@ int KeywordList::OnGetItemImage(long pos) const {
 }
 
 wxListItemAttr* KeywordList::OnGetItemAttr(long pos) const {
+  if (sorted_list.size() == 0) return nullptr;
   // black for set keywords, grey for game keywords (uneditable)
   const Keyword& kw = *getKeyword(pos);
   if (!kw.fixed && kw.valid) return nullptr;
