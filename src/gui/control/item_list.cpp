@@ -183,12 +183,12 @@ void ItemList::refreshList(bool refresh_current_only) {
   if (item_count == 0) {
     Refresh();
   } else {
-  SetItemCount(item_count);
-  // (re)select current item
-  findSelectedItemPos();
-  focusNone();
-  focusSelectedItem(true);
-  // refresh items
+    SetItemCount(item_count);
+    // (re)select current item
+    findSelectedItemPos();
+    focusNone();
+    focusSelectedItem(true);
+    // refresh items
   
     RefreshItems(0, item_count - 1);
   }

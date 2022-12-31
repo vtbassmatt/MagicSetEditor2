@@ -8,6 +8,8 @@ HEAD: new items added as changes are made
 Features:
 
 Bug fixes:
+ * Fixed scrolled widgets not scrolling fully (or at all) on Linux (@llemoi, haganbmj#54)
+ * Fixed crash when 0 keywords match filter string in keyword panel (@llemoi, haganbmj#57)
 
 ------------------------------------------------------------------------------
 version 2.4.0 (Unofficial), 2022-11-19
