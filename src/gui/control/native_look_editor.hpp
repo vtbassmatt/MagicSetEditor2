@@ -39,6 +39,9 @@ private:
   static const int label_margin = 10;
   int              label_width;
   
+  int cached_thumb_pos = 0;
+  int cached_scroll = 0;
+  
   DECLARE_EVENT_TABLE();
   
   void onSize(wxSizeEvent&);

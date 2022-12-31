@@ -85,7 +85,7 @@ void NativeLookEditor::resizeViewers() {
   y = y - vspace + margin;
   SetVirtualSize(w, (int)y);
   if (CanScroll(wxVERTICAL)) {
-    SetScrollbar(wxVERTICAL, 0, h, (int)y);
+    SetScrollbar(wxVERTICAL, cached_scroll, h, (int)y);
   }
   if (y >= h) {
     // Doesn't fit vertically, add scrollbar and resize
@@ -127,10 +127,15 @@ void NativeLookEditor::onScroll(wxScrollWinEvent& ev) {
       y = y - page;
     } else if (ev.GetEventType() == wxEVT_SCROLLWIN_PAGEDOWN) {
       y = y + page;
-    } else if (ev.GetEventType() == wxEVT_SCROLLWIN_THUMBTRACK ||
-        ev.GetEventType() == wxEVT_SCROLLWIN_THUMBRELEASE) {
+    } else if (ev.GetEventType() == wxEVT_SCROLLWIN_THUMBTRACK) {
       y = ev.GetPosition();
+      cached_thumb_pos = y;
+    } else if (ev.GetEventType() == wxEVT_SCROLLWIN_THUMBRELEASE) {
+      // THUMBRELEASE GetPosition() was giving the thumb's original position, *prior to* all the preceding THUMBTRACK events,
+      // not its position at time of release
+      y = cached_thumb_pos;
     }
+    
     scrollTo(wxVERTICAL, y);
   }
 }
@@ -159,6 +164,7 @@ void NativeLookEditor::scrollTo(int direction, int pos) {
     pos = max(0, min(bottom, pos));
     if (pos != y) {
       SetScrollPos(wxVERTICAL, pos);
+      cached_scroll = pos;
 
       // move child controls
       FOR_EACH(v, viewers) {
@@ -168,6 +174,7 @@ void NativeLookEditor::scrollTo(int direction, int pos) {
     }
     // redraw
     onChange();
+    Update();
   }
 }
 
