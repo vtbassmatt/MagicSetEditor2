@@ -176,7 +176,7 @@ void queue_message(MessageType type, String const& msg) {
   // Thread safety
   wxMutexLocker lock(crit_error_handling);
   // Only show errors in the main thread
-  message_queue.push_back(make_pair(type,msg));
+  message_queue.push_front(make_pair(type,msg));
 }
 
 void handle_error(const Error& e) {
