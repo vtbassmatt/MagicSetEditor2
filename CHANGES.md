@@ -6,10 +6,15 @@ HEAD: new items added as changes are made
 ------------------------------------------------------------------------------
 
 Features:
+ * Add Russian and Korean translations. Update locale files from Full-Magic-Pack (haganbmj#69)
 
 Bug fixes:
  * Fixed scrolled widgets not scrolling fully (or at all) on Linux (@llemoi, haganbmj#54)
  * Fixed crash when 0 keywords match filter string in keyword panel (@llemoi, haganbmj#57)
+ * Correct "all images" filter when selecting files. (haganbmj#70)
+
+Internal:
+ * Add Mac OS build resources (@halian, haganbmj#67, haganbmj#68)
 
 ------------------------------------------------------------------------------
 version 2.4.0 (Unofficial), 2022-11-19
