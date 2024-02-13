@@ -8,7 +8,7 @@
 
 /data/**/*
 
-# Explicitly include the English locale files as they relate to UI changes.
+# Explicitly include the locale files as they relate to UI changes.
 !/data/*.mse-locale/
 !/data/*.mse-locale/**/*
 
@@ -19,5 +19,3 @@
 /resource/RC*
 
 /resource/expected_locale_keys
-
-package.ps1
