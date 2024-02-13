@@ -12,6 +12,7 @@ Bug fixes:
  * Fixed scrolled widgets not scrolling fully (or at all) on Linux (@llemoi, haganbmj#54)
  * Fixed crash when 0 keywords match filter string in keyword panel (@llemoi, haganbmj#57)
  * Correct "all images" filter when selecting files. (haganbmj#70)
+ * Correct localization of strings on Print window.
 
 Internal:
  * Add Mac OS build resources (@halian, haganbmj#67, haganbmj#68)
