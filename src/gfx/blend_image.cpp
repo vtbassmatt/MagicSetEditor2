@@ -56,21 +56,51 @@ void linear_blend(Image& img1, const Image& img2, double x1,double y1, double x2
       data2 += 3;
     }
   }
+
+  // Blend Alpha for the two images.
+  if (img1.HasAlpha() && img2.HasAlpha()) {
+    Byte *alpha1 = img1.GetAlpha(), *alpha2 = img2.GetAlpha();
+    for (int y = 0; y < height; ++y) {
+      for (int x = 0; x < width; ++x) {
+        int mult = x * xm + y * ym + d;
+        if (mult < 0)      mult = 0;
+        if (mult > fixed)  mult = fixed;
+        alpha1[0] = alpha1[0] + mult * (alpha2[0] - alpha1[0]) / fixed;
+        alpha1 += 1;
+        alpha2 += 1;
+      }
+    }
+  }
 }
 
 // ----------------------------------------------------------------------------- : Mask Blend
 
 void mask_blend(Image& img1, const Image& img2, const Image& mask) {
-  if (img2.GetWidth() != img1.GetWidth() || img2.GetHeight() != img1.GetHeight()
-   || mask.GetWidth() != img1.GetWidth() || mask.GetHeight() != img1.GetHeight()) {
-    throw Error(_("Images used for blending must have the same size"));
+  int width = img1.GetWidth(), height = img1.GetHeight();
+  if (img2.GetWidth() != width || img2.GetHeight() != height) {
+    throw Error(_("Images used for blending in masked_blend function must have the same size"));
   }
-  
-  UInt size = img1.GetWidth() * img1.GetHeight() * 3;
+  if (mask.GetWidth() != width || mask.GetHeight() != height) {
+    throw Error(_("Mask used for blending in masked_blend function must have the same size as the images"));
+  }
+
+  UInt size = width * height;
+  // these have the following structure:
+  // [pixel1red, pixel1green, pixel1blue, pixel2red, pixel2green, pixel2blue, pixel3red, etc...]
   Byte *data1 = img1.GetData(), *data2 = img2.GetData(), *dataM = mask.GetData();
   // for each subpixel...
-  for (UInt i = 0 ; i < size ; ++i) {
+  for (UInt i = 0; i < (size * 3); ++i) {
     data1[i] = (data1[i] * dataM[i] + data2[i] * (255 - dataM[i])) / 255;
+  }
+
+  if (img1.HasAlpha() && img2.HasAlpha()) {
+    // these have the following structure:
+    // [pixel1alpha, pixel2alpha, pixel3alpha, etc...]
+    Byte *alpha1 = img1.GetAlpha(), *alpha2 = img2.GetAlpha();
+    for (UInt i = 0; i < size; ++i) {
+      // use mask's red channel to blend alpha (all mask channels should be identical since it's grey scale)
+      alpha1[i] = (alpha1[i] * dataM[i * 3] + alpha2[i] * (255 - dataM[i * 3])) / 255;
+    }
   }
 }
 
