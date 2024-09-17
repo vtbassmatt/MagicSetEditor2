@@ -311,12 +311,8 @@ void combine_image_do(Image& a, Image b) {
 
 void combine_image(Image& a, const Image& b, ImageCombine combine) {
   // Images must have same size
-  assert(a.GetWidth()  == b.GetWidth());
-  assert(a.GetHeight() == b.GetHeight());
-  // Copy alpha channel?
-  if (b.HasAlpha()) {
-    if (!a.HasAlpha()) a.InitAlpha();
-    memcpy(a.GetAlpha(), b.GetAlpha(), a.GetWidth() * a.GetHeight());
+  if (a.GetWidth() != b.GetWidth() || a.GetHeight() != b.GetHeight()) {
+    throw Error(_ERROR_("images used for combine blending must have the same size"));
   }
   // Combine image data, by dispatching to combineImageDo
   switch(combine) {
