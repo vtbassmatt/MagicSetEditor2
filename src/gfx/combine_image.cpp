@@ -91,11 +91,17 @@ COMBINE_FUN(COMBINE_SYMMETRIC_OVERLAY, (Combine<COMBINE_OVERLAY>::f(a,b) + Combi
 /// The results are stored in the image A.
 template <ImageCombine combine>
 void combine_image_do(Image& a, Image b) {
-  UInt size = a.GetWidth() * a.GetHeight() * 3;
+  UInt size = a.GetWidth() * a.GetHeight();
   Byte *dataA = a.GetData(), *dataB = b.GetData();
   // for each pixel: apply function
-  for (UInt i = 0 ; i < size ; ++i) {
+  for (UInt i = 0 ; i < (size * 3); ++i) {
     dataA[i] = Combine<combine>::f(dataA[i], dataB[i]);
+  }
+  if (a.HasAlpha() && b.HasAlpha()) {
+    Byte* alphaA = a.GetAlpha(), * alphaB = b.GetAlpha();
+    for (UInt i = 0; i < size; ++i) {
+      alphaA[i] = Combine<combine>::f(alphaA[i], alphaB[i]);
+    }
   }
 }
 
