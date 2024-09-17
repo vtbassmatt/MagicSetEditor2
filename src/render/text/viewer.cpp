@@ -613,7 +613,7 @@ bool TextViewer::prepareLinesAtScale(RotatedDC& dc, const vector<CharInfo>& char
     }
     // Did the word become too long?
     if (!break_now) {
-      double max_width = lineRight(dc, style, line.top);
+      double max_width = lineRight(dc, style, line.top) - line.margin_right;
       if (line_size.width + word_size.width > max_width) {
         if (!style.field().multi_line) {
           // single line word does not fit
