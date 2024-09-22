@@ -295,17 +295,11 @@ COMBINE_FUN(COMBINE_SMALLER_THAN_250, a < 250 ? b : a)
 /// The results are stored in the image A.
 template <ImageCombine combine>
 void combine_image_do(Image& a, Image b) {
-  UInt size = a.GetWidth() * a.GetHeight();
-  Byte *dataA = a.GetData(), *dataB = b.GetData();
+  UInt size = a.GetWidth() * a.GetHeight() * 3;
+  Byte* dataA = a.GetData(), * dataB = b.GetData();
   // for each pixel: apply function
-  for (UInt i = 0 ; i < (size * 3); ++i) {
+  for (UInt i = 0; i < size; ++i) {
     dataA[i] = Combine<combine>::f(dataA[i], dataB[i]);
-  }
-  if (a.HasAlpha() && b.HasAlpha()) {
-    Byte* alphaA = a.GetAlpha(), * alphaB = b.GetAlpha();
-    for (UInt i = 0; i < size; ++i) {
-      alphaA[i] = Combine<combine>::f(alphaA[i], alphaB[i]);
-    }
   }
 }
 
@@ -313,6 +307,11 @@ void combine_image(Image& a, const Image& b, ImageCombine combine) {
   // Images must have same size
   if (a.GetWidth() != b.GetWidth() || a.GetHeight() != b.GetHeight()) {
     throw Error(_ERROR_("images used for combine blending must have the same size"));
+  }
+  // Copy alpha channel?
+  if (b.HasAlpha()) {
+    if (!a.HasAlpha()) a.InitAlpha();
+    memcpy(a.GetAlpha(), b.GetAlpha(), a.GetWidth() * a.GetHeight());
   }
   // Combine image data, by dispatching to combineImageDo
   switch(combine) {
