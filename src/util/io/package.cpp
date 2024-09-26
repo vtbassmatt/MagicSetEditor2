@@ -186,6 +186,35 @@ public:
 
 // ----------------------------------------------------------------------------- : Package : inside
 
+bool Package::existsIn(const String& file) {
+  FileInfos::iterator it = files.find(normalize_internal_filename(file));
+  if (it == files.end()) {
+    // does it look like a relative filename?
+    if (filename.find(_(".mse-")) != String::npos) {
+      return false;
+    }
+  }
+
+  unique_ptr<wxInputStream> stream;
+  if (it != files.end() && it->second.wasWritten()) {
+    // written to this file, open the temp file
+    stream = make_unique<wxFileInputStream>(it->second.tempName);
+  }
+  else if (wxFileExists(filename + _("/") + file)) {
+    // a file in directory package
+    stream = make_unique<wxFileInputStream>(filename + _("/") + file);
+  }
+  else if (wxFileExists(filename) && it != files.end() && it->second.zipEntry) {
+    // a file in a zip archive
+    stream = make_unique<ZipFileInputStream>(filename, it->second.zipEntry);
+  }
+  else {
+    // shouldn't happen, packaged changed by someone else since opening it
+    return false;
+  }
+  return stream && stream->IsOk();
+}
+
 unique_ptr<wxInputStream> Package::openIn(const String& file) {
   if (!file.empty() && file.GetChar(0) == _('/')) {
     // absolute path, open file from another package

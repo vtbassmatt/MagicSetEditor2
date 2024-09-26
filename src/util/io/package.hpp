@@ -132,10 +132,16 @@ public:
 
   // --------------------------------------------------- : Managing the inside of the package
 
+  /// Check if a file is in the package.
+  bool existsIn(const String& file);
+  inline bool existsIn(const LocalFileName& file) {
+      return existsIn(file.fn);
+  }
+
   /// Open an input stream for a file in the package.
   unique_ptr<wxInputStream> openIn(const String& file);
   inline unique_ptr<wxInputStream> openIn(const LocalFileName& file) {
-    return openIn(file.fn);
+      return openIn(file.fn);
   }
 
   /// Open an output stream for a file in the package.

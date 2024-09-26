@@ -102,6 +102,7 @@ $built_in_functions = array(
 	// other
 	'trace'			=>'',
 	'assert'		=>'',
+	'exists_in_package'		=>'',
 );
 
 

@@ -13,6 +13,7 @@
 #include <util/tagged_string.hpp>
 #include <util/spec_sort.hpp>
 #include <util/error.hpp>
+#include <util/io/package_manager.hpp>
 #include <data/set.hpp>
 #include <data/card.hpp>
 #include <data/game.hpp>
@@ -62,6 +63,12 @@ SCRIPT_FUNCTION(error) {
     queue_message(MESSAGE_ERROR, input);
   }
   return script_nil;
+}
+
+SCRIPT_FUNCTION(exists_in_package) {
+  SCRIPT_PARAM_C(String, input);
+  bool result = package_manager.existsInPackage(input);
+  SCRIPT_RETURN(result);
 }
 
 // ----------------------------------------------------------------------------- : Conversion
@@ -749,6 +756,7 @@ void init_script_basic_functions(Context& ctx) {
   ctx.setVariable(_("trace"),                script_trace);
   ctx.setVariable(_("warning"),              script_warning);
   ctx.setVariable(_("error"),                script_error);
+  ctx.setVariable(_("exists_in_package"),    script_exists_in_package);
   // conversion
   ctx.setVariable(_("to_string"),            script_to_string);
   ctx.setVariable(_("to_int"),               script_to_int);

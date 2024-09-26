@@ -1,0 +1,13 @@
+Function: exists_in_package
+
+--Usage--
+> exists_in_package("/package/filename")
+
+Check if a file exists in a given package.
+
+--Parameters--
+! Parameter	Type			Description
+| @input@	[[type:string]]		Path of the file, starting from the data directory.
+
+--Examples--
+> exists_in_package("/magic-modules.mse-include/watermarks/custom_user_watermark.png")  ==  true

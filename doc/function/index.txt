@@ -113,3 +113,4 @@ These functions are built into the program, other [[type:function]]s can be defi
 | [[fun:assert]]		Check a condition for debugging purposes.
 | [[fun:warning]]		Output a warning message.
 | [[fun:error]]			Output an error message.
+| [[fun:exists_in_package]]			Checks if a file exists in a package.
