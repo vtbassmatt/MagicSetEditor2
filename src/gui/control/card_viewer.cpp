@@ -31,7 +31,7 @@ wxSize CardViewer::DoGetBestSize() const {
   if (set) {
     if (!stylesheet) stylesheet = set->stylesheet;
     StyleSheetSettings& ss = settings.stylesheetSettingsFor(*stylesheet);
-    wxSize size(int(stylesheet->card_width * ss.card_zoom()), int(stylesheet->card_height * ss.card_zoom()));
+    wxSize size(int(stylesheet->card_width * (150.0 / stylesheet->card_dpi) * ss.card_zoom()), int(stylesheet->card_height * (150.0 / stylesheet->card_dpi) * ss.card_zoom()));
     if (is_sideways(deg_to_rad(ss.card_angle()))) swap(size.x, size.y);
     return size + ws - cs;
   }
@@ -150,7 +150,7 @@ Rotation CardViewer::getRotation() const {
   StyleSheetSettings& ss = settings.stylesheetSettingsFor(*stylesheet);
   int dx = CanScroll(wxHORIZONTAL) ? GetScrollPos(wxHORIZONTAL) : 0;
   int dy = CanScroll(wxVERTICAL) ? GetScrollPos(wxVERTICAL) : 0;
-  return Rotation(deg_to_rad(ss.card_angle()), stylesheet->getCardRect().move(-dx,-dy,0,0), ss.card_zoom(), 1.0, ROTATION_ATTACH_TOP_LEFT);
+  return Rotation(deg_to_rad(ss.card_angle()), stylesheet->getCardRect().move(-dx,-dy,0,0), (150.0 / stylesheet->card_dpi) * ss.card_zoom(), 1.0, ROTATION_ATTACH_TOP_LEFT);
 }
 
 // ----------------------------------------------------------------------------- : Event table
