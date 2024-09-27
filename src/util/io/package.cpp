@@ -673,6 +673,8 @@ void Packaged::requireDependency(Packaged* package) {
       }
     }
   }
+  // skip dependency checks for symbol-fonts
+  if (package->relativeFilename().find("mse-symbol-font") != std::string::npos) return;
   // dependency not found
   queue_message(MESSAGE_WARNING,_ERROR_4_("dependency not given", name(), package->relativeFilename(), package->relativeFilename(), package->version.toString()));
 }
