@@ -43,7 +43,7 @@ void ImageValueViewer::draw(RotatedDC& dc) {
       image = style().default_image.generate(GeneratedImage::Options(w, h, &getStylePackage(), &getLocalPackage()));
       is_default = true;
       if (what & DRAW_EDITING) {
-        bitmap = imagePlaceholder(dc, w, h, image, what & DRAW_EDITING);
+        bitmap = imagePlaceholder(dc, w, h, image, (what & DRAW_EDITING) && field().editable);
         if (alpha_mask.isLoaded() || !is_rad0(a)) {
           image = bitmap.ConvertToImage(); // we need to convert back to an image
         } else {
@@ -54,7 +54,7 @@ void ImageValueViewer::draw(RotatedDC& dc) {
     // checkerboard placeholder
     if (!image.Ok() && !bitmap.Ok() && style().width > 40) {
       // placeholder bitmap
-      bitmap = imagePlaceholder(dc, w, h, wxNullImage, what & DRAW_EDITING);
+      bitmap = imagePlaceholder(dc, w, h, wxNullImage, (what & DRAW_EDITING) && field().editable);
       if (alpha_mask.isLoaded() || !is_rad0(a)) {
         // we need to convert back to an image
         image = bitmap.ConvertToImage();
