@@ -95,6 +95,20 @@ void PackageManager::findMatching(const String& pattern, vector<PackagedP>& out)
   }
 }
 
+bool PackageManager::existsInPackage(const String& name) {
+  if (!name.empty() && name.GetChar(0) == _('/')) {
+    // break name
+    size_t start = name.find_first_not_of(_("/\\"), 1); // allow "//package/name" from incorrect scripts
+    size_t pos = name.find_first_of(_("/\\"), start);
+    if (start < pos && pos != String::npos) {
+      // open package
+      PackagedP p = openAny(name.substr(start, pos - start));
+      return p->existsIn(name.substr(pos + 1));
+    }
+  }
+  throw FileNotFoundError(name, _("No package name specified, use '/package/filename'"));
+}
+
 pair<unique_ptr<wxInputStream>,Packaged*> PackageManager::openFileFromPackage(Packaged* package, const String& name) {
   if (!name.empty() && name.GetChar(0) == _('/')) {
     // absolute name; break name

@@ -139,7 +139,10 @@ public:
   /// Find all packages that match a filename pattern, store them in out
   /** Only reads the package headers */
   void findMatching(const String& pattern, vector<PackagedP>& out);
-  
+
+  /// Check if a file exists in a package
+  bool existsInPackage(const String& name);
+
   /// Open a file from a package, with a name encoded as "/package/file"
   /** If 'package' is set then:
    *    - tries to open a relative file from the package if the name is "file"
@@ -148,7 +151,7 @@ public:
    *  Returns the opened file and the package it is in
    */
   pair<unique_ptr<wxInputStream>,Packaged*> openFileFromPackage(Packaged* package, const String& name);
-  
+
   /// Get a filename to open from a package
   /** WARNING: this is a bit of a hack, since not all package types support names in this way.
    *  It is needed for third party libraries (i.e. hunspell) that load stuff from files.
