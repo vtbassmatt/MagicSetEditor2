@@ -35,6 +35,15 @@ void InfoValueViewer::draw(RotatedDC& dc) {
     -style().padding_left - style().padding_right,
     -style().padding_top  - style().padding_bottom
   );
-  RealSize size = dc.GetTextExtent(value().value);
-  dc.DrawText(value().value, align_in_rect(style().alignment, size, rect));
+  // for some reason, while inside the style tab, this value is empty
+  // so as a hack for now, if the value is empty, go fetch the caption instead
+  if (value().value.empty()) {
+    RealSize size = dc.GetTextExtent(field().caption.get());
+    dc.DrawText(field().caption.get(), align_in_rect(style().alignment, size, rect));
+  }
+  // this is what should happen
+  else {
+    RealSize size = dc.GetTextExtent(value().value);
+    dc.DrawText(value().value, align_in_rect(style().alignment, size, rect));
+  }
 }
