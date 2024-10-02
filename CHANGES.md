@@ -2,6 +2,22 @@ Magic Set Editor changelog, for the details see `git log`
 ==============================================================================
 
 ------------------------------------------------------------------------------
+version 2.5.6 (Unofficial), 2024-10-01
+------------------------------------------------------------------------------
+
+Note that this skips some minor versions due to a series of releases off another fork.
+The intention here is to realign with those.
+
+Features:
+ * In program card preview applies DPI factor to normalize scaling. (@G-e-n-e-v-e-n-s-i-S, haganbmj#90)
+ * Additional script functions, blending, exists_in. (@G-e-n-e-v-e-n-s-i-S)
+ * Add globally scoped script variables. (@CajunAvenger, haganbmj#95)
+
+Bug fixes:
+ * Except symbol-fonts from package dependency checks. (@G-e-n-e-v-e-n-s-i-S, G-e-n-e-v-e-n-s-i-S#13)
+ * Prevent empty card list crash (@CajunAvenger, haganbmj#94)
+
+------------------------------------------------------------------------------
 version 2.5.0 (Unofficial), 2024-08-23
 ------------------------------------------------------------------------------
 
