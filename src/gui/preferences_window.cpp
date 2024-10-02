@@ -227,14 +227,14 @@ DisplayPreferencesPage::DisplayPreferencesPage(Window* parent)
   non_normal_export->SetValue(!settings.default_stylesheet_settings.card_normal_export());
     zoom_int = static_cast<int>(settings.default_stylesheet_settings.card_zoom() * 100);
     zoom->SetValue(String::Format(_("%d%%"),zoom_int));
-    int choices[] = { 50,66,75,100,120,150,200 };
+    int choices[] = { 50,66,75,100,120,150,175,200 };
     for (unsigned int i = 0 ; i < sizeof(choices)/sizeof(choices[0]) ; ++i) {
         zoom->Append(String::Format(_("%d%%"),choices[i]));
     }
 
     export_zoom_int = static_cast<int>(settings.default_stylesheet_settings.export_zoom() * 100);
     export_zoom->SetValue(String::Format(_("%d%%"), export_zoom_int));
-    int export_choices[] = { 50,66,75,100,120,150,200 };
+    int export_choices[] = { 50,66,75,100,120,150,175,200 };
     for (unsigned int i = 0; i < sizeof(export_choices) / sizeof(export_choices[0]); ++i) {
         export_zoom->Append(String::Format(_("%d%%"), export_choices[i]));
     }

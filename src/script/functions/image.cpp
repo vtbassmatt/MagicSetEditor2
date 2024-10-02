@@ -47,14 +47,16 @@ SCRIPT_FUNCTION(to_card_image) {
 // ----------------------------------------------------------------------------- : Image functions
 
 SCRIPT_FUNCTION(width_of) {
+  SCRIPT_PARAM(Set*, set);
   SCRIPT_PARAM(GeneratedImageP, input);
-  Image image = input->generate(GeneratedImage::Options());
+  Image image = input->generate(GeneratedImage::Options(0, 0, set->stylesheet.get()));
   SCRIPT_RETURN(image.GetWidth());
 }
 
 SCRIPT_FUNCTION(height_of) {
+  SCRIPT_PARAM(Set*, set);
   SCRIPT_PARAM(GeneratedImageP, input);
-  Image image = input->generate(GeneratedImage::Options());
+  Image image = input->generate(GeneratedImage::Options(0, 0, set->stylesheet.get()));
   SCRIPT_RETURN(image.GetHeight());
 }
 
