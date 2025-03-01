@@ -9,6 +9,7 @@ on: workflow_dispatch
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
+  MAC_PLATFORMS: arm64;x86_64
 
 jobs:
   build:
@@ -24,7 +25,7 @@ jobs:
       run: brew install boost wxwidgets hunspell cmake dylibbundler
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_APPLE_BUNDLE=1 ${{github.workspace}}
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_APPLE_BUNDLE=1 -DCMAKE_OSX_ARCHITECTURES=${{env.MAC_PLATFORMS}} ${{github.workspace}}
 
     - name: Build
       # Build your program with the given configuration
