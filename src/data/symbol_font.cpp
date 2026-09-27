@@ -275,8 +275,10 @@ SymbolInFont* SymbolFont::defaultSymbol() const {
 
 // ----------------------------------------------------------------------------- : SymbolFont : drawing
 
-void SymbolFont::draw(RotatedDC& dc, Context& ctx, const RealRect& rect, double scale, const SymbolFontRef& font, const String& text) {
+void SymbolFont::draw(RotatedDC& dc, Context& ctx, const RealRect& rect, double scale, const SymbolFontRef& font, const String& text, Color active_color) {
   SplitSymbols symbols;
+  // expose the text's effective color, taking into account the <color> tags
+  ctx.setVariable(_("active_color"), to_script(active_color));
   update(ctx);
   split(text, symbols);
   draw(dc, rect, scale, font, symbols);
@@ -422,8 +424,9 @@ Image SymbolFont::getImage(double font_size, const DrawableSymbol& sym) {
 
 // ----------------------------------------------------------------------------- : SymbolFont : sizes
 
-void SymbolFont::getCharInfo(RotatedDC& dc, Context& ctx, double font_size, const String& text, vector<CharInfo>& out) {
+void SymbolFont::getCharInfo(RotatedDC& dc, Context& ctx, double font_size, const String& text, vector<CharInfo>& out, Color active_color) {
   SplitSymbols symbols;
+  ctx.setVariable(_("active_color"), to_script(active_color));
   update(ctx);
   split(text, symbols);
   getCharInfo(dc, font_size, symbols, out);
