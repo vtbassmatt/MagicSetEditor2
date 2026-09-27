@@ -354,6 +354,7 @@ void CardsPanel::destroyUI(wxToolBar* tb, wxMenuBar* mb) {
   tb->DeleteTool(ID_CARD_LINK);
   tb->DeleteTool(ID_CARD_ROTATE);
   tb->DeleteTool(ID_CARD_COUNTER);
+  counts = nullptr;
   // remember the value in the filter control, because the card list remains filtered
   // the control is destroyed by DeleteTool
   filter_value = filter->getFilterString();
