@@ -251,7 +251,7 @@ private:
     // use symbol font?
     if (symbol > 0 && style.symbol_font.valid()) {
       double active_font_size = !sizes.empty() ? sizes.back() : style.symbol_font.size();
-      Color active_font_color = !colors.empty() ? colors.back() : style.font.color;
+      Color active_font_color = !colors.empty() ? colors.back() : style.font.color();
       elements.push_back(make_intrusive<SymbolTextElement>(content, start, end, style.symbol_font, &ctx, active_font_size, active_font_color));
     } else {
       // text, possibly mixed with symbols
@@ -272,7 +272,7 @@ private:
         size_t pos = 0;
         FontRefP font;
         double symbol_active_font_size = !sizes.empty() ? sizes.back() : style.symbol_font.size();
-        Color symbol_active_font_color = !colors.empty() ? colors.back() : style.font.color;
+        Color symbol_active_font_color = !colors.empty() ? colors.back() : style.font.color();
         while (pos < end-start) {
           if (size_t n = style.symbol_font.font->recognizePrefix(content,pos)) {
             // at 'pos' there are n symbol font characters
