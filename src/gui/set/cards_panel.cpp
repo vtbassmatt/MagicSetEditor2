@@ -534,8 +534,13 @@ void CardsPanel::onCommand(int id) {
         focused_editor->onCommand(id);
       } else if (id >= ID_ADD_CARDS_MENU_MIN && id <= ID_ADD_CARDS_MENU_MAX) {
         // add multiple cards
-        AddCardsScriptP script = set->game->add_cards_scripts.at(id - ID_ADD_CARDS_MENU_MIN);
-        script->perform(*set);
+        if (id - ID_ADD_CARDS_MENU_MIN < set->game->add_cards_scripts.size()) {
+          AddCardsScriptP script = set->game->add_cards_scripts.at(id - ID_ADD_CARDS_MENU_MIN);
+          script->perform(*set);
+        }
+        else {
+          throw InternalError(_("add cards script ID out of bounds!"));
+        }
       }
     }
   }

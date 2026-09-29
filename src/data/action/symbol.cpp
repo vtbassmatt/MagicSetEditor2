@@ -477,8 +477,13 @@ UngroupReorderSymbolPartsAction::UngroupReorderSymbolPartsAction(SymbolGroup& gr
   : group_parent(group_parent), group_pos(group_pos)
   , target_parent(target_parent), target_pos(target_pos)
 {
-  group = dynamic_pointer_cast<SymbolGroup>(group_parent.parts.at(group_pos));
-  assert(group);
+  if (group_pos < group_parent.parts.size()) {
+    group = dynamic_pointer_cast<SymbolGroup>(group_parent.parts.at(group_pos));
+    assert(group);
+  }
+  else {
+    throw InternalError(_("group pos out of bounds!"));
+  }
 }
 
 String UngroupReorderSymbolPartsAction::getName(bool to_undo) const {

@@ -230,7 +230,7 @@ enum ChildMenuID {
   ID_FIELD_LIST = 8301,
   
   // Random pack panel
-  ID_PACK_AMOUNT = 8111,
+  ID_PACK_AMOUNT = 8401,
   ID_PACK_TYPE,
   ID_SEED_RANDOM,
   ID_SEED_FIXED,
