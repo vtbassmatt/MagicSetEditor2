@@ -542,10 +542,10 @@ UInt gaussian_blur(Byte* in, UInt* out, int w, int h, double radius) {
   memset(blur_x.get(), 0, w*h*sizeof(UInt));
   UInt total_x = 0;
   {
-    double sigma = radius * w;
+    double sigma = max(0.5, min(radius * w, 64.0));
     double mult = (1 << 8) / (sqrt(2 * M_PI) * sigma);
     double sigsqr2 = 1 / (2 * sigma * sigma);
-    int range = min(w, (int)(3*sigma));
+    int range = radius > 0 ? min(w, (int)(3*sigma)) : 0;
     for (int d = -range ; d <= range ; ++d) {
       UInt factor = (int)( mult * exp(-d * d * sigsqr2) );
       total_x += factor;
@@ -563,10 +563,10 @@ UInt gaussian_blur(Byte* in, UInt* out, int w, int h, double radius) {
   memset(out, 0, w*h*sizeof(UInt));
   UInt total_y = 0;
   {
-    double sigma = radius * h;
+    double sigma = max(0.5, min(radius * h, 64.0));
     double mult = (1 << 8) / (sqrt(2 * M_PI) * sigma);
     double sigsqr2 = 1 / (2 * sigma * sigma);
-    int range = min(h, (int)(3*sigma));
+    int range = radius > 0 ? min(h, (int)(3*sigma)) : 0;
     for (int d = -range ; d <= range ; ++d) {
       UInt factor = (UInt)( mult * exp(-d * d * sigsqr2) );
       total_y += factor;
@@ -586,7 +586,7 @@ UInt gaussian_blur(Byte* in, UInt* out, int w, int h, double radius) {
 Image DropShadowImage::generate(const Options& opt) {
   // sub image
   Image img = image->generate(opt);
-  if (!img.HasAlpha()) {
+  if (!img.IsOk() || !img.HasAlpha()) {
     // no alpha, there is nothing we can do
     return img;
   }
@@ -601,7 +601,7 @@ Image DropShadowImage::generate(const Options& opt) {
   int x_start = max(0,   dw), y_start = max(0,   dh);
   int x_end   = min(w, w+dw), y_end   = min(h, h+dh);
   int delta = dw + w * dh;
-  int sa = (int)(shadow_alpha * (1 << 16));
+  int sa = (int)(max(0.0, min(1.0, shadow_alpha)) * (1 << 16));
   for (int y = y_start ; y < y_end ; ++y) {
     for (int x = x_start ; x < x_end ; ++x) {
       int p  = x + y * w; // pixel we are working on
