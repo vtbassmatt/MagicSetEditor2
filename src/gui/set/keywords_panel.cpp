@@ -44,6 +44,8 @@ void KeywordsPanel::initControls() {
   ref_param = new wxButton(panel, ID_KEYWORD_REF_PARAM, _BUTTON_("refer parameter"));
   rules     = new TextCtrl(panel, ID_RULES,    true);
   errors    = new wxStaticText(panel, wxID_ANY, _(""));
+  reminder->SetMinSize(wxSize(-1, 48));
+  rules   ->SetMinSize(wxSize(-1, 48));
   filter    = nullptr;
   errors->SetForegroundColour(*wxRED);
   // warning about fixed keywords

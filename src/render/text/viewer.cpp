@@ -320,7 +320,9 @@ size_t TextViewer::firstVisibleLine() const {
 }
 
 void TextViewer::scrollTo(size_t line_id) {
-  scrollBy(-lines.at(line_id).top);
+  if (lines.empty()) return;
+  if (line_id >= lines.size()) line_id = lines.size() - 1;
+  scrollBy(-lines[line_id].top);
 }
 void TextViewer::scrollBy(double delta) {
   if (delta == 0) return;

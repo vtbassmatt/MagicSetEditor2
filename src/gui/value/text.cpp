@@ -1398,8 +1398,9 @@ void TextValueEditor::onShow(bool showing) {
 bool TextValueEditor::onMouseWheel(const RealPoint& pos, wxMouseEvent& ev) {
   if (scrollbar) {
     int toScroll = ev.GetWheelRotation() * ev.GetLinesPerAction() / ev.GetWheelDelta(); // note: up is positive
-    int target = min(max(scrollbar->GetScrollPos(wxVERTICAL) - toScroll, 0),
-                   scrollbar->GetScrollRange(wxVERTICAL) - scrollbar->GetScrollThumb(wxVERTICAL));
+    int thumb   = max(1, scrollbar->GetScrollThumb(wxVERTICAL));
+    int max_pos = max(0, (int)v.lineCount() - thumb);
+    int target  = min(max(scrollbar->GetScrollPos(wxVERTICAL) - toScroll, 0), max_pos);
     scrollTo(target);
     return true;
   }
@@ -1425,7 +1426,7 @@ bool TextValueEditor::ensureCaretVisible() {
 void TextValueEditor::updateScrollbar() {
   assert(scrollbar);
   int position  = (int)v.firstVisibleLine();
-  int page_size = (int)v.visibleLineCount(bounding_box.height - style().padding_top - style().padding_bottom);
+  int page_size = max(1, (int)v.visibleLineCount(bounding_box.height - style().padding_top - style().padding_bottom));
   int range     = (int)v.lineCount();
   scrollbar->SetScrollbar(
     wxVERTICAL,
