@@ -704,8 +704,8 @@ void CardListBase::storeColumns() {
   }
   // store sorting
   GameSettings& gs = settings.gameSettingsFor(*set->game);
-  if (sort_by_column >= 0) gs.sort_cards_by = column_fields.at(sort_by_column)->name;
-  else                     gs.sort_cards_by = _("");
+  if (sort_by_column >= 0 && (size_t)sort_by_column < column_fields.size()) gs.sort_cards_by = column_fields[sort_by_column]->name;
+  else                                                                      gs.sort_cards_by = _("");
   gs.sort_cards_ascending = sort_ascending;
 }
 
@@ -793,11 +793,12 @@ void CardListBase::onChar(wxKeyEvent& ev) {
 
 void CardListBase::onBeginDrag(wxListEvent& ev) {
   ev.Skip();
+  if (!allow_drag) return;
   drop_timer.Start(200, wxTIMER_ONE_SHOT);
 }
 
 void CardListBase::OnDragTimer(wxTimerEvent& ev) {
-  if (ev.GetId() == ID_DROP_TIMER && wxGetMouseState().LeftIsDown()) {
+  if (allow_drag && ev.GetId() == ID_DROP_TIMER && wxGetMouseState().LeftIsDown()) {
     vector<CardP> cards;
     getSelection(cards);
     String transaction_id = generate_uid();
