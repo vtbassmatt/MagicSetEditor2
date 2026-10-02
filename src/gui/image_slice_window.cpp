@@ -209,15 +209,15 @@ ImageSliceWindow::ImageSliceWindow(Window* parent, const Image& source, const St
         wxSizer* s9 = zoom_fixed = new wxFlexGridSizer(0, 3, 4, 5);
           s9->Add(new wxStaticText(this, wxID_ANY, _LABEL_("zoom amount")),   0, wxALIGN_CENTER_VERTICAL);
           s9->Add(zoom, 0, wxEXPAND);
-          s9->Add(new wxStaticText(this, wxID_ANY, _LABEL_("zoom %")),        0, wxALIGN_CENTER_VERTICAL);
+          s9->Add(new wxStaticText(this, wxID_ANY, _("%")),                   0, wxALIGN_CENTER_VERTICAL);
         s8->Add(s9, 0, wxEXPAND | wxALL, 4);
         wxSizer* sA = zoom_free = new wxFlexGridSizer(0, 3, 4, 5);
           sA->Add(new wxStaticText(this, wxID_ANY, _LABEL_("zoom amount x")), 0, wxALIGN_CENTER_VERTICAL);
           sA->Add(zoom_x, 0, wxEXPAND);
-          sA->Add(new wxStaticText(this, wxID_ANY, _LABEL_("zoom %")),        0, wxALIGN_CENTER_VERTICAL);
+          sA->Add(new wxStaticText(this, wxID_ANY, _("%")),                   0, wxALIGN_CENTER_VERTICAL);
           sA->Add(new wxStaticText(this, wxID_ANY, _LABEL_("zoom amount y")), 0, wxALIGN_CENTER_VERTICAL);
           sA->Add(zoom_y, 0, wxEXPAND);
-          sA->Add(new wxStaticText(this, wxID_ANY, _LABEL_("zoom %")),        0, wxALIGN_CENTER_VERTICAL);
+          sA->Add(new wxStaticText(this, wxID_ANY, _("%")),                   0, wxALIGN_CENTER_VERTICAL);
         s8->Add(sA, 0, wxEXPAND | wxALL, 4);
       s5->Add(s8, 0, wxEXPAND | wxALL, 4);
       s5->AddStretchSpacer(1);
