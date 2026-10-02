@@ -410,6 +410,10 @@ void Settings::read() {
     Reader reader(file, nullptr, filename);
     reader.handle_greedy(*this);
     // make sure things aren't in a problematic state
+    for (auto it = game_settings.begin(); it != game_settings.end(); ) {
+      if (trim(it->first).empty()) it = game_settings.erase(it);
+      else ++it;
+    }
     if (locale.Trim().empty()) locale = _("en");
     if (symbol_grid_size < 30) symbol_grid_size = 30;
     if (default_stylesheet_settings.card_zoom < 0.5) default_stylesheet_settings.card_zoom = 1.0;
