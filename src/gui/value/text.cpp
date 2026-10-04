@@ -644,7 +644,9 @@ bool TextValueEditor::onCommand(int id) {
 wxMenu* TextValueEditor::getMenu(int type) const {
   if (type == ID_INSERT_SYMBOL && (style().always_symbol || style().allow_formating)
                                && style().symbol_font.valid()) {
-    return style().symbol_font.font->insertSymbolMenu(getContext());
+    Context& ctx = getContext();
+    ctx.setVariable(_("active_color"), to_script(wxSystemSettings::GetColour(wxSYS_COLOUR_MENUTEXT)));
+    return style().symbol_font.font->insertSymbolMenu(ctx);
   } else {
     return nullptr;
   }
