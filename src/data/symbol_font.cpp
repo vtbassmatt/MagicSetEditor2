@@ -79,12 +79,13 @@ public:
   
   void update(Context& ctx);
   
-  String           code;      ///< Code for this symbol
-  Scriptable<bool> enabled;    ///< Is this symbol enabled?
-  bool             regex;      ///< Should this symbol be matched by a regex?
-  int              draw_text;    ///< The index of the captured regex expression to draw, or -1 to not draw text
-  Regex            code_regex;  ///< Regex for matching the symbol code
-  FontRefP         text_font;    ///< Font to draw text in.
+  String           code;            ///< Code for this symbol
+  Scriptable<bool> enabled;         ///< Is this symbol enabled?
+  Scriptable<bool> preview_enabled; ///< Should this symbol get a preview bitmap in the insert symbol menu?
+  bool             regex;           ///< Should this symbol be matched by a regex?
+  int              draw_text;       ///< The index of the captured regex expression to draw, or -1 to not draw text
+  Regex            code_regex;      ///< Regex for matching the symbol code
+  FontRefP         text_font;       ///< Font to draw text in.
   Alignment        text_alignment;
   double           text_margin_left;
   double           text_margin_right;
@@ -102,6 +103,7 @@ private:
 
 SymbolInFont::SymbolInFont()
   : enabled(true)
+  , preview_enabled(true)
   , regex(false)
   , draw_text(-1)
   , text_alignment(ALIGN_MIDDLE_CENTER)
@@ -165,6 +167,7 @@ void SymbolInFont::update(Context& ctx) {
     bitmaps.clear();
   }
   enabled.update(ctx);
+  preview_enabled.update(ctx);
   if (text_font)
     text_font->update(ctx);
 }
@@ -190,6 +193,7 @@ IMPLEMENT_REFLECTION(SymbolInFont) {
   REFLECT(text_margin_bottom);
   REFLECT(image);
   REFLECT(enabled);
+  REFLECT(preview_enabled);
   REFLECT_N("image_font_size", img_size);
 }
 
@@ -577,7 +581,7 @@ wxMenuItem* InsertSymbolMenu::makeMenuItem(wxMenu* parent, int first_id, SymbolF
         }
       }
     }
-    if (symbol) {
+    if (symbol && symbol->preview_enabled()) {
       item->SetBitmap(symbol->getBitmap(font, wxSize(16,16)));
     } else {
       item->SetBitmap(wxNullBitmap);
