@@ -139,3 +139,9 @@ cmake --build .
 ```
 open ./magicseteditor.app
 ```
+
+### Installing resources
+When you launch the app, it should tell you where to put your templates. Typically that's `$HOME/Library/Application Support/magicseteditor` (copy the `data/` folder there).
+
+### Autoupdater support
+The auto-updater isn't working on macOS just yet, so you'll have to continue sourcing app and template updates the old-fashioned way.
