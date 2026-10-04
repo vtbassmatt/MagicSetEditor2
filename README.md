@@ -105,6 +105,11 @@ cmake --build .
  Use `-CMAKE_BUILD_TYPE=Debug` for a debug build.
 
 ### wx-config can't be found
+CMake first looks for a wxWidgets CMake config package, then falls back to
+`wx-config`. Both methods require the `core`, `base`, and `net` components.
+For a custom wxWidgets installation with a config package, pass
+`-DCMAKE_PREFIX_PATH=/path/to/wxWidgets/install` when configuring.
+
 On old versions it's possible that cmake can't find wx-config, to solve this add the tool to the cmake command manually like this: `-DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-config-gtk3`
 
 ### Installing resources
