@@ -34,7 +34,9 @@ CardsPanel::CardsPanel(Window* parent, int id)
   : SetWindowPanel(parent, id)
 {
   // init controls
-  editor          = new CardEditor(this, ID_EDITOR);
+  editor_scroller = new wxScrolledWindow(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxVSCROLL | wxBORDER_NONE);
+  editor_scroller->SetScrollRate(0, 12);
+  editor          = new CardEditor(editor_scroller, ID_EDITOR);
   focused_editor  = editor;
   link_scroller   = new wxScrolledWindow(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxVSCROLL | wxBORDER_NONE);
   link_scroller->SetScrollRate(0, 12);
@@ -83,7 +85,10 @@ CardsPanel::CardsPanel(Window* parent, int id)
     s_left = new wxBoxSizer(wxVERTICAL); // Sizer for the selected card, and it's linked cards
       card_and_link = new wxBoxSizer(wxHORIZONTAL);
       s_left->Add(card_and_link);
-        card_and_link->Add(editor);
+        card_and_link->Add(editor_scroller, 0, wxEXPAND);
+          editor_sizer = new wxBoxSizer(wxVERTICAL);
+          editor_sizer->Add(editor);
+          editor_scroller->SetSizer(editor_sizer);
         card_and_link->Add(link_scroller, 0, wxEXPAND | wxLEFT, 2);
           link_boxes_sizer = new wxGridBagSizer(); // 2-column grid of link boxes; extra rows scroll
           link_scroller->SetSizer(link_boxes_sizer);
@@ -211,8 +216,22 @@ void CardsPanel::updateNotesPosition() {
 }
 bool CardsPanel::Layout() {
   if (updating_card) return false;
+  updateEditorScrollerSize();
   updateNotesPosition();
   return SetWindowPanel::Layout();
+}
+
+void CardsPanel::updateEditorScrollerSize() {
+  wxSize editor_size = editor_sizer->CalcMin(); // the editor's own (unscrolled) size
+  if (editor_size.x <= 0 || editor_size.y <= 0) return; // editor isn't sized yet, try again later
+  wxSize size = editor_size;
+  int available_height = GetClientSize().y;
+  if (available_height > 0 && editor_size.y > available_height) {
+    // too tall to fit
+    size.y = available_height;
+    size.x += wxSystemSettings::GetMetric(wxSYS_VSCROLL_X, editor_scroller);
+  }
+  editor_scroller->SetMinSize(size);
 }
 
 /*void removeInsertSymbolMenu() {
@@ -709,6 +728,7 @@ void CardsPanel::selectCard(const CardP& card) {
   card_list->setCard(card);
 
   editor->setCard(card);
+  editor->InvalidateBestSize();
   vector<pair<CardP, String>> linked_cards = card ? card->getLinkedCards(*set) : vector<pair<CardP, String>>();
   int count = (int)linked_cards.size();
 
@@ -763,6 +783,7 @@ void CardsPanel::selectCard(const CardP& card) {
   updateLinkScrollerCap();
 
   Layout();
+  editor_scroller->FitInside();
   updateNotesPosition();
   wxCommandEvent ev(EVENT_SIZE_CHANGE, GetId());
   ProcessEvent(ev);
