@@ -1,9 +1,6 @@
 Magic Set Editor changelog, for the details see `git log`
 ==============================================================================
 
-Unreleased:
- * Fix a debug-build crash when serializing card metadata during image export.
-
 ------------------------------------------------------------------------------
 version 2.5.6 (Unofficial), 2024-10-01
 ------------------------------------------------------------------------------
